@@ -15,6 +15,7 @@
     stateVersion = "23.05";
     packages = with pkgs; [
       gtk3
+      cinnamon.nemo-with-extensions
     ];
   };
   programs = {
