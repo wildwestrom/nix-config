@@ -8,6 +8,7 @@
     packages = with pkgs; [
       python3Packages.python-lsp-server
       alejandra
+      pkgs.nil
     ];
   };
 
@@ -44,24 +45,9 @@
               tab-width = 2;
               unit = "\t";
             };
-            config = {
-              cachePriming = {enable = false;};
-              diagnostics = {
-                experimental = {
-                  enable = true;
-                };
-              };
-            };
-            language-server = {
-              command = "rust-analyzer";
-              rust-analyzer = {
-                config = {
-                  check = {
-                    command = "clippy";
-                  };
-                };
-              };
-            };
+            language-servers = [
+              "rust-analyzer"
+            ];
             debugger = {
               command = "${pkgs.lldb}/bin/lldb-vscode";
               name = "lldb-vscode";
@@ -97,9 +83,9 @@
               command = "${pkgs.alejandra}/bin/alejandra";
               args = ["-"];
             };
-            language-server = {
-              command = "${pkgs.nil}/bin/nil";
-            };
+            language-servers = [
+              "nil"
+            ];
           }
           {
             name = "python";
@@ -130,9 +116,11 @@
             text-width = 100;
             rulers = [100];
             soft-wrap.wrap-at-text-width = true;
-            language-server = {
-              command = "${pkgs.typst-lsp}/bin/typst-lsp";
-            };
+            language-servers = [
+              {
+                name = "${pkgs.typst-lsp}/bin/typst-lsp";
+              }
+            ];
             formatter = {
               command = "${pkgs.typst-fmt}/bin/typst-fmt";
               args = ["--stdio"];
