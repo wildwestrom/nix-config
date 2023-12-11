@@ -4,8 +4,7 @@
   config,
   username,
   ...
-}: 
-{
+}: {
   imports = [
     ../../modules/home-manager/sway.nix
     ../../modules/home-manager/default.nix
@@ -16,6 +15,10 @@
     packages = with pkgs; [
       gtk3
       cinnamon.nemo-with-extensions
+      networkmanagerapplet
+      protonmail-bridge
+      fcitx5
+      nerdfonts
     ];
   };
   programs = {
