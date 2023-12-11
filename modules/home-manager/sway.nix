@@ -9,6 +9,19 @@ in {
     kanshi = {
       enable = true;
     };
+    swayidle = {
+      enable = true;
+      events = [
+        {
+          event = "before-sleep";
+          command = "${pkgs.swaylock}/bin/swaylock -fF";
+        }
+        {
+          event = "lock";
+          command = "lock";
+        }
+      ];
+    };
   };
 
   wayland.windowManager.sway = {
@@ -50,10 +63,11 @@ in {
       right = "${right}";
       keybindings = {
         "${super}+space" = "focus mode_toggle";
+        "${super}+Shift+c" = "reload";
         "${super}+a" = "focus parent";
         "${super}+Return" = "exec ${pkgs.kitty}/bin/kitty";
-        "${super}+Shift+Return" = "exec gtk-launch ${pkgs.librewolf}/bin/librewolf";
-        "${super}+Shift+f" = "exec gtk-launch ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
+        "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
+        "${super}+Shift+f" = "exec ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
         "${super}+q" = "kill";
         "${super}+d" = "exec ${menu}";
         # Layout
@@ -96,6 +110,14 @@ in {
         "${super}+Shift+9" = "move container to ${ws9}";
         "${super}+Shift+0" = "move container to ${ws10}";
       };
+      keycodebindings = {
+        "113" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "114" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "115" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+
+        "224" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+        "225" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
+      };
       bars = [
         {
           fonts = {
@@ -104,7 +126,7 @@ in {
           command = "${pkgs.waybar}/bin/waybar";
         }
       ];
-      defaultWorkspace = "workspace ${ws1}";
+      defaultWorkspace = "${ws1}";
       startup = [
         {command = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard regular";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
