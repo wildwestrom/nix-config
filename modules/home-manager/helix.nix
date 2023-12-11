@@ -1,14 +1,9 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
       alejandra
-      pkgs.nil
+      nil
     ];
   };
 

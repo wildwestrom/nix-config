@@ -142,7 +142,6 @@ in {
     isNormalUser = true;
     description = "main user";
     extraGroups = ["wheel" "video" "audio" "networkmanager"];
-    packages = with pkgs; [];
     shell = pkgs.fish;
   };
 

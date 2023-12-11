@@ -1,9 +1,4 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, ...}: let
   jetbrainsnf = "JetBrains Mono Nerd Font Mono";
 in {
   imports = [
