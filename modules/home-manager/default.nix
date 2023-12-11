@@ -9,7 +9,6 @@
   ];
 
   home = {
-    stateVersion = "23.05";
     packages = with pkgs; [
       sd
       lazygit
@@ -159,7 +158,7 @@
       enable = true;
       # shellIntegration.enableFishIntegration = true;
       font = {
-        name = "JetBrainsMono Nerd Font";
+        name = "JetBrainsMono Nerd Font Mono";
         size = 11;
       };
       theme = "Atom One Light";
