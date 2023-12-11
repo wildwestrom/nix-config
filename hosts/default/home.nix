@@ -17,6 +17,8 @@
       protonmail-bridge
       fcitx5
       nerdfonts
+      showmethekey
+      gnome.adwaita-icon-theme
     ];
   };
   programs = {
