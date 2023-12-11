@@ -1,18 +1,19 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, inputs, ... }:
-
-let 
-  username = "main";
-in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  username = "main";
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   hardware.opengl.enable = true;
   # rtkit is optional but recommended
@@ -28,12 +29,12 @@ in
     #jack.enable = true;
   };
 
-  # Required for home manager
+  # Required for anything gtk related
   programs.dconf.enable = true;
 
   # "Experimental Features"
   # But I'm enabling them because I want to test them.
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -133,19 +134,20 @@ in
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
+    nerdfonts
   ];
 
   programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "main user";
-    extraGroups = [ "wheel" "video" "audio" "networkmanager" ];
-    packages = with pkgs; [ ];
+    extraGroups = ["wheel" "video" "audio" "networkmanager"];
+    packages = with pkgs; [];
     shell = pkgs.fish;
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs username; };
+    extraSpecialArgs = {inherit inputs username;};
     useGlobalPkgs = true;
     useUserPackages = true;
     users = {

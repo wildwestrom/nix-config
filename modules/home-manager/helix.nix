@@ -138,7 +138,7 @@
               args = ["--stdio"];
             };
             # # TODO: Fix grammar adding to helix config
-            # # https://github.com/nix-community/home-manager/issues/2871            
+            # # https://github.com/nix-community/home-manager/issues/2871
             #  grammar = {
             #    name = "typst";
             #    source = {
