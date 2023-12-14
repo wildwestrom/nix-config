@@ -1,6 +1,7 @@
 {
   pkgs,
   username,
+  config,
   ...
 }: {
   imports = [
@@ -9,6 +10,7 @@
   ];
 
   home = {
+    homeDirectory = "/home/${username}";
     stateVersion = "23.05";
     packages = with pkgs; [
       gtk3
@@ -22,6 +24,26 @@
       pavucontrol # Even though I use pipewire, it works
     ];
   };
+  xdg = {
+    enable = true;
+    mimeApps = {
+      enable = true;
+      # defaultApplications = {
+      # };
+    };
+    userDirs = {
+      enable = true;
+      createDirectories = false;
+      desktop = "${config.home.homeDirectory}/desktop";
+      documents = "${config.home.homeDirectory}/text";
+      download = "${config.home.homeDirectory}/downloads";
+      music = "${config.home.homeDirectory}/audio";
+      pictures = "${config.home.homeDirectory}/images";
+      publicShare = "${config.home.homeDirectory}/public";
+      templates = "${config.home.homeDirectory}/templates";
+      videos = "${config.home.homeDirectory}/videos";
+    };
+  };
   programs = {
     librewolf = {
       enable = true;
@@ -29,7 +51,6 @@
         "identity.fxaccounts.enabled" = true;
         "general.autoScroll" = true;
         "middlemouse.paste" = false;
-        "browser.download.dir" = "/home/${username}/downloads";
       };
     };
   };
