@@ -14,7 +14,7 @@ in {
       events = [
         {
           event = "before-sleep";
-          command = "${pkgs.swaylock}/bin/swaylock -fF";
+          command = "${pkgs.swaylock}/bin/swaylock -ef";
         }
         {
           event = "lock";
