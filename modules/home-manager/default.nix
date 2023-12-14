@@ -44,6 +44,9 @@
       cargo-make
       cargo-generate
       nasm
+      psmisc
+      tcpdump
+      dig
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
