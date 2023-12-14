@@ -16,9 +16,11 @@
       networkmanagerapplet
       protonmail-bridge
       fcitx5
-      nerdfonts
       showmethekey
       gnome.adwaita-icon-theme
+      gnome.gnome-font-viewer
+      gnome.gucharmap
+      pavucontrol # Even though I use pipewire, it works
     ];
   };
   programs = {

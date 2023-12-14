@@ -76,6 +76,8 @@ in {
 
   services.printing.enable = true;
 
+  security.pam.services.swaylock = {};
+
   # Required for pinentry-gnome
   services.dbus = {
     enable = true;
@@ -84,6 +86,28 @@ in {
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "main";
+  environment.etc."greetd/environments".text = ''
+    sway
+    fish
+  '';
+  services.greetd = let
+    swayConfig = pkgs.writeText "greetd-sway-config" ''
+      # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
+      exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+      bindsym Mod4+shift+e exec swaynag \
+        -t warning \
+        -m 'What do you want to do?' \
+        -b 'Poweroff' 'systemctl poweroff' \
+        -b 'Reboot' 'systemctl reboot'
+    '';
+  in {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+      };
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -127,13 +151,12 @@ in {
   system.stateVersion = "23.05"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
-    jetbrains-mono
     sarasa-gothic
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    nerdfonts
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 
   programs.fish.enable = true;

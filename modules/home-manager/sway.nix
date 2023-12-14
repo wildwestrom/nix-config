@@ -70,13 +70,14 @@ in {
         "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
         "${super}+Shift+f" = "exec ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
         "${super}+q" = "kill";
+        "${super}+Shift+q" = "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' 'swaylock -e -f'";
         "${super}+d" = "exec ${menu}";
         # Layout
         "${super}+b" = "splith";
         "${super}+v" = "splitv";
-        "${super}+s" = "stacking";
-        "${super}+w" = "tabbed";
-        "${super}+e" = "toggle split";
+        "${super}+s" = "layout stacking";
+        "${super}+w" = "layout tabbed";
+        "${super}+e" = "layout toggle split";
         "${super}+f" = "fullscreen";
         # Moving around
         "${super}+${left}" = "focus left";
@@ -110,15 +111,15 @@ in {
         "${super}+Shift+8" = "move container to ${ws8}";
         "${super}+Shift+9" = "move container to ${ws9}";
         "${super}+Shift+0" = "move container to ${ws10}";
-      };
-      keycodebindings = {
-        "113" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
-        "114" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-        "115" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
 
-        "224" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
-        "225" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
       };
+      # keycodebindings = {
+      # };
       bars = [
         {
           fonts = {

@@ -302,7 +302,23 @@ in {
               "unlocked" = "";
             };
           };
-
+          "pulseaudio" = {
+            "format" = "{volume}% {icon}";
+            "format-bluetooth" = "{volume}% {icon}";
+            "format-muted" = "";
+            "format-icons" = {
+              "headphone" = "";
+              "hands-free" = "󰋎";
+              "headset" = "󰋎";
+              "phone" = "";
+              "portable" = "";
+              "car" = "";
+              "default" = ["" ""];
+            };
+            "scroll-step" = 1;
+            "on-click" = "pavucontrol";
+            "ignored-sinks" = ["Easy Effects Sink"];
+          };
           "sway/mode" = {
             "format" = "<span style=\"italic\">{}</span>";
           };
