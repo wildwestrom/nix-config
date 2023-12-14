@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  jetbrainsnf = "JetBrains Mono Nerd Font Mono";
+  jetbrainsnf = "JetBrainsMono Nerd Font Mono";
 in {
   imports = [
     ./wayland.nix
