@@ -16,7 +16,6 @@
       networkmanagerapplet
       protonmail-bridge
       fcitx5
-      showmethekey
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap

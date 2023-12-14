@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     wl-clip-persist
     wl-clipboard
+    wev
   ];
   services = {
     clipman = {
