@@ -47,6 +47,7 @@
       psmisc
       tcpdump
       dig
+      entr
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
