@@ -8,6 +8,16 @@
     ../../modules/home-manager/sway.nix
     ../../modules/home-manager/default.nix
   ];
+  i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-hangul
+        fcitx5-mozc
+        fcitx5-rime
+      ];
+    };
+  };
 
   home = {
     homeDirectory = "/home/${username}";
@@ -17,7 +27,6 @@
       cinnamon.nemo-with-extensions
       networkmanagerapplet
       protonmail-bridge
-      fcitx5
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap
