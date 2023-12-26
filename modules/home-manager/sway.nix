@@ -1,5 +1,10 @@
 {pkgs, ...}: let
   jetbrainsnf = "JetBrainsMono Nerd Font Mono";
+
+  dimDisplay = ''${pkgs.chayang}/bin/chayang -d 10'';
+  swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef'';
+  displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
+  displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
 in {
   imports = [
     ./wayland.nix
@@ -12,14 +17,29 @@ in {
     };
     swayidle = {
       enable = true;
+      timeouts = [
+        {
+          timeout = 300;
+          command = swaylock;
+        }
+        {
+          timeout = 600;
+          command = displayOff;
+          resumeCommand = displayOn;
+        }
+      ];
       events = [
         {
+          event = "after-resume";
+          command = displayOn;
+        }
+        {
           event = "before-sleep";
-          command = "${pkgs.swaylock}/bin/swaylock -ef";
+          command = swaylock;
         }
         {
           event = "lock";
-          command = "lock";
+          command = swaylock;
         }
       ];
     };
