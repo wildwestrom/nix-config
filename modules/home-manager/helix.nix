@@ -89,49 +89,49 @@
               args = ["--quiet" "-"];
             };
           }
-          {
-            name = "typst";
-            file-types = ["typ"];
-            scope = "source.typst";
-            injection-regex = "^typ(st)?$";
-            roots = [];
-            comment-token = "//";
-            indent = {
-              tab-width = 2;
-              unit = "\t";
-            };
-            auto-pairs = {
-              "(" = ")";
-              "{" = "}";
-              "[" = "]";
-              "\"" = "\"";
-              "`" = "`";
-              "$" = "$";
-            };
-            text-width = 100;
-            rulers = [100];
-            soft-wrap.wrap-at-text-width = true;
-            language-servers = [
-              {
-                name = "${pkgs.typst-lsp}/bin/typst-lsp";
-              }
-            ];
-            formatter = {
-              command = "${pkgs.typst-fmt}/bin/typst-fmt";
-              args = ["--stdio"];
-            };
-            # # TODO: Fix grammar adding to helix config
-            # # https://github.com/nix-community/home-manager/issues/2871
-            #  grammar = {
-            #    name = "typst";
-            #    source = {
-            #      # git = "https://github.com/SeniorMars/tree-sitter-typst";
-            #      # rev = "2e66ef4b798a26f0b82144143711f3f7a9e8ea35";
-            #      git = "https://github.com/frozolotl/tree-sitter-typst";
-            #      rev = "427ccd875e14b592f13c2fac866158afa04034cb";
-            #    };
-            #  };
-          }
+      #     {
+      #       name = "typst";
+      #       file-types = ["typ"];
+      #       scope = "source.typst";
+      #       injection-regex = "^typ(st)?$";
+      #       roots = [];
+      #       comment-token = "//";
+      #       indent = {
+      #         tab-width = 2;
+      #         unit = "\t";
+      #       };
+      #       auto-pairs = {
+      #         "(" = ")";
+      #         "{" = "}";
+      #         "[" = "]";
+      #         "\"" = "\"";
+      #         "`" = "`";
+      #         "$" = "$";
+      #       };
+      #       text-width = 100;
+      #       rulers = [100];
+      #       soft-wrap.wrap-at-text-width = true;
+      #       language-servers = [
+      #         {
+      #           name = "${pkgs.typst-lsp}/bin/typst-lsp";
+      #         }
+      #       ];
+      #       formatter = {
+      #         command = "${pkgs.typst-fmt}/bin/typst-fmt";
+      #         args = ["--stdio"];
+      #       };
+      #       # # TODO: Fix grammar adding to helix config
+      #       # # https://github.com/nix-community/home-manager/issues/2871
+      #       #  grammar = {
+      #       #    name = "typst";
+      #       #    source = {
+      #       #      # git = "https://github.com/SeniorMars/tree-sitter-typst";
+      #       #      # rev = "2e66ef4b798a26f0b82144143711f3f7a9e8ea35";
+      #       #      git = "https://github.com/frozolotl/tree-sitter-typst";
+      #       #      rev = "427ccd875e14b592f13c2fac866158afa04034cb";
+      #       #    };
+      #       #  };
+      #     }
         ];
       };
     };
