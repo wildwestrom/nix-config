@@ -6,7 +6,7 @@ in {
       enable = true;
       style = ''
         * {
-            font-family: FontAwesome, Noto Sans CJK JP, ${jetbrainsnf}, monospace;
+            font-family: FontAwesome, ${jetbrainsnf}, monospace;
             font-size: 13px;
         }
 
