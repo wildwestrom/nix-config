@@ -30,10 +30,12 @@
       gnome.gnome-font-viewer
       gnome.gucharmap
       pavucontrol # Even though I use pipewire, it works
+      element-desktop
     ];
   };
   xdg = {
     enable = true;
+
     mimeApps = {
       enable = true;
       # defaultApplications = {
