@@ -62,4 +62,20 @@
       };
     };
   };
+  services.syncthing.enable = true;
+  systemd.user.services.protonmail-bridge = {
+    Unit = {
+      Description = "Protonmail Bridge";
+      After = [ "network-online.target" ];
+    };
+
+    Service = {
+      Restart = "always";
+      ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
+      Environment = [
+        "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin"
+        "PASSWORD_STORE_DIR=/home/jon/.password-store"
+      ];
+    };
+  };
 }
