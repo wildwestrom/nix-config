@@ -26,7 +26,6 @@
       gtk3
       cinnamon.nemo-with-extensions
       networkmanagerapplet
-      protonmail-bridge
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap
