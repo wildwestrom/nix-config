@@ -167,6 +167,31 @@ in {
     shell = pkgs.fish;
   };
 
+  # TODO: Reorganize the stuff needed for Wayland
+  xdg = {
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      wlr = {
+        enable = true;
+        settings = {
+          screencast = {
+            max_fps = 30;
+            chooser_type = "";
+            chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+          };
+        };
+      };
+      config = {
+        common = {
+          default = [
+            "gtk"
+          ];
+        };
+      };
+    };
+  };
+
   home-manager = {
     extraSpecialArgs = {inherit inputs username;};
     useGlobalPkgs = true;

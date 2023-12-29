@@ -35,12 +35,6 @@
   };
   xdg = {
     enable = true;
-
-    mimeApps = {
-      enable = true;
-      # defaultApplications = {
-      # };
-    };
     userDirs = {
       enable = true;
       createDirectories = false;
