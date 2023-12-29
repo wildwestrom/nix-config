@@ -55,6 +55,8 @@
         "identity.fxaccounts.enabled" = true;
         "general.autoScroll" = true;
         "middlemouse.paste" = false;
+        "browser.fullscreen.autohide" = false;
+        "ui.key.menuAccessKeyFocuses" = false;
       };
     };
   };
