@@ -181,6 +181,7 @@
     zathura.enable = true;
     direnv = {
       enable = true;
+      # enableFishIntegration = true; # already enabled by default
       nix-direnv.enable = true;
     };
     zellij = {
