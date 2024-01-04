@@ -100,6 +100,9 @@
     lazygit = {enable = true;};
     bat = {
       enable = true;
+      config = {
+        theme = "Monokai Extended Light";
+      };
       extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
     };
     fzf = {
@@ -112,7 +115,12 @@
     git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
-      delta.enable = true;
+      delta = {
+        enable = true;
+        options = {
+          light = true;
+        };
+      };
       extraConfig = {
         user = {
           name = "Christian Westrom";
