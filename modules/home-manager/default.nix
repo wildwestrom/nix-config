@@ -43,11 +43,13 @@
       cargo-watch
       cargo-make
       cargo-generate
+      cargo-leptos
       nasm
       psmisc
       tcpdump
       dig
       entr
+      sqlitebrowser
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
