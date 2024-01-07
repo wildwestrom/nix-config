@@ -80,8 +80,6 @@
               args = ["-"];
             };
             language-servers = [
-              "nil"
-              "nixd"
               "rnix-lsp"
             ];
           }
