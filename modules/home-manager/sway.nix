@@ -148,6 +148,26 @@ in {
         default = {
         };
       };
+      window = {
+        border = 1;
+        commands = [
+          {
+            command = "inhibit_idle fullscreen";
+            criteria = {
+              shell = ".*";
+            };
+          }
+          {
+            command = "inhibit_idle fullscreen";
+            criteria = {
+              app_id = ".*";
+            };
+          }
+        ];
+      };
+    };
+  };
+
   services = {
     kanshi = {
       enable = true;
