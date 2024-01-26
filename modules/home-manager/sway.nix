@@ -11,40 +11,6 @@ in {
     ./waybar.nix
   ];
 
-  services = {
-    kanshi = {
-      enable = true;
-    };
-    swayidle = {
-      enable = true;
-      timeouts = [
-        {
-          timeout = 300;
-          command = swaylock;
-        }
-        {
-          timeout = 600;
-          command = displayOff;
-          resumeCommand = displayOn;
-        }
-      ];
-      events = [
-        {
-          event = "after-resume";
-          command = displayOn;
-        }
-        {
-          event = "before-sleep";
-          command = swaylock;
-        }
-        {
-          event = "lock";
-          command = swaylock;
-        }
-      ];
-    };
-  };
-
   wayland.windowManager.sway = {
     enable = true;
     systemd.enable = true;
@@ -182,8 +148,40 @@ in {
         default = {
         };
       };
+  services = {
+    kanshi = {
+      enable = true;
+    };
+    swayidle = {
+      enable = true;
+      timeouts = [
+        {
+          timeout = 300;
+          command = swaylock;
+        }
+        {
+          timeout = 600;
+          command = displayOff;
+          resumeCommand = displayOn;
+        }
+      ];
+      events = [
+        {
+          event = "after-resume";
+          command = displayOn;
+        }
+        {
+          event = "before-sleep";
+          command = swaylock;
+        }
+        {
+          event = "lock";
+          command = swaylock;
+        }
+      ];
     };
   };
+
   programs = {
     swaylock = {
       enable = true;
