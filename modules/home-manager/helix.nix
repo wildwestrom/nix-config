@@ -81,7 +81,7 @@
               unit = "\t";
             };
             formatter = {
-              command = "${pkgs.alejandra}/bin/alejandra";
+              command = "alejandra";
               args = ["-"];
             };
             auto-format = true;
@@ -92,7 +92,7 @@
           {
             name = "python";
             formatter = {
-              command = "${pkgs.python311Packages.black.out}/bin/black";
+              command = "black";
               args = ["--quiet" "-"];
             };
           }
@@ -122,7 +122,7 @@
               "typst-lsp"
             ];
             formatter = {
-              command = "${pkgs.typst-fmt}/bin/typst-fmt";
+              command = "typst-fmt";
               args = ["--stdio"];
             };
             # # TODO: Fix grammar adding to helix config
@@ -140,16 +140,16 @@
         ];
         language-server = {
           nil = {
-            command = "${pkgs.nil}/bin/nil";
+            command = "nil";
           };
           nixd = {
-            command = "${pkgs.nixd}/bin/nixd";
+            command = "nixd";
           };
           rnix-lsp = {
-            command = "${pkgs.rnix-lsp}/bin/rnix-lsp";
+            command = "rnix-lsp";
           };
           typst-lsp = {
-            command = "${pkgs.typst-lsp}/bin/typst-lsp";
+            command = "typst-lsp";
           };
         };
       };
