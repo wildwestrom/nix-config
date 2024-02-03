@@ -32,6 +32,7 @@
       pavucontrol # Even though I use pipewire, it works
       element-desktop
       udisks
+      imv
     ];
   };
   xdg = {
