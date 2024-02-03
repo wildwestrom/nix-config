@@ -19,9 +19,6 @@
       jq
       neovim
       yt-dlp
-      cargo-watch
-      cargo-make
-      cargo-outdated
       nodejs
       bottom
       wget
@@ -42,8 +39,8 @@
       pkg-config
       cargo-watch
       cargo-make
+      cargo-outdated
       cargo-generate
-      cargo-leptos
       nasm
       psmisc
       tcpdump
@@ -51,6 +48,15 @@
       entr
       sqlitebrowser
       pgadmin
+      libreoffice
+      unzip
+      anki
+      vscodium
+      strawberry
+      stdenv.cc
+      libwebp
+      brave
+      signal-desktop
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
