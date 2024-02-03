@@ -64,7 +64,7 @@
   systemd.user.services.protonmail-bridge = {
     Unit = {
       Description = "Protonmail Bridge";
-      After = [ "network-online.target" ];
+      After = ["network-online.target"];
     };
 
     Service = {
