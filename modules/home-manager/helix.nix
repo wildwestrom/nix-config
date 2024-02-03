@@ -84,6 +84,7 @@
               command = "${pkgs.alejandra}/bin/alejandra";
               args = ["-"];
             };
+            auto-format = true;
             language-servers = [
               "rnix-lsp"
             ];
