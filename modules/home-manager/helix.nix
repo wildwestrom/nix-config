@@ -13,6 +13,10 @@
       settings = {
         theme = "onelight"; # In a tty this colorscheme sucks.
         editor = {
+          terminal = {
+            command = "kitty";
+            # args = ""; # Maybe don't use this?
+          };
           line-number = "relative";
           auto-format = true;
           true-color = true;
