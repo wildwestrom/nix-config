@@ -48,28 +48,29 @@
             language-servers = [
               "rust-analyzer"
             ];
-            debugger = {
-              command = "${pkgs.lldb}/bin/lldb-vscode";
-              name = "lldb-vscode";
-              port-arg = "--port {}";
-              transport = "tcp";
-              templates = [
-                {
-                  name = "binary";
-                  request = "launch";
-                  completion = [
-                    {
-                      completion = "filename";
-                      name = "binary";
-                    }
-                  ];
-                  args = {
-                    program = "{0}";
-                    runInTerminal = true;
-                  };
-                }
-              ];
-            };
+            # # See if the debug configuration is actually unnecessary
+            # debugger = {
+            #   command = "lldb-vscode";
+            #   name = "lldb-vscode";
+            #   port-arg = "--port {}";
+            #   transport = "tcp";
+            #   templates = [
+            #     {
+            #       name = "binary";
+            #       request = "launch";
+            #       completion = [
+            #         {
+            #           completion = "filename";
+            #           name = "binary";
+            #         }
+            #       ];
+            #       args = {
+            #         program = "{0}";
+            #         runInTerminal = true;
+            #       };
+            #     }
+            #   ];
+            # };
           }
           {
             name = "nix";
