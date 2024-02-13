@@ -4,6 +4,9 @@
       python3Packages.python-lsp-server
       alejandra
       nil
+      vscode-langservers-extracted
+      nodePackages_latest.typescript-language-server
+      nodePackages_latest.svelte-language-server
     ];
   };
 
@@ -11,7 +14,8 @@
     helix = {
       enable = true;
       settings = {
-        theme = "onelight"; # In a tty this colorscheme sucks.
+        theme = "onelight";
+        # theme = "zed_onedark";
         editor = {
           terminal = {
             command = "kitty";
@@ -86,7 +90,7 @@
             };
             auto-format = true;
             language-servers = [
-              "rnix-lsp"
+              "nil"
             ];
           }
           {

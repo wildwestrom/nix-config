@@ -3,7 +3,12 @@
   username,
   config,
   ...
-}: {
+}: let
+  system-theme = "Adwaita";
+  cursor-theme = system-theme;
+  icon-theme = system-theme;
+  terminal = "wezterm";
+in {
   imports = [
     ../../modules/home-manager/sway.nix
     ../../modules/home-manager/default.nix
@@ -19,11 +24,17 @@
     };
   };
 
+  dconf.settings = {
+    "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
+    "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
+  };
+
   home = {
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = with pkgs; [
       gtk3
+      gtk4
       cinnamon.nemo-with-extensions
       networkmanagerapplet
       gnome.adwaita-icon-theme
@@ -33,7 +44,12 @@
       element-desktop
       udisks
       imv
+      qpwgraph
+      shared-mime-info
     ];
+    sessionVariables = {
+      XCURSOR_THEME = cursor-theme;
+    };
   };
   xdg = {
     enable = true;
@@ -57,7 +73,7 @@
         "identity.fxaccounts.enabled" = true;
         "general.autoScroll" = true;
         "middlemouse.paste" = false;
-        "browser.fullscreen.autohide" = false;
+        # "browser.fullscreen.autohide" = false;
         "ui.key.menuAccessKeyFocuses" = false;
       };
     };
@@ -77,5 +93,15 @@
         "PASSWORD_STORE_DIR=/home/jon/.password-store"
       ];
     };
+  };
+  gtk = {
+    enable = true;
+    theme.name = system-theme;
+    theme.package = pkgs.gnome.gnome-themes-extra;
+    cursorTheme.name = cursor-theme;
+    # cursorTheme.size = 24; # TODO: Test different values
+    cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
+    iconTheme.name = icon-theme;
+    iconTheme.package = pkgs.gnome.gnome-themes-extra;
   };
 }

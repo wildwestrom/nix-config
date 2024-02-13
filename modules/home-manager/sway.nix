@@ -1,10 +1,14 @@
-{pkgs, ...}: let
-  jetbrainsnf = "JetBrainsMono Nerd Font Mono";
-
-  dimDisplay = ''${pkgs.chayang}/bin/chayang -d 10'';
+{
+  pkgs,
+  font,
+  ...
+}: let
+  dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
   swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
+  # terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.wezterm}/bin/wezterm";
 in {
   imports = [
     ./wayland.nix
@@ -52,7 +56,7 @@ in {
         "${super}+space" = "focus mode_toggle";
         "${super}+Shift+c" = "reload";
         "${super}+a" = "focus parent";
-        "${super}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+        "${super}+Return" = "exec ${terminal}";
         "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
         "${super}+Shift+f" = "exec ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
         "${super}+q" = "kill";
@@ -109,7 +113,7 @@ in {
       bars = [
         {
           fonts = {
-            names = ["${jetbrainsnf}"];
+            names = ["${font.monospace}"];
           };
           command = "${pkgs.waybar}/bin/waybar";
         }
@@ -141,7 +145,7 @@ in {
         };
       };
       fonts = {
-        names = ["Sarasa Mono K" "Sarasa Mono J" "${jetbrainsnf}"];
+        names = ["Sarasa Mono K" "Sarasa Mono J" "${font.monospace}"];
         size = 12.0;
       };
       modes = {
@@ -180,7 +184,7 @@ in {
           command = swaylock;
         }
         {
-          timeout = 600;
+          timeout = 360;
           command = displayOff;
           resumeCommand = displayOn;
         }

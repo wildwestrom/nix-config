@@ -4,6 +4,7 @@
 {
   pkgs,
   inputs,
+  font,
   ...
 }: let
   username = "main";
@@ -156,7 +157,7 @@ in {
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
+    (nerdfonts.override {fonts = [font.monospace];})
   ];
 
   programs.fish.enable = true;
@@ -193,7 +194,10 @@ in {
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs username;};
+    extraSpecialArgs = {
+      inherit inputs username;
+      font.monospace = "${font.monospace} Nerd Font Mono";
+    };
     useGlobalPkgs = true;
     useUserPackages = true;
     users = {

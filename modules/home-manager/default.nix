@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  font,
   ...
 }: {
   imports = [
@@ -178,14 +179,29 @@
       enable = true;
       # shellIntegration.enableFishIntegration = true;
       font = {
-        name = "JetBrainsMono Nerd Font Mono";
+        name = font.monospace;
         size = 11;
       };
       theme = "Atom One Light";
+      # theme = "One Dark";
       settings = {
         confirm_os_window_close = 0; # Disable
         macos_option_as_alt = true;
       };
+    };
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        local wezterm = require "wezterm"
+        local config = {
+          font = wezterm.font "JetBrainsMono Nerd Font Mono",
+          enable_tab_bar = false,
+          color_scheme = "One Light (Gogh)",
+          window_close_confirmation = "NeverPrompt",
+        }
+        return config
+      '';
+      # colorSchemes = ""; # TOML code
     };
     zathura.enable = true;
     direnv = {

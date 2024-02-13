@@ -1,12 +1,14 @@
-{pkgs, ...}: let
-  jetbrainsnf = "JetBrainsMono Nerd Font";
-in {
+{
+  pkgs,
+  font,
+  ...
+}: {
   programs = {
     waybar = {
       enable = true;
       style = ''
         * {
-            font-family: FontAwesome, ${jetbrainsnf}, monospace;
+            font-family: FontAwesome, ${font.monospace}, monospace;
             font-size: 13px;
         }
 
