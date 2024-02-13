@@ -198,6 +198,10 @@
           enable_tab_bar = false,
           color_scheme = "One Light (Gogh)",
           window_close_confirmation = "NeverPrompt",
+          default_cursor_style = "BlinkingBar",
+          cursor_blink_ease_in = "Constant",
+          cursor_blink_ease_out = "Constant",
+          cursor_blink_rate = 500,
         }
         return config
       '';
