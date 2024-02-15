@@ -80,11 +80,7 @@ in {
 
   security.pam.services.swaylock = {};
 
-  # Required for pinentry-gnome
-  services.dbus = {
-    enable = true;
-    # packages = [ pkgs.gcr ];
-  };
+  services.dbus.enable = true;
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "main";
