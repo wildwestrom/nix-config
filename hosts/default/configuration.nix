@@ -204,10 +204,12 @@ in {
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
+      "obsidian"
       "steam"
       "steam-original"
       "steam-run"
     ];
+  nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
 
   programs.steam = {
     enable = true;

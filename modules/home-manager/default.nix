@@ -59,6 +59,7 @@
       brave
       signal-desktop
       thunderbird
+      obsidian
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
