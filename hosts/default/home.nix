@@ -33,8 +33,6 @@ in {
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = with pkgs; [
-      gtk3
-      gtk4
       cinnamon.nemo-with-extensions
       networkmanagerapplet
       gnome.adwaita-icon-theme
@@ -46,6 +44,7 @@ in {
       imv
       qpwgraph
       shared-mime-info
+      xdg-utils
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
@@ -64,6 +63,19 @@ in {
       publicShare = "${config.home.homeDirectory}/public";
       templates = "${config.home.homeDirectory}/templates";
       videos = "${config.home.homeDirectory}/videos";
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/png" = "imv-dir.desktop";
+        "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+        "text/html" = "librewolf.desktop";
+        "x-scheme-handler/http" = "librewolf.desktop";
+        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/about" = "librewolf.desktop";
+        "x-scheme-handler/unknown" = "librewolf.desktop";
+        "x-scheme-handler/vscodium" = ["codium-url-handler.desktop" "codium.desktop"];
+      };
     };
   };
   programs = {
