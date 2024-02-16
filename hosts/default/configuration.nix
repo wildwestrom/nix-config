@@ -30,7 +30,6 @@ in {
     #jack.enable = true;
   };
 
-  # Required for anything gtk related
   programs.dconf.enable = true;
 
   # "Experimental Features"
@@ -88,24 +87,15 @@ in {
   #   sway
   #   fish
   # '';
-  # services.greetd = let
-  #   swayConfig = pkgs.writeText "greetd-sway-config" ''
-  #     # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
-  #     exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
-  #     bindsym Mod4+shift+e exec swaynag \
-  #       -t warning \
-  #       -m 'What do you want to do?' \
-  #       -b 'Poweroff' 'systemctl poweroff' \
-  #       -b 'Reboot' 'systemctl reboot'
-  #   '';
-  # in {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
-  #     };
-  #   };
-  # };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "dbus-run-session sway"'';
+        user = "greeter";
+      };
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -170,6 +160,10 @@ in {
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
       wlr = {
         enable = true;
         settings = {
@@ -183,6 +177,7 @@ in {
       config = {
         common = {
           default = [
+            "wlr"
             "gtk"
           ];
         };
