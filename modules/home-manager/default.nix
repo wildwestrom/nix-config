@@ -15,8 +15,10 @@
       tokei
       rustup
       lldb
+      gdb
       gh
       fd
+      du-dust
       jq
       neovim
       yt-dlp
@@ -42,6 +44,12 @@
       cargo-make
       cargo-outdated
       cargo-generate
+      cargo-udeps
+      cargo-modules
+      cargo-leptos
+      cargo-tauri
+      leptosfmt
+      sea-orm-cli
       nasm
       psmisc
       tcpdump
@@ -52,7 +60,6 @@
       libreoffice
       unzip
       anki
-      vscodium
       strawberry
       stdenv.cc
       libwebp
@@ -60,6 +67,11 @@
       signal-desktop
       thunderbird
       obsidian
+      vesktop
+      qgis
+      minecraft
+      prismlauncher
+      rustdesk
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
@@ -67,6 +79,7 @@
     in {
       CLICOLOR = 1;
       EDITOR = "${hx_bin}/bin/hx";
+      # WEZTERM_DEBUG = "TRACE";
     };
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
@@ -148,6 +161,8 @@
         commit = {
           # gpgSign = true;
         };
+        pull = {ff = "only";};
+        init.defaultBranch = "main";
       };
     };
     eza = {
@@ -196,7 +211,7 @@
       extraConfig = ''
         local wezterm = require "wezterm"
         local config = {
-          font = wezterm.font "JetBrainsMono Nerd Font Mono",
+          font = wezterm.font "${font.monospace}",
           enable_tab_bar = false,
           color_scheme = "One Light (Gogh)",
           window_close_confirmation = "NeverPrompt",
@@ -217,24 +232,52 @@
     };
     zellij = {
       enable = true;
+      # enableFishIntegration = true;
       settings = {
         simplified_ui = false;
         pane_frames = false;
-        theme = "solarized-light";
-        themes.solarized-light = {
-          fg = [101 123 131];
-          bg = [253 246 227];
-          black = [7 54 66];
-          red = [220 50 47];
-          green = [133 153 0];
-          yellow = [181 137 0];
-          blue = [38 139 210];
-          magenta = [211 54 130];
-          cyan = [42 161 152];
-          white = [238 232 213];
-          orange = [203 75 22];
+        theme = "default";
+        themes = {
+          default = {
+            fg = 7;
+            bg = 0;
+            black = 0;
+            red = 1;
+            green = 2;
+            yellow = 3;
+            blue = 4;
+            magenta = 5;
+            cyan = 6;
+            white = 7;
+            orange = 16;
+            gray = 18;
+          };
+          solarized-light = {
+            fg = [101 123 131];
+            bg = [253 246 227];
+            black = [7 54 66];
+            red = [220 50 47];
+            green = [133 153 0];
+            yellow = [181 137 0];
+            blue = [38 139 210];
+            magenta = [211 54 130];
+            cyan = [42 161 152];
+            white = [238 232 213];
+            orange = [203 75 22];
+          };
         };
       };
+    };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      extensions = with pkgs.vscode-extensions; [
+        vadimcn.vscode-lldb
+        rust-lang.rust-analyzer
+      ];
+    };
+    atuin = {
+      enable = true;
     };
   };
   editorconfig = {

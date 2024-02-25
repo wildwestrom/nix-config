@@ -7,8 +7,9 @@
   swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-  # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.wezterm}/bin/wezterm";
+  terminal = "${pkgs.kitty}/bin/kitty";
+  # terminal = "${pkgs.wezterm}/bin/wezterm";
+  # terminal = "direnv exec ~/code/community/wezterm ~/code/community/wezterm/target/debug/wezterm";
 in {
   imports = [
     ./wayland.nix
@@ -17,6 +18,7 @@ in {
 
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.sway;
     systemd.enable = true;
     wrapperFeatures.gtk = true;
     config = let
@@ -53,7 +55,7 @@ in {
       up = "${up}";
       right = "${right}";
       keybindings = {
-        "${super}+space" = "focus mode_toggle";
+        "${super}+space" = "floating toggle";
         "${super}+Shift+c" = "reload";
         "${super}+a" = "focus parent";
         "${super}+Return" = "exec ${terminal}";
@@ -123,6 +125,7 @@ in {
         {command = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard regular";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
         {command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --indicator";}
+        {command = "${pkgs.fcitx5}/bin/fcitx5";}
       ];
       output = {
         eDP-1 = {

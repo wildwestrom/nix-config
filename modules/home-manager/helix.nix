@@ -7,6 +7,7 @@
       vscode-langservers-extracted
       nodePackages_latest.typescript-language-server
       nodePackages_latest.svelte-language-server
+      taplo
     ];
   };
 
@@ -154,6 +155,19 @@
           };
           typst-lsp = {
             command = "typst-lsp";
+          };
+          rust-analyzer = {
+            timeout = 60;
+            check.command = "clippy";
+            procMacro.ignored.leptos_macro = ["server"];
+            rustfmt.overrideCommand = ["leptosfmt" "--stdin" "--rustfmt"];
+            diagnostics.experimental.enable = true;
+          };
+          tailwindcss-ls = {
+            config.userLanguages = {
+              rust = "html";
+              "*.rs" = "html";
+            };
           };
         };
       };

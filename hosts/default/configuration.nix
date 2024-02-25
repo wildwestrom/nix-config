@@ -17,6 +17,11 @@ in {
   ];
 
   hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    amdvlk
+  ];
+  hardware.keyboard.zsa.enable = true;
+
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -168,7 +173,7 @@ in {
         enable = true;
         settings = {
           screencast = {
-            max_fps = 30;
+            max_fps = 60;
             chooser_type = "";
             chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
           };
@@ -203,10 +208,17 @@ in {
       "steam"
       "steam-original"
       "steam-run"
+      "minecraft-launcher"
+      "libsciter"
     ];
+
   nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
 
   programs.steam = {
     enable = true;
+  };
+
+  environment.sessionVariables = {
+    # NIXOS_OZONE_WL = "1";
   };
 }

@@ -34,6 +34,7 @@ in {
     stateVersion = "23.11";
     packages = with pkgs; [
       cinnamon.nemo-with-extensions
+      cinnamon.nemo-fileroller
       networkmanagerapplet
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
