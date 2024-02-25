@@ -7,7 +7,7 @@
   system-theme = "Adwaita";
   cursor-theme = system-theme;
   icon-theme = system-theme;
-  terminal = "wezterm";
+  terminal = "kitty";
 in {
   imports = [
     ../../modules/home-manager/sway.nix
