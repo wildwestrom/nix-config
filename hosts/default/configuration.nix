@@ -112,6 +112,7 @@ in {
     brightnessctl
     usbutils
     dmidecode
+    libnotify
   ];
 
   # Firmware updater
