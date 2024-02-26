@@ -59,6 +59,7 @@
       pgadmin
       libreoffice
       unzip
+      zip
       anki
       strawberry
       stdenv.cc
