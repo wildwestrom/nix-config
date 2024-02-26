@@ -8,6 +8,7 @@
       nodePackages_latest.typescript-language-server
       nodePackages_latest.svelte-language-server
       taplo
+      jdt-language-server
     ];
   };
 
