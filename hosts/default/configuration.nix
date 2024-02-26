@@ -158,7 +158,7 @@ in {
   users.users.${username} = {
     isNormalUser = true;
     description = "main user";
-    extraGroups = ["wheel" "video" "audio" "networkmanager" "docker"];
+    extraGroups = ["wheel" "video" "audio" "networkmanager"];
     shell = pkgs.fish;
   };
 
