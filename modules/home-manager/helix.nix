@@ -157,6 +157,9 @@
           typst-lsp = {
             command = "typst-lsp";
           };
+          jdtls = {
+            command = "jdt-language-server";
+          };
           rust-analyzer = {
             timeout = 60;
             check.command = "clippy";
