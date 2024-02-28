@@ -20,6 +20,7 @@ in {
     enable = true;
     package = pkgs.sway;
     systemd.enable = true;
+    systemd.xdgAutostart = true;
     wrapperFeatures.gtk = true;
     config = let
       super = "Mod4";
