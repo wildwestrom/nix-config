@@ -126,6 +126,7 @@ in {
         {command = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard regular";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
         {command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --indicator";}
+        {command = "${pkgs.fcitx5-with-addons}/bin/fcitx5";}
       ];
       output = {
         eDP-1 = {
