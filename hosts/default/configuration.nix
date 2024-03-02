@@ -31,8 +31,24 @@ in {
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
+    # TODO: Enable once stable
+    # extraConfig = {
+    # pipewire = {
+    #   "99-silent-bell" = {
+    #     "context.properties.module.x11.bell" = false;
+    #   };
+    # };
+    # };
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
+  };
+
+  environment.etc = let
+    json = pkgs.formats.json {};
+  in {
+    "pipewire/pipewire.d/99-silent-bell.conf".source = json.generate "99-silent-bell.conf" {
+      context.properties."module.x11.bell" = false;
+    };
   };
 
   programs.dconf.enable = true;
