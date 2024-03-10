@@ -87,6 +87,11 @@ in {
         "${super}+Shift+down" = "move down";
         "${super}+Shift+up" = "move up";
         "${super}+Shift+right" = "move right";
+        # Move the window
+        "${super}+Shift+${left}" = "move left";
+        "${super}+Shift+${down}" = "move down";
+        "${super}+Shift+${up}" = "move up";
+        "${super}+Shift+${right}" = "move right";
         # Switch workspace
         "${super}+1" = ws1;
         "${super}+2" = ws2;
