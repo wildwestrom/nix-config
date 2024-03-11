@@ -5,9 +5,10 @@ set -e
 pushd ~/nix-config/
 $EDITOR .
 alejandra . &>/dev/null
-git diff -U0 *.nix
+git diff -U0 **/*.nix
 echo "NixOS Rebuilding..."
-sudo nixos-rebuild switch --flake '.#default' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+# sudo nixos-rebuild switch --flake '.#default' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+sudo nixos-rebuild switch --flake '.#default'
 current=$(nixos-rebuild list-generations | grep current)
 git commit -am "$current"
 popd
