@@ -94,6 +94,9 @@ in {
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+    desktopManager = {
+      runXdgAutostartIfNone = true;
+    };
   };
 
   services.printing.enable = true;
