@@ -238,6 +238,7 @@ in {
       "steam-run"
       "minecraft-launcher"
       "libsciter"
+      "surrealdb"
     ];
 
   nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];

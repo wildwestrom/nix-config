@@ -77,6 +77,7 @@
       osmctools
       jetbrains.idea-community
       racket
+      surrealdb
       surrealist
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
