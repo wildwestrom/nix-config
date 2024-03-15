@@ -86,7 +86,6 @@
     in {
       CLICOLOR = 1;
       EDITOR = "${hx_bin}/bin/hx";
-      # WEZTERM_DEBUG = "TRACE";
     };
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";

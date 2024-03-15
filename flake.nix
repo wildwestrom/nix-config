@@ -30,8 +30,8 @@
       # sway-git-overlay.overlays.default # provides sway-git
       sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
     ];
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    # system = "x86_64-linux";
+    # pkgs = nixpkgs.legacyPackages.${system};
     font = {
       monospace = "JetBrainsMono";
     };
