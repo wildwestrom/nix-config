@@ -278,11 +278,18 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
-      enableExtensionUpdateCheck = true;
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+      mutableExtensionsDir = false;
       extensions = with pkgs.vscode-extensions; [
         vadimcn.vscode-lldb
         rust-lang.rust-analyzer
       ];
+      userSettings = {
+        # "workbench.colorTheme" = "Default Light Modern";
+        # "files.autoSave" = "afterDelay";
+        # "editor.fontFamily" = "${font}, 'monospace', monospace";
+      };
     };
     atuin = {
       enable = true;
