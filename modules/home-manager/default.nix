@@ -278,6 +278,7 @@
     vscode = {
       enable = true;
       package = pkgs.vscodium;
+      enableExtensionUpdateCheck = true;
       extensions = with pkgs.vscode-extensions; [
         vadimcn.vscode-lldb
         rust-lang.rust-analyzer
