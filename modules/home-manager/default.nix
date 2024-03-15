@@ -284,11 +284,12 @@
         vadimcn.vscode-lldb
         rust-lang.rust-analyzer
       ];
-      # userSettings = {
-      # "workbench.colorTheme" = "Default Light Modern";
-      # "files.autoSave" = "afterDelay";
-      # "editor.fontFamily" = "${font}, 'monospace', monospace";
-      # };
+      userSettings = {
+        "workbench.colorTheme" = "Default Light Modern";
+        "files.autoSave" = "afterDelay";
+        "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
+        "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";
+      };
     };
     atuin = {
       enable = true;
