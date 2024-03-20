@@ -25,6 +25,8 @@ in {
     };
   };
 
+  xdg.configFile.fcitx5.source = ./fcitx5-config-dir;
+
   dconf.settings = {
     "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
     "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
