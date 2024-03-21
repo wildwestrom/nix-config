@@ -122,7 +122,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "dbus-run-session sway"'';
         user = "greeter";
       };
     };
@@ -195,7 +195,7 @@ in {
       xdgOpenUsePortal = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
-        # xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk
       ];
       wlr = {
         enable = true;
