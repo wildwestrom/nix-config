@@ -65,7 +65,6 @@
       strawberry
       stdenv.cc
       libwebp
-      brave
       signal-desktop
       thunderbird
       obsidian
