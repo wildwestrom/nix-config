@@ -122,7 +122,8 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "dbus-run-session sway"'';
+        # command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "dbus-run-session sway"'';
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
       };
     };
