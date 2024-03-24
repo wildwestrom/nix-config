@@ -101,6 +101,7 @@ in {
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
+    # Make sure services like fcitx5 start
     desktopManager = {
       runXdgAutostartIfNone = true;
     };
