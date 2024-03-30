@@ -58,6 +58,7 @@
       entr
       sqlitebrowser
       pgadmin
+      python311Packages.python-dotenv
       libreoffice
       unzip
       zip
