@@ -49,6 +49,7 @@ in {
       shared-mime-info
       xdg-utils
       gparted
+      polkit_gnome
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
