@@ -8,6 +8,7 @@
   ];
   services = {
     clipman = {
+      systemdTarget = "graphical-session.target";
       enable = true;
     };
     mako = {
@@ -16,6 +17,7 @@
     };
     wlsunset = {
       enable = true;
+      systemdTarget = "graphical-session.target";
       temperature.night = 3000;
       latitude = "37.5";
       longitude = "127.0";

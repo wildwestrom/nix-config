@@ -75,7 +75,6 @@
       prismlauncher
       rustdesk
       osmctools
-      jetbrains.idea-community
       racket
       surrealdb
       surrealist

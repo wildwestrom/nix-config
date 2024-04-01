@@ -22,6 +22,11 @@ in {
     systemd.enable = true;
     systemd.xdgAutostart = true;
     wrapperFeatures.gtk = true;
+    extraSessionCommands = ''
+      export XDG_SESSION_TYPE=wayland
+      export XDG_CURRENT_DESKTOP=sway
+      export XDG_SESSION_DESKTOP=sway
+    '';
     config = let
       super = "Mod4";
       left = "h";
@@ -133,7 +138,6 @@ in {
       ];
       defaultWorkspace = "${ws1}";
       startup = [
-        {command = "${pkgs.wl-clip-persist}/bin/wl-clip-persist --clipboard regular";}
         {command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";}
         {command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --indicator";}
         {command = "${pkgs.fcitx5-with-addons}/bin/fcitx5 --replace";}
@@ -189,9 +193,11 @@ in {
   services = {
     kanshi = {
       enable = true;
+      systemdTarget = "sway-session.target";
     };
     swayidle = {
       enable = true;
+      systemdTarget = "graphical-session.target";
       timeouts = [
         {
           timeout = 300;
