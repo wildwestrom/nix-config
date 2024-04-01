@@ -50,6 +50,7 @@ in {
       xdg-utils
       gparted
       polkit_gnome
+      exfatprogs
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
