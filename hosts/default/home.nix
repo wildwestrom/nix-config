@@ -55,6 +55,37 @@ in {
       XCURSOR_THEME = cursor-theme;
     };
   };
+  systemd.user.services = {
+    polkit-gnome-authentication-agent-1 = {
+      Unit = {
+        Description = "polkit-gnome-authentication-agent-1";
+        WantedBy = ["graphical-session.target"];
+        Wants = ["graphical-session.target"];
+        After = ["graphical-session.target"];
+      };
+      Service = {
+        Restart = "on-failure";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+    protonmail-bridge = {
+      Unit = {
+        Description = "Protonmail Bridge";
+        After = ["network-online.target"];
+      };
+
+      Service = {
+        Restart = "always";
+        ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
+        Environment = [
+          "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin"
+          "PASSWORD_STORE_DIR=/home/jon/.password-store"
+        ];
+      };
+    };
+  };
   xdg = {
     enable = true;
     userDirs = {
@@ -107,21 +138,6 @@ in {
     };
   };
   services.syncthing.enable = true;
-  systemd.user.services.protonmail-bridge = {
-    Unit = {
-      Description = "Protonmail Bridge";
-      After = ["network-online.target"];
-    };
-
-    Service = {
-      Restart = "always";
-      ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
-      Environment = [
-        "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin"
-        "PASSWORD_STORE_DIR=/home/jon/.password-store"
-      ];
-    };
-  };
   gtk = {
     enable = true;
     theme.name = system-theme;
