@@ -48,6 +48,7 @@ in {
       qpwgraph
       shared-mime-info
       xdg-utils
+      gparted
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
