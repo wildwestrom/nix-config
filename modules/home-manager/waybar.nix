@@ -1,8 +1,4 @@
-{
-  pkgs,
-  font,
-  ...
-}: {
+{font, ...}: {
   programs = {
     waybar = {
       enable = true;
@@ -371,9 +367,9 @@
             "format" = "{capacity}% {icon}";
             "format-charging" = "{capacity}% ";
             "format-plugged" = "{capacity}% ";
-            "format-alt" = "{time} {icon}";
-            "format-good" = ""; # An empty format will hide the module
-            "format-full" = "";
+            # "format-alt" = "{capacity}% {icon}";
+            # "format-good" = "{capacity}% {icon}";
+            # "format-full" = "{capacity}% {icon}";
             "format-icons" = ["" "" "" "" ""];
           };
         };
