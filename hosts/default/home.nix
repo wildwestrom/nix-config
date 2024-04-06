@@ -42,6 +42,7 @@ in {
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap
+      gnome.gnome-calculator
       pavucontrol # Even though I use pipewire, it works
       element-desktop
       imv
