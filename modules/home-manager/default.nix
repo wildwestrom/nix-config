@@ -79,6 +79,7 @@
       surrealdb
       surrealist
       hyperfine
+      brave
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
@@ -293,6 +294,9 @@
     };
     atuin = {
       enable = true;
+      settings = {
+        filter_mode = "session";
+      };
     };
   };
   editorconfig = {
