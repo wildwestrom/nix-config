@@ -211,8 +211,7 @@ in {
       config = {
         common = {
           default = [
-            "wlr"
-            "gtk"
+            "*" # Should fix the problem of xdg-open not working
           ];
         };
       };
