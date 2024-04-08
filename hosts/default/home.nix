@@ -48,7 +48,9 @@ in {
       imv
       qpwgraph
       shared-mime-info
+      dbus
       xdg-utils
+      xdg-launch
       gparted
       polkit_gnome
       exfatprogs
