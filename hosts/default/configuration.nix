@@ -213,6 +213,8 @@ in {
           default = [
             "*" # Should fix the problem of xdg-open not working
           ];
+          "org.freedesktop.impl.portal.ScreenCast" = "wlr";
+          "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
       };
     };
