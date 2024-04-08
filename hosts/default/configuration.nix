@@ -245,6 +245,8 @@ in {
 
   nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
 
+  nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
+
   programs.steam = {
     enable = true;
   };
