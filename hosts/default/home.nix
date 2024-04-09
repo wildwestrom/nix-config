@@ -43,6 +43,7 @@ in {
       gnome.gnome-font-viewer
       gnome.gucharmap
       gnome.gnome-calculator
+      gnome.evince
       pavucontrol # Even though I use pipewire, it works
       element-desktop
       imv
