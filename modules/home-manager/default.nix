@@ -205,7 +205,7 @@
       # shellIntegration.enableFishIntegration = true;
       font = {
         name = font.monospace;
-        size = 11;
+        size = 14;
       };
       theme = "Atom One Light";
       # theme = "One Dark";
