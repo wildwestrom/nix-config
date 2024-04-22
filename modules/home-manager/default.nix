@@ -285,6 +285,8 @@
       extensions = with pkgs.vscode-extensions; [
         vadimcn.vscode-lldb
         rust-lang.rust-analyzer
+        redhat.java
+        vscjava.vscode-maven
       ];
       userSettings = {
         "workbench.colorTheme" = "Default Light Modern";
