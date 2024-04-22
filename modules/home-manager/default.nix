@@ -291,6 +291,7 @@
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
         "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";
+        "window.zoomLevel" = 1;
       };
     };
     atuin = {
