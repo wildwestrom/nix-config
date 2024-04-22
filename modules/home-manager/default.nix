@@ -281,7 +281,7 @@
       package = pkgs.vscodium;
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
-      mutableExtensionsDir = false;
+      mutableExtensionsDir = true;
       extensions = with pkgs.vscode-extensions; [
         vadimcn.vscode-lldb
         rust-lang.rust-analyzer
