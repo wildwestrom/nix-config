@@ -88,7 +88,6 @@
     in {
       CLICOLOR = 1;
       EDITOR = "${hx_bin}/bin/hx";
-      QT_SCALE_FACTOR = "1.25";
     };
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
@@ -126,13 +125,6 @@
       lazyconf = "lazygit -p ~/nix-config";
     };
     enableNixpkgsReleaseCheck = true;
-  };
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = {
-      name = "adwaita";
-    };
   };
   programs = {
     gpg = {

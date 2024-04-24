@@ -58,6 +58,7 @@ in {
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
+      QT_SCALE_FACTOR = "1.25";
     };
   };
   systemd.user.services = {
@@ -152,5 +153,12 @@ in {
     cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
     iconTheme.name = icon-theme;
     iconTheme.package = pkgs.gnome.gnome-themes-extra;
+  };
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = {
+      name = system-theme;
+    };
   };
 }
