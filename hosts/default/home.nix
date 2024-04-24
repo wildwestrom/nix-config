@@ -59,7 +59,6 @@ in {
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
-      QT_SCALE_FACTOR = "1.25";
     };
   };
   systemd.user.services = {
