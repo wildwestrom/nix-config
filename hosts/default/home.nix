@@ -56,6 +56,8 @@ in {
       polkit_gnome
       exfatprogs
       glib
+      fontforge-gtk
+      python3Packages.setuptools
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
