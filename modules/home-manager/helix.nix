@@ -10,6 +10,7 @@
       taplo
       jdt-language-server
       ccls
+      clang-tools
     ];
   };
 
