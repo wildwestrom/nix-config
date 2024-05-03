@@ -9,6 +9,7 @@
       nodePackages_latest.svelte-language-server
       taplo
       jdt-language-server
+      ccls
     ];
   };
 
