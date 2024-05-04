@@ -31,6 +31,7 @@
       tree
       ghostscript
       rename
+      trashy
       pandoc
       python311
       watch
@@ -99,7 +100,6 @@
       mv = "mv -iv";
       ln = "ln -iv";
       rm = "rm -riv";
-      trash = "trash -v";
       mkdir = "mkdir -pv";
       chmod = "chmod -v";
       chown = "chown -v";
@@ -302,7 +302,7 @@
     atuin = {
       enable = true;
       settings = {
-        filter_mode = "session";
+        filter_mode = "directory";
       };
     };
   };
