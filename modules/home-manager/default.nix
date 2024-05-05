@@ -70,7 +70,7 @@
       signal-desktop
       thunderbird
       obsidian
-      vesktop
+      discord
       qgis
       minecraft
       prismlauncher

@@ -243,6 +243,7 @@ in {
       "minecraft-launcher"
       "libsciter"
       "surrealdb"
+      "discord"
     ];
 
   nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
