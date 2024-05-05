@@ -58,6 +58,7 @@ in {
       glib
       fontforge-gtk
       python3Packages.setuptools
+      vintagestory
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
