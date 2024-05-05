@@ -26,19 +26,26 @@
     sway-git-overlay,
     ...
   } @ inputs: let
-    overlays = [
-      # sway-git-overlay.overlays.default # provides sway-git
-      sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
-    ];
-    # system = "x86_64-linux";
-    # pkgs = nixpkgs.legacyPackages.${system};
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        # sway-git-overlay.overlays.default # provides sway-git
+        sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
+        # (final: prev: let
+        #   zedpkgs = nixpkgs-zed.legacyPackages.x86_64-linux;
+        # in {
+        #   inherit (zedpkgs) zed-editor;
+        # })
+      ];
+    };
     font = {
       monospace = "JetBrainsMono";
     };
   in {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs overlays font;};
+        specialArgs = {inherit inputs font;};
         modules = [
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/default/configuration.nix
