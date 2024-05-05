@@ -85,6 +85,7 @@
       inkscape
       docker-compose
       bc
+      pharo
     ];
     sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
     sessionVariables = let
