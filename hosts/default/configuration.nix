@@ -212,7 +212,7 @@ in {
       config = {
         common = {
           default = [
-            "gtk"
+            "wlr;gtk"
           ];
           "org.freedesktop.impl.portal.ScreenCast" = "wlr";
           "org.freedesktop.impl.portal.Screenshot" = "wlr";
