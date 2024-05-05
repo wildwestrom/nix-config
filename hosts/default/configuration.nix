@@ -214,8 +214,6 @@ in {
           default = [
             "wlr;gtk"
           ];
-          "org.freedesktop.impl.portal.ScreenCast" = "wlr";
-          "org.freedesktop.impl.portal.Screenshot" = "wlr";
         };
       };
     };
