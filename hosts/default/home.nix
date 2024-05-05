@@ -79,12 +79,6 @@ in {
         TimeoutStopSec = 10;
       };
     };
-    xdg-desktop-portal-gtk = {
-      Unit = {
-        WantedBy = ["xdg-desktop-portal.service"];
-        Before = ["xdg-desktop-portal.service"];
-      };
-    };
     protonmail-bridge = {
       Unit = {
         Description = "Protonmail Bridge";
