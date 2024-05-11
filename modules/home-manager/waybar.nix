@@ -1,4 +1,5 @@
-{font, ...}: {
+{ font, ... }:
+{
   programs = {
     waybar = {
       enable = true;
@@ -258,8 +259,12 @@
           height = 30; # Waybar height (to be removed for auto height)
           spacing = 4; # Gaps between modules (4px)
           # Choose the order of the modules
-          modules-left = ["sway/workspaces" "sway/mode" "custom/media"];
-          modules-center = ["sway/window"];
+          modules-left = [
+            "sway/workspaces"
+            "sway/mode"
+            "custom/media"
+          ];
+          modules-center = [ "sway/window" ];
           modules-right = [
             "idle_inhibitor"
             "cpu"
@@ -311,11 +316,14 @@
               "phone" = "";
               "portable" = "";
               "car" = "";
-              "default" = ["" ""];
+              "default" = [
+                ""
+                ""
+              ];
             };
             "scroll-step" = 1;
             "on-click" = "pavucontrol";
-            "ignored-sinks" = ["Easy Effects Sink"];
+            "ignored-sinks" = [ "Easy Effects Sink" ];
           };
           "sway/mode" = {
             "format" = "<span style=\"italic\">{}</span>";
@@ -350,13 +358,27 @@
             "critical-threshold" = 80;
             "format-critical" = "{temperatureC}°C {icon}";
             "format" = "{temperatureC}°C {icon}";
-            "format-icons" = ["" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+            ];
             "interval" = 1;
           };
           "backlight" = {
             # "device" = "acpi_video1";
             "format" = "{percent}% {icon}";
-            "format-icons" = ["" "" "" "" "" "" "" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
           "battery" = {
             "states" = {
@@ -370,7 +392,13 @@
             # "format-alt" = "{capacity}% {icon}";
             # "format-good" = "{capacity}% {icon}";
             # "format-full" = "{capacity}% {icon}";
-            "format-icons" = ["" "" "" "" ""];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
         };
       };

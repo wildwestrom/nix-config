@@ -24,41 +24,46 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-wayland,
-    nixos-hardware,
-    sway-git-overlay,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs-wayland {
-      inherit system;
-      overlays = [
-        # sway-git-overlay.overlays.default # provides sway-git
-        # sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
-        # (final: prev: let
-        #   zedpkgs = nixpkgs-zed.legacyPackages.x86_64-linux;
-        # in {
-        #   inherit (zedpkgs) zed-editor;
-        # })
-      ];
-    };
-    font = {
-      monospace = "JetBrainsMono";
-    };
-    dark_mode = true;
-  in {
-    nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs font dark_mode;};
-        modules = [
-          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          ./hosts/default/configuration.nix
-          inputs.home-manager.nixosModules.default
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-wayland,
+      nixos-hardware,
+      sway-git-overlay,
+      ...
+    }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs-wayland {
+        inherit system;
+        overlays = [
+          # sway-git-overlay.overlays.default # provides sway-git
+          # sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
+          # (final: prev: let
+          #   zedpkgs = nixpkgs-zed.legacyPackages.x86_64-linux;
+          # in {
+          #   inherit (zedpkgs) zed-editor;
+          # })
         ];
       };
+      font = {
+        monospace = "JetBrainsMono";
+      };
+      dark_mode = true;
+    in
+    {
+      nixosConfigurations = {
+        default = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs font dark_mode;
+          };
+          modules = [
+            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+            ./hosts/default/configuration.nix
+            inputs.home-manager.nixosModules.default
+          ];
+        };
+      };
     };
-  };
 }

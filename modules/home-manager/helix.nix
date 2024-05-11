@@ -2,7 +2,8 @@
   pkgs,
   # dark_mode,
   ...
-}: {
+}:
+{
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
@@ -59,9 +60,7 @@
               tab-width = 2;
               unit = "\t";
             };
-            language-servers = [
-              "rust-analyzer"
-            ];
+            language-servers = [ "rust-analyzer" ];
             # # See if the debug configuration is actually unnecessary
             # debugger = {
             #   command = "lldb-vscode";
@@ -88,34 +87,35 @@
           }
           {
             name = "nix";
-            file-types = ["nix"];
-            roots = ["flake.lock"];
+            file-types = [ "nix" ];
+            roots = [ "flake.lock" ];
             indent = {
               tab-width = 2;
               unit = "\t";
             };
             formatter = {
               command = "nixfmt";
-              args = ["-"];
+              args = [ "-" ];
             };
             auto-format = true;
-            language-servers = [
-              "nil"
-            ];
+            language-servers = [ "nil" ];
           }
           {
             name = "python";
             formatter = {
               command = "black";
-              args = ["--quiet" "-"];
+              args = [
+                "--quiet"
+                "-"
+              ];
             };
           }
           {
             name = "typst";
-            file-types = ["typ"];
+            file-types = [ "typ" ];
             scope = "source.typst";
             injection-regex = "^typ(st)?$";
-            roots = [];
+            roots = [ ];
             comment-token = "//";
             indent = {
               tab-width = 2;
@@ -130,14 +130,12 @@
               "$" = "$";
             };
             text-width = 100;
-            rulers = [100];
+            rulers = [ 100 ];
             soft-wrap.wrap-at-text-width = true;
-            language-servers = [
-              "typst-lsp"
-            ];
+            language-servers = [ "typst-lsp" ];
             formatter = {
               command = "typst-fmt";
-              args = ["--stdio"];
+              args = [ "--stdio" ];
             };
             # # TODO: Fix grammar adding to helix config
             # # https://github.com/nix-community/home-manager/issues/2871
@@ -171,8 +169,12 @@
           rust-analyzer = {
             timeout = 60;
             check.command = "clippy";
-            procMacro.ignored.leptos_macro = ["server"];
-            rustfmt.overrideCommand = ["leptosfmt" "--stdin" "--rustfmt"];
+            procMacro.ignored.leptos_macro = [ "server" ];
+            rustfmt.overrideCommand = [
+              "leptosfmt"
+              "--stdin"
+              "--rustfmt"
+            ];
             diagnostics.experimental.enable = true;
           };
           tailwindcss-ls = {

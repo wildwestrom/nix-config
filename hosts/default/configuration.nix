@@ -8,9 +8,11 @@
   font,
   dark_mode,
   ...
-}: let
+}:
+let
   username = "main";
-in {
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -18,9 +20,7 @@ in {
   ];
 
   hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
-    amdvlk
-  ];
+  hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
   hardware.keyboard.zsa.enable = true;
 
   programs.nix-ld.enable = true;
@@ -59,7 +59,10 @@ in {
 
   # "Experimental Features"
   # But I'm enabling them because I want to test them.
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -112,7 +115,7 @@ in {
 
   services.printing.enable = true;
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   services.dbus.enable = true;
 
@@ -181,14 +184,19 @@ in {
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    (nerdfonts.override {fonts = [font.monospace];})
+    (nerdfonts.override { fonts = [ font.monospace ]; })
   ];
 
   programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "main user";
-    extraGroups = ["wheel" "video" "audio" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "networkmanager"
+    ];
     shell = pkgs.fish;
   };
 
@@ -197,9 +205,7 @@ in {
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       wlr = {
         enable = true;
         settings = {
@@ -212,9 +218,7 @@ in {
       };
       config = {
         common = {
-          default = [
-            "wlr;gtk"
-          ];
+          default = [ "wlr;gtk" ];
         };
       };
     };
@@ -233,7 +237,8 @@ in {
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
       "steam"
@@ -246,7 +251,7 @@ in {
       "vintagestory"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = ["electron-25.9.0"];
+  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
 
   nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
 

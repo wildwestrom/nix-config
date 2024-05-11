@@ -4,15 +4,14 @@
   config,
   dark_mode,
   ...
-}: let
-  system-theme =
-    if dark_mode
-    then "adwaita-dark"
-    else "adwaita";
+}:
+let
+  system-theme = if dark_mode then "adwaita-dark" else "adwaita";
   cursor-theme = system-theme;
   icon-theme = system-theme;
   terminal = "kitty";
-in {
+in
+{
   imports = [
     ../../modules/home-manager/sway.nix
     ../../modules/home-manager/default.nix
@@ -72,8 +71,8 @@ in {
     polkit-gnome-authentication-agent-1 = {
       Unit = {
         Description = "polkit-gnome-authentication-agent-1";
-        Wants = ["graphical-session.target"];
-        After = ["graphical-session.target"];
+        Wants = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
       };
       Service = {
         Restart = "on-failure";
@@ -85,7 +84,7 @@ in {
     protonmail-bridge = {
       Unit = {
         Description = "Protonmail Bridge";
-        After = ["network-online.target"];
+        After = [ "network-online.target" ];
       };
 
       Service = {
@@ -133,7 +132,10 @@ in {
         "x-scheme-handler/ipns" = "librewolf.desktop";
         "x-scheme-handler/about" = "librewolf.desktop";
         "x-scheme-handler/unknown" = "librewolf.desktop";
-        "x-scheme-handler/vscodium" = ["codium-url-handler.desktop" "codium.desktop"];
+        "x-scheme-handler/vscodium" = [
+          "codium-url-handler.desktop"
+          "codium.desktop"
+        ];
       };
     };
   };

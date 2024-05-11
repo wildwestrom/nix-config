@@ -4,10 +4,9 @@
   font,
   dark_mode,
   ...
-}: {
-  imports = [
-    ./helix.nix
-  ];
+}:
+{
+  imports = [ ./helix.nix ];
 
   home = {
     packages = with pkgs; [
@@ -88,13 +87,19 @@
       bc
       squeak
     ];
-    sessionPath = ["$HOME/.local/bin" "/usr/local/bin" "/run/current-system/sw/bin"];
-    sessionVariables = let
-      hx_bin = config.programs.helix.package;
-    in {
-      CLICOLOR = 1;
-      EDITOR = "${hx_bin}/bin/hx";
-    };
+    sessionPath = [
+      "$HOME/.local/bin"
+      "/usr/local/bin"
+      "/run/current-system/sw/bin"
+    ];
+    sessionVariables =
+      let
+        hx_bin = config.programs.helix.package;
+      in
+      {
+        CLICOLOR = 1;
+        EDITOR = "${hx_bin}/bin/hx";
+      };
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
       v = "$EDITOR";
@@ -135,16 +140,20 @@
     gpg = {
       enable = true;
     };
-    lazygit = {enable = true;};
+    lazygit = {
+      enable = true;
+    };
     bat = {
       enable = true;
       config = {
-        theme =
-          if dark_mode
-          then "OneHalfDark"
-          else "Monokai Extended Light";
+        theme = if dark_mode then "OneHalfDark" else "Monokai Extended Light";
       };
-      extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch
+      ];
     };
     fzf = {
       enable = true;
@@ -177,13 +186,18 @@
         commit = {
           # gpgSign = true;
         };
-        pull = {ff = "only";};
+        pull = {
+          ff = "only";
+        };
         init.defaultBranch = "main";
       };
     };
     eza = {
       enable = true;
-      extraOptions = ["--grid" "--group-directories-first"];
+      extraOptions = [
+        "--grid"
+        "--group-directories-first"
+      ];
     };
     starship = {
       enable = true;
@@ -215,38 +229,34 @@
         name = font.monospace;
         size = 14;
       };
-      theme =
-        if dark_mode
-        then "One Dark"
-        else "Atom One Light";
+      theme = if dark_mode then "One Dark" else "Atom One Light";
       settings = {
         confirm_os_window_close = 0; # Disable
         macos_option_as_alt = true;
       };
     };
-    wezterm = let
-      theme =
-        if dark_mode
-        then "OneDark (base16)"
-        else "One Light (Gogh)";
-    in {
-      enable = true;
-      extraConfig = ''
-        local wezterm = require "wezterm"
-        local config = {
-          font = wezterm.font "${font.monospace}",
-          enable_tab_bar = false,
-          color_scheme = "${theme}",
-          window_close_confirmation = "NeverPrompt",
-          default_cursor_style = "BlinkingBar",
-          cursor_blink_ease_in = "Constant",
-          cursor_blink_ease_out = "Constant",
-          cursor_blink_rate = 500,
-        }
-        return config
-      '';
-      # colorSchemes = ""; # TOML code
-    };
+    wezterm =
+      let
+        theme = if dark_mode then "OneDark (base16)" else "One Light (Gogh)";
+      in
+      {
+        enable = true;
+        extraConfig = ''
+          local wezterm = require "wezterm"
+          local config = {
+            font = wezterm.font "${font.monospace}",
+            enable_tab_bar = false,
+            color_scheme = "${theme}",
+            window_close_confirmation = "NeverPrompt",
+            default_cursor_style = "BlinkingBar",
+            cursor_blink_ease_in = "Constant",
+            cursor_blink_ease_out = "Constant",
+            cursor_blink_rate = 500,
+          }
+          return config
+        '';
+        # colorSchemes = ""; # TOML code
+      };
     zathura.enable = true;
     direnv = {
       enable = true;
@@ -276,17 +286,61 @@
             gray = 18;
           };
           solarized-light = {
-            fg = [101 123 131];
-            bg = [253 246 227];
-            black = [7 54 66];
-            red = [220 50 47];
-            green = [133 153 0];
-            yellow = [181 137 0];
-            blue = [38 139 210];
-            magenta = [211 54 130];
-            cyan = [42 161 152];
-            white = [238 232 213];
-            orange = [203 75 22];
+            fg = [
+              101
+              123
+              131
+            ];
+            bg = [
+              253
+              246
+              227
+            ];
+            black = [
+              7
+              54
+              66
+            ];
+            red = [
+              220
+              50
+              47
+            ];
+            green = [
+              133
+              153
+              0
+            ];
+            yellow = [
+              181
+              137
+              0
+            ];
+            blue = [
+              38
+              139
+              210
+            ];
+            magenta = [
+              211
+              54
+              130
+            ];
+            cyan = [
+              42
+              161
+              152
+            ];
+            white = [
+              238
+              232
+              213
+            ];
+            orange = [
+              203
+              75
+              22
+            ];
           };
         };
       };
@@ -303,18 +357,17 @@
         redhat.java
         vscjava.vscode-maven
       ];
-      userSettings = let
-        theme =
-          if dark_mode
-          then "Visual Studio Dark"
-          else "Visual Studio Light";
-      in {
-        "workbench.colorTheme" = theme;
-        "files.autoSave" = "afterDelay";
-        "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
-        "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";
-        "window.zoomLevel" = 1;
-      };
+      userSettings =
+        let
+          theme = if dark_mode then "Visual Studio Dark" else "Visual Studio Light";
+        in
+        {
+          "workbench.colorTheme" = theme;
+          "files.autoSave" = "afterDelay";
+          "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
+          "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";
+          "window.zoomLevel" = 1;
+        };
     };
     atuin = {
       enable = true;
@@ -345,8 +398,12 @@
       "*.{el,clj,cljs,cljc,lisp,cl,scm,fnl,hy,rkt}" = {
         indent_style = "space";
       };
-      "*.md" = {trim_trailing_whitespace = false;};
-      "README*.md, *.tex" = {max_line_length = 80;};
+      "*.md" = {
+        trim_trailing_whitespace = false;
+      };
+      "README*.md, *.tex" = {
+        max_line_length = 80;
+      };
     };
   };
 }

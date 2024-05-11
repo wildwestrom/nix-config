@@ -5,7 +5,7 @@ shopt -s extglob
 
 pushd ~/nix-config/
 $EDITOR .
-alejandra . &>/dev/null
+nixfmt . &>/dev/null
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."
