@@ -2,9 +2,13 @@
   pkgs,
   username,
   config,
+  dark_mode,
   ...
 }: let
-  system-theme = "Adwaita";
+  system-theme =
+    if dark_mode
+    then "adwaita-dark"
+    else "adwaita";
   cursor-theme = system-theme;
   icon-theme = system-theme;
   terminal = "kitty";

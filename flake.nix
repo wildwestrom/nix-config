@@ -48,10 +48,11 @@
     font = {
       monospace = "JetBrainsMono";
     };
+    dark_mode = true;
   in {
     nixosConfigurations = {
       default = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs font;};
+        specialArgs = {inherit inputs font dark_mode;};
         modules = [
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
           ./hosts/default/configuration.nix

@@ -2,6 +2,7 @@
   pkgs,
   config,
   font,
+  dark_mode,
   ...
 }: {
   imports = [
@@ -138,7 +139,10 @@
     bat = {
       enable = true;
       config = {
-        theme = "Monokai Extended Light";
+        theme =
+          if dark_mode
+          then "OneHalfDark"
+          else "Monokai Extended Light";
       };
       extraPackages = with pkgs.bat-extras; [batdiff batman batgrep batwatch];
     };
@@ -211,21 +215,28 @@
         name = font.monospace;
         size = 14;
       };
-      theme = "Atom One Light";
-      # theme = "One Dark";
+      theme =
+        if dark_mode
+        then "One Dark"
+        else "Atom One Light";
       settings = {
         confirm_os_window_close = 0; # Disable
         macos_option_as_alt = true;
       };
     };
-    wezterm = {
+    wezterm = let
+      theme =
+        if dark_mode
+        then "OneDark (base16)"
+        else "One Light (Gogh)";
+    in {
       enable = true;
       extraConfig = ''
         local wezterm = require "wezterm"
         local config = {
           font = wezterm.font "${font.monospace}",
           enable_tab_bar = false,
-          color_scheme = "One Light (Gogh)",
+          color_scheme = "${theme}",
           window_close_confirmation = "NeverPrompt",
           default_cursor_style = "BlinkingBar",
           cursor_blink_ease_in = "Constant",
@@ -292,8 +303,13 @@
         redhat.java
         vscjava.vscode-maven
       ];
-      userSettings = {
-        "workbench.colorTheme" = "Default Light Modern";
+      userSettings = let
+        theme =
+          if dark_mode
+          then "Visual Studio Dark"
+          else "Visual Studio Light";
+      in {
+        "workbench.colorTheme" = theme;
         "files.autoSave" = "afterDelay";
         "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
         "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";

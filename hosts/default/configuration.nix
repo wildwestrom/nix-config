@@ -6,6 +6,7 @@
   inputs,
   lib,
   font,
+  dark_mode,
   ...
 }: let
   username = "main";
@@ -223,6 +224,7 @@ in {
     extraSpecialArgs = {
       inherit inputs username;
       font.monospace = "${font.monospace} Nerd Font Mono";
+      dark_mode = dark_mode;
     };
     useGlobalPkgs = true;
     useUserPackages = true;

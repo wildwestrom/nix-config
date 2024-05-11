@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  # dark_mode,
+  ...
+}: {
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
@@ -18,8 +22,10 @@
     helix = {
       enable = true;
       settings = {
-        theme = "onelight";
-        # theme = "zed_onedark";
+        theme = "zed_onedark";
+        # if dark_mode
+        # then "zed_onedark"
+        # else "onelight";
         editor = {
           terminal = {
             command = "kitty";
