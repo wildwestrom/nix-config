@@ -6,7 +6,7 @@
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
-      alejandra
+      nixfmt-rfc-style
       nil
       vscode-langservers-extracted
       nodePackages_latest.typescript-language-server
@@ -95,7 +95,7 @@
               unit = "\t";
             };
             formatter = {
-              command = "alejandra";
+              command = "nixfmt";
               args = ["-"];
             };
             auto-format = true;
