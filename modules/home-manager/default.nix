@@ -22,7 +22,7 @@ let
     mv = "mv -iv";
     ln = "ln -iv";
     rm = "rm -riv";
-    mkdir = if shell == "nushell" then "mkdir -pv" else "mkdir -v";
+    mkdir = if shell == "nushell" then "mkdir -v" else "mkdir -pv";
     chmod = "chmod -v";
     chown = "chown -v";
     ls = "eza";
