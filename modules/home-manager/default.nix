@@ -7,6 +7,48 @@
 }:
 let
   font_size = 14;
+  environment_variables =
+    let
+      hx_bin = config.programs.helix.package;
+    in
+    {
+      CLICOLOR = "1";
+      EDITOR = "${hx_bin}/bin/hx";
+    };
+  shell_aliases = {
+    switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
+    v = "$EDITOR";
+    cp = "cp -riv";
+    mv = "mv -iv";
+    ln = "ln -iv";
+    rm = "rm -riv";
+    mkdir = "mkdir -pv";
+    chmod = "chmod -v";
+    chown = "chown -v";
+    ls = "eza";
+    ll = "ls -la";
+    la = "ls -a";
+    lt = "ls -a --tree";
+    "l." = "ls -d .*";
+    df = "df -h";
+    fd = "fd --hidden";
+    rg = "rg -.";
+    ag = "ag -a";
+    cat = "bat";
+    less = "bat --style=plain --paging=always";
+    top = "btm --color=default";
+    htop = "btm --color=default";
+    grep = "rg";
+    cloc = "tokei";
+    nixconf = "$EDITOR ~/nix-config";
+    su = "su -s $SHELL";
+    proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+    mpa = "mpv --no-video";
+    ytdl = "yt-dlp -P ~/Downloads";
+    gcd1 = "git clone --depth 1";
+    watch = "watch -c";
+    lazyconf = "lazygit -p ~/nix-config";
+  };
 in
 {
   imports = [ ./helix.nix ];
@@ -95,48 +137,8 @@ in
       "/usr/local/bin"
       "/run/current-system/sw/bin"
     ];
-    sessionVariables =
-      let
-        hx_bin = config.programs.helix.package;
-      in
-      {
-        CLICOLOR = 1;
-        EDITOR = "${hx_bin}/bin/hx";
-      };
-    shellAliases = {
-      switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
-      v = "$EDITOR";
-      cp = "cp -riv";
-      mv = "mv -iv";
-      ln = "ln -iv";
-      rm = "rm -riv";
-      mkdir = "mkdir -pv";
-      chmod = "chmod -v";
-      chown = "chown -v";
-      ls = "eza";
-      ll = "ls -la";
-      la = "ls -a";
-      lt = "ls -a --tree";
-      "l." = "ls -d .*";
-      df = "df -h";
-      fd = "fd --hidden";
-      rg = "rg -.";
-      ag = "ag -a";
-      cat = "bat";
-      less = "bat --style=plain --paging=always";
-      top = "btm --color=default";
-      htop = "btm --color=default";
-      grep = "rg";
-      cloc = "tokei";
-      nixconf = "$EDITOR ~/nix-config";
-      su = "su -s $SHELL";
-      proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
-      mpa = "mpv --no-video";
-      ytdl = "yt-dlp -P ~/Downloads";
-      gcd1 = "git clone --depth 1";
-      watch = "watch -c";
-      lazyconf = "lazygit -p ~/nix-config";
-    };
+    sessionVariables = environment_variables;
+    shellAliases = shell_aliases;
     enableNixpkgsReleaseCheck = true;
   };
   programs = {
@@ -218,6 +220,8 @@ in
       configFile = {
 
       };
+      environmentVariables = environment_variables;
+      shellAliases = shell_aliases;
     };
     zoxide = {
       enable = true;
