@@ -40,7 +40,7 @@ let
     htop = "btm --color=default";
     grep = "rg";
     cloc = "tokei";
-    nixconf = "$EDITOR ~/nix-config";
+    nixconf = "~/nix-config/nixos-rebuild.sh";
     su = "su -s $SHELL";
     proc =
       if shell == "nushell" then
