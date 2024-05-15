@@ -17,7 +17,7 @@ let
     };
   shell_aliases = shell: {
     switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
-    v = "$EDITOR";
+    v = if shell == "nushell" then "$env.EDITOR" else "$EDITOR";
     cp = "cp -riv";
     mv = "mv -iv";
     ln = "ln -iv";
@@ -41,12 +41,12 @@ let
     grep = "rg";
     cloc = "tokei";
     nixconf = "~/nix-config/nixos-rebuild.sh";
-    su = "su -s $SHELL";
-    proc =
-      if shell == "nushell" then
-        "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg"
-      else
-        "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+    su = if shell == "nushell" then "su -s $env.SHELL" else "su -s $SHELL";
+    # proc =
+    #   if shell == "nushell" then
+    #     "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg"
+    #   else
+    #     "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
     mpa = "mpv --no-video";
     ytdl = "yt-dlp -P ~/Downloads";
     gcd1 = "git clone --depth 1";
