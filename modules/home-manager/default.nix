@@ -42,7 +42,7 @@ let
     cloc = "tokei";
     nixconf = "$EDITOR ~/nix-config";
     su = "su -s $SHELL";
-    proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+    proc = "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg";
     mpa = "mpv --no-video";
     ytdl = "yt-dlp -P ~/Downloads";
     gcd1 = "git clone --depth 1";
