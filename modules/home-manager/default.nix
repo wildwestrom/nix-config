@@ -448,6 +448,7 @@ in
     };
     atuin = {
       enable = true;
+      enableNushellIntegration = true;
       settings = {
         filter_mode = "directory";
       };
