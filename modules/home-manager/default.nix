@@ -307,7 +307,9 @@ in
                 white = "#ffffff";
               };
             };
-        decorations_theme_variant = if dark_mode then "Dark" else "Light";
+        window = {
+          decorations_theme_variant = if dark_mode then "Dark" else "Light";
+        };
       };
     };
     wezterm =
