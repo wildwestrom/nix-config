@@ -4,8 +4,9 @@ let
   swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-  terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
+# terminal = "${pkgs.kitty}/bin/kitty";
 # terminal = "${pkgs.wezterm}/bin/wezterm";
 # terminal = "direnv exec ~/code/community/wezterm ~/code/community/wezterm/target/debug/wezterm";
 {
