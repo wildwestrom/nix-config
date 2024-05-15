@@ -50,7 +50,7 @@
       font = {
         monospace = "JetBrainsMono";
       };
-      dark_mode = true;
+      dark_mode = false;
     in
     {
       nixosConfigurations = {

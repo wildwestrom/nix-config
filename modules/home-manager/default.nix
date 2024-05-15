@@ -13,8 +13,8 @@ in
 {
   imports = [
     ./helix.nix
-    ./nushell.nix
-    # ./fish.nix
+    # ./nushell.nix
+    ./fish.nix
   ];
 
   home = {
