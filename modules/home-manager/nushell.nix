@@ -11,7 +11,12 @@ in
   programs = {
     nushell = {
       enable = true;
-      configFile = { };
+      configFile.text = ''
+        let-env config = {
+          show_banner: false
+            edit_mode: vi
+        }
+      '';
       environmentVariables = {
         CLICOLOR = "1";
         EDITOR = editor;
