@@ -6,18 +6,16 @@
   ...
 }:
 let
+  hx_bin = config.programs.helix.package;
+  editor = "${hx_bin}/bin/hx";
   font_size = 14;
-  environment_variables =
-    let
-      hx_bin = config.programs.helix.package;
-    in
-    {
-      CLICOLOR = "1";
-      EDITOR = "${hx_bin}/bin/hx";
-    };
+  environment_variables = {
+    CLICOLOR = "1";
+    EDITOR = editor;
+  };
   shell_aliases = shell: {
     switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
-    v = if shell == "nushell" then "$env.EDITOR" else "$EDITOR";
+    v = editor;
     cp = "cp -riv";
     mv = "mv -iv";
     ln = "ln -iv";
@@ -42,15 +40,11 @@ let
     cloc = "tokei";
     nixconf = "~/nix-config/nixos-rebuild.sh";
     su = if shell == "nushell" then "su -s $env.SHELL" else "su -s $SHELL";
-    # proc =
-    #   if shell == "nushell" then
-    #     "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg"
-    #   else
-    #     "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+    proc = if shell == "nushell" then "ps" else "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
     mpa = "mpv --no-video";
     ytdl = "yt-dlp -P ~/Downloads";
     gcd1 = "git clone --depth 1";
-    watch = "watch -c";
+    watch = if shell == "nushell" then "watch" else "watch -c";
     lazyconf = "lazygit -p ~/nix-config";
   };
 in
@@ -208,10 +202,11 @@ in
         "--group-directories-first"
       ];
     };
-    # starship = {
-    #   enable = true;
-    #   enableFishIntegration = true;
-    # };
+    starship = {
+      enable = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = false;
+    };
     fish = {
       enable = true;
       interactiveShellInit = ''
