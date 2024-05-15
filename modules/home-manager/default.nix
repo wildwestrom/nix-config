@@ -5,6 +5,9 @@
   dark_mode,
   ...
 }:
+let
+  font_size = 14;
+in
 {
   imports = [ ./helix.nix ];
 
@@ -232,7 +235,7 @@
       shellIntegration.enableFishIntegration = true;
       font = {
         name = font.monospace;
-        size = 14;
+        size = font_size;
       };
       theme = if dark_mode then "One Dark" else "Atom One Light";
       settings = {
@@ -243,6 +246,12 @@
     alacritty = {
       enable = true;
       settings = {
+        font = {
+          size = font_size;
+          normal = {
+            family = font.monospace;
+          };
+        };
         colors =
           if dark_mode then
             {
