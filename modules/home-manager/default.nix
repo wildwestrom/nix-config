@@ -15,14 +15,14 @@ let
       CLICOLOR = "1";
       EDITOR = "${hx_bin}/bin/hx";
     };
-  shell_aliases = {
+  shell_aliases = shell: {
     switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
     v = "$EDITOR";
     cp = "cp -riv";
     mv = "mv -iv";
     ln = "ln -iv";
     rm = "rm -riv";
-    mkdir = "mkdir -pv";
+    mkdir = if shell == "nushell" then "mkdir -pv" else "mkdir -v";
     chmod = "chmod -v";
     chown = "chown -v";
     ls = "eza";
@@ -42,7 +42,11 @@ let
     cloc = "tokei";
     nixconf = "$EDITOR ~/nix-config";
     su = "su -s $SHELL";
-    proc = "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg";
+    proc =
+      if shell == "nushell" then
+        "ps u | head -n1; ps aux | rg -v '\\srg\\s-\\.' | rg"
+      else
+        "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
     mpa = "mpv --no-video";
     ytdl = "yt-dlp -P ~/Downloads";
     gcd1 = "git clone --depth 1";
@@ -138,7 +142,7 @@ in
       "/run/current-system/sw/bin"
     ];
     sessionVariables = environment_variables;
-    shellAliases = shell_aliases;
+    shellAliases = shell_aliases "default";
     enableNixpkgsReleaseCheck = true;
   };
   programs = {
@@ -221,7 +225,7 @@ in
 
       };
       environmentVariables = environment_variables;
-      shellAliases = shell_aliases;
+      shellAliases = shell_aliases "nushell";
     };
     zoxide = {
       enable = true;
