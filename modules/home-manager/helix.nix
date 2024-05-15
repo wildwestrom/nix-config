@@ -1,8 +1,4 @@
-{
-  pkgs,
-  # dark_mode,
-  ...
-}:
+{ pkgs, ... }:
 {
   home = {
     packages = with pkgs; [

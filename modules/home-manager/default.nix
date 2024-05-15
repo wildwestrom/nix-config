@@ -9,47 +9,13 @@ let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
   font_size = 14;
-  environment_variables = {
-    CLICOLOR = "1";
-    EDITOR = editor;
-  };
-  shell_aliases = shell: {
-    switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
-    v = editor;
-    cp = "cp -riv";
-    mv = "mv -iv";
-    ln = "ln -iv";
-    rm = "rm -riv";
-    mkdir = if shell == "nushell" then "mkdir -v" else "mkdir -pv";
-    chmod = "chmod -v";
-    chown = "chown -v";
-    ls = "eza";
-    ll = "ls -la";
-    la = "ls -a";
-    lt = "ls -a --tree";
-    "l." = "ls -d .*";
-    df = "df -h";
-    fd = "fd --hidden";
-    rg = "rg -.";
-    ag = "ag -a";
-    cat = "bat";
-    less = "bat --style=plain --paging=always";
-    top = "btm --color=default";
-    htop = "btm --color=default";
-    grep = "rg";
-    cloc = "tokei";
-    nixconf = "~/nix-config/nixos-rebuild.sh";
-    su = if shell == "nushell" then "su -s $env.SHELL" else "su -s $SHELL";
-    proc = if shell == "nushell" then "ps" else "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
-    mpa = "mpv --no-video";
-    ytdl = "yt-dlp -P ~/Downloads";
-    gcd1 = "git clone --depth 1";
-    watch = if shell == "nushell" then "watch" else "watch -c";
-    lazyconf = "lazygit -p ~/nix-config";
-  };
 in
 {
-  imports = [ ./helix.nix ];
+  imports = [
+    ./helix.nix
+    ./nushell.nix
+    # ./fish.nix
+  ];
 
   home = {
     packages = with pkgs; [
@@ -135,8 +101,43 @@ in
       "/usr/local/bin"
       "/run/current-system/sw/bin"
     ];
-    sessionVariables = environment_variables;
-    shellAliases = shell_aliases "default";
+    sessionVariables = {
+      CLICOLOR = "1";
+      EDITOR = editor;
+    };
+    shellAliases = {
+      switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
+      v = editor;
+      cp = "cp -riv";
+      mv = "mv -iv";
+      ln = "ln -iv";
+      rm = "rm -riv";
+      mkdir = "mkdir -pv";
+      chmod = "chmod -v";
+      chown = "chown -v";
+      ll = "ls -la";
+      la = "ls -a";
+      lt = "ls -a --tree";
+      "l." = "ls -d .*";
+      df = "df -h";
+      fd = "fd --hidden";
+      rg = "rg -.";
+      ag = "ag -a";
+      cat = "bat";
+      less = "bat --style=plain --paging=always";
+      top = "btm --color=default";
+      htop = "btm --color=default";
+      grep = "rg";
+      cloc = "tokei";
+      nixconf = "~/nix-config/nixos-rebuild.sh";
+      su = "su -s $SHELL";
+      proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
+      mpa = "mpv --no-video";
+      ytdl = "yt-dlp -P ~/Downloads";
+      gcd1 = "git clone --depth 1";
+      watch = "watch -c";
+      lazyconf = "lazygit -p ~/nix-config";
+    };
     enableNixpkgsReleaseCheck = true;
   };
   programs = {
@@ -195,32 +196,10 @@ in
         init.defaultBranch = "main";
       };
     };
-    eza = {
-      enable = true;
-      extraOptions = [
-        "--grid"
-        "--group-directories-first"
-      ];
-    };
     starship = {
       enable = true;
       enableFishIntegration = true;
       enableNushellIntegration = false;
-    };
-    fish = {
-      enable = true;
-      interactiveShellInit = ''
-        set fish_greeting # Disable greeting
-        fish_vi_key_bindings # use vi bindings
-      '';
-    };
-    nushell = {
-      enable = true;
-      configFile = {
-
-      };
-      environmentVariables = environment_variables;
-      shellAliases = shell_aliases "nushell";
     };
     zoxide = {
       enable = true;
