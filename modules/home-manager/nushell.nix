@@ -28,7 +28,6 @@ in
         chown = "chown -v";
         ll = "ls -la";
         la = "ls -a";
-        lt = "ls -a --tree";
         "l." = "ls -d .*";
         df = "df -h";
         fd = "fd --hidden";
