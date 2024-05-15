@@ -141,7 +141,8 @@ in
     bash
     helix
     wget
-    nushell
+    fish
+    # nushell
     brightnessctl
     usbutils
     dmidecode
@@ -187,7 +188,7 @@ in
     (nerdfonts.override { fonts = [ font.monospace ]; })
   ];
 
-  # programs.fish.enable = true;
+  programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
     description = "main user";
@@ -197,7 +198,7 @@ in
       "audio"
       "networkmanager"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.fish;
   };
 
   # TODO: Reorganize the stuff needed for Wayland
