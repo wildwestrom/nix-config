@@ -129,7 +129,7 @@ in
       grep = "rg";
       cloc = "tokei";
       nixconf = "$EDITOR ~/nix-config";
-      su = "su -s ${pkgs.fish}/bin/fish";
+      su = "su -s $SHELL";
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       mpa = "mpv --no-video";
       ytdl = "yt-dlp -P ~/Downloads";
