@@ -199,10 +199,10 @@
         "--group-directories-first"
       ];
     };
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-    };
+    # starship = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    # };
     fish = {
       enable = true;
       interactiveShellInit = ''
@@ -210,9 +210,14 @@
         fish_vi_key_bindings # use vi bindings
       '';
     };
+    nushell = {
+      enable = true;
+      configFile = {
+
+      };
+    };
     zoxide = {
       enable = true;
-      enableFishIntegration = true;
     };
     ripgrep = {
       enable = true;
@@ -224,7 +229,7 @@
     };
     kitty = {
       enable = true;
-      # shellIntegration.enableFishIntegration = true;
+      shellIntegration.enableFishIntegration = true;
       font = {
         name = font.monospace;
         size = 14;
@@ -233,6 +238,67 @@
       settings = {
         confirm_os_window_close = 0; # Disable
         macos_option_as_alt = true;
+      };
+    };
+    alacritty = {
+      enable = true;
+      settings = {
+        colors =
+          if dark_mode then
+            {
+              primary = {
+                background = "#282c34";
+                foreground = "#abb2bf";
+              };
+              normal = {
+                black = "#1e2127";
+                red = "#e06c75";
+                green = "#98c379";
+                yellow = "#d19a66";
+                blue = "#61afef";
+                magenta = "#c678dd";
+                cyan = "#56b6c2";
+                white = "#abb2bf";
+              };
+              bright = {
+                black = "#5c6370";
+                red = "#e06c75";
+                green = "#98c379";
+                yellow = "#d19a66";
+                blue = "#61afef";
+                magenta = "#c678dd";
+                cyan = "#56b6c2";
+                white = "#ffffff";
+              };
+            }
+          else
+            {
+              primary = {
+                background = "#f8f8f8";
+                foreground = "#2a2b33";
+              };
+              normal = {
+                black = "#000000";
+                red = "#de3d35";
+                green = "#3e953a";
+                yellow = "#d2b67b";
+                blue = "#2f5af3";
+                magenta = "#a00095";
+                cyan = "#3e953a";
+                white = "#bbbbbb";
+              };
+              bright = {
+                black = "#000000";
+                red = "#de3d35";
+                green = "#3e953a";
+                yellow = "#d2b67b";
+                blue = "#2f5af3";
+                magenta = "#a00095";
+                cyan = "#3e953a";
+                white = "#ffffff";
+              };
+            };
+        decorations_theme_variant = if dark_mode then "Dark" else "Light";
       };
     };
     wezterm =
