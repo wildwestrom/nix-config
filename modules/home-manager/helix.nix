@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, dark_mode, ... }:
 {
   home = {
     packages = with pkgs; [
@@ -19,10 +19,7 @@
     helix = {
       enable = true;
       settings = {
-        theme = "zed_onedark";
-        # if dark_mode
-        # then "zed_onedark"
-        # else "onelight";
+        theme = if dark_mode then "zed_onedark" else "onelight";
         editor = {
           terminal = {
             command = "kitty";
