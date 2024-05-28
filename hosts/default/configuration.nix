@@ -171,7 +171,10 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
