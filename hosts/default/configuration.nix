@@ -171,6 +171,7 @@ in
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
+  services.resolved.enable = true;
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad-vpn;
