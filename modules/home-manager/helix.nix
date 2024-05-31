@@ -15,6 +15,12 @@
     ];
   };
 
+  xdg.configFile = {
+    "helix/ignore".text = ''
+      *.lock
+    '';
+  };
+
   programs = {
     helix = {
       enable = true;
