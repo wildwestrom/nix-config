@@ -1,14 +1,7 @@
-{
-  pkgs,
-  font,
-  dark_mode,
-  ...
-}:
+{ pkgs, font, ... }:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
-  swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef -c ${
-    if dark_mode then "000000" else "ffffff"
-  }'';
+  swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
   terminal = "${pkgs.alacritty}/bin/alacritty";
@@ -79,7 +72,7 @@ in
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
           "${super}+Shift+f" = "exec ${pkgs.cinnamon.nemo-with-extensions}/bin/nemo";
           "${super}+q" = "kill";
-          "${super}+Shift+q" = "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' 'swaylock -e -f'";
+          "${super}+Shift+q" = "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylock}'";
           "${super}+d" = "exec ${menu}";
           # Layout
           "${super}+b" = "splith";
