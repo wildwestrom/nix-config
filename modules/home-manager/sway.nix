@@ -1,7 +1,8 @@
 { pkgs, font, ... }:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
-  swaylock = ''${dimDisplay} && ${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
+  swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
+  dim_then_lock = ''${dimDisplay} && ${swaylock}'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
   terminal = "${pkgs.alacritty}/bin/alacritty";
@@ -208,7 +209,7 @@ in
       timeouts = [
         {
           timeout = 300;
-          command = swaylock;
+          command = dim_then_lock;
         }
         {
           timeout = 360;
@@ -223,11 +224,11 @@ in
         }
         {
           event = "before-sleep";
-          command = swaylock;
+          command = dim_then_lock;
         }
         {
           event = "lock";
-          command = swaylock;
+          command = dim_then_lock;
         }
       ];
     };
