@@ -66,6 +66,7 @@ in
       tcpdump
       dig
       entr
+      rargs
       sqlitebrowser
       pgadmin
       python311Packages.python-dotenv
