@@ -96,6 +96,7 @@ in
       docker-compose
       bc
       squeak
+      android-file-transfer
     ];
     sessionPath = [
       "$HOME/.local/bin"
