@@ -149,7 +149,7 @@ in
         ];
         output = {
           eDP-1 = {
-            scale = "1.25";
+            scale = "1";
           };
         };
         input = {
