@@ -38,8 +38,6 @@
       pkgs = import nixpkgs-wayland {
         inherit system;
         overlays = [
-          # sway-git-overlay.overlays.default # provides sway-git
-          # sway-git-overlay.overlays.replace-sway # replaces sway with sway-git (anywhere you use pkgs.sway you'll get pkgs.sway-git instead)
           # (final: prev: let
           #   zedpkgs = nixpkgs-zed.legacyPackages.x86_64-linux;
           # in {
