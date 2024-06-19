@@ -53,7 +53,6 @@
           };
           indent-guides = {
             render = true;
-            character = "|";
             skip_levels = "1";
           };
         };
