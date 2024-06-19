@@ -33,6 +33,8 @@
           };
           line-number = "relative";
           auto-format = true;
+          auto-save = true;
+          text-width = 100;
           true-color = true;
           color-modes = true;
           lsp.display-messages = true;
@@ -49,6 +51,11 @@
           soft-wrap = {
             enable = true;
           };
+          indent-guides = {
+            render = true;
+            character = "|";
+            skip_levels = "|";
+          };
         };
       };
       languages = {
@@ -60,29 +67,7 @@
               unit = "\t";
             };
             language-servers = [ "rust-analyzer" ];
-            # # See if the debug configuration is actually unnecessary
-            # debugger = {
-            #   command = "lldb-vscode";
-            #   name = "lldb-vscode";
-            #   port-arg = "--port {}";
-            #   transport = "tcp";
-            #   templates = [
-            #     {
-            #       name = "binary";
-            #       request = "launch";
-            #       completion = [
-            #         {
-            #           completion = "filename";
-            #           name = "binary";
-            #         }
-            #       ];
-            #       args = {
-            #         program = "{0}";
-            #         runInTerminal = true;
-            #       };
-            #     }
-            #   ];
-            # };
+            auto-format = true;
           }
           {
             name = "nix";
@@ -166,6 +151,7 @@
             command = "jdt-language-server";
           };
           rust-analyzer = {
+            command = "rust-analzyer";
             timeout = 60;
             check.command = "clippy";
             procMacro.ignored.leptos_macro = [ "server" ];
