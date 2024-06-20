@@ -62,6 +62,7 @@ in
       fontforge-gtk
       python3Packages.setuptools
       vintagestory
+      wl-color-picker
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
