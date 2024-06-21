@@ -150,7 +150,6 @@
             command = "jdt-language-server";
           };
           rust-analyzer = {
-            command = "rust-analzyer";
             timeout = 60;
             check.command = "clippy";
             procMacro.ignored.leptos_macro = [ "server" ];
