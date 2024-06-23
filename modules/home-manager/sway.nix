@@ -48,7 +48,7 @@ in
         ws7 = workspace "7";
         ws8 = workspace "8";
         ws9 = workspace "9";
-        ws10 = workspace "bg";
+        ws10 = workspace "10";
       in
       {
         modifier = super;
