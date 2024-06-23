@@ -6,9 +6,9 @@
   ...
 }:
 let
-  system-theme = if dark_mode then "adwaita-dark" else "adwaita";
+  system-theme = if dark_mode then "Adwaita-dark" else "Adwaita";
   cursor-theme = system-theme;
-  icon-theme = system-theme;
+  icon-theme = "Adwaita";
   terminal = "kitty";
 in
 {
@@ -39,6 +39,7 @@ in
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = with pkgs; [
+      gtk4
       cinnamon.nemo-with-extensions
       cinnamon.nemo-fileroller
       networkmanagerapplet
@@ -47,6 +48,7 @@ in
       gnome.gucharmap
       gnome.gnome-calculator
       gnome.evince
+      libadwaita
       pavucontrol # Even though I use pipewire, it works
       element-desktop
       imv
@@ -66,6 +68,7 @@ in
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
+      GTK_THEME = "${system-theme}";
     };
   };
   systemd.user.services = {
@@ -156,12 +159,11 @@ in
   gtk = {
     enable = true;
     theme.name = system-theme;
-    theme.package = pkgs.gnome.gnome-themes-extra;
+    # theme.package = pkgs.gnome-themes-extra;
     cursorTheme.name = cursor-theme;
-    # cursorTheme.size = 24; # TODO: Test different values
-    cursorTheme.package = pkgs.gnome.adwaita-icon-theme;
+    cursorTheme.size = 32; # TODO: Test different values
     iconTheme.name = icon-theme;
-    iconTheme.package = pkgs.gnome.gnome-themes-extra;
+    iconTheme.package = pkgs.gnome.adwaita-icon-theme;
   };
   qt = {
     enable = true;
