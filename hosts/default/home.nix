@@ -65,6 +65,7 @@ in
       python3Packages.setuptools
       vintagestory
       wl-color-picker
+      android-udev-rules
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;

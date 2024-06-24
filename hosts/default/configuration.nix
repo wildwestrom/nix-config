@@ -194,6 +194,8 @@ in
     (nerdfonts.override { fonts = [ font.monospace ]; })
   ];
 
+  services.udev.packages = [ pkgs.android-udev-rules ];
+
   programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
