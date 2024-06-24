@@ -66,6 +66,7 @@ in
       vintagestory
       wl-color-picker
       android-udev-rules
+      localsend
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;

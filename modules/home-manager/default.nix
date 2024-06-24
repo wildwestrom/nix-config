@@ -97,6 +97,7 @@ in
       bc
       squeak
       android-file-transfer
+      mpv
     ];
     sessionPath = [
       "$HOME/.local/bin"
