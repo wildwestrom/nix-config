@@ -39,7 +39,6 @@ in
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = with pkgs; [
-      gtk4
       cinnamon.nemo-with-extensions
       cinnamon.nemo-fileroller
       networkmanagerapplet
@@ -48,6 +47,7 @@ in
       gnome.gucharmap
       gnome.gnome-calculator
       gnome.evince
+      gtk4
       libadwaita
       pavucontrol # Even though I use pipewire, it works
       element-desktop
@@ -67,6 +67,7 @@ in
       wl-color-picker
       android-udev-rules
       localsend
+      nvtop-amd
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
