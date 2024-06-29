@@ -147,6 +147,7 @@ in
     usbutils
     dmidecode
     libnotify
+    podman-compose
   ];
 
   # Firmware updater
@@ -280,12 +281,18 @@ in
     NIXOS_OZONE_WL = "1";
   };
 
-  virtualisation.docker = {
-    enable = true;
-    autoPrune.enable = true;
-    rootless = {
+  virtualisation = {
+    podman = {
       enable = true;
-      setSocketVariable = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
+    docker = {
+      enable = true;
+      autoPrune.enable = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 
