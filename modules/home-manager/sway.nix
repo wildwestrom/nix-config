@@ -143,7 +143,7 @@ in
         ];
         defaultWorkspace = "${ws1}";
         startup = [
-          { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
+          # { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --indicator"; }
           # {command = "${pkgs.fcitx5-with-addons}/bin/fcitx5 --replace";}
         ];
