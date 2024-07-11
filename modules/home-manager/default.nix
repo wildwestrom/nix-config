@@ -23,7 +23,6 @@ in
       sd
       lazygit
       tokei
-      rustup
       lldb
       gdb
       gh
@@ -50,16 +49,6 @@ in
       typst
       typst-fmt
       typst-lsp
-      pkg-config
-      cargo-watch
-      cargo-make
-      cargo-outdated
-      cargo-generate
-      cargo-udeps
-      cargo-modules
-      cargo-leptos
-      cargo-tauri
-      leptosfmt
       sea-orm-cli
       nasm
       psmisc
@@ -98,6 +87,7 @@ in
       squeak
       android-file-transfer
       mpv
+      imagemagick
     ];
     sessionPath = [
       "$HOME/.local/bin"

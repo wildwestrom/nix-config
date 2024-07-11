@@ -39,14 +39,13 @@ in
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
     packages = with pkgs; [
-      cinnamon.nemo-with-extensions
-      cinnamon.nemo-fileroller
       networkmanagerapplet
       gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap
       gnome.gnome-calculator
       gnome.evince
+      gnome.nautilus
       gtk4
       libadwaita
       pavucontrol # Even though I use pipewire, it works
