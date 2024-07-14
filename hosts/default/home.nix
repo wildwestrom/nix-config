@@ -66,6 +66,7 @@ in
       android-udev-rules
       localsend
       nvtop-amd
+      gsettings-desktop-schemas
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
