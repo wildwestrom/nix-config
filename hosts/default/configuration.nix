@@ -130,13 +130,6 @@ in
     settings = {
       default_session = {
         command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
-        # ^^^ This line. This goddamn fucking line. ^^^
-        # If I use the one above then using xdg-open opens the wrong web browser (brave), not like how I set it. However, everything else seems to work ok.
-        # 
-        # If I use the one below then swayidle, clipman, network manager, a whole bunch of xdg desktop portals, and a bunch of other services just fail.
-        # Even Fcitx5 doesn't work.
-        # Why the fuck does this happen????
-        # command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "dbus-run-session sway"'';
         user = "greeter";
       };
     };
@@ -229,7 +222,7 @@ in
   xdg = {
     portal = {
       enable = true;
-      xdgOpenUsePortal = true;
+      xdgOpenUsePortal = false;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       wlr = {
         enable = true;
