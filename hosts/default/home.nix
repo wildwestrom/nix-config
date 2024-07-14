@@ -167,8 +167,8 @@ in
   services.syncthing.enable = true;
   gtk = {
     enable = true;
-    # theme.name = system-theme;
-    # # theme.package = pkgs.gnome-themes-extra;
+    theme.name = system-theme;
+    # theme.package = pkgs.gnome-themes-extra;
     cursorTheme.name = cursor-theme;
     cursorTheme.size = 32; # TODO: Test different values
     iconTheme.name = icon-theme;
