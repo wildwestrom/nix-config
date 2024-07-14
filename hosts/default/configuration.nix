@@ -246,6 +246,7 @@ in
     extraSpecialArgs = {
       inherit inputs username;
       font.monospace = "${font.monospace} Nerd Font Mono";
+      font.default = font.default;
       dark_mode = dark_mode;
     };
     useGlobalPkgs = true;

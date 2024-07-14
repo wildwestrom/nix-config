@@ -3,6 +3,7 @@
   username,
   config,
   dark_mode,
+  font,
   ...
 }:
 let
@@ -33,6 +34,12 @@ in
   dconf.settings = {
     "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
     "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
+    "org/gnome/desktop/interface" = {
+      gtk_theme = system-theme;
+      icon_theme = icon-theme;
+      cursor_theme = cursor-theme;
+      font-name = font.default;
+    };
   };
 
   home = {
