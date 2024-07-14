@@ -40,7 +40,6 @@ in
     stateVersion = "23.11";
     packages = with pkgs; [
       networkmanagerapplet
-      gnome.adwaita-icon-theme
       gnome.gnome-font-viewer
       gnome.gucharmap
       gnome.gnome-calculator
