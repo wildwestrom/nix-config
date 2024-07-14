@@ -22,7 +22,10 @@ in
     package = pkgs.sway;
     systemd.enable = true;
     systemd.xdgAutostart = true;
-    wrapperFeatures.gtk = true;
+    wrapperFeatures = {
+      base = true;
+      gtk = true;
+    };
     extraSessionCommands = ''
       export XDG_SESSION_TYPE=wayland
       export XDG_CURRENT_DESKTOP=sway
