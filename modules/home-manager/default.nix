@@ -460,4 +460,8 @@ in
       };
     };
   };
+  xdg.configFile."bacon" = {
+    target = "prefs.toml";
+    source = ./bacon-config.toml;
+  };
 }
