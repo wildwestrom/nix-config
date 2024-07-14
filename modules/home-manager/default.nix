@@ -88,6 +88,7 @@ in
       android-file-transfer
       mpv
       imagemagick
+      bacon
     ];
     sessionPath = [
       "$HOME/.local/bin"
