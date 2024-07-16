@@ -89,7 +89,7 @@ in
       mpv
       imagemagick
       bacon
-      qrencode
+      qrcode
     ];
     sessionPath = [
       "$HOME/.local/bin"
