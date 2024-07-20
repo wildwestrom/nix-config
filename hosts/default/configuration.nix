@@ -11,8 +11,8 @@
 }:
 let
   username = "main";
-  config-dir = "nix-config";
 in
+# config-dir = "nix-config";
 {
   imports = [
     # Include the results of the hardware scan.
@@ -22,7 +22,7 @@ in
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nix.nixPath = [ "nixos-cofnig=/home/${username}/${config-dir}" ];
+  # nix.nixPath = [ "nixos-cofnig=/home/${username}/${config-dir}" ];
 
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
