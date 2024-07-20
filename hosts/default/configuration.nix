@@ -11,6 +11,7 @@
 }:
 let
   username = "main";
+  config_dir = "nix-config";
 in
 {
   imports = [
@@ -20,6 +21,8 @@ in
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  nix.nixPath = [ "nixos-cofnig=/home/${username}/nix-config" ];
 
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
