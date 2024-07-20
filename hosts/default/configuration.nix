@@ -19,6 +19,8 @@ in
     inputs.home-manager.nixosModules.default
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
   hardware.keyboard.zsa.enable = true;
