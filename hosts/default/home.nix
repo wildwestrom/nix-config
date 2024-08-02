@@ -74,6 +74,7 @@ in
       localsend
       nvtop-amd
       gsettings-desktop-schemas
+      nextcloud-client
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
