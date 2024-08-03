@@ -78,7 +78,7 @@ in
       nextcloud-client
       gamescope
       winetricks
-      wineWow64Packages.waylandFull
+      wineWowPackages.waylandFull
       lutris
     ];
     # persistence = {
