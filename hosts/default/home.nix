@@ -81,6 +81,7 @@ in
       winetricks
       protontricks
       wineWowPackages.stagingFull
+      steamtinkerlaunch
       lutris
     ];
     # persistence = {
