@@ -78,6 +78,7 @@ in
       nextcloud-client
       protontricks
       wineWow64Packages.waylandFull
+      lutris
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
