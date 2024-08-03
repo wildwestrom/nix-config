@@ -77,6 +77,7 @@ in
       gsettings-desktop-schemas
       nextcloud-client
       gamescope
+      protonup-qt
       winetricks
       wineWowPackages.stagingFull
       lutris
