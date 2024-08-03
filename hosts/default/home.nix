@@ -79,6 +79,7 @@ in
       gamescope
       protonup-qt
       winetricks
+      protontricks
       wineWowPackages.stagingFull
       lutris
     ];
