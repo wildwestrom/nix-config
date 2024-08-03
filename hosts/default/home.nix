@@ -78,7 +78,8 @@ in
       nextcloud-client
       gamescope
       winetricks
-      (lutris.override { extraLibraries = pkgs: [ wineWow64Packages.waylandFull ]; })
+      wineWow64Packages.waylandFull
+      lutris
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
