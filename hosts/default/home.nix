@@ -77,6 +77,7 @@ in
       gsettings-desktop-schemas
       nextcloud-client
       gamescope
+      winetricks
       (lutris.override { extraLibraries = pkgs: [ wineWow64Packages.waylandFull ]; })
     ];
     # persistence = {
