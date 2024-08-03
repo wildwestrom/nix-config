@@ -45,6 +45,7 @@ in
   home = {
     homeDirectory = "/home/${username}";
     stateVersion = "23.11";
+    # This is where I keep linux specific programs
     packages = with pkgs; [
       networkmanagerapplet
       gnome.gnome-font-viewer
@@ -75,6 +76,8 @@ in
       nvtop-amd
       gsettings-desktop-schemas
       nextcloud-client
+      protontricks
+      wineWowPackages.waylandFull
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
