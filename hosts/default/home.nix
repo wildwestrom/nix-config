@@ -77,7 +77,7 @@ in
       gsettings-desktop-schemas
       nextcloud-client
       protontricks
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;

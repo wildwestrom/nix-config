@@ -26,6 +26,8 @@ in
 
   hardware.opengl.enable = true;
   hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
+  hardware.opengl.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+  hardware.opengl.driSupport32Bit = true;
   hardware.keyboard.zsa.enable = true;
 
   programs.nix-ld.enable = true;
