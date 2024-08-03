@@ -76,10 +76,18 @@ in
       nvtop-amd
       gsettings-desktop-schemas
       nextcloud-client
-      protontricks
-      wineWow64Packages.waylandFull
-      lutris
+      gamescope
+      (lutris.override { extraLibraries = pkgs: [ wineWow64Packages.waylandFull ]; })
     ];
+    # persistence = {
+    #   "/persist/${config.home.homeDirectory}" = {
+    #     allowOther = true;
+    #     directories = [
+    #       ".config/lutris"
+    #       ".local/share/lutris"
+    #     ];
+    #   };
+    # };
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
       # GTK_THEME = "${system-theme}";
