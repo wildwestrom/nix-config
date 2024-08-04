@@ -189,7 +189,7 @@ in
     };
   };
   services.syncthing.enable = true;
-  services.pass-secret-service.enable = true;
+  services.gnome-keyring.enable = true;
   gtk = {
     enable = true;
     theme.name = system-theme;
