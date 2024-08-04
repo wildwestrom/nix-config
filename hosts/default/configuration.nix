@@ -122,6 +122,9 @@ in
 
   services.printing.enable = true;
 
+  # I have no fucking idea how this works.
+  # I just want keyrings to work so I don't have to 
+  # re-log in to nextcloud every time I start my computer.
   security.pam.services.swaylock = {
     enableGnomeKeyring = true;
   };
