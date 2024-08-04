@@ -122,7 +122,9 @@ in
 
   services.printing.enable = true;
 
-  security.pam.services.swaylock = { };
+  security.pam.services.swaylock = {
+    enableGnomeKeyring = true;
+  };
 
   services.dbus.enable = true;
 
