@@ -129,7 +129,7 @@ in
         ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
         Environment = [
           "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin"
-          "PASSWORD_STORE_DIR=/home/jon/.password-store"
+          "PASSWORD_STORE_DIR=/home/${username}/.password-store"
         ];
       };
     };
