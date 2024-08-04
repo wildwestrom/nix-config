@@ -82,6 +82,12 @@ in
       protontricks
       wineWowPackages.stagingFull
       steamtinkerlaunch
+      # for steamtinkerlaunch to work
+      xxd
+      xorg.xwininfo
+      xorg.xprop
+      xdotool
+      # end steamtinkerlaunch
       lutris
     ];
     # persistence = {
