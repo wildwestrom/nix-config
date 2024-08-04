@@ -129,7 +129,7 @@ in
         ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
         Environment = [
           "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin"
-          "PASSWORD_STORE_DIR=/home/${username}/.password-store"
+          # "PASSWORD_STORE_DIR=/home/${username}/.password-store"
         ];
       };
     };
@@ -189,6 +189,7 @@ in
     };
   };
   services.syncthing.enable = true;
+  services.pass-secret-service.enable = true;
   gtk = {
     enable = true;
     theme.name = system-theme;
