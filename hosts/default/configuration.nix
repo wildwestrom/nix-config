@@ -302,8 +302,7 @@ in
     docker = {
       # enable = true; # Don't enable unless you want docker as root
       daemon.settings = {
-        # dns = [ "127.0.0.53" ];
-        dns = [ ];
+        dns = [ "127.0.0.53" ];
       };
       autoPrune.enable = true;
       rootless = {
