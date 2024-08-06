@@ -192,7 +192,15 @@ in
     53317
   ];
 
-  services.resolved.enable = true;
+  services.resolved = {
+    fallbackDns = [
+      "9.9.9.9"
+      "149.112.112.112"
+      "2620:fe::fe"
+      "2620:fe::9"
+    ];
+    enable = true;
+  };
   services.mullvad-vpn = {
     enable = true;
     package = pkgs.mullvad-vpn;
@@ -302,7 +310,7 @@ in
     docker = {
       # enable = true; # Don't enable unless you want docker as root
       daemon.settings = {
-        dns = [ "127.0.0.53" ];
+        dns = [ "9.9.9.9" ];
       };
       autoPrune.enable = true;
       rootless = {
