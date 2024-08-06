@@ -300,7 +300,7 @@ in
       defaultNetwork.settings.dns_enabled = true;
     };
     docker = {
-      # enable = true;
+      # enable = true; # Don't enable unless you want docker as root
       autoPrune.enable = true;
       rootless = {
         enable = true;
