@@ -90,6 +90,7 @@ in
       imagemagick
       bacon
       qrcode
+      ansifilter
     ];
     sessionPath = [
       "$HOME/.local/bin"
