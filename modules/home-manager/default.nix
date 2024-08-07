@@ -91,6 +91,7 @@ in
       qrcode
       ansifilter
       vesktop
+      protonmail-bridge
     ];
     sessionPath = [
       "$HOME/.local/bin"
