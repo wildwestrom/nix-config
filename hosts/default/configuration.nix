@@ -127,6 +127,8 @@ in
   };
 
   services.gnome.gnome-keyring.enable = true;
+  # this should allow gnome calculator to convert currencies
+  services.gnome.glib-networking.enable = true;
 
   services.dbus.enable = true;
 
