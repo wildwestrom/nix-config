@@ -128,7 +128,7 @@ in
       Service = {
         Restart = "always";
         ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
-        Environment = [ "Path=${pkgs.gnome3.gnome-keyring}/bin:${pkgs.pass}/bin" ];
+        Environment = [ "Path=${pkgs.gnome3.gnome-keyring}/bin" ];
       };
     };
   };
