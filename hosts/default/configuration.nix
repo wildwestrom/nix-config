@@ -290,7 +290,10 @@ in
       "vintagestory"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [ "electron-25.9.0" ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+    "nix-2.16.2"
+  ];
 
   nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
 

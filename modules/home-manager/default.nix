@@ -69,7 +69,6 @@ in
       signal-desktop
       thunderbird
       obsidian
-      vesktop
       qgis
       minecraft
       prismlauncher
@@ -91,6 +90,7 @@ in
       bacon
       qrcode
       ansifilter
+      vesktop
     ];
     sessionPath = [
       "$HOME/.local/bin"

@@ -4,6 +4,7 @@
     packages = with pkgs; [
       python3Packages.python-lsp-server
       nixfmt-rfc-style
+      nixd
       nil
       vscode-langservers-extracted
       nodePackages_latest.typescript-language-server
@@ -81,7 +82,7 @@
               args = [ "-" ];
             };
             auto-format = true;
-            language-servers = [ "nil" ];
+            language-servers = [ "nixd" ];
           }
           {
             name = "python";
