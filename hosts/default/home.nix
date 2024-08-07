@@ -118,18 +118,18 @@ in
         TimeoutStopSec = 10;
       };
     };
-    protonmail-bridge = {
-      Unit = {
-        Description = "Protonmail Bridge";
-        After = [ "network-online.target" ];
-      };
+    # protonmail-bridge = {
+    #   Unit = {
+    #     Description = "Protonmail Bridge";
+    #     After = [ "network-online.target" ];
+    #   };
 
-      Service = {
-        Restart = "always";
-        ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
-        Environment = [ "Path=${pkgs.gnome3.gnome-keyring}/bin" ];
-      };
-    };
+    #   Service = {
+    #     Restart = "always";
+    #     ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --no-window --noninteractive";
+    #     Environment = [ "Path=${pkgs.gnome3.gnome-keyring}/bin" ];
+    #   };
+    # };
   };
   xdg = {
     enable = true;
