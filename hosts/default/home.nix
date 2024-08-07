@@ -89,7 +89,6 @@ in
       xdotool
       # end steamtinkerlaunch
       lutris
-      pass-wayland
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
