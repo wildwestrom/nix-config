@@ -56,7 +56,7 @@ in
       gtk4
       libadwaita
       pavucontrol # Even though I use pipewire, it works
-      element-desktop
+      fractal
       imv
       qpwgraph
       shared-mime-info
