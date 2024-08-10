@@ -49,7 +49,7 @@
         default = "Noto Sans CJK KR";
         monospace = "JetBrainsMono";
       };
-      dark_mode = true;
+      dark_mode = false;
     in
     {
       nixosConfigurations = {
