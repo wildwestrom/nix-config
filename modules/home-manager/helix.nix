@@ -26,7 +26,7 @@
     helix = {
       enable = true;
       settings = {
-        theme = if dark_mode then "dracula_at_night" else "onelight";
+        theme = if dark_mode then "zed_onedark" else "onelight";
         editor = {
           terminal = {
             command = "kitty";
