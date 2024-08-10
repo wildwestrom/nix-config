@@ -57,6 +57,7 @@ in
       libadwaita
       pavucontrol # Even though I use pipewire, it works
       fractal
+      element-desktop
       imv
       qpwgraph
       shared-mime-info
