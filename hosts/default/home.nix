@@ -81,7 +81,7 @@ in
       protonup-qt
       winetricks
       protontricks
-      wineWowPackages.stagingFull
+      wineWowPackages.waylandFull
       steamtinkerlaunch
       # for steamtinkerlaunch to work
       xxd
