@@ -92,6 +92,7 @@ in
       ansifilter
       vesktop
       protonmail-bridge
+      musescore
     ];
     sessionPath = [
       "$HOME/.local/bin"
