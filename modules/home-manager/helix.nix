@@ -75,7 +75,7 @@
               tab-width = 2;
               unit = "\t";
             };
-            language-servers = [ "ccls" ];
+            language-servers = [ "cc-ls" ];
             auto-format = false;
           }
           {
@@ -158,6 +158,9 @@
           };
           jdtls = {
             command = "jdt-language-server";
+          };
+          cc-ls = {
+            command = "ccls";
           };
           rust-analyzer = {
             timeout = 60;
