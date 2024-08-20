@@ -70,6 +70,15 @@
             auto-format = true;
           }
           {
+            name = "cpp";
+            indent = {
+              tab-width = 2;
+              unit = "\t";
+            };
+            language-servers = [ "ccls" ];
+            auto-format = false;
+          }
+          {
             name = "nix";
             file-types = [ "nix" ];
             roots = [ "flake.lock" ];
