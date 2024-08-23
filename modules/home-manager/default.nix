@@ -128,6 +128,7 @@ in
       grep = "rg";
       cloc = "tokei";
       nixconf = "~/nix-config/nixos-rebuild.sh";
+      nixrebuildlog = "cat ~/nix-config/nixos-switch.log";
       su = "su -s $SHELL";
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       mpa = "mpv --no-video";

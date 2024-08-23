@@ -36,6 +36,7 @@ in
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   security.polkit.enable = true;
+  security.sudo-rs.enable = true; # let's evaluate this and see if it works
   services.pipewire = {
     enable = true;
     alsa.enable = true;
