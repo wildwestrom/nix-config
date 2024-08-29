@@ -49,7 +49,6 @@ in
       typst
       typst-fmt
       typst-lsp
-      sea-orm-cli
       nasm
       psmisc
       tcpdump
@@ -88,6 +87,7 @@ in
       mpv
       imagemagick
       bacon
+      sccache
       qrcode
       ansifilter
       vesktop
