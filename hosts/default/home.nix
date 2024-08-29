@@ -91,6 +91,7 @@ in
       # end steamtinkerlaunch
       lutris
       gnome.gnome-disk-utility
+      baobab
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
