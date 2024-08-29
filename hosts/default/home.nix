@@ -90,6 +90,7 @@ in
       xdotool
       # end steamtinkerlaunch
       lutris
+      gnome.gnome-disk-utility
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
