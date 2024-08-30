@@ -87,6 +87,7 @@ in
       mpv
       imagemagick
       bacon
+      cargo
       sccache
       qrcode
       ansifilter
