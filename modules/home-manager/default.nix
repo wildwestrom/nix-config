@@ -466,8 +466,16 @@ in
       };
     };
   };
-  xdg.configFile."bacon" = {
-    target = "prefs.toml";
-    source = ./bacon-config.toml;
+  xdg.configFile = {
+    "bacon" = {
+      target = "prefs.toml";
+      source = ./bacon-config.toml;
+    };
+  };
+  home.file.".cargo" = {
+    target = ".cargo/config";
+    text = ''
+      [build]
+      rustc-wrapper = ${pkgs.sccache}'';
   };
 }
