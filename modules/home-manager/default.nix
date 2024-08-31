@@ -473,7 +473,7 @@ in
     };
   };
   home.file.".cargo" = {
-    target = ".cargo/config";
+    target = ".cargo/config.toml";
     text = ''
       [build]
       rustc-wrapper = "${pkgs.sccache}"'';
