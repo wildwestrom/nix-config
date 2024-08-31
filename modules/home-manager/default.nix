@@ -476,6 +476,6 @@ in
     target = ".cargo/config";
     text = ''
       [build]
-      rustc-wrapper = ${pkgs.sccache}'';
+      rustc-wrapper = "${pkgs.sccache}"'';
   };
 }
