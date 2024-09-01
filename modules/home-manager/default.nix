@@ -94,6 +94,7 @@ in
       vesktop
       protonmail-bridge
       musescore
+      wormhole-rs
     ];
     sessionPath = [
       "$HOME/.local/bin"
