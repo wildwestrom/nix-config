@@ -86,8 +86,6 @@ in
       android-file-transfer
       mpv
       imagemagick
-      bacon
-      cargo
       sccache
       qrcode
       ansifilter
@@ -96,6 +94,8 @@ in
       musescore
       wormhole-rs
       graphviz
+      bacon
+      rustup
     ];
     sessionPath = [
       "$HOME/.local/bin"
