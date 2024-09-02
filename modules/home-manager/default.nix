@@ -95,6 +95,7 @@ in
       protonmail-bridge
       musescore
       wormhole-rs
+      graphviz
     ];
     sessionPath = [
       "$HOME/.local/bin"
