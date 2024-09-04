@@ -205,6 +205,17 @@ in
     kanshi = {
       enable = true;
       systemdTarget = "sway-session.target";
+      profiles = {
+        "lg-tv" = {
+          outputs = [
+            {
+              criteria = "LG Electronics LG TV SSCR 0x01010101";
+              mode = "3840x2160@30Hz";
+              scale = 2.0;
+            }
+          ];
+        };
+      };
     };
     swayidle = {
       enable = true;
