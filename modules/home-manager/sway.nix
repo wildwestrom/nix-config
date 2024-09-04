@@ -209,9 +209,12 @@ in
         "lg-tv" = {
           outputs = [
             {
+              criteria = "eDP-1";
+              scale = 1.0;
+            }
+            {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
-              mode = "1920x1080@120Hz";
-              scale = 2.0;
+              scale = 1.5;
             }
           ];
         };
