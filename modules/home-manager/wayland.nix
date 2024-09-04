@@ -19,7 +19,7 @@
     wlsunset = {
       enable = true;
       systemdTarget = "graphical-session.target";
-      temperature.night = 3000;
+      temperature.night = 4000;
       latitude = "37.5";
       longitude = "127.0";
     };

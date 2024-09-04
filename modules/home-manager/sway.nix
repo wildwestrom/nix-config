@@ -210,7 +210,7 @@ in
           outputs = [
             {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
-              mode = "3840x2160@30Hz";
+              mode = "1920x1080@120Hz";
               scale = 2.0;
             }
           ];
