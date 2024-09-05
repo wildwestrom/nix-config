@@ -157,6 +157,7 @@ in
     helix
     wget
     fish
+    man-db
     # nushell
     brightnessctl
     usbutils
