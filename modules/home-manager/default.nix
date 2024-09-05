@@ -53,7 +53,7 @@ in
       psmisc
       tcpdump
       dig
-      entr
+      watchexec
       rargs
       sqlitebrowser
       pgadmin
