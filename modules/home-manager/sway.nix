@@ -15,7 +15,10 @@ in
     ./wayland.nix
     ./waybar.nix
   ];
-  home.packages = with pkgs; [ sway-contrib.grimshot ];
+  home.packages = with pkgs; [
+    kanshi
+    sway-contrib.grimshot
+  ];
 
   wayland.windowManager.sway = {
     enable = true;
