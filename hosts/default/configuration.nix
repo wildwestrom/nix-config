@@ -158,6 +158,9 @@ in
     wget
     fish
     man-db
+    linux-manual
+    man-pages
+    man-pages-posix
     # nushell
     brightnessctl
     usbutils
