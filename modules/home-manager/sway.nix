@@ -213,7 +213,7 @@ in
           outputs = [
             {
               criteria = "eDP-1";
-              scale = 1.0;
+              status = "disable";
             }
             {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
