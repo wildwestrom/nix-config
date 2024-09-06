@@ -217,8 +217,8 @@ in
             }
             {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
-              mode = "1920x1080@120Hz";
-              scale = 1.0;
+              mode = "3840x2160@30Hz";
+              scale = 1.25;
             }
           ];
         };
