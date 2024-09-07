@@ -146,7 +146,7 @@ in
       pictures = "${config.home.homeDirectory}/images";
       publicShare = "${config.home.homeDirectory}/public";
       templates = "${config.home.homeDirectory}/templates";
-      videos = "${config.home.homeDirectory}/videos";
+      videos = "${config.home.homeDirectory}/vids";
     };
     mimeApps = {
       enable = true;
