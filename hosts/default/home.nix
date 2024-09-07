@@ -177,6 +177,7 @@ in
         "message/rfc822" = "thunderbird.desktop";
         "x-scheme-handler/mid" = "thunderbird.desktop";
         "font/otf" = "org.gnome.font-viewer.desktop";
+        "video/mkv" = "mpv.desktop";
       };
     };
   };
