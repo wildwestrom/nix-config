@@ -96,6 +96,7 @@ in
       graphviz
       bacon
       rustup
+      transmission_4-gtk
     ];
     sessionPath = [
       "$HOME/.local/bin"
