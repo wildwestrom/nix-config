@@ -98,6 +98,7 @@ in
       rustup
       transmission_4-gtk
       mpv
+      vlc
     ];
     sessionPath = [
       "$HOME/.local/bin"
