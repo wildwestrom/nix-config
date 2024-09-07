@@ -97,6 +97,7 @@ in
       bacon
       rustup
       transmission_4-gtk
+      mpv
     ];
     sessionPath = [
       "$HOME/.local/bin"
