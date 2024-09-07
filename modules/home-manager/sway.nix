@@ -209,6 +209,14 @@ in
       enable = true;
       systemdTarget = "sway-session.target";
       profiles = {
+        "monitor-only" = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+            }
+          ];
+        };
         "lg-tv" = {
           outputs = [
             {
