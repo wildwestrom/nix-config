@@ -97,7 +97,6 @@ in
       bacon
       rustup
       transmission_4-gtk
-      mpv
       vlc
     ];
     sessionPath = [
