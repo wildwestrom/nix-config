@@ -54,6 +54,7 @@ in
       tcpdump
       dig
       watchexec
+      entr
       rargs
       sqlitebrowser
       pgadmin
@@ -320,7 +321,12 @@ in
         '';
         # colorSchemes = ""; # TOML code
       };
-    zathura.enable = true;
+    zathura = {
+      enable = true;
+      options = {
+        selection-clipboard = "clipboard";
+      };
+    };
     direnv = {
       enable = true;
       # enableFishIntegration = true; # already enabled by default
