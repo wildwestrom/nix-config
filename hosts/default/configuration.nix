@@ -236,7 +236,7 @@ in
   programs.fish.enable = true;
   users.users.${username} = {
     isNormalUser = true;
-    description = "main user";
+    description = "Christian Westrom";
     extraGroups = [
       "wheel"
       "video"
