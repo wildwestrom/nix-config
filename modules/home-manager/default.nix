@@ -104,6 +104,7 @@ in
       "$HOME/.local/bin"
       "/usr/local/bin"
       "/run/current-system/sw/bin"
+      "$HOME/.cargo/bin"
     ];
     sessionVariables = {
       CLICOLOR = "1";
