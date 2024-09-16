@@ -25,10 +25,17 @@ in
 
   # nix.nixPath = [ "nixos-cofnig=/home/${username}/${config-dir}" ];
 
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [ amdvlk ];
-  hardware.opengl.extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      amdvlk
+      rocm-opencl-icd
+      rocm-opencl-runtime
+    ];
+    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+    driSupport = true;
+    driSupport32Bit = true;
+  };
   hardware.keyboard.zsa.enable = true;
 
   programs.nix-ld.enable = true;
@@ -163,10 +170,12 @@ in
     man-pages-posix
     # nushell
     brightnessctl
+    pciutils
     usbutils
     dmidecode
     libnotify
     podman-compose
+    clinfo
   ];
 
   # Firmware updater
