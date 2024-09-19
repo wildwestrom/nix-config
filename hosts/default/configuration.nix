@@ -31,7 +31,6 @@ in
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
-      amdvlk
       rocm-opencl-icd
       rocm-opencl-runtime
     ];
