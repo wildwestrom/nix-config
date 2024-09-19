@@ -90,7 +90,6 @@ in
       sccache
       qrcode
       ansifilter
-      armcord
       webcord
       protonmail-bridge
       musescore
