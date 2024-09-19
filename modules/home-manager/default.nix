@@ -90,7 +90,8 @@ in
       sccache
       qrcode
       ansifilter
-      vesktop
+      armcord
+      webcord
       protonmail-bridge
       musescore
       wormhole-rs
