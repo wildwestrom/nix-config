@@ -305,7 +305,6 @@ in
       "minecraft-launcher"
       "libsciter"
       "surrealdb"
-      "discord"
       "vintagestory"
     ];
 
