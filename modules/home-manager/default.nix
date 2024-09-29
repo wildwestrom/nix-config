@@ -9,6 +9,7 @@ let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
   font_size = 14;
+  terminal = "${pkgs.kitty}/bin/kitty";
 in
 {
   imports = [
@@ -143,6 +144,7 @@ in
       gcd1 = "git clone --depth 1";
       watch = "watch -c";
       lazyconf = "lazygit -p ~/nix-config";
+      newterm = "${terminal} . & disown";
     };
     enableNixpkgsReleaseCheck = true;
   };
