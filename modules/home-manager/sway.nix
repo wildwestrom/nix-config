@@ -214,6 +214,8 @@ in
             {
               criteria = "eDP-1";
               status = "enable";
+              mode = "2256x1504@60Hz";
+              scale = 1.0;
             }
           ];
         };
