@@ -16,8 +16,6 @@
       url = "github:nix-community/nixpkgs-wayland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    woomer.url = "github:coffeeispower/woomer";
   };
 
   outputs =
