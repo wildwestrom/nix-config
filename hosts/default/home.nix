@@ -4,6 +4,7 @@
   config,
   dark_mode,
   font,
+  inputs,
   ...
 }:
 let
