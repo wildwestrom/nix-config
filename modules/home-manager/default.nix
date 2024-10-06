@@ -23,6 +23,7 @@ in
       nmap
       sd
       lazygit
+      gitui
       fossil
       tokei
       lldb
