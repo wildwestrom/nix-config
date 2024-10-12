@@ -73,7 +73,6 @@ in
       thunderbird
       obsidian
       qgis
-      minecraft
       prismlauncher
       rustdesk
       osmctools
@@ -86,7 +85,6 @@ in
       inkscape
       docker-compose
       bc
-      squeak
       android-file-transfer
       mpv
       imagemagick

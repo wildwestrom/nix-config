@@ -35,7 +35,6 @@ in
       rocm-opencl-runtime
     ];
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-    driSupport = true;
     driSupport32Bit = true;
   };
   hardware.keyboard.zsa.enable = true;
@@ -301,7 +300,6 @@ in
       "steam"
       "steam-original"
       "steam-run"
-      "minecraft-launcher"
       "libsciter"
       "surrealdb"
       "vintagestory"
