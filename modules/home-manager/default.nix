@@ -102,6 +102,7 @@ in
       rustup
       transmission_4-gtk
       vlc
+      freecad
     ];
     sessionPath = [
       "$HOME/.local/bin"
