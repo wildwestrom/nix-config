@@ -9,13 +9,6 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
-    sway-git-overlay.url = "github:jalil-salame/sway-git-overlay";
-
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
