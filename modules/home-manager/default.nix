@@ -101,6 +101,7 @@ in
       transmission_4-gtk
       vlc
       freecad
+      bitwarden-desktop
     ];
     sessionPath = [
       "$HOME/.local/bin"
