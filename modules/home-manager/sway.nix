@@ -226,11 +226,13 @@ in
               status = "enable";
               mode = "2256x1504@60Hz";
               scale = 1.0;
+              position = "0,0";
             }
             {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
               mode = "3840x2160@30Hz";
               scale = 1.75;
+              position = "2257,0"; # To the right of my screen
               status = "enable";
             }
           ];
