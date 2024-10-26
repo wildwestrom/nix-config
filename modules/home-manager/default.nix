@@ -102,6 +102,7 @@ in
       vlc
       freecad
       bitwarden-desktop
+      obs-studio
     ];
     sessionPath = [
       "$HOME/.local/bin"
