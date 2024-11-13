@@ -1,4 +1,9 @@
-{ pkgs, dark_mode, ... }:
+{
+  pkgs,
+  dark_mode,
+  username,
+  ...
+}:
 {
   home = {
     packages = with pkgs; [
@@ -143,14 +148,22 @@
           }
         ];
         language-server = {
-          nil = {
-            command = "nil";
-          };
           nixd = {
             command = "nixd";
-          };
-          rnix-lsp = {
-            command = "rnix-lsp";
+            nixpkgs = {
+              expr = "import <nixpkgs> {}";
+            };
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+            options = {
+              "nixos" = {
+                expr = "(builtins.getFlake \"/home/${username}/nix-config\").nixosConfigurations.default.options";
+              };
+              "home-manager" = {
+                expr = "(builtins.getFlake \"/home/${username}/nix-config\").homeConfigurations.main.options";
+              };
+            };
           };
           typst-lsp = {
             command = "typst-lsp";
