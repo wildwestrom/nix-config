@@ -103,6 +103,7 @@ in
       freecad
       bitwarden-desktop
       obs-studio
+      tldr
     ];
     sessionPath = [
       "$HOME/.local/bin"
