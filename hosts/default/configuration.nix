@@ -26,7 +26,7 @@ in
     "fs.inotify.max_user_watches" = "524288";
   };
 
-  # nix.nixPath = [ "nixos-cofnig=/home/${username}/${config-dir}" ];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   hardware.opengl = {
     enable = true;
