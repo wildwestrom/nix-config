@@ -324,7 +324,7 @@ in
       source = ./bacon-config.toml;
     };
     "rustfmt" = {
-      target = "rustfmt.toml";
+      target = "rustfmt/rustfmt.toml";
       text = ''
         hard_tabs = true
         tab_spaces = 2
