@@ -66,7 +66,7 @@
           {
             name = "rust";
             indent = {
-              tab-width = 2;
+              tab-width = 4;
               unit = "\t";
             };
             language-servers = [ "rust-analyzer" ];
