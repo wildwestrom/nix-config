@@ -356,10 +356,10 @@ in
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;
-    # polarity = "dark";
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
-    polarity = "light";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    # polarity = "light";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
     cursor = {
       package = pkgs.adwaita-icon-theme-legacy;
       name = "Adwaita";
