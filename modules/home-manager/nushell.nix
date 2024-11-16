@@ -1,6 +1,5 @@
 {
   config,
-  #dark_mode,
   ...
 }:
 let

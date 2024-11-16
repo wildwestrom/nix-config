@@ -1,6 +1,5 @@
 {
   pkgs,
-  dark_mode,
   username,
   ...
 }:
@@ -31,6 +30,7 @@
     helix = {
       enable = true;
       settings = {
+        theme = "onelight";
         editor = {
           terminal = {
             command = "kitty";

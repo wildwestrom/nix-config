@@ -5,9 +5,6 @@
   pkgs,
   inputs,
   lib,
-  font,
-  dark_mode,
-  stylix,
   ...
 }:
 let
@@ -238,7 +235,7 @@ in
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    (nerdfonts.override { fonts = [ font.monospace ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   services.udev.packages = [ pkgs.android-udev-rules ];
@@ -283,9 +280,6 @@ in
   home-manager = {
     extraSpecialArgs = {
       inherit inputs username;
-      font.monospace = "${font.monospace} Nerd Font Mono";
-      font.default = font.default;
-      dark_mode = dark_mode;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -353,6 +347,12 @@ in
     options = "--delete-older-than 14d";
   };
 
+  home-manager.sharedModules = [
+    {
+      stylix.targets.helix.enable = false;
+    }
+  ];
+
   stylix = {
     enable = true;
     image = ./wallpaper.jpg;
@@ -378,8 +378,8 @@ in
       };
 
       sansSerif = {
-        package = pkgs.sarasa-gothic;
-        name = "Sarasa Gothic K";
+        package = pkgs.noto-fonts-cjk-sans;
+        name = "Noto Sans CJK KR";
       };
 
       monospace = {

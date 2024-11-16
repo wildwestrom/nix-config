@@ -15,18 +15,11 @@
 
   outputs =
     { nixpkgs, ... }@inputs:
-    let
-      font = {
-        default = "Noto Sans CJK KR";
-        monospace = "JetBrainsMono";
-      };
-      dark_mode = false;
-    in
     {
       nixosConfigurations = {
         default = nixpkgs.lib.nixosSystem {
           specialArgs = {
-            inherit inputs font dark_mode;
+            inherit inputs;
           };
           modules = [
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd

@@ -1,4 +1,4 @@
-{ pkgs, font, ... }:
+{ pkgs, ... }:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
   swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
