@@ -1,14 +1,12 @@
 {
   pkgs,
   config,
-  font,
   dark_mode,
   ...
 }:
 let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
-  font_size = 14;
   terminal = "${pkgs.kitty}/bin/kitty";
 in
 {
@@ -161,9 +159,6 @@ in
     };
     bat = {
       enable = true;
-      config = {
-        theme = if dark_mode then "OneHalfDark" else "Monokai Extended Light";
-      };
       extraPackages = with pkgs.bat-extras; [
         batdiff
         batman
@@ -227,11 +222,6 @@ in
     kitty = {
       enable = true;
       shellIntegration.enableFishIntegration = true;
-      font = {
-        name = font.monospace;
-        size = font_size;
-      };
-      theme = if dark_mode then "One Dark" else "Atom One Light";
       settings = {
         confirm_os_window_close = 0; # Disable
         macos_option_as_alt = true;
@@ -239,95 +229,22 @@ in
     };
     alacritty = {
       enable = true;
-      settings = {
-        font = {
-          size = font_size;
-          normal = {
-            family = font.monospace;
-          };
-        };
-        colors =
-          if dark_mode then
-            {
-              primary = {
-                background = "#282c34";
-                foreground = "#abb2bf";
-              };
-              normal = {
-                black = "#1e2127";
-                red = "#e06c75";
-                green = "#98c379";
-                yellow = "#d19a66";
-                blue = "#61afef";
-                magenta = "#c678dd";
-                cyan = "#56b6c2";
-                white = "#abb2bf";
-              };
-              bright = {
-                black = "#5c6370";
-                red = "#e06c75";
-                green = "#98c379";
-                yellow = "#d19a66";
-                blue = "#61afef";
-                magenta = "#c678dd";
-                cyan = "#56b6c2";
-                white = "#ffffff";
-              };
-            }
-          else
-            {
-              primary = {
-                background = "#f8f8f8";
-                foreground = "#2a2b33";
-              };
-              normal = {
-                black = "#000000";
-                red = "#de3d35";
-                green = "#3e953a";
-                yellow = "#d2b67b";
-                blue = "#2f5af3";
-                magenta = "#a00095";
-                cyan = "#3e953a";
-                white = "#bbbbbb";
-              };
-              bright = {
-                black = "#000000";
-                red = "#de3d35";
-                green = "#3e953a";
-                yellow = "#d2b67b";
-                blue = "#2f5af3";
-                magenta = "#a00095";
-                cyan = "#3e953a";
-                white = "#ffffff";
-              };
-            };
-        window = {
-          decorations_theme_variant = if dark_mode then "Dark" else "Light";
-        };
-      };
     };
-    wezterm =
-      let
-        theme = if dark_mode then "OneDark (base16)" else "One Light (Gogh)";
-      in
-      {
-        enable = true;
-        extraConfig = ''
-          local wezterm = require "wezterm"
-          local config = {
-            font = wezterm.font "${font.monospace}",
-            enable_tab_bar = false,
-            color_scheme = "${theme}",
-            window_close_confirmation = "NeverPrompt",
-            default_cursor_style = "BlinkingBar",
-            cursor_blink_ease_in = "Constant",
-            cursor_blink_ease_out = "Constant",
-            cursor_blink_rate = 500,
-          }
-          return config
-        '';
-        # colorSchemes = ""; # TOML code
-      };
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        local wezterm = require "wezterm"
+        local config = {
+          enable_tab_bar = false,
+          window_close_confirmation = "NeverPrompt",
+          default_cursor_style = "BlinkingBar",
+          cursor_blink_ease_in = "Constant",
+          cursor_blink_ease_out = "Constant",
+          cursor_blink_rate = 500,
+        }
+        return config
+      '';
+    };
     zathura = {
       enable = true;
       options = {
@@ -345,80 +262,6 @@ in
       settings = {
         simplified_ui = false;
         pane_frames = false;
-        theme = "default";
-        themes = {
-          default = {
-            fg = 7;
-            bg = 0;
-            black = 0;
-            red = 1;
-            green = 2;
-            yellow = 3;
-            blue = 4;
-            magenta = 5;
-            cyan = 6;
-            white = 7;
-            orange = 16;
-            gray = 18;
-          };
-          solarized-light = {
-            fg = [
-              101
-              123
-              131
-            ];
-            bg = [
-              253
-              246
-              227
-            ];
-            black = [
-              7
-              54
-              66
-            ];
-            red = [
-              220
-              50
-              47
-            ];
-            green = [
-              133
-              153
-              0
-            ];
-            yellow = [
-              181
-              137
-              0
-            ];
-            blue = [
-              38
-              139
-              210
-            ];
-            magenta = [
-              211
-              54
-              130
-            ];
-            cyan = [
-              42
-              161
-              152
-            ];
-            white = [
-              238
-              232
-              213
-            ];
-            orange = [
-              203
-              75
-              22
-            ];
-          };
-        };
       };
     };
     vscode = {
@@ -433,17 +276,10 @@ in
         redhat.java
         vscjava.vscode-maven
       ];
-      userSettings =
-        let
-          theme = if dark_mode then "Visual Studio Dark" else "Visual Studio Light";
-        in
-        {
-          "workbench.colorTheme" = theme;
-          "files.autoSave" = "afterDelay";
-          "editor.fontFamily" = "${font.monospace}, 'monospace', monospace";
-          "terminal.integrated.fontFamily" = "${font.monospace}, 'monospace', monospace";
-          "window.zoomLevel" = 1;
-        };
+      userSettings = {
+        "files.autoSave" = "afterDelay";
+        "window.zoomLevel" = 1;
+      };
     };
     atuin = {
       enable = true;
@@ -488,12 +324,21 @@ in
       target = "prefs.toml";
       source = ./bacon-config.toml;
     };
+    "rustfmt" = {
+      target = "rustfmt.toml";
+      text = ''
+        hard_tabs = true
+        tab_spaces = 2
+      '';
+    };
   };
-  home.file.".cargo" = {
-    target = ".cargo/config.toml";
-    text = ''
-      [build]
-      rustc-wrapper = "${pkgs.sccache}/bin/sccache"
-    '';
+  home.file = {
+    ".cargo" = {
+      target = ".cargo/config.toml";
+      text = ''
+        [build]
+        rustc-wrapper = "${pkgs.sccache}/bin/sccache"
+      '';
+    };
   };
 }

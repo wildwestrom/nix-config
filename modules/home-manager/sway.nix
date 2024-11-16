@@ -141,9 +141,6 @@ in
         # };
         bars = [
           {
-            fonts = {
-              names = [ "${font.monospace}" ];
-            };
             command = "${pkgs.waybar}/bin/waybar";
           }
         ];
@@ -172,14 +169,6 @@ in
             tap = "enabled";
             tap_button_map = "lmr";
           };
-        };
-        fonts = {
-          names = [
-            "Sarasa Mono K"
-            "Sarasa Mono J"
-            "${font.monospace}"
-          ];
-          size = 12.0;
         };
         modes = {
           default = { };

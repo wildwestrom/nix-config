@@ -9,6 +9,8 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    stylix.url = "github:danth/stylix";
   };
 
   outputs =
@@ -30,6 +32,7 @@
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
             ./hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
+            inputs.stylix.nixosModules.stylix
           ];
         };
       };

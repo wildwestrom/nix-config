@@ -2,15 +2,9 @@
   pkgs,
   username,
   config,
-  dark_mode,
-  font,
-  inputs,
   ...
 }:
 let
-  system-theme = if dark_mode then "Adwaita-dark" else "Adwaita";
-  cursor-theme = system-theme;
-  icon-theme = "Adwaita";
   terminal = "kitty";
 in
 {
@@ -35,12 +29,6 @@ in
   dconf.settings = {
     "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
     "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
-    "org/gnome/desktop/interface" = {
-      gtk_theme = system-theme;
-      icon_theme = icon-theme;
-      cursor_theme = cursor-theme;
-      font-name = font.default;
-    };
   };
 
   home = {
@@ -103,10 +91,6 @@ in
     #     ];
     #   };
     # };
-    sessionVariables = {
-      XCURSOR_THEME = cursor-theme;
-      # GTK_THEME = "${system-theme}";
-    };
   };
   systemd.user.services = {
     polkit-gnome-authentication-agent-1 = {
@@ -197,18 +181,8 @@ in
   services.syncthing.enable = true;
   gtk = {
     enable = true;
-    theme.name = system-theme;
-    # theme.package = pkgs.gnome-themes-extra;
-    cursorTheme.name = cursor-theme;
-    cursorTheme.size = 32; # TODO: Test different values
-    iconTheme.name = icon-theme;
-    iconTheme.package = pkgs.gnome.adwaita-icon-theme;
   };
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style = {
-      name = system-theme;
-    };
   };
 }

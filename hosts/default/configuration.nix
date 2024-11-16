@@ -7,6 +7,7 @@
   lib,
   font,
   dark_mode,
+  stylix,
   ...
 }:
 let
@@ -351,4 +352,36 @@ in
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
+
+  stylix = {
+    enable = true;
+    image = ./wallpaper.jpg;
+    # polarity = "dark";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    polarity = "light";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+
+    fonts = {
+      serif = {
+        package = pkgs.noto-fonts-cjk-serif;
+        name = "Noto Serif CJK KR";
+      };
+
+      sansSerif = {
+        package = pkgs.sarasa-gothic;
+        name = "Sarasa Gothic K";
+      };
+
+      monospace = {
+        package = pkgs.jetbrains-mono;
+        name = "JetBrainsMono";
+      };
+
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+  };
+
 }
