@@ -327,7 +327,7 @@ in
       target = "rustfmt/rustfmt.toml";
       text = ''
         hard_tabs = true
-        tab_spaces = 2
+        tab_spaces = 4
       '';
     };
   };
