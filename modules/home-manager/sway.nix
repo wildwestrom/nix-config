@@ -43,7 +43,7 @@ in
         down = "j";
         up = "k";
         right = "l";
-        menu = "${pkgs.fuzzel}/bin/fuzzel -i Adwaita -B 0 -r 0 -b 302f2ef8 -t d0d0d0ff -S ffffffff -s 1793d1ff -f 'Noto Sans:size=14' -w 50";
+        menu = "${pkgs.fuzzel}/bin/fuzzel";
         workspace = a: "workspace " + a;
         ws1 = workspace "1";
         ws2 = workspace "2";

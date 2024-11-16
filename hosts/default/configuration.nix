@@ -360,8 +360,18 @@ in
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+    cursor = {
+      package = pkgs.adwaita-icon-theme-legacy;
+      name = "Adwaita";
+    };
 
     fonts = {
+      sizes = {
+        terminal = 14; # default 12
+        applications = 14; # default 12
+        desktop = 12; # default 10
+        popups = 12; # default 10
+      };
       serif = {
         package = pkgs.noto-fonts-cjk-serif;
         name = "Noto Serif CJK KR";
