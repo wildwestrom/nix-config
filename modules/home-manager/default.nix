@@ -115,7 +115,7 @@ in
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
       v = editor;
-      cp = "cp -riv";
+      cp = "cp -rv";
       mv = "mv -iv";
       ln = "ln -iv";
       rm = "rm -riv";
