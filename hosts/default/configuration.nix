@@ -369,7 +369,7 @@ in
     fonts = {
       sizes = {
         terminal = 14; # default 12
-        applications = 14; # default 12
+        applications = 12; # default 12
         desktop = 12; # default 10
         popups = 12; # default 10
       };
