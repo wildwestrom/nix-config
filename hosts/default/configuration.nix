@@ -360,8 +360,9 @@ in
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+
     cursor = {
-      package = pkgs.adwaita-icon-theme-legacy;
+      package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
     };
 
