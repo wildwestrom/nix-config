@@ -101,6 +101,7 @@ in
       bitwarden-desktop
       obs-studio
       tldr
+      blender
     ];
     sessionPath = [
       "$HOME/.local/bin"
