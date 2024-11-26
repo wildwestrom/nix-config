@@ -298,6 +298,7 @@ in
       "libsciter"
       "surrealdb"
       "vintagestory"
+      "cursor"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [

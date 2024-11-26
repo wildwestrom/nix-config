@@ -103,6 +103,7 @@ in
       tldr
       blender
       ollama-rocm
+      code-cursor
     ];
     sessionPath = [
       "$HOME/.local/bin"
