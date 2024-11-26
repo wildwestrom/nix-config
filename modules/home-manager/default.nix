@@ -102,6 +102,7 @@ in
       obs-studio
       tldr
       blender
+      ollama-rocm
     ];
     sessionPath = [
       "$HOME/.local/bin"
