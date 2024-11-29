@@ -174,7 +174,7 @@ in
           default = { };
         };
         gaps = {
-          outer = 2;
+          outer = 0;
           inner = 4;
           smartGaps = true;
           smartBorders = "on";
