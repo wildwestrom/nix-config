@@ -173,6 +173,11 @@ in
         modes = {
           default = { };
         };
+        gaps = {
+          outer = 3;
+          smartGaps = true;
+          smartBorders = "on";
+        };
         window = {
           border = 2;
           commands = [
@@ -180,12 +185,14 @@ in
               command = "inhibit_idle fullscreen";
               criteria = {
                 shell = ".*";
+                app_id = ".*";
               };
             }
             {
-              command = "inhibit_idle fullscreen";
+              command = "titlebar_border_thickness 2";
               criteria = {
                 app_id = ".*";
+                shell = ".*";
               };
             }
           ];
