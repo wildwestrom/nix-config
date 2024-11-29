@@ -174,7 +174,7 @@ in
           default = { };
         };
         window = {
-          border = 1;
+          border = 2;
           commands = [
             {
               command = "inhibit_idle fullscreen";
