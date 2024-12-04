@@ -37,11 +37,10 @@ in
     # This is where I keep linux specific programs
     packages = with pkgs; [
       networkmanagerapplet
-      gnome.gnome-font-viewer
-      gnome.gucharmap
-      gnome.gnome-calculator
-      gnome.evince
-      gnome.nautilus
+      gnome-font-viewer
+      gucharmap
+      gnome-calculator
+      evince
       gtk4
       libadwaita
       pavucontrol # Even though I use pipewire, it works
@@ -59,7 +58,6 @@ in
       glib
       fontforge-gtk
       python3Packages.setuptools
-      vintagestory
       wl-color-picker
       android-udev-rules
       localsend
@@ -79,7 +77,7 @@ in
       xdotool
       # end steamtinkerlaunch
       lutris
-      gnome.gnome-disk-utility
+      gnome-disk-utility
       baobab
     ];
     # persistence = {

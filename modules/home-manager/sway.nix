@@ -77,7 +77,7 @@ in
           "${super}+a" = "focus parent";
           "${super}+Return" = "exec ${terminal}";
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
-          "${super}+Shift+f" = "exec ${pkgs.gnome.nautilus}/bin/nautilus";
+          "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
           "${super}+q" = "kill";
           "${super}+Shift+q" = "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylock}'";
           "${super}+d" = "exec ${menu}";

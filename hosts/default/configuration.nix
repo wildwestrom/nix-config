@@ -18,7 +18,7 @@ in
     inputs.home-manager.nixosModules.default
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_10;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = "524288";
@@ -28,10 +28,6 @@ in
 
   hardware.opengl = {
     enable = true;
-    extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
-    ];
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
     driSupport32Bit = true;
   };
@@ -231,11 +227,10 @@ in
 
   fonts.packages = with pkgs; [
     sarasa-gothic
-    noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
 
   services.udev.packages = [ pkgs.android-udev-rules ];
@@ -293,18 +288,15 @@ in
     builtins.elem (lib.getName pkg) [
       "obsidian"
       "steam"
+      "steam-unwrapped"
       "steam-original"
       "steam-run"
       "libsciter"
       "surrealdb"
-      "vintagestory"
       "cursor"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-    "nix-2.16.2"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ ];
 
   nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
 
