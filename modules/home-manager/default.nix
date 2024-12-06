@@ -104,6 +104,7 @@ in
       blender
       ollama-rocm
       code-cursor
+      ddcui
     ];
     sessionPath = [
       "$HOME/.local/bin"
@@ -149,6 +150,7 @@ in
       watch = "watch -c";
       lazyconf = "lazygit -p ~/nix-config";
       newterm = "${terminal} . & disown";
+      nwg-displays = "nwg-displays -n 10";
     };
     enableNixpkgsReleaseCheck = true;
   };

@@ -162,6 +162,7 @@ in
     wget
     fish
     man-db
+    ddcutil
     linux-manual
     man-pages
     man-pages-posix

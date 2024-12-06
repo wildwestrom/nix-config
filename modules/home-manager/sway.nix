@@ -36,6 +36,10 @@ in
       export export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export QT_SCALE_FACTOR=1.25
     '';
+    extraConfig = ''
+      include ~/.config/sway/outputs
+      include ~/.config/sway/workspaces
+    '';
     config =
       let
         super = "Mod4";
@@ -133,9 +137,9 @@ in
           "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-";
           "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
-
           "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
+
         };
         # keycodebindings = {
         # };
