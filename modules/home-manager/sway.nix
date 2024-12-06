@@ -216,6 +216,24 @@ in
             }
           ];
         };
+        "external-monitor" = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              status = "enable";
+              mode = "2256x1504@60Hz";
+              position = "2256,0"; # Laptop is to the right
+              scale = 1.0;
+            }
+            {
+              criteria = "Samsung Electronics Company Ltd SEC-700A7KI Unknown";
+              status = "enable";
+              mode = "1920x1080@60Hz";
+              position = "0,0"; # Screen to my left
+              scale = 0.5;
+            }
+          ];
+        };
         "lg-tv" = {
           outputs = [
             {
@@ -229,7 +247,7 @@ in
               criteria = "LG Electronics LG TV SSCR 0x01010101";
               mode = "3840x2160@30Hz";
               scale = 1.75;
-              position = "2257,0"; # To the right of my screen
+              position = "2256,0"; # To the right of my screen
               status = "enable";
             }
           ];
