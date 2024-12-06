@@ -222,14 +222,14 @@ in
               criteria = "eDP-1";
               status = "enable";
               mode = "2256x1504@60Hz";
-              position = "1920,0"; # Laptop is to the right
+              # position = "1920,0"; # Laptop is to the right
               scale = 1.0;
             }
             {
               criteria = "Samsung Electronics Company Ltd SEC-700A7KI Unknown";
               status = "enable";
               mode = "1920x1080@60Hz";
-              position = "0,0"; # Screen to my left
+              # position = "0,0"; # Screen to my left
               scale = 0.5;
             }
           ];
