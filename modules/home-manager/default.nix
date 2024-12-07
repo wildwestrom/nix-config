@@ -141,14 +141,14 @@ in
       grep = "rg";
       cloc = "tokei";
       nixconf = "~/nix-config/nixos-rebuild.sh";
-      nixrebuildlog = "cat ~/nix-config/nixos-switch.log";
+      lazyconf = "lazygit -p ~/nix-config";
+      nixbuildlog = "tail -f ~/nix-config/nixos-switch.log";
       su = "su -s $SHELL";
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       mpa = "mpv --no-video";
       ytdl = "yt-dlp -P ~/Downloads";
       gcd1 = "git clone --depth 1";
       watch = "watch -c";
-      lazyconf = "lazygit -p ~/nix-config";
       newterm = "${terminal} . & disown";
       nwg-displays = "nwg-displays -n 10";
     };
