@@ -32,7 +32,7 @@ in
   xdg.desktopEntries.helix = {
     name = "Helix";
     genericName = "Text Editor";
-    exec = if terminal == "kitty" then "hx %F" else [ ];
+    exec = if terminal == "kitty" then "kitty hx %F" else [ ];
     terminal = true;
     categories = [
       "Utility"
