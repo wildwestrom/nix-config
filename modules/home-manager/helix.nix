@@ -54,6 +54,7 @@ in
       "application/x-shellscript"
       "text/x-c"
       "text/x-c++"
+      "text/x-rs"
     ];
   };
 
