@@ -103,7 +103,6 @@ in
       tldr
       blender
       ollama-rocm
-      code-cursor
       ddcui
     ];
     sessionPath = [
