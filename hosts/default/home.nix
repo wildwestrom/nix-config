@@ -79,6 +79,7 @@ in
       lutris
       gnome-disk-utility
       baobab
+      wl-color-picker
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {

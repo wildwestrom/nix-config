@@ -174,6 +174,7 @@ in
     libnotify
     podman-compose
     clinfo
+    adwaita-icon-theme
   ];
 
   # Firmware updater
