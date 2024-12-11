@@ -46,6 +46,7 @@ in
       pavucontrol # Even though I use pipewire, it works
       fractal
       element-desktop
+      nautilus
       imv
       qpwgraph
       shared-mime-info
