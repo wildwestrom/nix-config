@@ -76,11 +76,8 @@ in
         up = "${up}";
         right = "${right}";
         keybindings = {
-          "${super}+Shift+x" = "exec ${pkgs.warpd} --hint";
-          "${super}+Shift+c" = "exec ${pkgs.warpd} --normal";
-          "${super}+Shift+g" = "exec ${pkgs.warpd} --grid";
           "${super}+space" = "floating toggle";
-          "${super}+Shift+r" = "reload";
+          "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
           "${super}+Return" = "exec ${terminal}";
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
