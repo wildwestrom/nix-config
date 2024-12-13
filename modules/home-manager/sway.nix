@@ -76,8 +76,11 @@ in
         up = "${up}";
         right = "${right}";
         keybindings = {
+          "${super}+Shift+x" = "exec ${pkgs.warpd} --hint";
+          "${super}+Shift+c" = "exec ${pkgs.warpd} --normal";
+          "${super}+Shift+g" = "exec ${pkgs.warpd} --grid";
           "${super}+space" = "floating toggle";
-          "${super}+Shift+c" = "reload";
+          "${super}+Shift+r" = "reload";
           "${super}+a" = "focus parent";
           "${super}+Return" = "exec ${terminal}";
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
@@ -139,7 +142,6 @@ in
           "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
           "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
-
         };
         # keycodebindings = {
         # };
