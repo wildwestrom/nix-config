@@ -75,6 +75,7 @@ in
       xxd
       xorg.xwininfo
       xorg.xprop
+      xorg.xeyes
       xdotool
       # end steamtinkerlaunch
       lutris
