@@ -94,7 +94,6 @@ in
       wormhole-rs
       graphviz
       bacon
-      rustup
       transmission_4-gtk
       vlc
       freecad
