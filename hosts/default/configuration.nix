@@ -175,6 +175,7 @@ in
     podman-compose
     clinfo
     adwaita-icon-theme
+    virt-manager
   ];
 
   # Firmware updater
@@ -248,6 +249,7 @@ in
       "video"
       "audio"
       "networkmanager"
+      "libvirtd"
     ];
     shell = pkgs.fish;
   };
@@ -331,7 +333,12 @@ in
         setSocketVariable = true;
       };
     };
+    libvirtd.enable = true;
+    spiceUSBRedirection.enable = true;
   };
+
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = [ username ];
 
   services.devmon.enable = true;
   services.gvfs.enable = true;

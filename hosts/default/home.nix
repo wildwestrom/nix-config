@@ -29,6 +29,10 @@ in
   dconf.settings = {
     "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
     "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
   };
 
   home = {
