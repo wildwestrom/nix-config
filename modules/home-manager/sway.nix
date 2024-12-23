@@ -164,7 +164,7 @@ in
           };
           "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
             # disable touchpad while typing
-            dwt = "enabled";
+            dwt = "disabled";
             natural_scroll = "disabled";
             accel_profile = "adaptive";
             # pointer_accel = "0.1";
