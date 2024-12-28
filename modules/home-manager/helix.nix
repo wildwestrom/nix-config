@@ -222,6 +222,9 @@ in
               "*.rs" = "html";
             };
           };
+          racket-langserver = {
+            command = "racket -l racket-langserver";
+          };
         };
       };
     };
