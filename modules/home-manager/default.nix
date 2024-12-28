@@ -103,6 +103,7 @@ in
       blender
       ollama-rocm
       ddcui
+      picard
     ];
     sessionPath = [
       "$HOME/.local/bin"
