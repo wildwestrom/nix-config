@@ -400,4 +400,6 @@ in
   };
 
   services.flatpak.enable = true;
+
+  hardware.bluetooth.enable = true;
 }
