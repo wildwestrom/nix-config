@@ -20,10 +20,10 @@
       enable = true;
       systemdTarget = "graphical-session.target";
       temperature.night = 4000;
-      latitude = "51.1";
-      longitude = "-114.0";
-      # latitude = "37.5";
-      # longitude = "127.0";
+      # latitude = "51.1";
+      # longitude = "-114.0";
+      latitude = "37.5";
+      longitude = "127.0";
     };
   };
 }
