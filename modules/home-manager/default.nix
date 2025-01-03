@@ -110,6 +110,7 @@ in
       "/usr/local/bin"
       "/run/current-system/sw/bin"
       "$HOME/.cargo/bin"
+      "$HOME/.config/emacs/bin"
     ];
     sessionVariables = {
       CLICOLOR = "1";
