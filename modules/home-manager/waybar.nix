@@ -256,7 +256,7 @@
         mainBar = {
           # "layer" = "top"; # Waybar at top layer
           position = "top"; # Waybar position (top|bottom|left|right)
-          height = 30; # Waybar height (to be removed for auto height)
+          # height = 30; # Waybar height (to be removed for auto height)
           spacing = 4; # Gaps between modules (4px)
           # Choose the order of the modules
           modules-left = [

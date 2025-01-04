@@ -368,6 +368,7 @@ in
     cursor = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
+
     };
 
     fonts = {
