@@ -414,11 +414,4 @@ in
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-
-  # install emacs the daemon systemd service, but don't turn it on globally
-  services.emacs = {
-    enable = false;
-    install = true;
-    package = pkgs.emacs29-pgtk;
-  };
 }
