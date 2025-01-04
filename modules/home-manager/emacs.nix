@@ -6,6 +6,6 @@ let
 in
 {
   home = {
-    packages = with pkgs; [ libvterm ];
+    packages = with pkgs; [ emacsPackages.vterm ];
   };
 }
