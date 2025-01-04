@@ -10,7 +10,7 @@ in
     };
 
   programs.emacs = {
-    enable = false;
+    enable = true;
     package = pkgs.emacs29-pgtk;
     extraPackages = epkgs: [ epkgs.vterm ];
   };
