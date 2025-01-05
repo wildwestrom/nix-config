@@ -28,10 +28,10 @@ in
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
   hardware.keyboard.zsa.enable = true;
 
