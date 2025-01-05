@@ -75,6 +75,7 @@ in
       rustdesk
       osmctools
       racket
+      sbcl
       surrealdb
       surrealist
       hyperfine
