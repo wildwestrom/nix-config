@@ -14,6 +14,7 @@ in
     ./emacs.nix
     # ./nushell.nix
     ./fish.nix
+    ./gaming.nix
   ];
 
   home = {
