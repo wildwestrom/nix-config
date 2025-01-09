@@ -5,9 +5,8 @@
 let
 in
 {
-  home =
-    {
-    };
+  home = {
+  };
 
   programs.emacs = {
     enable = true;

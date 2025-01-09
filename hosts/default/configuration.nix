@@ -81,7 +81,8 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-54f330ac-2d3b-4e33-9aa1-edd5a69f1a91".device = "/dev/disk/by-uuid/54f330ac-2d3b-4e33-9aa1-edd5a69f1a91";
+  boot.initrd.luks.devices."luks-54f330ac-2d3b-4e33-9aa1-edd5a69f1a91".device =
+    "/dev/disk/by-uuid/54f330ac-2d3b-4e33-9aa1-edd5a69f1a91";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -210,6 +211,10 @@ in
 
   services.resolved = {
     fallbackDns = [
+      "1.1.1.1"
+      "2606:4700:4700::1111"
+      "1.0.0.1"
+      "2606:4700:4700::1001"
       "9.9.9.9"
       "149.112.112.112"
       "2620:fe::fe"
