@@ -87,7 +87,7 @@ in
       baobab
       wl-color-picker
       ddcui
-      gnome-bluetooth
+      blueman
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
