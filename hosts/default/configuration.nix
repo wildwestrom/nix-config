@@ -407,6 +407,8 @@ in
 
   services.flatpak.enable = true;
 
+  services.joycond.enable = true;
+
   hardware.bluetooth.enable = true;
 
   nix.settings = {
