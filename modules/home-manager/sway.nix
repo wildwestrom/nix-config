@@ -153,7 +153,7 @@ in
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive"; }
-          { command = "${pkgs.blueman}/bin/blueman-applet"; }
+          # { command = "${pkgs.blueman}/bin/blueman-applet"; }
         ];
         output = {
           eDP-1 = {

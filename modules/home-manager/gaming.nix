@@ -11,7 +11,6 @@ in
       retroarch-free
       retroarch-assets
       retroarch-joypad-autoconfig
-      joycond-cemuhook
     ];
   };
 }

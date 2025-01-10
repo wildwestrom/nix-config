@@ -87,7 +87,7 @@ in
       baobab
       wl-color-picker
       ddcui
-      blueman
+      # blueman
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
