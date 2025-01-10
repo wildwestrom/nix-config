@@ -408,8 +408,17 @@ in
   services.flatpak.enable = true;
 
   services.joycond.enable = true;
+  programs.joycond-cemuhook.enable = true;
 
+  services.blueman.enable = true;
   hardware.bluetooth.enable = true;
+  hardware.bluetooth.input = {
+    General = {
+      UserspaceHID = true;
+      ClassicBondedOnly = false;
+      FastConnectable = true;
+    };
+  };
 
   nix.settings = {
     substituters = [
