@@ -86,6 +86,8 @@ in
       gnome-disk-utility
       baobab
       wl-color-picker
+      ddcui
+      gnome-bluetooth
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {

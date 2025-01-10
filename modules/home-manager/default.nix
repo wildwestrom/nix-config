@@ -105,7 +105,6 @@ in
       tldr
       blender
       ollama-rocm
-      ddcui
       picard
     ];
     sessionPath = [
