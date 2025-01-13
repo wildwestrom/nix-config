@@ -185,20 +185,13 @@ in
           smartBorders = "on";
         };
         window = {
-          border = 2;
+          border = 0;
           commands = [
             {
               command = "inhibit_idle fullscreen";
               criteria = {
                 shell = ".*";
                 app_id = ".*";
-              };
-            }
-            {
-              command = "titlebar_border_thickness 2";
-              criteria = {
-                app_id = ".*";
-                shell = ".*";
               };
             }
           ];
