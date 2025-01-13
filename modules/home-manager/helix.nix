@@ -20,6 +20,7 @@ in
       jdt-language-server
       ccls
       clang-tools
+      slint-lsp
     ];
   };
 
