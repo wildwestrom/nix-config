@@ -185,7 +185,7 @@ in
           smartBorders = "on";
         };
         window = {
-          border = 0;
+          border = 2;
           commands = [
             {
               command = "inhibit_idle fullscreen";
