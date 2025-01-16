@@ -106,6 +106,7 @@ in
       blender
       ollama-rocm
       picard
+      jetbrains.rust-rover
     ];
     sessionPath = [
       "$HOME/.local/bin"

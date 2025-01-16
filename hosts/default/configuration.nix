@@ -305,6 +305,7 @@ in
       "libsciter"
       "surrealdb"
       "cursor"
+      "rust-rover"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ ];

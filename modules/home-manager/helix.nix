@@ -106,6 +106,26 @@ in
             auto-format = true;
           }
           {
+            name = "slint";
+            indent = {
+              tab-width = 4;
+              unit = "\t";
+            };
+            auto-format = true;
+          }
+          {
+            name = "toml";
+            indent = {
+              tab-width = 4;
+              unit = "\t";
+            };
+            auto-format = true;
+            formatter = {
+              command = "taplo";
+              args = "format";
+            };
+          }
+          {
             name = "cpp";
             indent = {
               tab-width = 2;
