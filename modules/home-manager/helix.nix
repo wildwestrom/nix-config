@@ -111,6 +111,7 @@ in
               tab-width = 4;
               unit = "\t";
             };
+            language-servers = [ "slint-lsp" ];
             auto-format = true;
           }
           {
@@ -158,6 +159,16 @@ in
                 "-"
               ];
             };
+          }
+          {
+            name = "gtk-blueprint";
+            file-types = [ "blp" ];
+            formatter = {
+              command = "blueprint-compiler";
+              args = [ "format" ];
+            };
+            auto-format = true;
+            language-servers = [ "blueprint" ];
           }
           {
             name = "typst";
@@ -245,6 +256,12 @@ in
           };
           racket-langserver = {
             command = "racket -l racket-langserver";
+          };
+          blueprint = {
+            command = "blueprint-compiler lsp";
+          };
+          slint-lsp = {
+            command = "slint-lsp";
           };
         };
       };
