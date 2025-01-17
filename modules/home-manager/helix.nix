@@ -122,7 +122,7 @@ in
             auto-format = true;
             formatter = {
               command = "taplo";
-              args = "format";
+              args = [ "format" ];
             };
           }
           {
