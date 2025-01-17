@@ -163,6 +163,12 @@ in
           {
             name = "gtk-blueprint";
             file-types = [ "blp" ];
+            scope = "source.blp";
+            comment-token = "//";
+            indent = {
+              tab-width = 2;
+              unit = "\t";
+            };
             formatter = {
               command = "blueprint-compiler";
               args = [ "format" ];
