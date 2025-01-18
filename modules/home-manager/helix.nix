@@ -174,7 +174,7 @@ in
               args = [ "format" ];
             };
             auto-format = true;
-            language-servers = [ "blueprint" ];
+            language-servers = [ "gtk-blueprint" ];
           }
           {
             name = "typst";
@@ -263,7 +263,7 @@ in
           racket-langserver = {
             command = "racket -l racket-langserver";
           };
-          blueprint = {
+          gtk-blueprint = {
             command = "blueprint-compiler";
             args = [ "lsp" ];
           };
