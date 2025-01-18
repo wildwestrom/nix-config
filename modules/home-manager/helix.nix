@@ -264,7 +264,8 @@ in
             command = "racket -l racket-langserver";
           };
           blueprint = {
-            command = "blueprint-compiler lsp";
+            command = "blueprint-compiler";
+            args = [ "lsp" ];
           };
           slint-lsp = {
             command = "slint-lsp";
