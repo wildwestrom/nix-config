@@ -71,7 +71,6 @@ in
       nextcloud-client
       gamescope
       protonup-qt
-      winetricks
       protontricks
       wineWowPackages.waylandFull
       steamtinkerlaunch
