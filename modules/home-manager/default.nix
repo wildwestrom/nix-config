@@ -125,7 +125,6 @@ in
       cp = "cp -rv";
       mv = "mv -iv";
       ln = "ln -iv";
-      rm = "rm -riv";
       mkdir = "mkdir -pv";
       chmod = "chmod -v";
       chown = "chown -v";
