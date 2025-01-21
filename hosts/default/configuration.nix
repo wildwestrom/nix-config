@@ -58,6 +58,13 @@ in
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  security.wrappers.restic = {
+    source = "${pkgs.restic.out}/bin/restic";
+    owner = "restic";
+    group = "users";
+    permissions = "u=rwx,g=,o=";
+    capabilities = "cap_dac_read_search=+ep";
+  };
 
   ## Enable on 23.11
   # environment.etc = let
@@ -177,6 +184,7 @@ in
     clinfo
     adwaita-icon-theme
     virt-manager
+    restic
   ];
 
   # Firmware updater
@@ -246,17 +254,22 @@ in
   services.udev.packages = [ pkgs.android-udev-rules ];
 
   programs.fish.enable = true;
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "Christian Westrom";
-    extraGroups = [
-      "wheel"
-      "video"
-      "audio"
-      "networkmanager"
-      "libvirtd"
-    ];
-    shell = pkgs.fish;
+  users.users = {
+    restic = {
+      isNormalUser = true;
+    };
+    ${username} = {
+      isNormalUser = true;
+      description = "Christian Westrom";
+      extraGroups = [
+        "wheel"
+        "video"
+        "audio"
+        "networkmanager"
+        "libvirtd"
+      ];
+      shell = pkgs.fish;
+    };
   };
 
   # TODO: Reorganize the stuff needed for Wayland
@@ -374,7 +387,6 @@ in
     cursor = {
       package = pkgs.adwaita-icon-theme;
       name = "Adwaita";
-
     };
 
     fonts = {
