@@ -311,10 +311,6 @@ in
     pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
-      "steam"
-      "steam-unwrapped"
-      "steam-original"
-      "steam-run"
       "libsciter"
       "surrealdb"
       "cursor"
@@ -324,10 +320,6 @@ in
   nixpkgs.config.permittedInsecurePackages = [ ];
 
   nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
-
-  programs.steam = {
-    enable = true;
-  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";

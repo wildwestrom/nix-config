@@ -66,22 +66,9 @@ in
       wl-color-picker
       android-udev-rules
       localsend
-      nvtop-amd
+      nvtopPackages.amd
       gsettings-desktop-schemas
       nextcloud-client
-      gamescope
-      protonup-qt
-      protontricks
-      wineWowPackages.waylandFull
-      steamtinkerlaunch
-      # for steamtinkerlaunch to work
-      xxd
-      xorg.xwininfo
-      xorg.xprop
-      xorg.xeyes
-      xdotool
-      # end steamtinkerlaunch
-      lutris
       gnome-disk-utility
       baobab
       wl-color-picker
