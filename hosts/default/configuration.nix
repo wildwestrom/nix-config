@@ -315,7 +315,17 @@ in
       "surrealdb"
       "cursor"
       "rust-rover"
+      "steam"
+      "steam-unwrapped"
     ];
+
+  programs.steam = {
+    protontricks.enable = true;
+    enable = true;
+    extraCompatPackages = with pkgs; [
+      steamtinkerlaunch
+    ];
+  };
 
   nixpkgs.config.permittedInsecurePackages = [ ];
 
