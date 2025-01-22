@@ -105,6 +105,7 @@ in
       tldr
       blender
       ollama-rocm
+      llama-cpp
       picard
       jetbrains.rust-rover
     ];
