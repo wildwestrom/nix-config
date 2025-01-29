@@ -175,6 +175,7 @@ in
     man-pages
     man-pages-posix
     # nushell
+    lsof
     brightnessctl
     pciutils
     usbutils
@@ -185,6 +186,7 @@ in
     adwaita-icon-theme
     virt-manager
     restic
+    babashka
   ];
 
   # Firmware updater
