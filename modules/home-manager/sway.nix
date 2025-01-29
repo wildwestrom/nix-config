@@ -227,6 +227,48 @@ in
         }
       ];
     };
+    kanshi = {
+      enable = true;
+      profiles = {
+        monitor-only = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "0,0";
+              scale = 1.5;
+              # scale-filter = "nearest"; # TODO: add this when supported by kanshi
+            }
+          ];
+        };
+        TV = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "1920,0";
+            }
+            {
+              criteria = "LG Electronics LG TV SSCR 0x01010101";
+              mode = "1920x1080@60.0Hz";
+              position = "3424,0";
+              scale = 1.0;
+            }
+          ];
+        };
+        old-monitor = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "1920,0";
+            }
+            {
+              criteria = "Samsung Electronics Company Ltd SEC-700A7KI Unknown";
+              mode = "1920x1080@60.0Hz";
+              position = "0,0";
+            }
+          ];
+        };
+      };
+    };
   };
 
   programs = {
