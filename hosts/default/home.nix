@@ -74,7 +74,6 @@ in
       wl-color-picker
       ddcui
       gnome-system-monitor
-      rust-script
     ];
     # persistence = {
     #   "/persist/${config.home.homeDirectory}" = {
