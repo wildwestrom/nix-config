@@ -73,6 +73,7 @@ in
       baobab
       wl-color-picker
       ddcui
+      gnome-system-monitor
       # blueman
     ];
     # persistence = {
