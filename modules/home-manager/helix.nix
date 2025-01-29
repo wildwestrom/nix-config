@@ -21,6 +21,7 @@ in
       ccls
       clang-tools
       slint-lsp
+      clojure-lsp
     ];
   };
 
