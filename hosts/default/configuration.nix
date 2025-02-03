@@ -66,19 +66,8 @@ in
     capabilities = "cap_dac_read_search=+ep";
   };
 
-  ## Enable on 23.11
-  # environment.etc = let
-  #   json = pkgs.formats.json {};
-  # in {
-  #   "pipewire/pipewire.d/99-silent-bell.conf".source = json.generate "99-silent-bell.conf" {
-  #     context.properties."module.x11.bell" = false;
-  #   };
-  # };
-
   programs.dconf.enable = true;
 
-  # "Experimental Features"
-  # But I'm enabling them because I want to test them.
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -91,19 +80,11 @@ in
   };
 
   networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
   time.timeZone = "Asia/Seoul";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
     "C.UTF-8/UTF-8"
@@ -124,11 +105,9 @@ in
     LC_TIME = "ko_KR.UTF-8";
   };
 
-  # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
-    # Make sure services like fcitx5 start
     desktopManager = {
       runXdgAutostartIfNone = true;
     };
@@ -146,12 +125,9 @@ in
 
   services.dbus.enable = true;
 
-  # Enable automatic login for the user.
+  # Enable automatic login for the user
+  # TODO: figure out how to make it work with greetd
   services.getty.autologinUser = "main";
-  # environment.etc."greetd/environments".text = ''
-  #   sway
-  #   nushell
-  # '';
   services.greetd = {
     enable = true;
     settings = {
