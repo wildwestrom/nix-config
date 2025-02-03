@@ -309,6 +309,7 @@ in
       "rust-rover"
       "steam"
       "steam-unwrapped"
+      "discord-canary"
     ];
 
   programs.steam = {

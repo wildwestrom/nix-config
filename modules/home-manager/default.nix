@@ -92,7 +92,6 @@ in
       sccache
       qrcode
       ansifilter
-      vesktop
       protonmail-bridge
       musescore
       wormhole-rs
@@ -107,6 +106,7 @@ in
       blender
       picard
       jetbrains.rust-rover
+      discord-canary
     ];
     sessionPath = [
       "$HOME/.local/bin"
