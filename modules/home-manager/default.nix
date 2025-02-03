@@ -49,15 +49,16 @@ in
       ffmpeg
       nodePackages_latest.markdownlint-cli
       typst
-      typst-fmt
-      typst-lsp
+      typstyle
+      tinymist
       nasm
       psmisc
       tcpdump
       dig
       watchexec
       entr
-      rargs
+      # TODO: Find a replacement
+      # rargs
       sqlitebrowser
       pgadmin
       python311Packages.python-dotenv

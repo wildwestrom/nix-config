@@ -201,8 +201,7 @@ in
             soft-wrap.wrap-at-text-width = true;
             language-servers = [ "typst-lsp" ];
             formatter = {
-              command = "typst-fmt";
-              args = [ "--stdio" ];
+              command = "typstyle";
             };
             # # TODO: Fix grammar adding to helix config
             # # https://github.com/nix-community/home-manager/issues/2871
@@ -236,7 +235,7 @@ in
             };
           };
           typst-lsp = {
-            command = "typst-lsp";
+            command = "tinymist lsp";
           };
           jdtls = {
             command = "jdt-language-server";
