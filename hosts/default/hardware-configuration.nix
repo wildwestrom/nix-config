@@ -25,7 +25,12 @@
   boot.initrd.luks.devices.cryptroot.device =
     "/dev/disk/by-uuid/f72a5598-7b80-4f04-b213-842afb98e2ae";
 
-  boot.initrd.systemd.tpm2.enable = true;
+  # Bootloader.
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
+  boot.initrd.systemd.enable = true;
   security.tpm2.enable = true;
 
   fileSystems = {

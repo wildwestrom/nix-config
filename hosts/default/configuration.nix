@@ -73,12 +73,6 @@ in
     "flakes"
   ];
 
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  };
-
   networking.hostName = "nixos"; # Define your hostname.
 
   networking.networkmanager.enable = true;
