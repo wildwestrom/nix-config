@@ -82,7 +82,7 @@ in
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
           "${super}+q" = "kill";
           "${super}+Shift+q" =
-            "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylock}'";
+            "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Hibernate' 'systemctl hibernate' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylock}'";
           "${super}+d" = "exec ${menu}";
           # Layout
           "${super}+b" = "splith";

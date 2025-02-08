@@ -68,7 +68,6 @@ in
       localsend
       nvtopPackages.amd
       gsettings-desktop-schemas
-      nextcloud-client
       gnome-disk-utility
       baobab
       wl-color-picker
