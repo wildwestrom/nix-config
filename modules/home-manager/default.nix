@@ -153,6 +153,7 @@ in
       watch = "watch -c";
       newterm = "${terminal} . & disown";
       nwg-displays = "nwg-displays -n 10";
+      nrun = "nix run nixpkgs#";
     };
     enableNixpkgsReleaseCheck = true;
   };

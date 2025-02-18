@@ -19,14 +19,18 @@ in
     inputs.home-manager.nixosModules.default
   ];
 
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
   boot.kernelParams = [ "amdgpu.sg_display=0" ];
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = "524288";
   };
-
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   hardware.graphics = {
     enable = true;
@@ -67,11 +71,6 @@ in
   };
 
   programs.dconf.enable = true;
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
 
   networking.hostName = "nixos"; # Define your hostname.
 
