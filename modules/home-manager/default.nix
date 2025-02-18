@@ -285,6 +285,7 @@ in
         "files.autoSave" = "afterDelay";
         "window.zoomLevel" = 1;
         "editor.inlineSuggest.suppressSuggestions" = true;
+        "semanticdiff.defaultDiffViewer" = true;
       };
     };
     atuin = {
