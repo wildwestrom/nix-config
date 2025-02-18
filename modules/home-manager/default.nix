@@ -148,12 +148,10 @@ in
       su = "su -s $SHELL";
       proc = "ps u | head -n1 && ps aux | rg -v '\\srg\\s-\\.' | rg";
       mpa = "mpv --no-video";
-      ytdl = "yt-dlp -P ~/Downloads";
       gcd1 = "git clone --depth 1";
       watch = "watch -c";
       newterm = "${terminal} . & disown";
       nwg-displays = "nwg-displays -n 10";
-      nrun = "nix run nixpkgs#";
     };
     enableNixpkgsReleaseCheck = true;
   };
