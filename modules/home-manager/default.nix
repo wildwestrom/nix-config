@@ -106,7 +106,7 @@ in
       blender
       picard
       jetbrains.rust-rover
-      vesktop
+      discord-canary
     ];
     sessionPath = [
       "$HOME/.local/bin"
