@@ -275,12 +275,22 @@ in
       enableExtensionUpdateCheck = false;
       enableUpdateCheck = false;
       mutableExtensionsDir = true;
-      extensions = with pkgs.vscode-extensions; [
-        vadimcn.vscode-lldb
-        rust-lang.rust-analyzer
-        redhat.java
-        vscjava.vscode-maven
-      ];
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          vadimcn.vscode-lldb
+          rust-lang.rust-analyzer
+          redhat.java
+          vscjava.vscode-maven
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "hblang";
+            publisher = "koniifer";
+            version = "0.2.8";
+            sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
+          }
+        ];
       userSettings = {
         "files.autoSave" = "afterDelay";
         "window.zoomLevel" = 1;
