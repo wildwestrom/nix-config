@@ -244,13 +244,13 @@ in
           outputs = [
             {
               criteria = "eDP-1";
-              position = "1920,0";
+              position = "0,0";
               scale = 1.5;
             }
             {
               criteria = "LG Electronics LG TV SSCR 0x01010101";
               mode = "1920x1080@60.0Hz";
-              position = "3424,0";
+              position = "1504,0";
               scale = 1.0;
             }
           ];
