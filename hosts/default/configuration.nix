@@ -47,7 +47,7 @@ in
   security.sudo-rs.enable = true; # let's evaluate this and see if it works
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
+    audio.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
@@ -58,9 +58,15 @@ in
           "context.properties.module.x11.bell" = false;
         };
       };
+      pipewire-pulse = {
+        # This is supposed to fix audio randomly cutting out while gaming, we'll see
+        "20-pulse-properties" = {
+          "pulse.min.req" = "256/48000";
+          "pulse.min.frag" = "256/48000";
+          "pulse.min.quantum" = "256/48000";
+        };
+      };
     };
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
   };
   security.wrappers.restic = {
     source = "${pkgs.restic.out}/bin/restic";
