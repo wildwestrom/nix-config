@@ -62,7 +62,7 @@ in
             ];
             actions = {
               update-props = {
-                "session.suspend-timeout-seconds" = 0;
+                "session.suspend-timeout-seconds" = 60;
               };
             };
           }
