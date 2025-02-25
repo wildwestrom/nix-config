@@ -51,7 +51,24 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     wireplumber.enable = true;
-    # TODO: Enable once stable
+    wireplumber.extraConfig = {
+      "60-hdmi-no-suspend" = {
+        "monitor.alsa.rules" = [
+          {
+            matches = [
+              {
+                "api.alsa.path" = "hdmi:.*";
+              }
+            ];
+            actions = {
+              update-props = {
+                "session.suspend-timeout-seconds" = 0;
+              };
+            };
+          }
+        ];
+      };
+    };
     extraConfig = {
       pipewire = {
         "99-silent-bell" = {
