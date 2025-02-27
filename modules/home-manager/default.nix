@@ -107,6 +107,7 @@ in
       picard
       jetbrains.rust-rover
       discord-canary
+      qrencode
     ];
     sessionPath = [
       "$HOME/.local/bin"
