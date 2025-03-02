@@ -121,7 +121,7 @@ in
               tab-width = 4;
               unit = "\t";
             };
-            auto-format = true;
+            auto-format = false;
             formatter = {
               command = "taplo";
               args = [ "format" ];
