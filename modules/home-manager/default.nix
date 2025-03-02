@@ -262,14 +262,14 @@ in
       # enableFishIntegration = true; # already enabled by default
       nix-direnv.enable = true;
     };
-    zellij = {
-      enable = true;
-      # enableFishIntegration = true;
-      settings = {
-        simplified_ui = false;
-        pane_frames = false;
-      };
-    };
+    # zellij = {
+    #   enable = true;
+    #   # enableFishIntegration = true;
+    #   settings = {
+    #     simplified_ui = false;
+    #     pane_frames = false;
+    #   };
+    # };
     vscode = {
       enable = true;
       package = pkgs.vscodium;
