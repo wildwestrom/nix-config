@@ -459,4 +459,17 @@ in
   };
 
   documentation.dev.enable = true;
+
+  services.kubo = {
+    enable = true;
+    enableGC = true;
+    localDiscovery = true;
+    # I can do localDiscovery because I'm a laptop
+    # Apparently hosting providers are known to ban this
+    settings = {
+      Datastore = {
+        StorageMax = "100GB";
+      };
+    };
+  };
 }
