@@ -23,7 +23,6 @@ in
       slint-lsp
       clojure-lsp
       wgsl-analyzer
-      tinymist
     ];
   };
 
@@ -237,7 +236,7 @@ in
             };
           };
           typst-lsp = {
-            command = "tinymist lsp";
+            command = "tinymist";
           };
           jdtls = {
             command = "jdt-language-server";
