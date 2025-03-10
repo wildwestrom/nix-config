@@ -23,6 +23,7 @@ in
       slint-lsp
       clojure-lsp
       wgsl-analyzer
+      tinymist
     ];
   };
 
