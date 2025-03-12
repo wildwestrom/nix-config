@@ -146,7 +146,7 @@ in
         # };
         bars = [
           {
-            # command = "${pkgs.nwg-panel}/bin/nwg-panel";
+            command = "${pkgs.nwg-panel}/bin/nwg-panel";
           }
         ];
         defaultWorkspace = "${ws1}";
