@@ -17,7 +17,9 @@ in
   ];
   home.packages = with pkgs; [
     nwg-displays
+    nwg-panel
     sway-contrib.grimshot
+    sway-contrib.inactive-windows-transparency
   ];
 
   wayland.windowManager.sway = {
@@ -144,7 +146,7 @@ in
         # };
         bars = [
           {
-            command = "${pkgs.waybar}/bin/waybar";
+            command = "${pkgs.nwg-panel}/bin/nwg-panel";
           }
         ];
         defaultWorkspace = "${ws1}";

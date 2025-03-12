@@ -472,4 +472,5 @@ in
       };
     };
   };
+  services.fprintd.enable = false;
 }
