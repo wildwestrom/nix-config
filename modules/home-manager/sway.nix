@@ -144,16 +144,19 @@ in
         };
         # keycodebindings = {
         # };
-        bars = [
-          {
-            command = "${pkgs.nwg-panel}/bin/nwg-panel";
-          }
-        ];
+        # bars = [
+        #   {
+        #     command = "${pkgs.nwg-panel}/bin/nwg-panel";
+        #   }
+        # ];
         defaultWorkspace = "${ws1}";
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive"; }
-          # { command = "${pkgs.blueman}/bin/blueman-applet"; }
+          {
+            command = "${pkgs.nwg-panel}/bin/nwg-panel";
+            always = true;
+          }
         ];
         output = {
           eDP-1 = {
