@@ -144,11 +144,11 @@ in
         };
         # keycodebindings = {
         # };
-        # bars = [
-        #   {
-        #     command = "${pkgs.nwg-panel}/bin/nwg-panel";
-        #   }
-        # ];
+        bars = [
+          {
+            # command = "${pkgs.nwg-panel}/bin/nwg-panel";
+          }
+        ];
         defaultWorkspace = "${ws1}";
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
