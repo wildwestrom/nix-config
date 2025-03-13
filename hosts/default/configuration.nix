@@ -276,6 +276,7 @@ in
         "audio"
         "networkmanager"
         "libvirtd"
+        config.services.kubo.group
       ];
       shell = pkgs.fish;
     };
