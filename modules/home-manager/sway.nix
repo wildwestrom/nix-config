@@ -14,7 +14,7 @@ in
   ];
   home.packages = with pkgs; [
     nwg-displays
-    nwg-panel
+    # nwg-panel
     sway-contrib.grimshot
     sway-contrib.inactive-windows-transparency
   ];
@@ -143,7 +143,8 @@ in
         # };
         bars = [
           {
-            command = "${pkgs.nwg-panel}/bin/nwg-panel";
+            command = "${pkgs.waybar}/bin/waybar";
+            # command = "${pkgs.nwg-panel}/bin/nwg-panel";
           }
         ];
         defaultWorkspace = "${ws1}";
@@ -151,7 +152,8 @@ in
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive"; }
           {
-            command = "${pkgs.nwg-panel}/bin/nwg-panel";
+            command = "${pkgs.waybar}/bin/waybar";
+            # command = "${pkgs.nwg-panel}/bin/nwg-panel";
             always = true;
           }
         ];
