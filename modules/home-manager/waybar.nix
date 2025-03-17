@@ -2,7 +2,7 @@
 {
   programs = {
     waybar = {
-      enable = false;
+      enable = true;
       # style = ''
       #   * {
       #       font-family: FontAwesome, ${font.monospace}, monospace;
