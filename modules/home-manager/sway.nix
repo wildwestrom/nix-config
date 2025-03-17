@@ -151,11 +151,11 @@ in
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive"; }
-          {
-            command = "${pkgs.waybar}/bin/waybar";
-            # command = "${pkgs.nwg-panel}/bin/nwg-panel";
-            always = true;
-          }
+          # {
+          #   command = "${pkgs.waybar}/bin/waybar";
+          #   # command = "${pkgs.nwg-panel}/bin/nwg-panel";
+          #   always = true;
+          # }
         ];
         output = {
           eDP-1 = {
