@@ -6,6 +6,7 @@ shopt -s extglob
 pushd ~/nix-config/
 $EDITOR .
 nixfmt . &>/dev/null
+rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."

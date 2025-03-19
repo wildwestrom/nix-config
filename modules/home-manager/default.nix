@@ -108,6 +108,7 @@ in
       jetbrains.rust-rover
       discord-canary
       qrencode
+      tdesktop
     ];
     sessionPath = [
       "$HOME/.local/bin"
