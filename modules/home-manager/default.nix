@@ -109,6 +109,7 @@ in
       discord-canary
       qrencode
       tdesktop
+      bottles
     ];
     sessionPath = [
       "$HOME/.local/bin"
