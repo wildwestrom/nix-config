@@ -96,7 +96,11 @@ in
       musescore
       wormhole-rs
       graphviz
+
+      # cargo plugins
       bacon
+      cargo-shear
+
       transmission_4-gtk
       vlc
       freecad
