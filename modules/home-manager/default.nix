@@ -6,7 +6,8 @@
 let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
-  terminal = "${pkgs.kitty}/bin/kitty";
+  # terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
 {
   imports = [

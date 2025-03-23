@@ -5,7 +5,8 @@ let
   dim_then_lock = ''${dimDisplay} && ${swaylock}'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-  terminal = "${pkgs.kitty}/bin/kitty";
+  # terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
 {
   imports = [

@@ -4,7 +4,8 @@
   ...
 }:
 let
-  terminal = "kitty";
+  # terminal = "kitty";
+  terminal = "alacritty";
 in
 {
   home = {
@@ -35,7 +36,7 @@ in
   xdg.desktopEntries.helix = {
     name = "Helix";
     genericName = "Text Editor";
-    exec = if terminal == "kitty" then "kitty hx %F" else [ ];
+    exec = if terminal == "kitty" then "kitty hx %F" else terminal;
     terminal = true;
     categories = [
       "Utility"

@@ -5,7 +5,8 @@
   ...
 }:
 let
-  terminal = "kitty";
+  # terminal = "${pkgs.kitty}/bin/kitty";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
 {
   imports = [
