@@ -115,6 +115,7 @@ in
       qrencode
       tdesktop
       bottles
+      neofetch
     ];
     sessionPath = [
       "$HOME/.local/bin"
