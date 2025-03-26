@@ -251,7 +251,7 @@
         #   #keyboard-state > label.locked {
         #       background: rgba(0, 0, 0, 0.2);
         #   }
-        # '';
+      '';
       settings = {
         mainBar = {
           # "layer" = "top"; # Waybar at top layer
