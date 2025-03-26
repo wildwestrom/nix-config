@@ -169,13 +169,14 @@ in
           };
           "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
             # disable touchpad while typing
-            dwt = "disabled";
+            dwt = "enabled";
             natural_scroll = "disabled";
             accel_profile = "adaptive";
             # pointer_accel = "0.1";
             scroll_factor = "0.75";
             tap = "enabled";
-            tap_button_map = "lmr";
+            # doesn't really have an effect on my touchpad
+            tap_button_map = "lrm";
           };
         };
         modes = {
