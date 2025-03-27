@@ -117,7 +117,9 @@
             "format" = "{temperatureC}°C {icon}";
             "format-icons" = [
               ""
+              ""
               ""
+              ""
               ""
             ];
             "interval" = 1;
@@ -126,15 +128,21 @@
             # "device" = "acpi_video1";
             "format" = "{percent}% {icon}";
             "format-icons" = [
-              ""
+              ""
+              ""
               ""
+              ""
               ""
+              ""
               ""
               ""
               ""
+              ""
+              ""
               ""
+              ""
               ""
-              ""
+              ""
             ];
           };
           "battery" = {
