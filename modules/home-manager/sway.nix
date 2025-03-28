@@ -18,6 +18,7 @@ in
     # nwg-panel
     sway-contrib.grimshot
     sway-contrib.inactive-windows-transparency
+    mpvpaper
   ];
 
   wayland.windowManager.sway = {
@@ -152,6 +153,7 @@ in
         startup = [
           { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
           { command = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive"; }
+          { command = "${pkgs.mpvpaper}/bin/mpvpaper -s -o 'no-audio loop' '*' ./wallpaper.mp4"; }
           # {
           #   command = "${pkgs.waybar}/bin/waybar";
           #   # command = "${pkgs.nwg-panel}/bin/nwg-panel";

@@ -259,6 +259,7 @@ in
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
     newcomputermodern
+    font-awesome
   ];
 
   services.udev.packages = [ pkgs.android-udev-rules ];
