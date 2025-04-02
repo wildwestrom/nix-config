@@ -75,7 +75,6 @@ in
       obsidian
       qgis
       prismlauncher
-      rustdesk
       osmctools
       racket
       sbcl
