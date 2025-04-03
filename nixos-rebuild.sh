@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # A rebuild script that commits on a successful build
 set -xe -o pipefail
 shopt -s extglob
@@ -10,8 +10,8 @@ rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."
-sudo nix-channel --update
-sudo nixos-rebuild switch -vvv --flake '.#default' --show-trace &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+/run/wrappers/bin/sudo nix-channel --update
+/run/wrappers/bin/sudo nixos-rebuild switch -vvv --flake '.#default' --show-trace &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
 current=$(nixos-rebuild list-generations | grep current)
 git commit -am "$current"
 popd

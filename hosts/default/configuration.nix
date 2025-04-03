@@ -47,7 +47,11 @@ in
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  security.sudo-rs.enable = true; # let's evaluate this and see if it works
+  security.sudo.enable = true;
+  security.sudo-rs.enable = false;
+  # I suddenly started getting this error
+  # sudo-rs: sudo must be owned by uid 0 and have the setuid bit set
+
   services.pipewire = {
     enable = true;
     audio.enable = true;
@@ -265,22 +269,25 @@ in
   services.udev.packages = [ pkgs.android-udev-rules ];
 
   programs.fish.enable = true;
-  users.users = {
-    restic = {
-      isNormalUser = true;
-    };
-    ${username} = {
-      isNormalUser = true;
-      description = "Christian Westrom";
-      extraGroups = [
-        "wheel"
-        "video"
-        "audio"
-        "networkmanager"
-        "libvirtd"
-        config.services.kubo.group
-      ];
-      shell = pkgs.fish;
+  users = {
+    defaultUserShell = pkgs.fish;
+    users = {
+      restic = {
+        isNormalUser = true;
+      };
+      ${username} = {
+        isNormalUser = true;
+        description = "Christian Westrom";
+        extraGroups = [
+          "wheel"
+          "video"
+          "audio"
+          "networkmanager"
+          "libvirtd"
+          config.services.kubo.group
+        ];
+        shell = pkgs.fish;
+      };
     };
   };
 
@@ -349,6 +356,7 @@ in
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
   };
+  environment.binsh = "${pkgs.dash}/bin/dash";
 
   virtualisation = {
     podman = {

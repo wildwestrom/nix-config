@@ -139,6 +139,15 @@ in
             auto-format = false;
           }
           {
+            name = "c";
+            indent = {
+              tab-width = 2;
+              unit = "\t";
+            };
+            language-servers = [ "clangd" ];
+            auto-format = false;
+          }
+          {
             name = "nix";
             file-types = [ "nix" ];
             roots = [ "flake.lock" ];
