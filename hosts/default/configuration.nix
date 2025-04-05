@@ -51,6 +51,8 @@ in
   security.sudo-rs.enable = false;
   # I suddenly started getting this error
   # sudo-rs: sudo must be owned by uid 0 and have the setuid bit set
+  # Disabling sudo-rs didn't work either
+  # sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
 
   services.pipewire = {
     enable = true;
@@ -284,7 +286,6 @@ in
           "audio"
           "networkmanager"
           "libvirtd"
-          config.services.kubo.group
         ];
         shell = pkgs.fish;
       };
@@ -471,19 +472,6 @@ in
   };
 
   documentation.dev.enable = true;
-
-  services.kubo = {
-    enable = true;
-    # enableGC = true;
-    # localDiscovery = true;
-    # # I can do localDiscovery because I'm a laptop
-    # # Apparently hosting providers are known to ban this
-    # settings = {
-    #   Datastore = {
-    #     StorageMax = "100GB";
-    #   };
-    # };
-  };
 
   services.fprintd.enable = false;
 }
