@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # A rebuild script that commits on a successful build
 set -xe -o pipefail
 shopt -s extglob
