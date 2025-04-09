@@ -20,101 +20,119 @@ in
 
   home = {
     packages = with pkgs; [
-      nmap
-      sd
+      # Version control
       lazygit
       gitui
-      fossil
-      tokei
-      lldb
-      gdb
       gh
+      jujutsu
+      fossil
+      act
+
+      # CLI Tools
+      sd
+      tokei
+      bc
       fd
       du-dust
       jq
-      neovim
-      yt-dlp
-      nodejs
       bottom
       wget
-      tree-sitter
-      luarocks
       tree
-      ghostscript
       rename
       trashy
       pandoc
-      python311
-      watch
-      act
-      ffmpeg
       nodePackages_latest.markdownlint-cli
-      typst
-      typstyle
-      tinymist
-      nasm
       psmisc
-      tcpdump
-      dig
+      watch
       watchexec
       entr
       # TODO: Find a replacement
       # rargs
-      sqlitebrowser
-      pgadmin
-      python311Packages.python-dotenv
-      libreoffice
       unzip
       zip
-      anki
-      strawberry
-      stdenv.cc
-      libwebp
-      signal-desktop
-      thunderbird
-      obsidian
       qgis
-      prismlauncher
-      osmctools
-      racket
-      sbcl
-      surrealdb
-      surrealist
-      hyperfine
-      brave
-      jujutsu
-      inkscape
-      docker-compose
-      bc
-      android-file-transfer
-      mpv
-      imagemagick
-      sccache
+      # network
+      tcpdump
+      nmap
+      dig
+
+      transmission_4-gtk
+      bitwarden-desktop
+      tldr
+      picard
+      qrencode
       qrcode
+      bottles
+      prismlauncher
+      anki
+      libreoffice
+      brave
+      android-file-transfer
+      sccache
       ansifilter
-      protonmail-bridge
-      musescore
       wormhole-rs
       graphviz
+      neofetch
+
+      # programming
+      stdenv.cc
+      luarocks
+      ghostscript
+      racket
+      sbcl
+      docker-compose
+      hyperfine
+      tree-sitter
+      nodejs
+      python313
+      python313Packages.python-dotenv
+      nasm
+      lldb
+      gdb
+
+      # typst
+      typst
+      typstyle
+      tinymist
+
+      # database tools
+      surrealdb
+      surrealist
+      sqlitebrowser
+      pgadmin
+
+      # creation
+      inkscape
+      imagemagick
+      musescore
+      blender
+      obs-studio
+      freecad
+
+      # media
+      libwebp
+      vlc
+      mpv
+      strawberry
+      yt-dlp
+      ffmpeg
 
       # cargo plugins
       bacon
       cargo-shear
 
-      transmission_4-gtk
-      vlc
-      freecad
-      bitwarden-desktop
-      obs-studio
-      tldr
-      blender
-      picard
-      jetbrains.rust-rover
+      # comms
+      protonmail-bridge
+      signal-desktop
       discord-canary
-      qrencode
       tdesktop
-      bottles
-      neofetch
+      thunderbird
+
+      # editors
+      obsidian
+      jetbrains.rust-rover
+      vscodium
+      neovim
     ];
     sessionPath = [
       "$HOME/.local/bin"
@@ -277,37 +295,38 @@ in
     #     pane_frames = false;
     #   };
     # };
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
-      mutableExtensionsDir = true;
-      extensions =
-        with pkgs.vscode-extensions;
-        [
-          vadimcn.vscode-lldb
-          rust-lang.rust-analyzer
-          redhat.java
-          vscjava.vscode-maven
-          continue.continue
-          mkhl.direnv
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "hblang";
-            publisher = "koniifer";
-            version = "0.2.8";
-            sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
-          }
-        ];
-      userSettings = {
-        "files.autoSave" = "afterDelay";
-        "window.zoomLevel" = 1;
-        "editor.inlineSuggest.suppressSuggestions" = true;
-        "semanticdiff.defaultDiffViewer" = true;
-      };
-    };
+    # vscode = {
+    #   enable = true;
+    #   package = pkgs.vscodium;
+    #   enableExtensionUpdateCheck = false;
+    #   enableUpdateCheck = false;
+    #   mutableExtensionsDir = true;
+    #   extensions =
+    #     with pkgs.vscode-extensions;
+    #     [
+    #       vadimcn.vscode-lldb
+    #       rust-lang.rust-analyzer
+    #       redhat.java
+    #       vscjava.vscode-maven
+    #       continue.continue
+    #       mkhl.direnv
+    #     ]
+    #     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    #       {
+    #         name = "hblang";
+    #         publisher = "koniifer";
+    #         version = "0.2.8";
+    #         sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
+    #       }
+    #     ];
+    #   userSettings = {
+    #     "files.autoSave" = "afterDelay";
+    #     "window.zoomLevel" = 1;
+    #     "editor.inlineSuggest.suppressSuggestions" = true;
+    #     "semanticdiff.defaultDiffViewer" = true;
+
+    #   };
+    # };
     atuin = {
       enable = true;
       enableNushellIntegration = true;
