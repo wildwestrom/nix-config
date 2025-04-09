@@ -131,7 +131,6 @@ in
       # editors
       obsidian
       jetbrains.rust-rover
-      vscodium
       neovim
     ];
     sessionPath = [
@@ -260,6 +259,15 @@ in
     };
     alacritty = {
       enable = true;
+      settings = {
+        keyboard.bindings = [
+          {
+            key = "N";
+            mods = "Control|Shift";
+            action = "SpawnNewInstance";
+          }
+        ];
+      };
     };
     wezterm = {
       enable = true;
@@ -295,43 +303,47 @@ in
     #     pane_frames = false;
     #   };
     # };
-    # vscode = {
-    #   enable = true;
-    #   package = pkgs.vscodium;
-    #   enableExtensionUpdateCheck = false;
-    #   enableUpdateCheck = false;
-    #   mutableExtensionsDir = true;
-    #   extensions =
-    #     with pkgs.vscode-extensions;
-    #     [
-    #       vadimcn.vscode-lldb
-    #       rust-lang.rust-analyzer
-    #       redhat.java
-    #       vscjava.vscode-maven
-    #       continue.continue
-    #       mkhl.direnv
-    #     ]
-    #     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    #       {
-    #         name = "hblang";
-    #         publisher = "koniifer";
-    #         version = "0.2.8";
-    #         sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
-    #       }
-    #     ];
-    #   userSettings = {
-    #     "files.autoSave" = "afterDelay";
-    #     "window.zoomLevel" = 1;
-    #     "editor.inlineSuggest.suppressSuggestions" = true;
-    #     "semanticdiff.defaultDiffViewer" = true;
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+      mutableExtensionsDir = true;
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          vadimcn.vscode-lldb
+          rust-lang.rust-analyzer
+          redhat.java
+          vscjava.vscode-maven
+          continue.continue
+          mkhl.direnv
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "hblang";
+            publisher = "koniifer";
+            version = "0.2.8";
+            sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
+          }
+        ];
+      userSettings = {
+        "files.autoSave" = "afterDelay";
+        "window.zoomLevel" = 1;
+        "editor.inlineSuggest.suppressSuggestions" = true;
+        "semanticdiff.defaultDiffViewer" = true;
 
-    #   };
-    # };
+      };
+    };
     atuin = {
       enable = true;
       enableNushellIntegration = true;
       settings = {
         filter_mode = "directory";
+        enter_accept = false;
+        keymap_mode = "vim-insert";
+        style = "compact";
+        inline_height = 10;
       };
     };
   };
