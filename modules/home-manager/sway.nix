@@ -78,7 +78,8 @@ in
           "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
           "${super}+Return" = "exec ${terminal}";
-          "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf --new-window";
+          "${super}+Shift+Return" = "exec ${pkgs.brave}/bin/brave";
+          "${super}+Shift+p" = "exec ${pkgs.brave}/bin/brave --incognito";
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
           "${super}+q" = "kill";
           "${super}+Shift+q" =
@@ -139,6 +140,8 @@ in
             "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
           "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
+          "${super}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
+          "${super}+Shift+w" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
         };
         # keycodebindings = {
         # };
@@ -176,21 +179,21 @@ in
             # pointer_accel = "0.1";
             scroll_factor = "0.75";
             tap = "enabled";
-            # doesn't really have an effect on my touchpad
             tap_button_map = "lrm";
           };
         };
         modes = {
           default = { };
         };
-        gaps = {
-          outer = 2;
-          inner = 4;
-          smartGaps = true;
-          smartBorders = "on";
-        };
+        # gaps = {
+        #   outer = 2;
+        #   inner = 4;
+        #   smartGaps = true;
+        #   smartBorders = "on";
+        # };
         window = {
           border = 2;
+          titlebar = false;
           commands = [
             {
               command = "inhibit_idle fullscreen";

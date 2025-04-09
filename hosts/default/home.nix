@@ -15,17 +15,17 @@ in
   ];
   i18n = {
     inputMethod = {
-      enabled = "fcitx5";
+      type = "fcitx5";
+      enable = true;
       fcitx5.addons = with pkgs; [
         fcitx5-gtk
         fcitx5-hangul
         fcitx5-mozc
         fcitx5-rime
       ];
+      fcitx5.waylandFrontend = true;
     };
   };
-
-  xdg.configFile.fcitx5.source = ./fcitx5-config-dir;
 
   dconf.settings = {
     "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
@@ -38,7 +38,7 @@ in
 
   home = {
     homeDirectory = "/home/${username}";
-    stateVersion = "23.11";
+    stateVersion = "25.05";
     # This is where I keep linux specific programs
     packages = with pkgs; [
       networkmanagerapplet
@@ -63,7 +63,6 @@ in
       exfatprogs
       glib
       fontforge-gtk
-      python3Packages.setuptools
       wl-color-picker
       android-udev-rules
       localsend
@@ -74,16 +73,8 @@ in
       wl-color-picker
       ddcui
       gnome-system-monitor
+      xorg.xeyes
     ];
-    # persistence = {
-    #   "/persist/${config.home.homeDirectory}" = {
-    #     allowOther = true;
-    #     directories = [
-    #       ".config/lutris"
-    #       ".local/share/lutris"
-    #     ];
-    #   };
-    # };
   };
   systemd.user.services = {
     polkit-gnome-authentication-agent-1 = {
@@ -134,19 +125,19 @@ in
         "image/png" = "imv-dir.desktop";
         "image/webp" = "imv-dir.desktop";
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
-        "text/html" = "librewolf.desktop";
-        "text/xml" = "librewolf.desktop";
-        "application/rdf+xml" = "librewolf.desktop";
-        "application/rss+xml" = "librewolf.desktop";
-        "application/xhtml+xml" = "librewolf.desktop";
-        "application/xhtml_xml" = "librewolf.desktop";
-        "application/xml" = "librewolf.desktop";
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
-        "x-scheme-handler/ipfs" = "librewolf.desktop";
-        "x-scheme-handler/ipns" = "librewolf.desktop";
-        "x-scheme-handler/about" = "librewolf.desktop";
-        "x-scheme-handler/unknown" = "librewolf.desktop";
+        "text/html" = "brave-browser.desktop";
+        "text/xml" = "brave-browser.desktop";
+        "application/rdf+xml" = "brave-browser.desktop";
+        "application/rss+xml" = "brave-browser.desktop";
+        "application/xhtml+xml" = "brave-browser.desktop";
+        "application/xhtml_xml" = "brave-browser.desktop";
+        "application/xml" = "brave-browser.desktop";
+        "x-scheme-handler/http" = "brave-browser.desktop";
+        "x-scheme-handler/https" = "brave-browser.desktop";
+        "x-scheme-handler/ipfs" = "brave-browser.desktop";
+        "x-scheme-handler/ipns" = "brave-browser.desktop";
+        "x-scheme-handler/about" = "brave-browser.desktop";
+        "x-scheme-handler/unknown" = "brave-browser.desktop";
         "x-scheme-handler/vscodium" = [
           "codium-url-handler.desktop"
           "codium.desktop"

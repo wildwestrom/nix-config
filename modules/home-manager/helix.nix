@@ -11,6 +11,8 @@ in
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
+      python3Packages.ruff
+      pyright
       nixfmt-rfc-style
       nixd
       nil
@@ -23,7 +25,7 @@ in
       clang-tools
       slint-lsp
       clojure-lsp
-      wgsl-analyzer
+      # wgsl-analyzer
     ];
   };
 
@@ -36,7 +38,7 @@ in
   xdg.desktopEntries.helix = {
     name = "Helix";
     genericName = "Text Editor";
-    exec = if terminal == "kitty" then "kitty hx %F" else terminal;
+    exec = "alacritty -e hx %F";
     terminal = true;
     categories = [
       "Utility"
@@ -69,7 +71,7 @@ in
         theme = "onelight";
         editor = {
           terminal = {
-            command = "kitty";
+            command = "alacritty";
             # args = ""; # Maybe don't use this?
           };
           line-number = "relative";
@@ -90,11 +92,13 @@ in
           completion-trigger-len = 2;
           soft-wrap = {
             enable = true;
+            wrap-at-text-width = true;
           };
           indent-guides = {
             render = true;
             skip_levels = "1";
           };
+          insert-final-newline = true;
         };
       };
       languages = {
@@ -135,7 +139,7 @@ in
               tab-width = 2;
               unit = "\t";
             };
-            language-servers = [ "cc-ls" ];
+            language-servers = [ "clangd" ];
             auto-format = false;
           }
           {
@@ -161,16 +165,6 @@ in
             };
             auto-format = true;
             language-servers = [ "nixd" ];
-          }
-          {
-            name = "python";
-            formatter = {
-              command = "black";
-              args = [
-                "--quiet"
-                "-"
-              ];
-            };
           }
           {
             name = "gtk-blueprint";

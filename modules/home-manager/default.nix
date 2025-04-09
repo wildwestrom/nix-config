@@ -20,6 +20,11 @@ in
 
   home = {
     packages = with pkgs; [
+      # Nix utils
+      niv
+      nix-prefetch
+      nix-prefetch-git
+
       # Version control
       lazygit
       gitui
@@ -27,13 +32,14 @@ in
       jujutsu
       fossil
       act
+      mercurialFull
 
       # CLI Tools
       sd
       tokei
       bc
       fd
-      du-dust
+      dua
       jq
       bottom
       wget
@@ -55,6 +61,12 @@ in
       tcpdump
       nmap
       dig
+      ueberzugpp
+
+      bottles
+      # wineWow64Packages.waylandFull
+      winePackages.waylandFull
+      winetricks
 
       transmission_4-gtk
       bitwarden-desktop
@@ -62,17 +74,21 @@ in
       picard
       qrencode
       qrcode
-      bottles
       prismlauncher
       anki
       libreoffice
-      brave
+      (brave.override {
+        commandLineArgs = [
+          "--enable-wayland-ime"
+        ];
+      })
       android-file-transfer
       sccache
       ansifilter
       wormhole-rs
       graphviz
       neofetch
+      filezilla
 
       # programming
       stdenv.cc
@@ -84,8 +100,7 @@ in
       hyperfine
       tree-sitter
       nodejs
-      python313
-      python313Packages.python-dotenv
+      python3
       nasm
       lldb
       gdb
@@ -95,11 +110,15 @@ in
       typstyle
       tinymist
 
+      hunspell
+      hunspellDicts.en-us-large
+      hunspellDicts.ko-kr
+
       # database tools
-      surrealdb
-      surrealist
+      # surrealdb
+      # surrealist
       sqlitebrowser
-      pgadmin
+      # pgadmin
 
       # creation
       inkscape
@@ -116,30 +135,26 @@ in
       strawberry
       yt-dlp
       ffmpeg
+      guitarix
+      gxplugins-lv2
 
       # cargo plugins
       bacon
       cargo-shear
+      cargo-info
+      rusty-man
 
       # comms
       protonmail-bridge
       signal-desktop
-      discord-canary
+      vesktop
       tdesktop
       thunderbird
 
       # editors
       obsidian
-      jetbrains.rust-rover
-      vscodium
+      # jetbrains.rust-rover
       neovim
-    ];
-    sessionPath = [
-      "$HOME/.local/bin"
-      "/usr/local/bin"
-      "/run/current-system/sw/bin"
-      "$HOME/.cargo/bin"
-      "$HOME/.config/emacs/bin"
     ];
     sessionVariables = {
       CLICOLOR = "1";
@@ -148,6 +163,7 @@ in
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
       v = editor;
+      cd = "z";
       cp = "cp -rv";
       mv = "mv -iv";
       ln = "ln -iv";
@@ -237,6 +253,7 @@ in
     starship = {
       enable = true;
       enableFishIntegration = true;
+      enableBashIntegration = false;
       enableNushellIntegration = false;
     };
     zoxide = {
@@ -250,16 +267,29 @@ in
         "--smart-case"
       ];
     };
-    kitty = {
-      enable = true;
-      shellIntegration.enableFishIntegration = true;
-      settings = {
-        confirm_os_window_close = 0; # Disable
-        macos_option_as_alt = true;
-      };
-    };
+    # kitty = {
+    #   enable = true;
+    #   shellIntegration.enableFishIntegration = true;
+    #   settings = {
+    #     confirm_os_window_close = 0; # Disable
+    #     macos_option_as_alt = true;
+    #   };
+    # };
     alacritty = {
       enable = true;
+      settings = {
+        keyboard.bindings = [
+          {
+            key = "N";
+            mods = "Control|Shift";
+            action = "SpawnNewInstance";
+          }
+        ];
+      };
+    };
+    yazi = {
+      enable = true;
+      enableFishIntegration = true;
     };
     wezterm = {
       enable = true;
@@ -295,43 +325,56 @@ in
     #     pane_frames = false;
     #   };
     # };
-    # vscode = {
-    #   enable = true;
-    #   package = pkgs.vscodium;
-    #   enableExtensionUpdateCheck = false;
-    #   enableUpdateCheck = false;
-    #   mutableExtensionsDir = true;
-    #   extensions =
-    #     with pkgs.vscode-extensions;
-    #     [
-    #       vadimcn.vscode-lldb
-    #       rust-lang.rust-analyzer
-    #       redhat.java
-    #       vscjava.vscode-maven
-    #       continue.continue
-    #       mkhl.direnv
-    #     ]
-    #     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-    #       {
-    #         name = "hblang";
-    #         publisher = "koniifer";
-    #         version = "0.2.8";
-    #         sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
-    #       }
-    #     ];
-    #   userSettings = {
-    #     "files.autoSave" = "afterDelay";
-    #     "window.zoomLevel" = 1;
-    #     "editor.inlineSuggest.suppressSuggestions" = true;
-    #     "semanticdiff.defaultDiffViewer" = true;
-
-    #   };
-    # };
+    vscode = {
+      enable = true;
+      package = pkgs.vscodium;
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
+      mutableExtensionsDir = true;
+      extensions =
+        with pkgs.vscode-extensions;
+        [
+          vadimcn.vscode-lldb
+          rust-lang.rust-analyzer
+          redhat.java
+          vscjava.vscode-maven
+          continue.continue
+          mkhl.direnv
+          esbenp.prettier-vscode
+        ]
+        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "hblang";
+            publisher = "koniifer";
+            version = "0.2.8";
+            sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
+          }
+          {
+            name = "slint";
+            publisher = "slint";
+            version = "1.11.0";
+            sha256 = "sha256-8NPeBrmsFom73FxIVKG1swGszTiST394J4+qZvqpUPs=";
+          }
+        ];
+      userSettings = {
+        "files.autoSave" = "afterDelay";
+        "window.zoomLevel" = 1;
+        "editor.inlineSuggest.suppressSuggestions" = true;
+        "semanticdiff.defaultDiffViewer" = true;
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+      };
+    };
     atuin = {
       enable = true;
       enableNushellIntegration = true;
       settings = {
         filter_mode = "directory";
+        enter_accept = false;
+        keymap_mode = "vim-insert";
+        style = "compact";
+        inline_height = 10;
       };
     };
   };
@@ -377,6 +420,10 @@ in
         tab_spaces = 4
       '';
     };
+    # "fcitx5" = {
+    #   target = "fcitx5/profile";
+    #   source = ./fcitx5-config;
+    # };
   };
   home.file = {
     ".cargo" = {

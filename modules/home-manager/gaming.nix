@@ -8,9 +8,10 @@ in
 
   home = {
     packages = with pkgs; [
-      retroarch-free
+      retroarch
       retroarch-assets
       retroarch-joypad-autoconfig
+      gamescope
     ];
   };
 }

@@ -25,14 +25,6 @@
   boot.initrd.luks.devices.cryptroot.device =
     "/dev/disk/by-uuid/f72a5598-7b80-4f04-b213-842afb98e2ae";
 
-  # Bootloader.
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  };
-  boot.initrd.systemd.enable = true;
-  security.tpm2.enable = true;
-
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/7ea32639-ffba-4283-af2f-880b95f8e856";
@@ -55,7 +47,10 @@
     "/boot" = {
       device = "/dev/disk/by-uuid/1969-AA1E";
       fsType = "vfat";
-      options = [ "umask=0077" ];
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
     };
   };
 
@@ -65,13 +60,7 @@
     }
   ];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp193s0f3u2u3.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
