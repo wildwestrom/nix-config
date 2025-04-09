@@ -290,6 +290,8 @@ in
           rust-lang.rust-analyzer
           redhat.java
           vscjava.vscode-maven
+          continue.continue
+          mkhl.direnv
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
