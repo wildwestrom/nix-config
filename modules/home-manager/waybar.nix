@@ -5,7 +5,7 @@
       enable = true;
       style = ''
         * {
-            font-family: FontAwesome, JetBrainsMono NF, monospace;
+            font-family: JetBrainsMono NF, monospace;
             font-size: 13px;
         }
       '';
