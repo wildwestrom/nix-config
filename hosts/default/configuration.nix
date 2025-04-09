@@ -1,6 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   pkgs,
   inputs,
@@ -11,13 +8,18 @@
 let
   username = "main";
 in
-# config-dir = "nix-config";
 {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
   ];
+
+  # Bootloader.
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot.enable = true;
+  };
+  boot.initrd.systemd.enable = true;
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   nix.settings.experimental-features = [
@@ -47,18 +49,18 @@ in
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  security.sudo.enable = true;
-  security.sudo-rs.enable = false;
-  # I suddenly started getting this error
+  # security.sudo.enable = true;
+  security.sudo-rs.enable = true;
+
+  # If you get this error, it's probably because you modified the PATH variable for the shell
   # sudo-rs: sudo must be owned by uid 0 and have the setuid bit set
-  # Disabling sudo-rs didn't work either
-  # sudo: /run/current-system/sw/bin/sudo must be owned by uid 0 and have the setuid bit set
 
   services.pipewire = {
     enable = true;
     audio.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
     wireplumber.enable = true;
     wireplumber.extraConfig = {
       "60-hdmi-no-suspend" = {
@@ -80,8 +82,67 @@ in
     };
     extraConfig = {
       pipewire = {
-        "99-silent-bell" = {
-          "context.properties.module.x11.bell" = false;
+        "10-clock" = {
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.allowed-rates" = [
+              44100
+              48000
+              88200
+              96000
+              192000
+            ];
+            "default.clock.quantum" = 128;
+          };
+        };
+        "20-2i2" = {
+          context.objects = [
+            {
+              factory = "alsa-monitor";
+              args = {
+                node.name = "scarlett_2i2_input";
+                node.description = "Focusrite Scarlett 2i2 Pro";
+                alsa.card_name = "Scarlett 2i2 USB";
+                alsa.device = "hw:2,0";
+                alsa.format = "s32le";
+                alsa.rate = 48000;
+                alsa.channels = 2;
+                node.latency = 1024;
+                audio.position = [
+                  "FL"
+                  "FR"
+                ]; # Define the physical channels
+                monitor.channel-properties = {
+                  "FL" = {
+                    node.description = "2i2 Left Input";
+                  };
+                  "FR" = {
+                    node.description = "2i2 Right Input";
+                  };
+                };
+              };
+            }
+            {
+              factory = "link";
+              args = {
+                output.node = "scarlett_2i2_input";
+                output.port = "capture_FL";
+                input.node = "input_FL";
+                input.port = "playback_MONO";
+                link.mode = "flat";
+              };
+            }
+            {
+              factory = "link";
+              args = {
+                output.node = "scarlett_2i2_input";
+                output.port = "capture_FR";
+                input.node = "input_FR";
+                input.port = "playback_MONO";
+                link.mode = "flat";
+              };
+            }
+          ];
         };
       };
       pipewire-pulse = {
@@ -103,10 +164,6 @@ in
   };
 
   programs.dconf.enable = true;
-
-  networking.hostName = "nixos"; # Define your hostname.
-
-  networking.networkmanager.enable = true;
 
   time.timeZone = "Asia/Seoul";
 
@@ -152,7 +209,7 @@ in
 
   # Enable automatic login for the user
   # TODO: figure out how to make it work with greetd
-  services.getty.autologinUser = "main";
+  services.getty.autologinUser = username;
   services.greetd = {
     enable = true;
     settings = {
@@ -173,10 +230,9 @@ in
     fish
     man-db
     ddcutil
-    linux-manual
+    # linux-manual
     man-pages
     man-pages-posix
-    # nushell
     lsof
     brightnessctl
     pciutils
@@ -207,37 +263,39 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # 53317 = LocalSend
-  networking.firewall.allowPing = true;
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    53317
-  ];
-  networking.firewall.allowedUDPPorts = [
-    53
-    53317
-  ];
+  # programs.ssh.startAgent = true; # Disabled: conflicts with GNOME keyring's SSH agent
 
-  services.resolved = {
-    fallbackDns = [
-      # "1.1.1.1" # cloudflare
-      # "2606:4700:4700::1111"
-      # "1.0.0.1"
-      # "2606:4700:4700::1001"
-      "9.9.9.9" # quad9
-      "149.112.112.112"
-      "2620:fe::fe"
-      "2620:fe::9"
-    ];
-    enable = true;
-  };
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
+  # # Open ports in the firewall.
+  # # 53317 = LocalSend
+  # networking.firewall.allowedTCPPorts = [
+  #   22
+  #   80
+  #   443
+  #   53317
+  # ];
+  # networking.firewall.allowedUDPPorts = [
+  #   53
+  #   53317
+  # ];
+
+  # services.resolved = {
+  #   fallbackDns = [
+  #     # "1.1.1.1" # cloudflare
+  #     # "2606:4700:4700::1111"
+  #     # "1.0.0.1"
+  #     # "2606:4700:4700::1001"
+  #     "9.9.9.9" # quad9
+  #     "149.112.112.112"
+  #     "2620:fe::fe"
+  #     "2620:fe::9"
+  #   ];
+  #   enable = true;
+  # };
+
+  networking.hostName = "nixos"; # Define your hostname.
+  networking.networkmanager.enable = true;
+
+  # services.mullvad-vpn.enable = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -256,7 +314,7 @@ in
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
   fonts.packages = with pkgs; [
     sarasa-gothic
@@ -264,6 +322,7 @@ in
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    jetbrains-mono
     newcomputermodern
     font-awesome
   ];
@@ -285,9 +344,9 @@ in
           "video"
           "audio"
           "networkmanager"
+          "network"
           "libvirtd"
         ];
-        shell = pkgs.fish;
       };
     };
   };
@@ -331,7 +390,7 @@ in
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
-    builtins.elem (lib.getName pkg) [
+    builtins.elem (lib.strings.getName pkg) [
       "obsidian"
       "libsciter"
       "surrealdb"
@@ -339,7 +398,7 @@ in
       "rust-rover"
       "steam"
       "steam-unwrapped"
-      "discord-canary"
+      "discord"
     ];
 
   programs.steam = {
@@ -347,6 +406,7 @@ in
     enable = true;
     extraCompatPackages = with pkgs; [
       steamtinkerlaunch
+      proton-ge-bin
     ];
   };
 
@@ -360,24 +420,24 @@ in
   environment.binsh = "${pkgs.dash}/bin/dash";
 
   virtualisation = {
-    podman = {
-      enable = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
-    docker = {
-      # enable = true; # Don't enable unless you want docker as root
-      daemon.settings = {
-        dns = [
-          "9.9.9.9"
-          "8.8.8.8"
-        ];
-      };
-      autoPrune.enable = true;
-      rootless = {
-        enable = true;
-        setSocketVariable = true;
-      };
-    };
+    # podman = {
+    #   enable = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
+    # docker = {
+    #   # enable = true; # Don't enable unless you want docker as root
+    #   # daemon.settings = {
+    #   #   dns = [
+    #   #     "9.9.9.9"
+    #   #     "8.8.8.8"
+    #   #   ];
+    #   # };
+    #   autoPrune.enable = true;
+    #   rootless = {
+    #     enable = true;
+    #     setSocketVariable = true;
+    #   };
+    # };
     libvirtd.enable = true;
     spiceUSBRedirection.enable = true;
   };
@@ -398,17 +458,27 @@ in
 
   home-manager.sharedModules = [
     {
-      stylix.targets.helix.enable = false;
+      # stylix.targets = {
+      #   helix.enable = false;
+      #   fcitx5.enable = false;
+      #   # gnome.enable = false;
+      #   # qt.enable = false;
+      # };
     }
   ];
 
   stylix = {
-    enable = true;
-    image = ./wallpaper.jpg;
+    enable = false;
+    # image = ./wallpaper.jpg;
     # polarity = "dark";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
     polarity = "light";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/one-light.yaml";
+
+    # targets = {
+    #   gnome.enable = false;
+    #   qt.enable = false;
+    # };
 
     cursor = {
       package = pkgs.adwaita-icon-theme;
@@ -461,6 +531,11 @@ in
   };
 
   nix.settings = {
+    trusted-users = [
+      "root"
+      "@wheel"
+      username
+    ];
     substituters = [
       "https://cache.iog.io"
       "https://nix-community.cachix.org"

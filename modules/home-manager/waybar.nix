@@ -24,10 +24,10 @@
           modules-center = [ "sway/window" ];
           modules-right = [
             "idle_inhibitor"
-            "cpu"
-            "memory"
+            # "cpu"
+            # "memory"
             "battery"
-            "thermometer"
+            # "thermometer"
             "clock"
             "backlight"
             "pulseaudio"

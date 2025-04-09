@@ -19,6 +19,14 @@
         set fish_greeting # Disable greeting
         fish_vi_key_bindings # use vi bindings
       '';
+      functions = {
+        mkcd = {
+          body = ''
+            mkdir $argv[1]
+            cd $argv[1]
+          '';
+        };
+      };
     };
   };
 }
