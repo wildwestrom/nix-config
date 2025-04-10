@@ -47,8 +47,8 @@ in
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  security.sudo.enable = true;
-  security.sudo-rs.enable = false;
+  # security.sudo.enable = true;
+  security.sudo-rs.enable = true;
   # I suddenly started getting this error
   # sudo-rs: sudo must be owned by uid 0 and have the setuid bit set
   # Disabling sudo-rs didn't work either
