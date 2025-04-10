@@ -135,7 +135,7 @@ in
               tab-width = 2;
               unit = "\t";
             };
-            language-servers = [ "cc-ls" ];
+            language-servers = [ "clangd" ];
             auto-format = false;
           }
           {
