@@ -24,7 +24,7 @@ in
       lazygit
       gitui
       gh
-      jujutsu
+      # jujutsu
       fossil
       act
 
@@ -84,8 +84,8 @@ in
       hyperfine
       tree-sitter
       nodejs
-      python313
-      python313Packages.python-dotenv
+      python3
+      python3Packages.python-dotenv
       nasm
       lldb
       gdb
@@ -96,8 +96,8 @@ in
       tinymist
 
       # database tools
-      surrealdb
-      surrealist
+      # surrealdb
+      # surrealist
       sqlitebrowser
       pgadmin
 

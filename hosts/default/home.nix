@@ -63,7 +63,6 @@ in
       exfatprogs
       glib
       fontforge-gtk
-      python3Packages.setuptools
       wl-color-picker
       android-udev-rules
       localsend

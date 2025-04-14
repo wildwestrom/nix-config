@@ -23,7 +23,7 @@ in
       clang-tools
       slint-lsp
       clojure-lsp
-      wgsl-analyzer
+      # wgsl-analyzer
     ];
   };
 
