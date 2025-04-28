@@ -249,14 +249,14 @@ in
         "--smart-case"
       ];
     };
-    kitty = {
-      enable = true;
-      shellIntegration.enableFishIntegration = true;
-      settings = {
-        confirm_os_window_close = 0; # Disable
-        macos_option_as_alt = true;
-      };
-    };
+    # kitty = {
+    #   enable = true;
+    #   shellIntegration.enableFishIntegration = true;
+    #   settings = {
+    #     confirm_os_window_close = 0; # Disable
+    #     macos_option_as_alt = true;
+    #   };
+    # };
     alacritty = {
       enable = true;
       settings = {
@@ -332,7 +332,6 @@ in
         "window.zoomLevel" = 1;
         "editor.inlineSuggest.suppressSuggestions" = true;
         "semanticdiff.defaultDiffViewer" = true;
-
       };
     };
     atuin = {
