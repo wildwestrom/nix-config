@@ -147,6 +147,7 @@ in
     shellAliases = {
       switch-yubikey = "gpg-connect-agent 'scd serialno' 'learn --force' /bye";
       v = editor;
+      cd = "z";
       cp = "cp -rv";
       mv = "mv -iv";
       ln = "ln -iv";
