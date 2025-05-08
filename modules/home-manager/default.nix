@@ -319,6 +319,7 @@ in
           vscjava.vscode-maven
           continue.continue
           mkhl.direnv
+          esbenp.prettier-vscode
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
@@ -333,6 +334,9 @@ in
         "window.zoomLevel" = 1;
         "editor.inlineSuggest.suppressSuggestions" = true;
         "semanticdiff.defaultDiffViewer" = true;
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
       };
     };
     atuin = {
