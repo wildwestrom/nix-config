@@ -90,6 +90,7 @@ in
           completion-trigger-len = 2;
           soft-wrap = {
             enable = true;
+            wrap-at-text-width = true;
           };
           indent-guides = {
             render = true;
