@@ -23,6 +23,7 @@ in
       # Nix utils
       niv
       nix-prefetch
+      nix-prefetch-git
 
       # Version control
       lazygit
