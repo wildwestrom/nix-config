@@ -468,6 +468,11 @@ in
   };
 
   nix.settings = {
+    trusted-users = [
+      "root"
+      "@wheel"
+      username
+    ];
     substituters = [
       "https://cache.iog.io"
       "https://nix-community.cachix.org"
