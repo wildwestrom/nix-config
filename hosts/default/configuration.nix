@@ -367,18 +367,18 @@ in
   environment.binsh = "${pkgs.dash}/bin/dash";
 
   virtualisation = {
-    podman = {
-      enable = true;
-      defaultNetwork.settings.dns_enabled = true;
-    };
+    # podman = {
+    #   enable = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
     docker = {
       # enable = true; # Don't enable unless you want docker as root
-      daemon.settings = {
-        dns = [
-          "9.9.9.9"
-          "8.8.8.8"
-        ];
-      };
+      # daemon.settings = {
+      #   dns = [
+      #     "9.9.9.9"
+      #     "8.8.8.8"
+      #   ];
+      # };
       autoPrune.enable = true;
       rootless = {
         enable = true;

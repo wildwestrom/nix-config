@@ -20,6 +20,10 @@ in
 
   home = {
     packages = with pkgs; [
+      # Nix utils
+      niv
+      nix-prefetch
+
       # Version control
       lazygit
       gitui
