@@ -333,6 +333,12 @@ in
             version = "0.2.8";
             sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
           }
+          {
+            name = "slint";
+            publisher = "slint";
+            version = "1.11.0";
+            sha256 = "sha256-8NPeBrmsFom73FxIVKG1swGszTiST394J4+qZvqpUPs=";
+          }
         ];
       userSettings = {
         "files.autoSave" = "afterDelay";
