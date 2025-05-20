@@ -29,7 +29,7 @@ in
       lazygit
       gitui
       gh
-      # jujutsu
+      jujutsu
       fossil
       act
 
