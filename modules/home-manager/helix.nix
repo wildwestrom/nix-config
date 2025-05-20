@@ -96,6 +96,7 @@ in
             render = true;
             skip_levels = "1";
           };
+          insert-final-newline = true;
         };
       };
       languages = {

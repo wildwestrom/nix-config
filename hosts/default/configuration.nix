@@ -265,11 +265,7 @@ in
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
     jetbrains-mono
     newcomputermodern
     font-awesome
@@ -338,7 +334,7 @@ in
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
-    builtins.elem (lib.getName pkg) [
+    builtins.elem (lib.strings.getName pkg) [
       "obsidian"
       "libsciter"
       "surrealdb"
