@@ -405,7 +405,7 @@ in
       '';
     };
     "fcitx5" = {
-      target = "fcitx5/groups";
+      target = "fcitx5/profile";
       source = ./fcitx5-config;
     };
   };
