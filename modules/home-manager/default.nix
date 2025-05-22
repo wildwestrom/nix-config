@@ -405,32 +405,8 @@ in
       '';
     };
     "fcitx5" = {
-      target = "fcitx5/conf/groups";
-      text = ''
-        [Groups/0]
-        Name=Default
-        Default Layout=us
-        DefaultIM=hangul
-
-        [Groups/0/Items/0]
-        Name=keyboard-us
-        Layout=
-
-        [Groups/0/Items/1]
-        Name=hangul
-        Layout=
-
-        [Groups/0/Items/2]
-        Name=mozc
-        Layout=
-
-        [Groups/0/Items/3]
-        Name=rime
-        Layout=
-
-        [GroupOrder]
-        0=Default
-      '';
+      target = "fcitx5/groups";
+      source = ./fcitx5-config;
     };
   };
   home.file = {

@@ -401,7 +401,10 @@ in
 
   home-manager.sharedModules = [
     {
-      stylix.targets.helix.enable = false;
+      stylix.targets = {
+        helix.enable = false;
+        fcitx5.enable = false;
+      };
     }
   ];
 
