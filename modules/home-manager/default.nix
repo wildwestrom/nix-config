@@ -405,7 +405,7 @@ in
       '';
     };
     "fcitx5" = {
-      target = "fcitx5-config";
+      target = "fcitx5/profile";
       text = ''
         [Groups/0]
         Name=Default
