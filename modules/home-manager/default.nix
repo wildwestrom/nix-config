@@ -405,6 +405,7 @@ in
       '';
     };
     "fcitx5" = {
+      target = "fcitx5-config";
       text = ''
         [Groups/0]
         Name=Default
