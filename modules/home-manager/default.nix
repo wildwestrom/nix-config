@@ -71,7 +71,11 @@ in
       prismlauncher
       anki
       libreoffice
-      brave
+      (brave.override {
+        commandLineArgs = [
+          "--enable-wayland-ime"
+        ];
+      })
       android-file-transfer
       sccache
       ansifilter
@@ -404,10 +408,10 @@ in
         tab_spaces = 4
       '';
     };
-    "fcitx5" = {
-      target = "fcitx5/profile";
-      source = ./fcitx5-config;
-    };
+    # "fcitx5" = {
+    #   target = "fcitx5/profile";
+    #   source = ./fcitx5-config;
+    # };
   };
   home.file = {
     ".cargo" = {
