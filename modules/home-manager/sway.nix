@@ -177,7 +177,6 @@ in
             # pointer_accel = "0.1";
             scroll_factor = "0.75";
             tap = "enabled";
-            # doesn't really have an effect on my touchpad
             tap_button_map = "lrm";
           };
         };
