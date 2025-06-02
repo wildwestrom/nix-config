@@ -11,6 +11,7 @@ in
       retroarch
       retroarch-assets
       retroarch-joypad-autoconfig
+      gamescope
     ];
   };
 }
