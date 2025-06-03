@@ -82,6 +82,7 @@ in
       wormhole-rs
       graphviz
       neofetch
+      filezilla
 
       # programming
       stdenv.cc
