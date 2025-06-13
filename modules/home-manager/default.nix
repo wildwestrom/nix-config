@@ -62,7 +62,7 @@ in
       dig
 
       bottles
-      wine64Packages.waylandFull
+      wineWowPackages.waylandFull
       winetricks
 
       transmission_4-gtk
