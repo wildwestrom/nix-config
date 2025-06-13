@@ -105,6 +105,10 @@ in
       typstyle
       tinymist
 
+      hunspell
+      hunspellDicts.en-us-large
+      hunspellDicts.ko-kr
+
       # database tools
       # surrealdb
       # surrealist
