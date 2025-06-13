@@ -63,6 +63,7 @@ in
 
       bottles
       wineWowPackages.waylandFull
+      winetricks
 
       transmission_4-gtk
       bitwarden-desktop
