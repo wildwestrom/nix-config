@@ -61,13 +61,15 @@ in
       nmap
       dig
 
+      bottles
+      wine-wayland
+
       transmission_4-gtk
       bitwarden-desktop
       tldr
       picard
       qrencode
       qrcode
-      bottles
       prismlauncher
       anki
       libreoffice
