@@ -62,7 +62,7 @@ in
       dig
 
       bottles
-      wine-wayland
+      wineWowPackages.waylandFull
 
       transmission_4-gtk
       bitwarden-desktop
