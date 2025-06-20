@@ -59,6 +59,7 @@ in
     audio.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    jack.enable = true;
     wireplumber.enable = true;
     wireplumber.extraConfig = {
       "60-hdmi-no-suspend" = {

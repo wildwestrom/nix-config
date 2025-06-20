@@ -134,6 +134,7 @@ in
       strawberry
       yt-dlp
       ffmpeg
+      guitarix
 
       # cargo plugins
       bacon
