@@ -32,6 +32,7 @@ in
       jujutsu
       fossil
       act
+      mercurialFull
 
       # CLI Tools
       sd
