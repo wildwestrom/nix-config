@@ -256,6 +256,7 @@ in
     starship = {
       enable = true;
       enableFishIntegration = true;
+      enableBashIntegration = false;
       enableNushellIntegration = false;
     };
     zoxide = {
