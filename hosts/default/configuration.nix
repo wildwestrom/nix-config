@@ -291,7 +291,6 @@ in
           "networkmanager"
           "libvirtd"
         ];
-        shell = pkgs.fish;
       };
     };
   };
