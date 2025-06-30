@@ -11,6 +11,8 @@ in
   home = {
     packages = with pkgs; [
       python3Packages.python-lsp-server
+      python3Packages.ruff
+      pyright
       nixfmt-rfc-style
       nixd
       nil
@@ -69,7 +71,7 @@ in
         theme = "onelight";
         editor = {
           terminal = {
-            command = "kitty";
+            command = "alacritty";
             # args = ""; # Maybe don't use this?
           };
           line-number = "relative";
@@ -163,16 +165,6 @@ in
             };
             auto-format = true;
             language-servers = [ "nixd" ];
-          }
-          {
-            name = "python";
-            formatter = {
-              command = "black";
-              args = [
-                "--quiet"
-                "-"
-              ];
-            };
           }
           {
             name = "gtk-blueprint";

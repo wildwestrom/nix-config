@@ -100,7 +100,6 @@ in
       tree-sitter
       nodejs
       python3
-      python3Packages.python-dotenv
       nasm
       lldb
       gdb
@@ -118,7 +117,7 @@ in
       # surrealdb
       # surrealist
       sqlitebrowser
-      pgadmin
+      # pgadmin
 
       # creation
       inkscape
