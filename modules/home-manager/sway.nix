@@ -140,6 +140,8 @@ in
             "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+";
           "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%-";
           "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 1%+";
+          "${super}+Shift+s" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
+          "${super}+Shift+w" = "exec ${pkgs.sway-contrib.grimshot}/bin/grimshot copy window";
         };
         # keycodebindings = {
         # };
