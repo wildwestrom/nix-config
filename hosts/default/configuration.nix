@@ -76,6 +76,59 @@ in
     };
     extraConfig = {
       pipewire = {
+        "10-clock" = {
+          "context.properties" = {
+            "default.clock.rate" = 44100;
+            "default.clock.allowed-rates" = [
+              44100
+              48000
+              88200
+              96000
+              192000
+            ];
+            "default.clock.quantum" = 128;
+          };
+        };
+        # "20-2i2" = {
+        #   "context.modules" = [
+        #     {
+        #       name = "libpipewire-module-loopback";
+        #       args = {
+        #         node.description = "2i2 Left";
+        #         capture.props = {
+        #           node.name = "capture.2i2_Left";
+        #           audio.position = [ "FL" ];
+        #           stream.dont-remix = true;
+        #           target.object = "alsa_input.usb-Focusrite_Scarlett_2i2_USB-00.pro-input-0";
+        #           node.passive = true;
+        #         };
+        #         playback.props = {
+        #           node.name = "2i2_Left";
+        #           media.class = "Audio/Source";
+        #           audio.position = [ "MONO" ];
+        #         };
+        #       };
+        #     }
+        #     {
+        #       name = "libpipewire-module-loopback";
+        #       args = {
+        #         node.description = "2i2 Right";
+        #         capture.props = {
+        #           node.name = "capture.2i2_Right";
+        #           audio.position = [ "FR" ];
+        #           stream.dont-remix = true;
+        #           target.object = "alsa_input.usb-Focusrite_Scarlett_2i2_USB-00.pro-input-0";
+        #           node.passive = true;
+        #         };
+        #         playback.props = {
+        #           node.name = "2i2_Right";
+        #           media.class = "Audio/Source";
+        #           audio.position = [ "MONO" ];
+        #         };
+        #       };
+        #     }
+        #   ];
+        # };
         "99-silent-bell" = {
           "context.properties.module.x11.bell" = false;
         };

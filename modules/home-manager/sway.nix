@@ -191,6 +191,7 @@ in
         };
         window = {
           border = 2;
+          titlebar = false;
           commands = [
             {
               command = "inhibit_idle fullscreen";

@@ -135,6 +135,7 @@ in
       yt-dlp
       ffmpeg
       guitarix
+      gxplugins-lv2
 
       # cargo plugins
       bacon
