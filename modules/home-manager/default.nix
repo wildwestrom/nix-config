@@ -39,7 +39,7 @@ in
       tokei
       bc
       fd
-      du-dust
+      dua
       jq
       bottom
       wget
@@ -61,6 +61,7 @@ in
       tcpdump
       nmap
       dig
+      ueberzugpp
 
       bottles
       # wineWow64Packages.waylandFull
@@ -140,6 +141,8 @@ in
       # cargo plugins
       bacon
       cargo-shear
+      cargo-info
+      rusty-man
 
       # comms
       protonmail-bridge
@@ -290,6 +293,10 @@ in
           }
         ];
       };
+    };
+    yazi = {
+      enable = true;
+      enableFishIntegration = true;
     };
     wezterm = {
       enable = true;
