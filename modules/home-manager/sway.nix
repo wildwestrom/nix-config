@@ -185,12 +185,12 @@ in
         modes = {
           default = { };
         };
-        gaps = {
-          outer = 2;
-          inner = 4;
-          smartGaps = true;
-          smartBorders = "on";
-        };
+        # gaps = {
+        #   outer = 2;
+        #   inner = 4;
+        #   smartGaps = true;
+        #   smartBorders = "on";
+        # };
         window = {
           border = 2;
           titlebar = false;
