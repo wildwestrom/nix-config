@@ -458,17 +458,17 @@ in
 
   home-manager.sharedModules = [
     {
-      # stylix.targets = {
-      #   helix.enable = false;
-      #   fcitx5.enable = false;
-      #   # gnome.enable = false;
-      #   # qt.enable = false;
-      # };
+      stylix.targets = {
+        helix.enable = false;
+        fcitx5.enable = false;
+        # gnome.enable = false;
+        # qt.enable = false;
+      };
     }
   ];
 
   stylix = {
-    enable = false;
+    enable = true;
     # image = ./wallpaper.jpg;
     # polarity = "dark";
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
