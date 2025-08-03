@@ -7,6 +7,7 @@
 }:
 let
   username = "main";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
 {
   imports = [
@@ -163,8 +164,6 @@ in
     capabilities = "cap_dac_read_search=+ep";
   };
 
-  programs.dconf.enable = true;
-
   time.timeZone = "Asia/Seoul";
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -296,6 +295,7 @@ in
   networking.networkmanager.enable = true;
 
   # services.mullvad-vpn.enable = true;
+  # There must be a killswitch enabled by default, so don't enable it unless you're ready for your internet to cut off
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

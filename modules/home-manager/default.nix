@@ -13,7 +13,6 @@ in
   imports = [
     ./helix.nix
     ./emacs.nix
-    # ./nushell.nix
     ./fish.nix
     ./gaming.nix
   ];

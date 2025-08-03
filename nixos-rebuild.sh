@@ -10,7 +10,6 @@ rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."
-nix flake update
 sudo nix-channel --update
 sudo nixos-rebuild switch --upgrade -vvv --flake '.#default' --show-trace &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
 current=$(nixos-rebuild list-generations --json | jq '.[0].generation')
