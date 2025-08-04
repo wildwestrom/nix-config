@@ -7,7 +7,6 @@
 }:
 let
   username = "main";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
 in
 {
   imports = [

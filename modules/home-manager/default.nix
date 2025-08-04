@@ -42,7 +42,6 @@ in
       dua
       jq
       bottom
-      wget
       tree
       rename
       trashy
@@ -57,11 +56,15 @@ in
       unzip
       zip
       qgis
+      file
+
       # network
       tcpdump
       nmap
       dig
       ueberzugpp
+      curl
+      wget
 
       bottles
       # wineWow64Packages.waylandFull
