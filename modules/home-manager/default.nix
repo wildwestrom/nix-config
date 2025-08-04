@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }:
 let
@@ -154,6 +155,10 @@ in
       obsidian
       # jetbrains.rust-rover
       neovim
+      (import inputs.nixpkgs-unstable {
+        system = pkgs.system;
+        config.allowUnfree = true;
+      }).code-cursor
     ];
     sessionVariables = {
       CLICOLOR = "1";
