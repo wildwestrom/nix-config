@@ -294,8 +294,10 @@ in
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
-  # services.mullvad-vpn.enable = true;
-  # There must be a killswitch enabled by default, so don't enable it unless you're ready for your internet to cut off
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn; # add the GUI
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
