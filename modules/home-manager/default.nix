@@ -85,13 +85,17 @@ in
           "--enable-wayland-ime"
         ];
       })
-      android-file-transfer
       sccache
       ansifilter
       wormhole-rs
       graphviz
       neofetch
       filezilla
+
+      # android
+      android-file-transfer
+      android-tools
+      scrcpy
 
       # programming
       stdenv.cc
@@ -130,6 +134,7 @@ in
       blender
       obs-studio
       freecad
+      gimp3
 
       # media
       libwebp
