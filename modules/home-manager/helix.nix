@@ -22,7 +22,6 @@ in
       taplo
       jdt-language-server
       ccls
-      clang-tools
       slint-lsp
       clojure-lsp
       # wgsl-analyzer

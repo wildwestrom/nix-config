@@ -11,6 +11,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
+    ./emacs.nix
     inputs.home-manager.nixosModules.default
   ];
 

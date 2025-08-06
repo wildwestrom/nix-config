@@ -13,7 +13,6 @@ in
 {
   imports = [
     ./helix.nix
-    ./emacs.nix
     ./fish.nix
     ./gaming.nix
   ];
@@ -98,7 +97,6 @@ in
       scrcpy
 
       # programming
-      stdenv.cc
       luarocks
       ghostscript
       racket
