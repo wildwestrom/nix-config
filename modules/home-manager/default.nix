@@ -2,6 +2,7 @@
   pkgs,
   config,
   inputs,
+  username,
   ...
 }:
 let
@@ -167,6 +168,9 @@ in
         system = pkgs.system;
         config.allowUnfree = true;
       }).code-cursor
+    ];
+    sessionPath = [
+      "$HOME/.emacs.d/bin"
     ];
     sessionVariables = {
       CLICOLOR = "1";
