@@ -268,6 +268,9 @@ in
           racket-langserver = {
             command = "racket -l racket-langserver";
           };
+          guile-lsp-server = {
+            command = "guile-lsp-server";
+          };
           gtk-blueprint = {
             command = "blueprint-compiler";
             args = [ "lsp" ];

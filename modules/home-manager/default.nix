@@ -102,6 +102,8 @@ in
       luarocks
       ghostscript
       racket
+      guile
+      guile-json
       sbcl
       docker-compose
       hyperfine
