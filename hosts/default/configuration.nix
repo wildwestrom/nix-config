@@ -123,26 +123,26 @@ in
                 };
               };
             }
-            {
-              factory = "link";
-              args = {
-                output.node = "scarlett_2i2_input";
-                output.port = "capture_FL";
-                input.node = "input_FL";
-                input.port = "playback_MONO";
-                link.mode = "flat";
-              };
-            }
-            {
-              factory = "link";
-              args = {
-                output.node = "scarlett_2i2_input";
-                output.port = "capture_FR";
-                input.node = "input_FR";
-                input.port = "playback_MONO";
-                link.mode = "flat";
-              };
-            }
+            # {
+            #   factory = "link";
+            #   args = {
+            #     output.node = "scarlett_2i2_input";
+            #     output.port = "capture_FL";
+            #     input.node = "input_FL";
+            #     input.port = "playback_MONO";
+            #     link.mode = "flat";
+            #   };
+            # }
+            # {
+            #   factory = "link";
+            #   args = {
+            #     output.node = "scarlett_2i2_input";
+            #     output.port = "capture_FR";
+            #     input.node = "input_FR";
+            #     input.port = "playback_MONO";
+            #     link.mode = "flat";
+            #   };
+            # }
           ];
         };
       };
