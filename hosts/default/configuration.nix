@@ -277,20 +277,37 @@ in
   #   53317
   # ];
 
-  # services.resolved = {
-  #   fallbackDns = [
-  #     # "1.1.1.1" # cloudflare
-  #     # "2606:4700:4700::1111"
-  #     # "1.0.0.1"
-  #     # "2606:4700:4700::1001"
-  #     "9.9.9.9" # quad9
-  #     "149.112.112.112"
-  #     "2620:fe::fe"
-  #     "2620:fe::9"
-  #   ];
-  #   enable = true;
-  # };
-
+  services.dnscrypt-proxy2 = {
+    enable = true;
+    settings = {
+      ipv6_servers = true;
+      require_dnssec = true;
+      sources.public-resolvers = {
+        urls = [
+          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+        ];
+        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+      };
+      server_names = [
+        "quad9"
+        "cloudflare"
+        "nextdns"
+        "mullvad-doh"
+      ];
+      listen_addresses = [ "127.0.0.2:53" ];
+      odoh_servers = true;
+      timeout = 10000;
+      lb_strategy = "p2";
+      log_file = "/tmp/dnscrypt-proxy.log";
+      use_syslog = false; # will make syslog messy otherwise
+      cache_min_ttl = 3600;
+      cache_neg_min_ttl = 600;
+      cache_neg_max_ttl = 900;
+      forwarding_rules = "/etc/private/forwarding-rules.txt";
+    };
+  };
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
