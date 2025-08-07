@@ -227,7 +227,7 @@ in
               "scm"
               "sld"
             ];
-            shebangs = "guile";
+            shebangs = [ "guile" ];
             grammar = "scheme";
             comment-token = ";";
             indent = {
