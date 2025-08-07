@@ -24,6 +24,7 @@ in
       ccls
       slint-lsp
       clojure-lsp
+      guile-lsp-server
       # wgsl-analyzer
     ];
   };
@@ -220,21 +221,8 @@ in
             # };
           }
           {
-            name = "guile";
-            scope = "source.scheme";
-            file-types = [
-              "ss"
-              "scm"
-              "sld"
-            ];
-            shebangs = [ "guile" ];
-            grammar = "scheme";
-            comment-token = ";";
-            indent = {
-              tab-width = 2;
-              unit = "  ";
-            };
-            language-servers = [ "guile" ];
+            name = "scheme";
+            language-servers = [ "guile-lsp-server" ];
           }
         ];
         language-server = {
@@ -284,7 +272,7 @@ in
           racket-langserver = {
             command = "racket -l racket-langserver";
           };
-          guile = {
+          guile-lsp-server = {
             command = "guile-lsp-server";
           };
           gtk-blueprint = {
