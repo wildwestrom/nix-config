@@ -124,7 +124,7 @@ in
               };
             }
             {
-              factory = "alsa-monitor";
+              factory = "alsa-sink";
               args = {
                 node.name = "scarlett_2i2_output";
                 node.description = "Focusrite Scarlett 2i2 Pro Output";
@@ -138,57 +138,7 @@ in
                   "FL"
                   "FR"
                 ];
-                monitor.channel-properties = {
-                  "FL" = {
-                    node.description = "2i2 Left Output";
-                  };
-                  "FR" = {
-                    node.description = "2i2 Right Output";
-                  };
-                };
-              };
-            }
-            {
-              factory = "link";
-              args = {
-                output.node = "scarlett_2i2_input";
-                output.port = "capture_FL";
-                input.node = "input_FL";
-                input.port = "playback_MONO";
-                link.mode = "flat";
-              };
-            }
-            {
-              factory = "link";
-              args = {
-                output.node = "scarlett_2i2_input";
-                output.port = "capture_FR";
-                input.node = "input_FR";
-                input.port = "playback_MONO";
-                link.mode = "flat";
-              };
-            }
-          ];
-          context.modules = [
-            {
-              name = "libpipewire-module-rt";
-              args = {
-                "nice.level" = -11;
-                "rt.prio" = 88;
-                "rt.time.soft" = 200000;
-                "rt.time.hard" = 200000;
-              };
-            }
-          ];
-        };
-        "30-alsa-disable" = {
-          context.modules = [
-            {
-              name = "libpipewire-module-alsa-card";
-              args = {
-                "alsa.jack-device" = false;
-                "alsa.reserve" = false;
-                "alsa.monitor" = false;
+                node.autoconnect = true;
               };
             }
           ];
