@@ -96,55 +96,55 @@ in
             "default.clock.quantum" = 128;
           };
         };
-        "20-2i2" = {
-          context.objects = [
-            {
-              factory = "alsa-monitor";
-              args = {
-                node.name = "scarlett_2i2_input";
-                node.description = "Focusrite Scarlett 2i2 Pro";
-                alsa.card_name = "Scarlett 2i2 USB";
-                alsa.device = "hw:2,0";
-                alsa.format = "s32le";
-                alsa.rate = 48000;
-                alsa.channels = 2;
-                node.latency = 1024;
-                audio.position = [
-                  "FL"
-                  "FR"
-                ]; # Define the physical channels
-                monitor.channel-properties = {
-                  "FL" = {
-                    node.description = "2i2 Left Input";
-                  };
-                  "FR" = {
-                    node.description = "2i2 Right Input";
-                  };
-                };
-              };
-            }
-            # {
-            #   factory = "link";
-            #   args = {
-            #     output.node = "scarlett_2i2_input";
-            #     output.port = "capture_FL";
-            #     input.node = "input_FL";
-            #     input.port = "playback_MONO";
-            #     link.mode = "flat";
-            #   };
-            # }
-            # {
-            #   factory = "link";
-            #   args = {
-            #     output.node = "scarlett_2i2_input";
-            #     output.port = "capture_FR";
-            #     input.node = "input_FR";
-            #     input.port = "playback_MONO";
-            #     link.mode = "flat";
-            #   };
-            # }
-          ];
-        };
+        # "20-2i2" = {
+        #   context.objects = [
+        #     {
+        #       factory = "alsa-monitor";
+        #       args = {
+        #         node.name = "scarlett_2i2_input";
+        #         node.description = "Focusrite Scarlett 2i2 Pro";
+        #         alsa.card_name = "Scarlett 2i2 USB";
+        #         alsa.device = "hw:2,0";
+        #         alsa.format = "s32le";
+        #         alsa.rate = 48000;
+        #         alsa.channels = 2;
+        #         node.latency = 1024;
+        #         audio.position = [
+        #           "FL"
+        #           "FR"
+        #         ]; # Define the physical channels
+        #         monitor.channel-properties = {
+        #           "FL" = {
+        #             node.description = "2i2 Left Input";
+        #           };
+        #           "FR" = {
+        #             node.description = "2i2 Right Input";
+        #           };
+        #         };
+        #       };
+        #     }
+        #     {
+        #       factory = "link";
+        #       args = {
+        #         output.node = "scarlett_2i2_input";
+        #         output.port = "capture_FL";
+        #         input.node = "input_FL";
+        #         input.port = "playback_MONO";
+        #         link.mode = "flat";
+        #       };
+        #     }
+        #     {
+        #       factory = "link";
+        #       args = {
+        #         output.node = "scarlett_2i2_input";
+        #         output.port = "capture_FR";
+        #         input.node = "input_FR";
+        #         input.port = "playback_MONO";
+        #         link.mode = "flat";
+        #       };
+        #     }
+        #   ];
+        # };
       };
       pipewire-pulse = {
         # This is supposed to fix audio randomly cutting out while gaming, we'll see
