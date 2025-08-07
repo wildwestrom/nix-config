@@ -296,16 +296,17 @@ in
         "nextdns"
         "mullvad-doh"
       ];
-      listen_addresses = [ "127.0.0.2:53" ];
+      listen_addresses = [
+        "127.0.0.1:53"
+        "[::1]:53"
+      ];
       odoh_servers = true;
       timeout = 10000;
       lb_strategy = "p2";
+      cache = true;
+      cache_size = 4092;
       log_file = "/tmp/dnscrypt-proxy.log";
       use_syslog = false; # will make syslog messy otherwise
-      cache_min_ttl = 3600;
-      cache_neg_min_ttl = 600;
-      cache_neg_max_ttl = 900;
-      forwarding_rules = "/etc/private/forwarding-rules.txt";
     };
   };
   networking.hostName = "nixos"; # Define your hostname.
