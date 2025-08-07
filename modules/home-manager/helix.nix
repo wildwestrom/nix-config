@@ -219,6 +219,23 @@ in
             #   };
             # };
           }
+          {
+            name = "guile";
+            scope = "source.scheme";
+            file-types = [
+              "ss"
+              "scm"
+              "sld"
+            ];
+            shebangs = "guile";
+            grammar = "scheme";
+            comment-token = ";";
+            indent = {
+              tab-width = 2;
+              unit = "  ";
+            };
+            language-servers = [ "guile" ];
+          }
         ];
         language-server = {
           nixd = {
@@ -267,7 +284,7 @@ in
           racket-langserver = {
             command = "racket -l racket-langserver";
           };
-          guile-lsp-server = {
+          guile = {
             command = "guile-lsp-server";
           };
           gtk-blueprint = {
