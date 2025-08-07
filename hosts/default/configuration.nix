@@ -96,35 +96,6 @@ in
             "default.clock.quantum" = 128;
           };
         };
-        # "20-2i2" = {
-        #   context.objects = [
-        #     {
-        #       factory = "alsa-monitor";
-        #       args = {
-        #         node.name = "scarlett_2i2_input";
-        #         node.description = "Focusrite Scarlett 2i2 Pro Input";
-        #         alsa.card_name = "Scarlett 2i2 USB";
-        #         alsa.device = "hw:2,0";
-        #         alsa.format = "s32le";
-        #         alsa.rate = 48000;
-        #         alsa.channels = 2;
-        #         node.latency = 1024;
-        #         audio.position = [
-        #           "FL"
-        #           "FR"
-        #         ]; # Define the physical channels
-        #         monitor.channel-properties = {
-        #           "FL" = {
-        #             node.description = "2i2 Left Input";
-        #           };
-        #           "FR" = {
-        #             node.description = "2i2 Right Input";
-        #           };
-        #         };
-        #       };
-        #     }
-        #   ];
-        # };
       };
       pipewire-pulse = {
         # This is supposed to fix audio randomly cutting out while gaming, we'll see
