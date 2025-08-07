@@ -102,7 +102,7 @@ in
               factory = "alsa-monitor";
               args = {
                 node.name = "scarlett_2i2_input";
-                node.description = "Focusrite Scarlett 2i2 Pro";
+                node.description = "Focusrite Scarlett 2i2 Pro Input";
                 alsa.card_name = "Scarlett 2i2 USB";
                 alsa.device = "hw:2,0";
                 alsa.format = "s32le";
@@ -119,6 +119,31 @@ in
                   };
                   "FR" = {
                     node.description = "2i2 Right Input";
+                  };
+                };
+              };
+            }
+            {
+              factory = "alsa-monitor";
+              args = {
+                node.name = "scarlett_2i2_output";
+                node.description = "Focusrite Scarlett 2i2 Pro Output";
+                alsa.card_name = "Scarlett 2i2 USB";
+                alsa.device = "hw:2,0";
+                alsa.format = "s32le";
+                alsa.rate = 48000;
+                alsa.channels = 2;
+                node.latency = 1024;
+                audio.position = [
+                  "FL"
+                  "FR"
+                ];
+                monitor.channel-properties = {
+                  "FL" = {
+                    node.description = "2i2 Left Output";
+                  };
+                  "FR" = {
+                    node.description = "2i2 Right Output";
                   };
                 };
               };
