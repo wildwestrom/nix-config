@@ -215,18 +215,21 @@ in
 
   # programs.ssh.startAgent = true; # Disabled: conflicts with GNOME keyring's SSH agent
 
-  # # Open ports in the firewall.
-  # # 53317 = LocalSend
-  # networking.firewall.allowedTCPPorts = [
-  #   22
-  #   80
-  #   443
-  #   53317
-  # ];
-  # networking.firewall.allowedUDPPorts = [
-  #   53
-  #   53317
-  # ];
+  # Open ports in the firewall.
+  # 53317 = LocalSend
+  # 22000 = Syncthing
+  networking.firewall.allowedTCPPorts = [
+    22
+    80
+    443
+    53317
+    22000
+  ];
+  networking.firewall.allowedUDPPorts = [
+    53
+    53317
+    22000
+  ];
 
   services.dnscrypt-proxy2 = {
     enable = true;
