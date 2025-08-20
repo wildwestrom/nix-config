@@ -112,6 +112,7 @@ in
       nasm
       lldb
       gdb
+      elan
 
       # typst
       typst

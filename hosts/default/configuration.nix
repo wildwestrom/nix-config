@@ -157,15 +157,18 @@ in
 
   services.dbus.enable = true;
 
-  # Enable automatic login for the user
-  # TODO: figure out how to make it work with greetd
-  services.getty.autologinUser = username;
   services.greetd = {
     enable = true;
+    vt = 2; # This should prevent systemd from clobbering the terminal
     settings = {
       default_session = {
         command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
+      };
+      # enables auto login
+      initial_session = {
+        command = "sway";
+        user = username;
       };
     };
   };
