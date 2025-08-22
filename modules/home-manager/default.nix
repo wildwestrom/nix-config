@@ -165,6 +165,7 @@ in
       obsidian
       # jetbrains.rust-rover
       neovim
+      vscodium
       (import inputs.nixpkgs-unstable {
         system = pkgs.system;
         config.allowUnfree = true;
@@ -342,47 +343,47 @@ in
     #     pane_frames = false;
     #   };
     # };
-    vscode = {
-      enable = true;
-      package = pkgs.vscodium;
-      enableExtensionUpdateCheck = false;
-      enableUpdateCheck = false;
-      mutableExtensionsDir = true;
-      extensions =
-        with pkgs.vscode-extensions;
-        [
-          vadimcn.vscode-lldb
-          rust-lang.rust-analyzer
-          redhat.java
-          vscjava.vscode-maven
-          continue.continue
-          mkhl.direnv
-          esbenp.prettier-vscode
-        ]
-        ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "hblang";
-            publisher = "koniifer";
-            version = "0.2.8";
-            sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
-          }
-          {
-            name = "slint";
-            publisher = "slint";
-            version = "1.11.0";
-            sha256 = "sha256-8NPeBrmsFom73FxIVKG1swGszTiST394J4+qZvqpUPs=";
-          }
-        ];
-      userSettings = {
-        "files.autoSave" = "afterDelay";
-        "window.zoomLevel" = 1;
-        "editor.inlineSuggest.suppressSuggestions" = true;
-        "semanticdiff.defaultDiffViewer" = true;
-        "[json]" = {
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-      };
-    };
+    # vscode = {
+    #   enable = true;
+    #   package = pkgs.vscodium;
+    #   enableExtensionUpdateCheck = false;
+    #   enableUpdateCheck = false;
+    #   mutableExtensionsDir = true;
+    #   extensions =
+    #     with pkgs.vscode-extensions;
+    #     [
+    #       vadimcn.vscode-lldb
+    #       rust-lang.rust-analyzer
+    #       redhat.java
+    #       vscjava.vscode-maven
+    #       continue.continue
+    #       mkhl.direnv
+    #       esbenp.prettier-vscode
+    #     ]
+    #     ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+    #       {
+    #         name = "hblang";
+    #         publisher = "koniifer";
+    #         version = "0.2.8";
+    #         sha256 = "sha256-J9cHT0ryOXjeITIhCoeP+5ZT5EwdJNh10i/UT8zGSFU=";
+    #       }
+    #       {
+    #         name = "slint";
+    #         publisher = "slint";
+    #         version = "1.11.0";
+    #         sha256 = "sha256-8NPeBrmsFom73FxIVKG1swGszTiST394J4+qZvqpUPs=";
+    #       }
+    #     ];
+    #   userSettings = {
+    #     "files.autoSave" = "afterDelay";
+    #     "window.zoomLevel" = 1;
+    #     "editor.inlineSuggest.suppressSuggestions" = true;
+    #     "semanticdiff.defaultDiffViewer" = true;
+    #     "[json]" = {
+    #       "editor.defaultFormatter" = "esbenp.prettier-vscode";
+    #     };
+    #   };
+    # };
     atuin = {
       enable = true;
       enableNushellIntegration = true;
