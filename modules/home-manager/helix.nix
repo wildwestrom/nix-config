@@ -237,8 +237,8 @@ in
                 "typescript"
               ];
               language-servers = [
-                "typescript-language-server"
                 "emmet-lsp"
+                "typescript-language-server"
               ];
             };
           }
@@ -253,8 +253,8 @@ in
               ];
             };
             language-servers = [
-              "vscode-html-language-server"
               "emmet-lsp"
+              "vscode-html-language-server"
             ];
           }
         ];
