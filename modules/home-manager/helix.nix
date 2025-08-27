@@ -25,7 +25,7 @@ in
       slint-lsp
       clojure-lsp
       guile-lsp-server
-      emmet-ls
+      emmet-language-server
       # wgsl-analyzer
     ];
   };
