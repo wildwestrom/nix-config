@@ -25,6 +25,7 @@ in
       slint-lsp
       clojure-lsp
       guile-lsp-server
+      emmet-ls
       # wgsl-analyzer
     ];
   };
@@ -224,6 +225,35 @@ in
             name = "scheme";
             language-servers = [ "guile-lsp-server" ];
           }
+          {
+            name = "tsx";
+            formatter = {
+              command = "prettier";
+              args = [
+                "--parser"
+                "typescript"
+              ];
+              language-servers = [
+                "typescript-language-server"
+                "emmet-lsp"
+              ];
+            };
+          }
+          {
+            name = "html";
+            roots = [ ".git" ];
+            formatter = {
+              command = "prettier";
+              args = [
+                "--parser"
+                "html"
+              ];
+            };
+            language-servers = [
+              "vscode-html-language-server"
+              "emmet-lsp"
+            ];
+          }
         ];
         language-server = {
           nixd = {
@@ -242,6 +272,10 @@ in
                 expr = "(builtins.getFlake \"/home/${username}/nix-config\").homeConfigurations.main.options";
               };
             };
+          };
+          emmet-lsp = {
+            command = "emmet-language-server";
+            args = [ "--stdio" ];
           };
           typst-lsp = {
             command = "tinymist";
