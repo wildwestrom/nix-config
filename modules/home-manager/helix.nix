@@ -236,11 +236,11 @@ in
                 "--parser"
                 "typescript"
               ];
-              language-servers = [
-                "emmet-lsp"
-                "typescript-language-server"
-              ];
             };
+            language-servers = [
+              "emmet-lsp"
+              "typescript-language-server"
+            ];
           }
           {
             name = "html";
