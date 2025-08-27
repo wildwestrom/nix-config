@@ -39,7 +39,7 @@ in
   xdg.desktopEntries.helix = {
     name = "Helix";
     genericName = "Text Editor";
-    exec = "alacritty -e hx %F";
+    exec = "${terminal} -e hx %F";
     terminal = true;
     categories = [
       "Utility"
@@ -70,6 +70,9 @@ in
       enable = true;
       settings = {
         theme = "onelight";
+        keys.insert = {
+          "Ctrl-x" = "completion";
+        };
         editor = {
           terminal = {
             command = "alacritty";
