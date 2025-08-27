@@ -71,7 +71,7 @@ in
       settings = {
         theme = "onelight";
         keys.insert = {
-          "Ctrl-x" = "completion";
+          "C-x" = "completion";
         };
         editor = {
           terminal = {
