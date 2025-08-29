@@ -163,7 +163,9 @@ in
 
       # editors
       obsidian
-      zed-editor
+      (import inputs.nixpkgs-unstable {
+        system = pkgs.system;
+      }).zed-editor
       # jetbrains.rust-rover
       neovim
       vscodium
