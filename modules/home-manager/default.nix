@@ -163,6 +163,7 @@ in
 
       # editors
       obsidian
+      zed-editor
       # jetbrains.rust-rover
       neovim
       vscodium
