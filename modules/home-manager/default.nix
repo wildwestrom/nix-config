@@ -2,7 +2,7 @@
   pkgs,
   config,
   inputs,
-  username,
+  #username,
   ...
 }:
 let
@@ -19,161 +19,167 @@ in
   ];
 
   home = {
-    packages = with pkgs; [
-      # Nix utils
-      niv
-      nix-prefetch
-      nix-prefetch-git
+    packages =
+      let
+        unstable = import inputs.nixpkgs-unstable {
+          system = pkgs.system;
+        };
+        unstable-unfree = import inputs.nixpkgs-unstable {
+          system = pkgs.system;
+          config.allowUnfree = true;
+        };
+      in
+      with pkgs;
+      [
+        # Nix utils
+        niv
+        nix-prefetch
+        nix-prefetch-git
 
-      # Version control
-      lazygit
-      gitui
-      gh
-      jujutsu
-      fossil
-      act
-      mercurialFull
+        # Version control
+        lazygit
+        gitui
+        gh
+        jujutsu
+        fossil
+        act
+        mercurialFull
 
-      # CLI Tools
-      sd
-      tokei
-      bc
-      fd
-      dua
-      jq
-      bottom
-      tree
-      rename
-      trashy
-      pandoc
-      nodePackages_latest.markdownlint-cli
-      psmisc
-      watch
-      watchexec
-      entr
-      # TODO: Find a replacement
-      # rargs
-      unzip
-      zip
-      qgis
-      file
+        # CLI Tools
+        sd
+        tokei
+        bc
+        fd
+        dua
+        jq
+        bottom
+        tree
+        rename
+        trashy
+        pandoc
+        nodePackages_latest.markdownlint-cli
+        psmisc
+        watch
+        watchexec
+        entr
+        # TODO: Find a replacement
+        # rargs
+        unzip
+        zip
+        qgis
+        file
 
-      # network
-      tcpdump
-      nmap
-      dig
-      ueberzugpp
-      curl
-      wget
+        # network
+        tcpdump
+        nmap
+        dig
+        ueberzugpp
+        curl
+        wget
 
-      bottles
-      # wineWow64Packages.waylandFull
-      winePackages.waylandFull
-      winetricks
+        bottles
+        # wineWow64Packages.waylandFull
+        winePackages.waylandFull
+        winetricks
 
-      transmission_4-gtk
-      bitwarden-desktop
-      tldr
-      picard
-      qrencode
-      qrcode
-      prismlauncher
-      anki
-      libreoffice
-      (brave.override {
-        commandLineArgs = [
-          "--enable-wayland-ime"
-        ];
-      })
-      sccache
-      ansifilter
-      wormhole-rs
-      graphviz
-      neofetch
-      filezilla
+        transmission_4-gtk
+        bitwarden-desktop
+        tldr
+        picard
+        qrencode
+        qrcode
+        prismlauncher
+        anki
+        libreoffice
+        (brave.override {
+          commandLineArgs = [
+            "--enable-wayland-ime"
+          ];
+        })
+        sccache
+        ansifilter
+        wormhole-rs
+        graphviz
+        neofetch
+        filezilla
 
-      # android
-      android-file-transfer
-      android-tools
-      scrcpy
+        # android
+        android-file-transfer
+        android-tools
+        scrcpy
 
-      # programming
-      luarocks
-      ghostscript
-      racket
-      guile
-      guile-json
-      sbcl
-      docker-compose
-      hyperfine
-      tree-sitter
-      nodejs
-      python3
-      nasm
-      lldb
-      gdb
-      elan
+        # programming
+        luarocks
+        ghostscript
+        racket
+        guile
+        guile-json
+        sbcl
+        docker-compose
+        hyperfine
+        tree-sitter
+        nodejs
+        python3
+        nasm
+        lldb
+        gdb
+        elan
 
-      # typst
-      typst
-      typstyle
-      tinymist
+        # typst
+        unstable.typst
+        unstable.typstyle
+        unstable.tinymist
 
-      hunspell
-      hunspellDicts.en-us-large
-      hunspellDicts.ko-kr
+        hunspell
+        hunspellDicts.en-us-large
+        hunspellDicts.ko-kr
 
-      # database tools
-      # surrealdb
-      # surrealist
-      sqlitebrowser
-      # pgadmin
+        # database tools
+        # surrealdb
+        # surrealist
+        sqlitebrowser
+        # pgadmin
 
-      # creation
-      inkscape
-      imagemagick
-      musescore
-      blender
-      obs-studio
-      freecad
-      gimp3
+        # creation
+        inkscape
+        imagemagick
+        musescore
+        blender
+        obs-studio
+        freecad
+        gimp3
 
-      # media
-      libwebp
-      vlc
-      mpv
-      strawberry
-      yt-dlp
-      ffmpeg
-      guitarix
-      gxplugins-lv2
+        # media
+        libwebp
+        vlc
+        mpv
+        strawberry
+        yt-dlp
+        ffmpeg
+        guitarix
+        gxplugins-lv2
 
-      # cargo plugins
-      bacon
-      cargo-shear
-      cargo-info
-      rusty-man
+        # cargo plugins
+        bacon
+        cargo-shear
+        cargo-info
+        rusty-man
 
-      # comms
-      protonmail-bridge
-      signal-desktop
-      vesktop
-      tdesktop
-      thunderbird
+        # comms
+        protonmail-bridge
+        signal-desktop
+        vesktop
+        tdesktop
+        thunderbird
 
-      # editors
-      obsidian
-      (import inputs.nixpkgs-unstable {
-        system = pkgs.system;
-      }).zed-editor
-      # jetbrains.rust-rover
-      neovim
-      vscodium
-      (import inputs.nixpkgs-unstable {
-        system = pkgs.system;
-        config.allowUnfree = true;
-      }).code-cursor
-    ];
+        # editors
+        obsidian
+        unstable.zed-editor
+        # jetbrains.rust-rover
+        neovim
+        vscodium
+        unstable-unfree.code-cursor
+      ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
     ];
