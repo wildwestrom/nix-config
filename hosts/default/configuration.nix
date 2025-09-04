@@ -71,20 +71,6 @@ in
             # if I set it to true, it's too quiet and noisy
             # not sure what I can do to fix this
             "bluez5.enable-hw-volume" = true;
-            "bluez5.codecs" = [
-              "ldac"
-              "aptx"
-              "aptx_ll_duplex"
-              "aptx_ll"
-              "aptx_hd"
-              "opus_05_pro"
-              "opus_05_71"
-              "opus_05_51"
-              "opus_05"
-              "opus_05_duplex"
-              "aac"
-              "sbc_xq"
-            ];
           };
         };
         "60-hdmi-no-suspend" = {
