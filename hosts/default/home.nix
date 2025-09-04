@@ -48,9 +48,6 @@ in
       evince
       gtk4
       libadwaita
-      ldacbt
-      libfreeaptx
-      pwvucontrol
       fractal
       element-desktop
       nautilus

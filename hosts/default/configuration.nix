@@ -202,6 +202,11 @@ in
     virt-manager
     restic
     babashka
+
+    # audio
+    ldacbt
+    libfreeaptx
+    pwvucontrol
   ];
 
   # Firmware updater
