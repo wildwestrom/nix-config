@@ -85,7 +85,7 @@ in
       pipewire = {
         "10-clock" = {
           "context.properties" = {
-            "default.clock.rate" = 48000;
+            "default.clock.rate" = 44100;
             "default.clock.allowed-rates" = [
               44100
               48000
@@ -93,16 +93,10 @@ in
               96000
               192000
             ];
-            "default.clock.quantum" = 128;
+            "default.clock.quantum" = 32;
+            "default.clock.min-quantum" = 16;
+            "default.clock.max-quantum" = 512;
           };
-        };
-      };
-      pipewire-pulse = {
-        # This is supposed to fix audio randomly cutting out while gaming, we'll see
-        "20-pulse-properties" = {
-          "pulse.min.req" = "256/48000";
-          "pulse.min.frag" = "256/48000";
-          "pulse.min.quantum" = "256/48000";
         };
       };
     };
