@@ -62,23 +62,30 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber.enable = true;
-    wireplumber.extraConfig = {
-      "60-hdmi-no-suspend" = {
-        "monitor.alsa.rules" = [
-          {
-            matches = [
-              {
-                "api.alsa.path" = "hdmi:.*";
-              }
-            ];
-            actions = {
-              update-props = {
-                "session.suspend-timeout-seconds" = 60;
+    wireplumber = {
+      enable = true;
+      extraConfig = {
+        bluetoothEnhancements = {
+          "monitor.bluez.properties" = {
+            "bluez5.enable-hw-volume" = false;
+          };
+        };
+        "60-hdmi-no-suspend" = {
+          "monitor.alsa.rules" = [
+            {
+              matches = [
+                {
+                  "api.alsa.path" = "hdmi:.*";
+                }
+              ];
+              actions = {
+                update-props = {
+                  "session.suspend-timeout-seconds" = 60;
+                };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
       };
     };
     extraConfig = {
