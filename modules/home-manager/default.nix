@@ -120,6 +120,7 @@ in
         tree-sitter
         nodejs
         python3
+        uv
         nasm
         lldb
         gdb
