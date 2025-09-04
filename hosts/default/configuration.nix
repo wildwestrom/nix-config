@@ -498,12 +498,14 @@ in
   programs.joycond-cemuhook.enable = true;
 
   services.blueman.enable = true;
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.input = {
-    General = {
-      UserspaceHID = true;
-      ClassicBondedOnly = false;
-      FastConnectable = true;
+  hardware.bluetooth = {
+    enable = true;
+    input = {
+      General = {
+        UserspaceHID = true;
+        ClassicBondedOnly = false;
+        FastConnectable = true;
+      };
     };
   };
 
