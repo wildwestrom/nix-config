@@ -48,7 +48,9 @@ in
       evince
       gtk4
       libadwaita
-      pavucontrol # Even though I use pipewire, it works
+      ldacbt
+      libfreeaptx
+      pwvucontrol
       fractal
       element-desktop
       nautilus
