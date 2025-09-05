@@ -168,7 +168,7 @@ in
 
         # comms
         protonmail-bridge
-        signal-desktop
+        unstable.signal-desktop
         vesktop
         tdesktop
         thunderbird
