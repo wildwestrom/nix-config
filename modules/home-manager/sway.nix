@@ -165,6 +165,7 @@ in
         output = {
           eDP-1 = {
             scale = "0.75";
+            color_profile = "icc ${./BOE_CQ_______NE135FBM_N41.icm}";
           };
         };
         input = {
