@@ -163,7 +163,7 @@ in
           # }
         ];
         output = {
-          eDP-1 = {
+          "BOE 0x0BCA Unknown" = {
             color_profile = "icc ${./BOE_CQ_______NE135FBM_N41.icm}";
           };
         };
