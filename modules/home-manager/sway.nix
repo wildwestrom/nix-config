@@ -280,6 +280,22 @@ in
             }
           ];
         };
+        new-monitor = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "1920,0";
+              scale = 1.5;
+            }
+            {
+              criteria = "Hansung Co., Ltd TFG32U16P 0000000000000";
+              mode = "3840x2160@160.0Hz";
+              position = "0,0";
+              scale = 2.0;
+              adaptiveSync = true;
+            }
+          ];
+        };
       };
     };
   };
