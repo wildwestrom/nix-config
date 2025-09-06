@@ -402,6 +402,7 @@ in
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    WLR_RENDERER = "vulkan";
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 

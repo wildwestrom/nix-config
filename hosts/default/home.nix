@@ -70,6 +70,7 @@ in
       gnome-disk-utility
       baobab
       wl-color-picker
+      vulkan-validation-layers
       ddcui
       gnome-system-monitor
       xorg.xeyes
