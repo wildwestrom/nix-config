@@ -289,7 +289,7 @@ in
             }
             {
               criteria = "Hansung Co., Ltd TFG32U16P 0000000000000";
-              mode = "3840x2160@160.0Hz";
+              mode = "3840x2160@143.998Hz";
               position = "0,0";
               scale = 2.0;
               adaptiveSync = true;
