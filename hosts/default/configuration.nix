@@ -3,6 +3,8 @@
   inputs,
   lib,
   config,
+  unstable,
+  unstable-unfree,
   ...
 }:
 let
@@ -366,7 +368,12 @@ in
 
   home-manager = {
     extraSpecialArgs = {
-      inherit inputs username;
+      inherit
+        inputs
+        username
+        unstable
+        unstable-unfree
+        ;
     };
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -445,6 +452,11 @@ in
   };
 
   home-manager.sharedModules = [
+    {
+      _module.args = {
+        inherit unstable unstable-unfree;
+      };
+    }
     {
       stylix.targets = {
         helix.enable = false;

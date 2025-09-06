@@ -1,9 +1,8 @@
 {
   pkgs,
+  unstable,
   ...
 }:
-let
-in
 {
 
   home = {
@@ -11,7 +10,7 @@ in
       retroarch
       retroarch-assets
       retroarch-joypad-autoconfig
-      gamescope
+      unstable.gamescope
     ];
   };
 }

@@ -19,11 +19,23 @@
 
   outputs =
     { nixpkgs, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      unstable-pkgs = import inputs.nixpkgs-unstable {
+        inherit system;
+      };
+      unstable-unfree-pkgs = import inputs.nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
     {
       nixosConfigurations = {
         default = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
+            unstable = unstable-pkgs;
+            unstable-unfree = unstable-unfree-pkgs;
           };
           modules = [
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd
