@@ -166,6 +166,10 @@ in
           "BOE 0x0BCA Unknown" = {
             color_profile = "icc ${./BOE_CQ_______NE135FBM_N41.icm}";
           };
+          "Hansung Co., Ltd TFG32U16P 0000000000000" = {
+            adaptive_sync = "enabled";
+            # hdr = "on";
+          };
         };
         input = {
           "*" = {
