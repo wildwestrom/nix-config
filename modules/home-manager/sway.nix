@@ -168,7 +168,8 @@ in
           };
           "Hansung Co., Ltd TFG32U16P 0000000000000" = {
             adaptive_sync = "on";
-            # hdr = "on";
+            render_bit_depth = "10";
+            # hdr = "on"; Enable once sway 1.12 drops.
           };
         };
         input = {
