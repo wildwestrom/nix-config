@@ -167,7 +167,7 @@ in
             color_profile = "icc ${./BOE_CQ_______NE135FBM_N41.icm}";
           };
           "Hansung Co., Ltd TFG32U16P 0000000000000" = {
-            adaptive_sync = "enabled";
+            adaptive_sync = "on";
             # hdr = "on";
           };
         };
