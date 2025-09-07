@@ -167,8 +167,8 @@ in
             color_profile = "icc ${./BOE_CQ_______NE135FBM_N41.icm}";
           };
           "Hansung Co., Ltd TFG32U16P 0000000000000" = {
-            adaptive_sync = "on";
-            render_bit_depth = "10";
+            # adaptive_sync = "on"; # disabling to see if that fixes screen sharing
+            # render_bit_depth = "10";
             # hdr = "on"; Enable once sway 1.12 drops.
           };
         };
@@ -297,7 +297,6 @@ in
               mode = "3840x2160@143.998Hz";
               position = "0,0";
               scale = 2.0;
-              adaptiveSync = true;
             }
           ];
         };

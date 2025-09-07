@@ -345,8 +345,8 @@ in
     portal = {
       enable = true;
       xdgOpenUsePortal = false;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
+      extraPortals = [
+        pkgs.xdg-desktop-portal-wlr
       ];
       wlr = {
         enable = true;
