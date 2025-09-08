@@ -10,7 +10,7 @@
       retroarch
       retroarch-assets
       retroarch-joypad-autoconfig
-      unstable.gamescope
+      gamescope
     ];
   };
 }
