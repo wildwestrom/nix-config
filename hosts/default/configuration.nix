@@ -5,7 +5,6 @@
   config,
   unstable,
   unstable-unfree,
-  patched-gamescope,
   ...
 }:
 let
@@ -411,7 +410,7 @@ in
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    WLR_RENDERER = "vulkan";
+    # WLR_RENDERER = "vulkan"; # I think this broke gamescope
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 
@@ -455,7 +454,7 @@ in
   home-manager.sharedModules = [
     {
       _module.args = {
-        inherit unstable unstable-unfree patched-gamescope;
+        inherit unstable unstable-unfree;
       };
     }
     {
