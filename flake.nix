@@ -28,6 +28,13 @@
         inherit system;
         config.allowUnfree = true;
       };
+
+      # Patched gamescope
+      patched-gamescope = unstable-pkgs.gamescope.overrideAttrs (oldAttrs: {
+        patches = (oldAttrs.patches or [ ]) ++ [
+          ./gamescope-fix.patch
+        ];
+      });
     in
     {
       nixosConfigurations = {
@@ -36,6 +43,7 @@
             inherit inputs;
             unstable = unstable-pkgs;
             unstable-unfree = unstable-unfree-pkgs;
+            patched-gamescope = patched-gamescope;
           };
           modules = [
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd

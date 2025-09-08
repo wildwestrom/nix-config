@@ -1,0 +1,15 @@
+diff --git a/src/backend.h b/src/backend.h
+index 862257f..9f3f2db 100644
+--- a/src/backend.h
++++ b/src/backend.h
+@@ -311,7 +311,9 @@ namespace gamescope
+         virtual std::span<const uint64_t> GetSupportedModifiers( uint32_t uDrmFormat ) const = 0;
+         inline bool SupportsFormat( uint32_t uDrmFormat ) const
+         {
+-            return Algorithm::Contains( this->GetSupportedModifiers( uDrmFormat ), DRM_FORMAT_MOD_INVALID );
++            auto formats = this->GetSupportedModifiers( uDrmFormat );
++            return Algorithm::Contains( formats, DRM_FORMAT_MOD_INVALID ) ||
++                Algorithm::Contains( formats, DRM_FORMAT_MOD_LINEAR );
+         }
+ 
+         virtual IBackendConnector *GetCurrentConnector() = 0;

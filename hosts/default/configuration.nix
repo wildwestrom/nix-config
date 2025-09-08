@@ -5,6 +5,7 @@
   config,
   unstable,
   unstable-unfree,
+  patched-gamescope,
   ...
 }:
 let
@@ -454,7 +455,7 @@ in
   home-manager.sharedModules = [
     {
       _module.args = {
-        inherit unstable unstable-unfree;
+        inherit unstable unstable-unfree patched-gamescope;
       };
     }
     {
