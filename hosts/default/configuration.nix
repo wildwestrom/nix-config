@@ -396,9 +396,13 @@ in
     ];
 
   programs.steam = {
-    protontricks.enable = true;
     enable = true;
-    extraCompatPackages = with pkgs; [
+    package = unstable-unfree.steam;
+    protontricks.enable = true;
+    extraPackages = with unstable; [
+      gamescope
+    ];
+    extraCompatPackages = with unstable; [
       steamtinkerlaunch
       proton-ge-bin
     ];
