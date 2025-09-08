@@ -1,6 +1,5 @@
 {
   pkgs,
-  unstable,
   ...
 }:
 {
@@ -10,7 +9,6 @@
       retroarch
       retroarch-assets
       retroarch-joypad-autoconfig
-      unstable.gamescope
     ];
   };
 }
