@@ -73,7 +73,7 @@ in
             # seems like if I set this to false, it's too loud
             # if I set it to true, it's too quiet and noisy
             # not sure what I can do to fix this
-            "bluez5.enable-hw-volume" = true;
+            "bluez5.enable-hw-volume" = false;
           };
         };
         "60-hdmi-no-suspend" = {
