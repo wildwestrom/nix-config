@@ -134,7 +134,7 @@ in
       # creation
       inkscape
       imagemagick
-      musescore
+      unstable.musescore
       blender
       obs-studio
       freecad
