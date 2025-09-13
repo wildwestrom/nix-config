@@ -70,9 +70,8 @@ in
       extraConfig = {
         bluetoothEnhancements = {
           "monitor.bluez.properties" = {
-            # seems like if I set this to false, it's too loud
-            # if I set it to true, it's too quiet and noisy
-            # not sure what I can do to fix this
+            # seems like if I set this to false, it's a bit too quiet
+            # but I can always boost it above 0dB if I need to
             "bluez5.enable-hw-volume" = false;
           };
         };
