@@ -121,7 +121,8 @@ in
     capabilities = "cap_dac_read_search=+ep";
   };
 
-  time.timeZone = "Asia/Seoul";
+  # time.timeZone = "Asia/Seoul";
+  # Need to set imperatively with timedatectl
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.supportedLocales = [
@@ -153,8 +154,13 @@ in
 
   services.printing.enable = true;
 
-  security.pam.services.swaylock = {
-    enableGnomeKeyring = true;
+  security.pam.services = {
+    greetd = {
+      enableGnomeKeyring = true;
+    };
+    swaylock = {
+      enableGnomeKeyring = true;
+    };
   };
 
   services.gnome.gnome-keyring.enable = true;
