@@ -85,6 +85,7 @@ in
       (brave.override {
         commandLineArgs = [
           "--enable-wayland-ime"
+          "--store-password=basic"
         ];
       })
       sccache
