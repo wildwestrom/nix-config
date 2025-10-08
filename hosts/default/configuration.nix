@@ -352,6 +352,7 @@ in
       xdgOpenUsePortal = false;
       extraPortals = [
         pkgs.xdg-desktop-portal-wlr
+        pkgs.xdg-desktop-portal-gnome
       ];
       wlr = {
         enable = true;
