@@ -419,7 +419,7 @@ in
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    # WLR_RENDERER = "vulkan"; # I think this broke gamescope
+    WLR_RENDERER = "vulkan"; # I think this broke gamescope
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 
