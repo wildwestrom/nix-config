@@ -176,6 +176,7 @@ in
           "*" = {
             xkb_numlock = "enable";
             xkb_layout = "us";
+            xkb_options = "compose:ralt";
           };
           "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
             # disable touchpad while typing
