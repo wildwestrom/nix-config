@@ -178,6 +178,9 @@ in
             xkb_layout = "us";
             xkb_options = "compose:ralt";
           };
+          "1:1:AT_Translated_Set_2_keyboard" = {
+            xkb_options = "compose:ralt,caps:escape";
+          };
           "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
             # disable touchpad while typing
             dwt = "enabled";
