@@ -155,9 +155,9 @@ in
   services.printing.enable = true;
 
   security.pam.services = {
-    # greetd = {
-    #   enableGnomeKeyring = true;
-    # };
+    greetd = {
+      enableGnomeKeyring = true;
+    };
     swaylock = {
       enableGnomeKeyring = true;
     };
