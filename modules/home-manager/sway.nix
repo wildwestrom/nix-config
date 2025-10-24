@@ -175,6 +175,7 @@ in
         input = {
           "*" = {
             xkb_numlock = "enable";
+            xkb_layout = "us";
           };
           "2362:628:PIXA3854:00_093A:0274_Touchpad" = {
             # disable touchpad while typing
