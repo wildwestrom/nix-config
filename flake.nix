@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    cursor_2.url = "github:jetpham/nixpkgs/update-cursor-2.0.38";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,10 @@
         inherit system;
         config.allowUnfree = true;
       };
+      cursor_2 = import inputs.cursor_2 {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations = {
@@ -36,6 +41,7 @@
             inherit inputs;
             unstable = unstable-pkgs;
             unstable-unfree = unstable-unfree-pkgs;
+            cursor_2 = cursor_2;
           };
           modules = [
             inputs.nixos-hardware.nixosModules.framework-13-7040-amd

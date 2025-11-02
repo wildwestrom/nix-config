@@ -2,7 +2,8 @@
   pkgs,
   config,
   unstable,
-  unstable-unfree,
+  # unstable-unfree,
+  cursor_2,
   #username,
   ...
 }:
@@ -171,7 +172,7 @@ in
       # jetbrains.rust-rover
       neovim
       vscodium
-      unstable-unfree.code-cursor
+      cursor_2.code-cursor
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"

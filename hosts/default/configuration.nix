@@ -5,6 +5,7 @@
   config,
   unstable,
   unstable-unfree,
+  cursor_2,
   ...
 }:
 let
@@ -379,6 +380,7 @@ in
         username
         unstable
         unstable-unfree
+        cursor_2
         ;
     };
     useGlobalPkgs = true;
