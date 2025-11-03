@@ -421,7 +421,8 @@ in
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    WLR_RENDERER = "vulkan"; # I think this broke gamescope
+    # WLR_RENDERER = "vulkan"; # brave browser crashes all the time with this, I'll have to wait until it's stable
+    WLR_RENDERER = "gles2";
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 
