@@ -320,6 +320,8 @@ in
     jetbrains-mono
     newcomputermodern
     font-awesome
+    atkinson-hyperlegible-mono
+    atkinson-hyperlegible-next
   ];
 
   services.udev.packages = [ pkgs.android-udev-rules ];
