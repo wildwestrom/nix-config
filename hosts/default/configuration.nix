@@ -421,6 +421,12 @@ in
 
   nixpkgs.config.chromium.commandLineArgs = "--gtk-version=4";
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    freetype = pkgs.freetype.override {
+      useEncumberedCode = true;
+    };
+  };
+
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     # WLR_RENDERER = "vulkan"; # brave browser crashes all the time with this, I'll have to wait until it's stable
