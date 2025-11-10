@@ -324,6 +324,13 @@ in
     atkinson-hyperlegible-next
   ];
 
+  fonts.fontconfig = {
+    antialias = true;
+    hinting.enable = true;
+    subpixel.lcdfilter = "default";
+    subpixel.rgba = "rgb";
+  };
+
   services.udev.packages = [ pkgs.android-udev-rules ];
 
   programs.fish.enable = true;
