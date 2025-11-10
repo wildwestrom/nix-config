@@ -327,6 +327,7 @@ in
   fonts.fontconfig = {
     antialias = true;
     hinting.enable = true;
+    hinting.autohint = true;
     subpixel.lcdfilter = "default";
     subpixel.rgba = "rgb";
   };

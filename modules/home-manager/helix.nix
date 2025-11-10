@@ -5,7 +5,8 @@
 }:
 let
   # terminal = "kitty";
-  terminal = "alacritty";
+  # terminal = "alacritty";
+  terminal = "footclient";
 in
 {
   home = {
@@ -75,7 +76,7 @@ in
         };
         editor = {
           terminal = {
-            command = "alacritty";
+            command = terminal;
             # args = ""; # Maybe don't use this?
           };
           line-number = "relative";

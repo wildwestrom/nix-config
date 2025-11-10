@@ -11,7 +11,7 @@ let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
   # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
+  terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [
@@ -296,37 +296,51 @@ in
     #     macos_option_as_alt = true;
     #   };
     # };
-    alacritty = {
+    # alacritty = {
+    #   enable = true;
+    #   settings = {
+    #     keyboard.bindings = [
+    #       {
+    #         key = "N";
+    #         mods = "Control|Shift";
+    #         action = "SpawnNewInstance";
+    #       }
+    #     ];
+    #   };
+    # };
+    foot = {
       enable = true;
+      server.enable = true;
       settings = {
-        keyboard.bindings = [
-          {
-            key = "N";
-            mods = "Control|Shift";
-            action = "SpawnNewInstance";
-          }
-        ];
+        main = {
+          gamma-correct-blending = true;
+          term = "xterm-256color";
+          # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
+        };
+        scrollback = {
+          lines = 4294967296;
+        };
       };
     };
     yazi = {
       enable = true;
       enableFishIntegration = true;
     };
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-        local wezterm = require "wezterm"
-        local config = {
-          enable_tab_bar = false,
-          window_close_confirmation = "NeverPrompt",
-          default_cursor_style = "BlinkingBar",
-          cursor_blink_ease_in = "Constant",
-          cursor_blink_ease_out = "Constant",
-          cursor_blink_rate = 500,
-        }
-        return config
-      '';
-    };
+    # wezterm = {
+    #   enable = true;
+    #   extraConfig = ''
+    #     local wezterm = require "wezterm"
+    #     local config = {
+    #       enable_tab_bar = false,
+    #       window_close_confirmation = "NeverPrompt",
+    #       default_cursor_style = "BlinkingBar",
+    #       cursor_blink_ease_in = "Constant",
+    #       cursor_blink_ease_out = "Constant",
+    #       cursor_blink_rate = 500,
+    #     }
+    #     return config
+    #   '';
+    # };
     zathura = {
       enable = true;
       options = {

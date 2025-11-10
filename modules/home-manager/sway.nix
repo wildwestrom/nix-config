@@ -6,7 +6,8 @@ let
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
   # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
+  # terminal = "${pkgs.alacritty}/bin/alacritty";
+  terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [
