@@ -318,7 +318,7 @@ in
           # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
         };
         scrollback = {
-          lines = 4294967296;
+          lines = 4294967295;
         };
       };
     };
