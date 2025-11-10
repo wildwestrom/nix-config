@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
   swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
@@ -22,7 +22,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.sway;
+    package = unstable.sway;
     systemd.enable = true;
     systemd.xdgAutostart = true;
     wrapperFeatures = {
