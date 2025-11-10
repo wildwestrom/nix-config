@@ -316,9 +316,10 @@ in
           gamma-correct-blending = true;
           term = "xterm-256color";
           # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
+          shell = "${pkgs.fish}/bin/fish";
         };
         scrollback = {
-          lines = 4294967295;
+          lines = 65535;
         };
       };
     };
