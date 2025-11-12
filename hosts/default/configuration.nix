@@ -449,8 +449,8 @@ in
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    # WLR_RENDERER = "vulkan"; # brave browser crashes all the time with this, I'll have to wait until it's stable
-    WLR_RENDERER = "gles2";
+    WLR_RENDERER = "vulkan"; # The crash I was experiencing was fixed in sway 1.11, let's try vulkan again
+    #WLR_RENDERER = "gles2";
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 
