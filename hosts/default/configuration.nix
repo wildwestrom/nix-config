@@ -10,6 +10,17 @@
 }:
 let
   username = "main";
+  # terminalPackage = pkgs.kitty;
+  terminalPackage = pkgs.alacritty;
+  # terminalPackage = pkgs.foot;
+  # terminalCommand = "kitty";
+  terminalCommand = "alacritty";
+  # terminalCommand = "footclient";
+  terminal = {
+    package = terminalPackage;
+    command = terminalCommand;
+    bin = "${terminalPackage}/bin/${terminalCommand}";
+  };
 in
 {
   imports = [
@@ -391,6 +402,7 @@ in
         unstable
         unstable-unfree
         cursor_2
+        terminal
         ;
     };
     useGlobalPkgs = true;

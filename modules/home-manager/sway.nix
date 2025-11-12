@@ -1,13 +1,15 @@
-{ pkgs, unstable, ... }:
+{
+  pkgs,
+  unstable,
+  terminal,
+  ...
+}:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
   swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
   dim_then_lock = ''${dimDisplay} && ${swaylock}'';
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
-  # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
-  # terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [
@@ -23,7 +25,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = unstable.sway;
+    package = unstable.sway; # We use the unstable package because there's a bug that gets fixed in 1.11
     systemd.enable = true;
     systemd.xdgAutostart = true;
     wrapperFeatures = {
@@ -78,7 +80,7 @@ in
           "${super}+space" = "floating toggle";
           "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
-          "${super}+Return" = "exec ${terminal}";
+          "${super}+Return" = "exec ${terminal.bin}";
           "${super}+Shift+Return" = "exec ${pkgs.brave}/bin/brave";
           "${super}+Shift+p" = "exec ${pkgs.brave}/bin/brave --incognito";
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";

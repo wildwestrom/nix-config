@@ -1,13 +1,9 @@
 {
   pkgs,
   username,
+  terminal,
   ...
 }:
-let
-  # terminal = "kitty";
-  terminal = "alacritty";
-  # terminal = "footclient";
-in
 {
   home = {
     packages = with pkgs; [
@@ -40,7 +36,7 @@ in
   xdg.desktopEntries.helix = {
     name = "Helix";
     genericName = "Text Editor";
-    exec = "${terminal} -e hx %F";
+    exec = "${terminal.bin} -e hx %F";
     terminal = true;
     categories = [
       "Utility"
@@ -76,7 +72,7 @@ in
         };
         editor = {
           terminal = {
-            command = terminal;
+            command = terminal.command;
             # args = ""; # Maybe don't use this?
           };
           line-number = "relative";

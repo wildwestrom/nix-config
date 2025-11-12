@@ -5,14 +5,12 @@
   # unstable-unfree,
   cursor_2,
   #username,
+  terminal,
   ...
 }:
 let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
-  # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
-  # terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [
@@ -215,7 +213,7 @@ in
       mpa = "mpv --no-video";
       gcd1 = "git clone --depth 1";
       watch = "watch -c";
-      newterm = "${terminal} . & disown";
+      newterm = "${terminal.bin} . & disown";
       nwg-displays = "nwg-displays -n 10";
     };
     enableNixpkgsReleaseCheck = true;

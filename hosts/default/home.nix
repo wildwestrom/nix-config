@@ -2,13 +2,9 @@
   pkgs,
   username,
   config,
+  terminal,
   ...
 }:
-let
-  # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.alacritty}/bin/alacritty";
-  # terminal = "${pkgs.foot}/bin/footclient";
-in
 {
   imports = [
     ../../modules/home-manager/sway.nix
@@ -29,8 +25,8 @@ in
   };
 
   dconf.settings = {
-    "org/cinnamon/desktop/default-applications/terminal".exec = "${terminal}";
-    "org/cinnamon/desktop/applications/terminal".exec = "${terminal}";
+    "org/cinnamon/desktop/default-applications/terminal".exec = terminal.bin;
+    "org/cinnamon/desktop/applications/terminal".exec = terminal.bin;
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = [ "qemu:///system" ];
       uris = [ "qemu:///system" ];
