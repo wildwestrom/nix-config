@@ -11,7 +11,8 @@ let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
   # terminal = "${pkgs.kitty}/bin/kitty";
-  terminal = "${pkgs.foot}/bin/footclient";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
+  # terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [
@@ -152,6 +153,7 @@ in
       ffmpeg
       guitarix
       gxplugins-lv2
+      ueberzugpp
 
       # cargo plugins
       bacon
@@ -296,33 +298,33 @@ in
     #     macos_option_as_alt = true;
     #   };
     # };
-    # alacritty = {
-    #   enable = true;
-    #   settings = {
-    #     keyboard.bindings = [
-    #       {
-    #         key = "N";
-    #         mods = "Control|Shift";
-    #         action = "SpawnNewInstance";
-    #       }
-    #     ];
-    #   };
-    # };
-    foot = {
+    alacritty = {
       enable = true;
-      server.enable = true;
       settings = {
-        main = {
-          gamma-correct-blending = true;
-          term = "xterm-256color";
-          # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
-          shell = "${pkgs.fish}/bin/fish";
-        };
-        scrollback = {
-          lines = 65535;
-        };
+        keyboard.bindings = [
+          {
+            key = "N";
+            mods = "Control|Shift";
+            action = "SpawnNewInstance";
+          }
+        ];
       };
     };
+    # foot = {
+    #   enable = true;
+    #   server.enable = true;
+    #   settings = {
+    #     main = {
+    #       gamma-correct-blending = true;
+    #       # term = "xterm-256color";
+    #       # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
+    #       shell = "${pkgs.fish}/bin/fish";
+    #     };
+    #     scrollback = {
+    #       lines = 65535;
+    #     };
+    #   };
+    # };
     yazi = {
       enable = true;
       enableFishIntegration = true;

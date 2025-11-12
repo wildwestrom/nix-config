@@ -6,8 +6,8 @@
 }:
 let
   # terminal = "${pkgs.kitty}/bin/kitty";
-  # terminal = "${pkgs.alacritty}/bin/alacritty";
-  terminal = "${pkgs.foot}/bin/footclient";
+  terminal = "${pkgs.alacritty}/bin/alacritty";
+  # terminal = "${pkgs.foot}/bin/footclient";
 in
 {
   imports = [

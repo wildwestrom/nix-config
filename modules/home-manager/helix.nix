@@ -5,8 +5,8 @@
 }:
 let
   # terminal = "kitty";
-  # terminal = "alacritty";
-  terminal = "footclient";
+  terminal = "alacritty";
+  # terminal = "footclient";
 in
 {
   home = {
