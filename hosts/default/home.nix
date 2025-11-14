@@ -43,6 +43,7 @@
       gucharmap
       gnome-calculator
       evince
+      kdePackages.okular
       gtk4
       libadwaita
       fractal
