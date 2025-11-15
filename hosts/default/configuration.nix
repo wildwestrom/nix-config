@@ -591,13 +591,4 @@ in
   documentation.dev.enable = true;
 
   services.fprintd.enable = false;
-
-  networking.extraHosts = ''
-    127.0.0.1 youtube.com
-    127.0.0.1 www.youtube.com
-    127.0.0.1 youtu.be
-    127.0.0.1 m.youtube.com
-    127.0.0.1 googlevideo.com
-    127.0.0.1 www.googlevideo.com
-  '';
 }
