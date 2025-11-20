@@ -123,19 +123,19 @@
         "image/png" = "imv-dir.desktop";
         "image/webp" = "imv-dir.desktop";
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
-        "text/html" = "brave-browser.desktop";
-        "text/xml" = "brave-browser.desktop";
-        "application/rdf+xml" = "brave-browser.desktop";
-        "application/rss+xml" = "brave-browser.desktop";
-        "application/xhtml+xml" = "brave-browser.desktop";
-        "application/xhtml_xml" = "brave-browser.desktop";
-        "application/xml" = "brave-browser.desktop";
-        "x-scheme-handler/http" = "brave-browser.desktop";
-        "x-scheme-handler/https" = "brave-browser.desktop";
-        "x-scheme-handler/ipfs" = "brave-browser.desktop";
-        "x-scheme-handler/ipns" = "brave-browser.desktop";
-        "x-scheme-handler/about" = "brave-browser.desktop";
-        "x-scheme-handler/unknown" = "brave-browser.desktop";
+        "text/html" = "librewolf.desktop";
+        "text/xml" = "librewolf.desktop";
+        "application/rdf+xml" = "librewolf.desktop";
+        "application/rss+xml" = "librewolf.desktop";
+        "application/xhtml+xml" = "librewolf.desktop";
+        "application/xhtml_xml" = "librewolf.desktop";
+        "application/xml" = "librewolf.desktop";
+        "x-scheme-handler/http" = "librewolf.desktop";
+        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/ipfs" = "librewolf.desktop";
+        "x-scheme-handler/ipns" = "librewolf.desktop";
+        "x-scheme-handler/about" = "librewolf.desktop";
+        "x-scheme-handler/unknown" = "librewolf.desktop";
         "x-scheme-handler/vscodium" = [
           "codium-url-handler.desktop"
           "codium.desktop"

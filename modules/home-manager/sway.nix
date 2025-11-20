@@ -81,8 +81,8 @@ in
           "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
           "${super}+Return" = "exec ${terminal.bin}";
-          "${super}+Shift+Return" = "exec ${pkgs.brave}/bin/brave";
-          "${super}+Shift+p" = "exec ${pkgs.brave}/bin/brave --incognito";
+          "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf";
+          "${super}+Shift+p" = "exec ${pkgs.librewolf}/bin/librewolf --private-window";
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
           "${super}+q" = "kill";
           "${super}+Shift+q" =
