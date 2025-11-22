@@ -333,6 +333,10 @@ in
     font-awesome
     atkinson-hyperlegible-mono
     atkinson-hyperlegible-next
+    source-sans-pro
+    source-serif-pro
+    source-han-sans
+    source-han-serif
   ];
 
   fonts.fontconfig = {
