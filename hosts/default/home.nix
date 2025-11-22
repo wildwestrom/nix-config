@@ -72,6 +72,7 @@
       ddcui
       gnome-system-monitor
       xorg.xeyes
+      tridactyl-native
     ];
   };
   systemd.user.services = {
