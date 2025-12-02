@@ -152,6 +152,7 @@ in
       guitarix
       gxplugins-lv2
       ueberzugpp
+      audacity
 
       # cargo plugins
       bacon
