@@ -585,6 +585,8 @@ in
     substituters = [
       "https://cache.iog.io"
       "https://nix-community.cachix.org"
+      "https://zed.cachix.org"
+      "https://cache.garnix.io"
     ];
     trusted-public-keys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
