@@ -4,7 +4,6 @@
     wl-clip-persist
     wl-clipboard
     wev
-    glfw-wayland
     slurp
   ];
   services = {

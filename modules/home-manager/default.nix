@@ -2,8 +2,7 @@
   pkgs,
   config,
   unstable,
-  # unstable-unfree,
-  cursor_2,
+  unstable-unfree,
   #username,
   terminal,
   ...
@@ -164,7 +163,7 @@ in
       protonmail-bridge
       unstable.signal-desktop
       vesktop
-      tdesktop
+      telegram-desktop
       thunderbird
 
       # editors
@@ -173,7 +172,7 @@ in
       # jetbrains.rust-rover
       neovim
       vscodium
-      cursor_2.code-cursor
+      unstable-unfree.code-cursor
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
@@ -244,7 +243,7 @@ in
     };
     git = {
       enable = true;
-      package = pkgs.gitAndTools.gitFull;
+      package = pkgs.gitFull;
       delta = {
         enable = true;
         options = {

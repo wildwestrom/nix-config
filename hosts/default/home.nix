@@ -61,7 +61,6 @@
       glib
       fontforge-gtk
       wl-color-picker
-      android-udev-rules
       localsend
       nvtopPackages.amd
       gsettings-desktop-schemas

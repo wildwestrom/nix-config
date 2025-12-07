@@ -55,7 +55,7 @@ in
 
   hardware.graphics = {
     enable = true;
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
+    extraPackages32 = with pkgs; [ driversi686Linux.mesa ]; # looks like amdvlk is gone, I'll try mesa for now
     enable32Bit = true;
   };
   hardware.keyboard.zsa.enable = true;
@@ -183,7 +183,6 @@ in
 
   services.greetd = {
     enable = true;
-    vt = 2; # This should prevent systemd from clobbering the terminal
     settings = {
       default_session = {
         command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
@@ -346,8 +345,6 @@ in
     subpixel.lcdfilter = "default";
     subpixel.rgba = "rgb";
   };
-
-  services.udev.packages = [ pkgs.android-udev-rules ];
 
   programs.fish.enable = true;
   users = {
@@ -553,7 +550,7 @@ in
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };
