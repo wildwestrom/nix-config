@@ -374,7 +374,6 @@ in
       enable = true;
       xdgOpenUsePortal = false;
       extraPortals = [
-        pkgs.xdg-desktop-portal-wlr
         pkgs.xdg-desktop-portal-gnome
       ];
       wlr = {
@@ -389,7 +388,7 @@ in
       };
       config = {
         common = {
-          default = [ "wlr;gtk" ];
+          default = [ "wlr" ];
         };
       };
     };
