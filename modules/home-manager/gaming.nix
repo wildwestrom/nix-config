@@ -1,29 +1,14 @@
 {
   pkgs,
-  unstable,
-  # unstable-unfree,
+  # unfree,
+  unstable-unfree,
   ...
 }:
 {
 
   home = {
     packages = with pkgs; [
-      (unstable.retroarch.withCores (
-        cores: with cores; [
-          dosbox-pure
-          bsnes
-          nestopia
-          mgba
-          meteor
-          fceumm
-          # pcsx-rearmed
-          # pcsx2
-          mame
-          # dolphin
-          parallel-n64
-          stella2014
-        ]
-      ))
+      unstable-unfree.retroarch-full
       retroarch-assets
       retroarch-joypad-autoconfig
     ];
