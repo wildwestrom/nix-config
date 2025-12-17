@@ -1,14 +1,15 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    wl-clip-persist
-    wl-clipboard
     wev
     slurp
   ];
   services = {
-    clipman = {
-      systemdTarget = "graphical-session.target";
+    wl-clip-persist = {
+      systemdTargets = [ "graphical-session.target" ];
+      enable = true;
+    };
+    wluma = {
       enable = true;
     };
     mako = {

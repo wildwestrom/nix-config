@@ -244,10 +244,10 @@ in
           event = "before-sleep";
           command = dim_then_lock;
         }
-        {
-          event = "lock";
-          command = dim_then_lock;
-        }
+        # { # I don't think we need this
+        #   event = "lock";
+        #   command = dim_then_lock;
+        # }
       ];
     };
     kanshi = {
