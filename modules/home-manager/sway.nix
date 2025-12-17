@@ -226,11 +226,13 @@ in
       systemdTarget = "sway-session.target";
       timeouts = [
         {
-          timeout = 300;
+          # timeout = 300;
+          timeout = 15;
           command = dim_then_lock;
         }
         {
-          timeout = 360;
+          # timeout = 360;
+          timeout = 30;
           command = displayOff;
           resumeCommand = displayOn;
         }
