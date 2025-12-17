@@ -8,6 +8,7 @@ let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
   swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
   dim_then_lock = ''${dimDisplay} && ${swaylock}'';
+
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
 in
@@ -225,16 +226,21 @@ in
       enable = true;
       systemdTarget = "sway-session.target";
       timeouts = [
+        # testing with quick timeouts
         {
           # timeout = 300;
-          timeout = 15;
+          timeout = 10;
           command = dim_then_lock;
         }
         {
           # timeout = 360;
-          timeout = 30;
+          timeout = 40;
           command = displayOff;
-          resumeCommand = displayOn;
+        }
+        {
+          timeout = 30;
+          command = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOff}; fi";
+          resumeCommand = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOn}; fi";
         }
       ];
       events = [
@@ -246,10 +252,6 @@ in
           event = "before-sleep";
           command = dim_then_lock;
         }
-        # { # I don't think we need this
-        #   event = "lock";
-        #   command = dim_then_lock;
-        # }
       ];
     };
     kanshi = {
