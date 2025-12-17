@@ -6,8 +6,8 @@
 }:
 let
   dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
-  swaylock = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
-  dim_then_lock = ''${dimDisplay} && ${swaylock}'';
+  swaylockCmd = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
+  dim_then_lock = ''${dimDisplay} && ${swaylockCmd}'';
 
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
@@ -87,7 +87,7 @@ in
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
           "${super}+q" = "kill";
           "${super}+Shift+q" =
-            "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Hibernate' 'systemctl hibernate' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylock}'";
+            "exec ${pkgs.sway}/bin/swaynag -t warning -y overlay -m 'What do you want to do?' -b 'Shutdown' 'systemctl poweroff' -b 'Hibernate' 'systemctl hibernate' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'swaymsg exit' -z 'Lock' '${swaylockCmd}'";
           "${super}+d" = "exec ${menu}";
           # Layout
           "${super}+b" = "splith";
@@ -238,7 +238,7 @@ in
           command = displayOff;
         }
         {
-          timeout = 30;
+          timeout = 5;
           command = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOff}; fi";
           resumeCommand = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOn}; fi";
         }
@@ -250,7 +250,7 @@ in
         }
         {
           event = "before-sleep";
-          command = dim_then_lock;
+          command = swaylockCmd;
         }
       ];
     };
