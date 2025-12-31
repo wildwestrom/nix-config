@@ -58,6 +58,7 @@ in
       zip
       qgis
       file
+      pv
 
       # network
       tcpdump
