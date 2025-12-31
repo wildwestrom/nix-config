@@ -59,6 +59,7 @@ in
       qgis
       file
       pv
+      xxd
 
       # network
       tcpdump
