@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     wev
     slurp
+    wl-clipboard-rs
   ];
   services = {
     wl-clip-persist = {
