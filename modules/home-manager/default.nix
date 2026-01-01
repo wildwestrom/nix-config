@@ -273,12 +273,13 @@ in
         init.defaultBranch = "main";
       };
     };
-    starship = {
-      enable = true;
-      enableFishIntegration = true;
-      enableBashIntegration = false;
-      enableNushellIntegration = false;
-    };
+    # LLMs just do not know how to deal with this prompt
+    # starship = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    #   enableBashIntegration = false;
+    #   enableNushellIntegration = false;
+    # };
     zoxide = {
       enable = true;
     };
