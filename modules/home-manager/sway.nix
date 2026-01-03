@@ -282,6 +282,21 @@ in
             }
           ];
         };
+        TV-2 = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              position = "208,1080";
+              scale = 1.5;
+            }
+            {
+              criteria = "LTM LCD 0x01010101";
+              mode = "1920x1080@60.0Hz";
+              position = "0,0";
+              scale = 1.0;
+            }
+          ];
+        };
         old-monitor = {
           outputs = [
             {
