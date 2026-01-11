@@ -261,38 +261,41 @@ in
     22000
   ];
 
-  services.dnscrypt-proxy2 = {
-    enable = true;
-    settings = {
-      ipv6_servers = true;
-      require_dnssec = true;
-      sources.public-resolvers = {
-        urls = [
-          "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
-          "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+  /*
+    services.dnscrypt-proxy2 = {
+      enable = true;
+      settings = {
+        ipv6_servers = true;
+        # require_dnssec = true;
+        require_dnssec = false; # temporary testing
+        sources.public-resolvers = {
+          urls = [
+            "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+            "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+          ];
+          cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+        };
+        server_names = [
+          "quad9"
+          "cloudflare"
+          "nextdns"
+          "mullvad-doh"
         ];
-        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
-        minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+        listen_addresses = [
+          "127.0.0.1:53"
+          "[::1]:53"
+        ];
+        odoh_servers = true;
+        timeout = 10000;
+        lb_strategy = "p2";
+        cache = true;
+        cache_size = 4092;
+        log_file = "/tmp/dnscrypt-proxy.log";
+        use_syslog = false; # will make syslog messy otherwise
       };
-      server_names = [
-        "quad9"
-        "cloudflare"
-        "nextdns"
-        "mullvad-doh"
-      ];
-      listen_addresses = [
-        "127.0.0.1:53"
-        "[::1]:53"
-      ];
-      odoh_servers = true;
-      timeout = 10000;
-      lb_strategy = "p2";
-      cache = true;
-      cache_size = 4092;
-      log_file = "/tmp/dnscrypt-proxy.log";
-      use_syslog = false; # will make syslog messy otherwise
     };
-  };
+  */
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 

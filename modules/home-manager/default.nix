@@ -68,6 +68,9 @@ in
       ueberzugpp
       curl
       wget
+      unixtools.netstat
+      unixtools.route
+      unixtools.net-tools
 
       bottles
       # wineWow64Packages.waylandFull
