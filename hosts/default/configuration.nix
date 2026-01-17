@@ -163,7 +163,17 @@ in
     };
   };
 
-  services.printing.enable = true;
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+      cups-bjnp
+      carps-cups
+      # unfree.canon-cups-ufr2
+      gutenprint-bin
+    ];
+  };
 
   security.pam.services = {
     greetd = {
