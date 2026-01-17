@@ -172,7 +172,7 @@ in
       cups-bjnp
       carps-cups
       unfree.canon-cups-ufr2
-      gutenprint-bin
+      gutenprint
     ];
   };
 
