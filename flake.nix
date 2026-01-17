@@ -21,6 +21,10 @@
     { nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
+      unfree-pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
       unstable-pkgs = import inputs.nixpkgs-unstable {
         inherit system;
       };
@@ -34,6 +38,7 @@
         default = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
+            unfree = unfree-pkgs;
             unstable = unstable-pkgs;
             unstable-unfree = unstable-unfree-pkgs;
           };

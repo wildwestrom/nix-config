@@ -3,6 +3,7 @@
   inputs,
   lib,
   config,
+  unfree,
   unstable,
   unstable-unfree,
   ...
@@ -170,7 +171,7 @@ in
       cups-browsed
       cups-bjnp
       carps-cups
-      # unfree.canon-cups-ufr2
+      unfree.canon-cups-ufr2
       gutenprint-bin
     ];
   };
