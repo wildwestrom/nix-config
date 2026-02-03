@@ -5,9 +5,17 @@
   ...
 }:
 let
-  dimDisplay = ''${pkgs.chayang}/bin/chayang -d 30'';
-  swaylockCmd = ''${pkgs.swaylock}/bin/swaylock -ef -c 404040'';
-  dim_then_lock = ''${dimDisplay} && ${swaylockCmd}'';
+  # Idle timeout configuration (all values in seconds)
+  dimDelaySec = 60; # How long chayang takes to dim the screen
+  lockTimeoutSec = 300; # Idle time before starting dim+lock sequence
+  displayOffDelaySec = 60; # Time after lock completes before display turns off
+
+  # Calculated timeout: ensures display off happens after lock is complete
+  displayOffTimeoutSec = lockTimeoutSec + dimDelaySec + displayOffDelaySec;
+
+  dimDisplay = "${pkgs.chayang}/bin/chayang -d ${toString dimDelaySec}";
+  swaylockCmd = "${pkgs.swaylock}/bin/swaylock -ef -c 404040";
+  dim_then_lock = "${dimDisplay} && ${swaylockCmd}";
 
   displayOn = ''${pkgs.sway}/bin/swaymsg "output * dpms on"'';
   displayOff = ''${pkgs.sway}/bin/swaymsg "output * dpms off"'';
@@ -226,21 +234,20 @@ in
       enable = true;
       systemdTarget = "sway-session.target";
       timeouts = [
-        # testing with quick timeouts
         {
-          # timeout = 300;
-          timeout = 10;
-          command = dim_then_lock;
-        }
-        {
-          # timeout = 360;
-          timeout = 40;
-          command = displayOff;
-        }
-        {
-          timeout = 5;
+          timeout = displayOffDelaySec;
           command = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOff}; fi";
-          resumeCommand = "if ${pkgs.procps}/bin/pgrep swaylock; then ${displayOn}; fi";
+          resumeCommand = displayOn;
+        }
+        {
+          timeout = lockTimeoutSec;
+          command = "if ! ${pkgs.procps}/bin/pgrep swaylock; then ${dim_then_lock}; fi";
+          resumeCommand = displayOn;
+        }
+        {
+          timeout = displayOffTimeoutSec;
+          command = displayOff;
+          resumeCommand = displayOn;
         }
       ];
       events = [
