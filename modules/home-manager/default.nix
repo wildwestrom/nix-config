@@ -312,6 +312,11 @@ in
             mods = "Control|Shift";
             action = "SpawnNewInstance";
           }
+          {
+            key = "Return";
+            mods = "Shift";
+            chars = "\n";
+          }
         ];
       };
     };
