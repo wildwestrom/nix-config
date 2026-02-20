@@ -233,6 +233,7 @@ in
     virt-manager
     restic
     babashka
+    solaar
 
     # audio
     ldacbt
