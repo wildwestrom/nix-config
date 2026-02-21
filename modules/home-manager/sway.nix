@@ -203,6 +203,10 @@ in
             tap = "enabled";
             tap_button_map = "lrm";
           };
+          "1133:45105:LIFT_Mouse" = {
+            scroll_factor = "0.2";
+            accel_profile = "adaptive";
+          };
         };
         modes = {
           default = { };
