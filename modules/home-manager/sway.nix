@@ -204,7 +204,7 @@ in
             tap_button_map = "lrm";
           };
           "1133:45105:LIFT_Mouse" = {
-            scroll_factor = "0.2";
+            scroll_factor = "0.5";
             accel_profile = "adaptive";
           };
         };
