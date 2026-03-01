@@ -15,6 +15,10 @@
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    codex-cli = {
+      url = "github:openai/codex/rust-v0.106.0";
+    };
   };
 
   outputs =

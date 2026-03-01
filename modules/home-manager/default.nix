@@ -5,6 +5,7 @@
   unstable-unfree,
   #username,
   terminal,
+  inputs,
   ...
 }:
 let
@@ -178,7 +179,7 @@ in
       neovim
       vscodium
       unstable-unfree.code-cursor
-      codex
+      inputs.codex-cli.packages.${pkgs.system}.default
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
