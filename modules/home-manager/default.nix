@@ -178,7 +178,7 @@ in
       neovim
       vscodium
       unstable-unfree.code-cursor
-      unstable-unfree.claude-code
+      codex
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
