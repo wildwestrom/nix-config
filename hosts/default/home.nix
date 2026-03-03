@@ -148,6 +148,7 @@
       };
     };
   };
+
   programs = {
     librewolf = {
       enable = true;
@@ -160,6 +161,7 @@
       };
     };
   };
+
   services.syncthing.enable = true;
   gtk = {
     enable = true;

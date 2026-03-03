@@ -442,13 +442,14 @@ in
   programs.steam = {
     enable = true;
     protontricks.enable = true;
-    extraPackages = with pkgs; [
-      gamescope
-    ];
     extraCompatPackages = with pkgs; [
       steamtinkerlaunch
       proton-ge-bin
     ];
+  };
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
   };
 
   nixpkgs.config.permittedInsecurePackages = [ ];
