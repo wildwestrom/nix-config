@@ -11,6 +11,7 @@
       unstable-unfree.retroarch-full
       retroarch-assets
       retroarch-joypad-autoconfig
+      gamescope
     ];
   };
 }
