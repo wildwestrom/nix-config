@@ -73,7 +73,7 @@ in
       unixtools.route
       unixtools.net-tools
 
-      bottles
+      # bottles
       # wineWow64Packages.waylandFull
       winePackages.waylandFull
       winetricks
