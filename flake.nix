@@ -17,7 +17,7 @@
     };
 
     codex-cli = {
-      url = "github:openai/codex/rust-v0.106.0";
+      url = "github:sadjow/codex-cli-nix";
     };
   };
 

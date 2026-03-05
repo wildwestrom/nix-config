@@ -212,6 +212,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     bash
+    cachix
     helix
     git
     wget
@@ -599,6 +600,7 @@ in
       "https://zed.cachix.org"
       "https://cache.garnix.io"
       "https://devenv.cachix.org"
+      "https://codex-cli.cachix.org"
     ];
     trusted-public-keys = [
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
@@ -606,6 +608,7 @@ in
       "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
       "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
+      "codex-cli.cachix.org-1:1Br3H1hHoRYG22n//cGKJOk3cQXgYobUel6O8DgSing="
     ];
   };
 
