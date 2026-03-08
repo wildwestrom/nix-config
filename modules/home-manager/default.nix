@@ -180,6 +180,7 @@ in
       vscodium
       unstable-unfree.code-cursor
       inputs.codex-cli.packages.${pkgs.system}.default
+      inputs.claude-code.packages.${pkgs.system}.default
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
