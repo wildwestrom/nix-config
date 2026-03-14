@@ -132,6 +132,8 @@ in
       hunspellDicts.en-us-large
       hunspellDicts.ko-kr
 
+      sioyek
+
       # database tools
       # surrealdb
       # surrealist
@@ -356,12 +358,12 @@ in
     #     return config
     #   '';
     # };
-    zathura = {
-      enable = true;
-      options = {
-        selection-clipboard = "clipboard";
-      };
-    };
+    # zathura = {
+    #   enable = true;
+    #   options = {
+    #     selection-clipboard = "clipboard";
+    #   };
+    # };
     direnv = {
       enable = true;
       # enableFishIntegration = true; # already enabled by default
