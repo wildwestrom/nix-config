@@ -11,11 +11,12 @@
 let
   username = "main";
   # terminalPackage = pkgs.kitty;
-  terminalPackage = pkgs.alacritty;
-  # terminalPackage = pkgs.foot;
+  # terminalPackage = pkgs.alacritty;
+  # terminalPackage = pkgs.alacritty;
+  terminalPackage = pkgs.foot;
   # terminalCommand = "kitty";
-  terminalCommand = "alacritty";
-  # terminalCommand = "footclient";
+  # terminalCommand = "alacritty";
+  terminalCommand = "footclient";
   terminal = {
     package = terminalPackage;
     command = terminalCommand;

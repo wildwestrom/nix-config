@@ -307,38 +307,38 @@ in
     #     macos_option_as_alt = true;
     #   };
     # };
-    alacritty = {
-      enable = true;
-      settings = {
-        keyboard.bindings = [
-          {
-            key = "N";
-            mods = "Control|Shift";
-            action = "SpawnNewInstance";
-          }
-          {
-            key = "Return";
-            mods = "Shift";
-            chars = "\n";
-          }
-        ];
-      };
-    };
-    # foot = {
+    # alacritty = {
     #   enable = true;
-    #   server.enable = true;
     #   settings = {
-    #     main = {
-    #       gamma-correct-blending = true;
-    #       # term = "xterm-256color";
-    #       # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
-    #       shell = "${pkgs.fish}/bin/fish";
-    #     };
-    #     scrollback = {
-    #       lines = 65535;
-    #     };
+    #     keyboard.bindings = [
+    #       {
+    #         key = "N";
+    #         mods = "Control|Shift";
+    #         action = "SpawnNewInstance";
+    #       }
+    #       {
+    #         key = "Return";
+    #         mods = "Shift";
+    #         chars = "\n";
+    #       }
+    #     ];
     #   };
     # };
+    foot = {
+      enable = true;
+      server.enable = true;
+      settings = {
+        main = {
+          # gamma-correct-blending = true;
+          # term = "xterm-256color";
+          # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
+          # shell = "${pkgs.fish}/bin/fish";
+        };
+        scrollback = {
+          lines = 65535;
+        };
+      };
+    };
     yazi = {
       enable = true;
       enableFishIntegration = true;
