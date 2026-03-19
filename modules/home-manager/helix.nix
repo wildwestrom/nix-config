@@ -23,6 +23,8 @@
       clojure-lsp
       guile-lsp-server
       emmet-language-server
+      just-lsp
+      just-formatter
       # wgsl-analyzer
     ];
   };
