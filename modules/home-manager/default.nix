@@ -32,6 +32,7 @@ in
       gitui
       gh
       jujutsu
+      lazyjj
       fossil
       act
       mercurialFull

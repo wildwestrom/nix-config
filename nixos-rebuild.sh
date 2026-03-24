@@ -12,6 +12,7 @@ git diff -U0 * **/*
 echo "NixOS Rebuilding..."
 sudo nix-channel --update
 sudo nixos-rebuild switch --upgrade -vvv --flake '.#default' --show-trace &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+sudo chown -R "$USER:$(id -gn)" .git/objects
 current=$(nixos-rebuild list-generations --json | jq '.[0].generation')
 git commit -am "$current"
 popd

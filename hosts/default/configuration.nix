@@ -236,6 +236,7 @@ in
     restic
     babashka
     solaar
+    bubblewrap
 
     # audio
     ldacbt
