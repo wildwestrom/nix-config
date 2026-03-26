@@ -27,6 +27,7 @@
       just-formatter
       # wgsl-analyzer
       codebook
+      marksman
     ];
   };
 
@@ -230,7 +231,7 @@
               "md"
               "markdown"
             ];
-            text-width = "18446744073709551615";
+            text-width = 65535;
             formatter = {
               command = "markdownlint --fix";
             };
