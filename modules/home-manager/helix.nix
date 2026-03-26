@@ -209,7 +209,10 @@
             text-width = 100;
             rulers = [ 100 ];
             soft-wrap.wrap-at-text-width = true;
-            language-servers = [ "typst-lsp" ];
+            language-servers = [
+              "typst-lsp"
+              "codebook"
+            ];
             formatter = {
               command = "typstyle";
             };
@@ -227,6 +230,7 @@
           }
           {
             name = "markdown";
+            language-servers = [ "codebook" ];
             file-types = [
               "md"
               "markdown"
@@ -235,11 +239,6 @@
             formatter = {
               command = "markdownlint --fix";
             };
-            language-servers = [ "codebook" ];
-          }
-          {
-            name = "codebook";
-            language-servers = [ "codebook-lsp" ];
           }
           {
             name = "scheme";
@@ -292,6 +291,9 @@
                 expr = "(builtins.getFlake \"/home/${username}/nix-config\").homeConfigurations.main.options";
               };
             };
+          };
+          "codebook" = {
+            command = "codebook-lsp";
           };
           emmet-lsp = {
             command = "emmet-language-server";
