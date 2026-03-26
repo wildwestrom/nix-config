@@ -184,6 +184,32 @@ in
       unstable-unfree.code-cursor
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
+
+      (pkgs.writeShellScriptBin "terminal-here" ''
+        TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
+          | ${pkgs.jq}/bin/jq '.. | objects | select(.focused? == true) | .pid // empty' \
+          | head -1)
+
+        if [ -z "$TERM_PID" ]; then
+          exec ${terminal.bin}
+        fi
+
+        # Walk to the deepest child process (the shell, or whatever's running)
+        leaf_pid() {
+          local pid="$1"
+          local child
+          child=$(${pkgs.procps}/bin/pgrep -P "$pid" 2>/dev/null | tail -1)
+          [ -n "$child" ] && leaf_pid "$child" || echo "$pid"
+        }
+
+        CWD=$(readlink -e "/proc/$(leaf_pid "$TERM_PID")/cwd" 2>/dev/null)
+
+        if [ -z "$CWD" ] || [ ! -d "$CWD" ]; then
+          exec ${terminal.bin}
+        fi
+
+        exec ${terminal.bin} --working-directory "$CWD"
+      '')
     ];
     sessionPath = [
       "$HOME/.emacs.d/bin"
