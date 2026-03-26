@@ -16,9 +16,8 @@
     fish = {
       enable = true;
       interactiveShellInit = ''
-        set fish_greeting # Disable greeting
-        fish_vi_key_bindings # use vi bindings
-
+        set fish_greeting
+        fish_vi_key_bindings
         bind -M insert \cf accept-autosuggestion
         bind -M insert \t '
           if commandline --search-mode
@@ -26,7 +25,7 @@
           else if commandline --paging-mode
             commandline -f complete
           else
-            set -l sug (commandline --autosuggestion)
+            set -l sug (commandline --showing-suggestion)
             if test -n "$sug"
               commandline -f accept-autosuggestion
             else
