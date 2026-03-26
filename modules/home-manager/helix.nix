@@ -26,6 +26,7 @@
       just-lsp
       just-formatter
       # wgsl-analyzer
+      codebook
     ];
   };
 
@@ -222,6 +223,22 @@
             #     rev = "427ccd875e14b592f13c2fac866158afa04034cb";
             #   };
             # };
+          }
+          {
+            name = "markdown";
+            file-types = [
+              "md"
+              "markdown"
+            ];
+            text-width = "18446744073709551615";
+            formatter = {
+              command = "markdownlint --fix";
+            };
+            language-servers = [ "codebook" ];
+          }
+          {
+            name = "codebook";
+            language-servers = [ "codebook-lsp" ];
           }
           {
             name = "scheme";
