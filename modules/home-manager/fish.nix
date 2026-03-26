@@ -18,7 +18,17 @@
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
         fish_vi_key_bindings # use vi bindings
+
+        bind -M insert \t 'if commandline --search-mode
+            commandline -f cancel
+        else if commandline --paging-mode
+            commandline -f complete
+        else
+            commandline -f accept-autosuggestion
+        end'
       '';
+      # binds = {
+      # };
       functions = {
         mkcd = {
           body = ''
