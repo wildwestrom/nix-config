@@ -18,16 +18,7 @@
       interactiveShellInit = ''
         set fish_greeting
         fish_vi_key_bindings
-        bind -M insert \t '
-          if commandline --search-mode
-            commandline -f cancel
-          else if commandline --paging-mode
-            commandline -f complete
-          else if commandline --showing-suggestion
-            commandline -f accept-autosuggestion
-          else
-            commandline -f complete
-          end'
+        bind -M insert \cf accept-autosuggestion
       '';
       # binds = {
       # };
