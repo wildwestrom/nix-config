@@ -616,4 +616,6 @@ in
   documentation.dev.enable = true;
 
   services.fprintd.enable = false;
+
+  services.atd.enable = true;
 }
