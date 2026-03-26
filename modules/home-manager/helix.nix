@@ -237,7 +237,8 @@
             ];
             text-width = 65535;
             formatter = {
-              command = "markdownlint --fix";
+              command = "markdownlint";
+              args = [ "--fix" ];
             };
           }
           {
