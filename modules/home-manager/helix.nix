@@ -189,7 +189,10 @@
           }
           {
             name = "typst";
-            file-types = [ "typ" ];
+            file-types = [
+              "typ"
+              "typst"
+            ];
             scope = "source.typst";
             injection-regex = "^typ(st)?$";
             roots = [ ];
@@ -235,7 +238,8 @@
               "md"
               "markdown"
             ];
-            text-width = 65535;
+            text-width = 80;
+            rulers = [ 80 ];
             formatter = {
               command = "markdownlint";
               args = [ "--fix" ];
