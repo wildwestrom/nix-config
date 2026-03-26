@@ -19,13 +19,20 @@
         set fish_greeting # Disable greeting
         fish_vi_key_bindings # use vi bindings
 
-        bind -M insert \t 'if commandline --search-mode
+        bind -M insert \cf accept-autosuggestion
+        bind -M insert \t '
+          if commandline --search-mode
             commandline -f cancel
-        else if commandline --paging-mode
+          else if commandline --paging-mode
             commandline -f complete
-        else
-            commandline -f accept-autosuggestion
-        end'
+          else
+            set -l sug (commandline --autosuggestion)
+            if test -n "$sug"
+              commandline -f accept-autosuggestion
+            else
+              commandline -f complete
+            end
+          end'
       '';
       # binds = {
       # };
