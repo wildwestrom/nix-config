@@ -43,8 +43,9 @@ in
     };
     extraSessionCommands = ''
       export XDG_SESSION_DESKTOP=sway
-      export export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export QT_SCALE_FACTOR=1.25
+      systemctl --user import-environment PATH
     '';
     extraConfig = ''
       include ~/.config/sway/outputs
@@ -89,7 +90,7 @@ in
           "${super}+space" = "floating toggle";
           "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
-          "${super}+Return" = "exec ${terminal.bin}";
+          "${super}+Return" = "exec terminal-here";
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf";
           "${super}+Shift+p" = "exec ${pkgs.librewolf}/bin/librewolf --private-window";
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
