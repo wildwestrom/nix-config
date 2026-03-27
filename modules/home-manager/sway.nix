@@ -45,6 +45,7 @@ in
       export XDG_SESSION_DESKTOP=sway
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export QT_SCALE_FACTOR=1.25
+      export PATH=/run/current-system/sw/bin${"PATH:+:$PATH"}
       systemctl --user import-environment PATH
     '';
     extraConfig = ''
