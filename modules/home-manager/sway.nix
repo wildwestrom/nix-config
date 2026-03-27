@@ -89,7 +89,7 @@ in
           "${super}+space" = "floating toggle";
           "${super}+Shift+c" = "reload";
           "${super}+a" = "focus parent";
-          "${super}+Return" = "exec terminal-here";
+          "${super}+Return" = "exec ${terminal.bin}";
           "${super}+Shift+Return" = "exec ${pkgs.librewolf}/bin/librewolf";
           "${super}+Shift+p" = "exec ${pkgs.librewolf}/bin/librewolf --private-window";
           "${super}+Shift+f" = "exec ${pkgs.nautilus}/bin/nautilus";
