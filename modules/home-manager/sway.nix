@@ -34,7 +34,7 @@ in
 
   wayland.windowManager.sway = {
     enable = true;
-    package = unstable.sway; # We use the unstable package because there's a bug that gets fixed in 1.11
+    checkConfig = false;
     systemd.enable = true;
     systemd.xdgAutostart = true;
     wrapperFeatures = {
@@ -45,7 +45,7 @@ in
       export XDG_SESSION_DESKTOP=sway
       export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
       export QT_SCALE_FACTOR=1.25
-      export PATH=/run/current-system/sw/bin${"PATH:+:$PATH"}
+      export PATH=/run/current-system/sw/bin''${PATH:+:$PATH}
       systemctl --user import-environment PATH
     '';
     extraConfig = ''
