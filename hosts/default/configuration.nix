@@ -244,6 +244,8 @@ in
     pwvucontrol
   ];
 
+  environment.localBinInPath = true;
+
   # Firmware updater
   services.fwupd.enable = true;
 
