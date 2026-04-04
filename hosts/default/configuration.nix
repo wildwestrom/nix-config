@@ -437,7 +437,6 @@ in
       "obsidian"
       "libsciter"
       "surrealdb"
-      "cursor"
       "rust-rover"
       "steam"
       "steam-unwrapped"

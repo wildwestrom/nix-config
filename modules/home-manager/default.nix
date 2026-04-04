@@ -181,7 +181,6 @@ in
       # jetbrains.rust-rover
       neovim
       vscodium
-      unstable-unfree.code-cursor
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
 
