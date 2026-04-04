@@ -183,6 +183,7 @@ in
       vscodium
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
+      opencode
 
       (pkgs.writeShellScriptBin "terminal-here" ''
         TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
