@@ -77,7 +77,7 @@
           };
           normal = {
             "g" = {
-              "l" = [
+              "g" = [
                 ":new"
                 ":insert-output lazygit"
                 ":buffer-close!"
