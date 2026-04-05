@@ -98,7 +98,7 @@ in
       ansifilter
       wormhole-rs
       graphviz
-      neofetch
+      fastfetch
       filezilla
 
       # android
