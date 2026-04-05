@@ -76,7 +76,7 @@
             "C-x" = "completion";
           };
           normal = {
-            "g" = {
+            "space" = {
               "g" = [
                 ":new"
                 ":insert-output lazygit"
