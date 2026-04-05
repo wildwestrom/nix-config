@@ -71,8 +71,21 @@
       enable = true;
       settings = {
         theme = "onelight";
-        keys.insert = {
-          "C-x" = "completion";
+        keys = {
+          insert = {
+            "C-x" = "completion";
+          };
+          normal = {
+            "g" = {
+              "l" = [
+                ":new"
+                ":insert-output lazygit"
+                ":buffer-close!"
+                ":redraw"
+                ":reload-all"
+              ];
+            };
+          };
         };
         editor = {
           terminal = {
