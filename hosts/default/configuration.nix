@@ -357,6 +357,7 @@ in
     source-serif-pro
     source-han-sans
     source-han-serif
+    monocraft
   ];
 
   fonts.fontconfig = {
