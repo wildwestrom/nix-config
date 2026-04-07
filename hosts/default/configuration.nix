@@ -521,7 +521,7 @@ in
       stylix.targets = {
         helix.enable = false;
         fcitx5.enable = false;
-        foot.enable = false;
+        # foot.enable = false;
         # gnome.enable = false;
         # qt.enable = false;
       };
