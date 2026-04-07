@@ -359,6 +359,7 @@ in
           # gamma-correct-blending = true;
           # term = "xterm-256color";
           # dpi-aware = "yes"; # TODO: Find out why this setting conflicts
+          font = "Monocraft:size=12";
           shell = "${pkgs.fish}/bin/fish";
         };
         scrollback = {
