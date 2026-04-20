@@ -1,18 +1,18 @@
 {
 	"name": "@mariozechner/pi-coding-agent",
-	"version": "0.66.1",
+	"version": "0.67.68",
 	"lockfileVersion": 3,
 	"requires": true,
 	"packages": {
 		"": {
 			"name": "@mariozechner/pi-coding-agent",
-			"version": "0.66.1",
+			"version": "0.67.68",
 			"license": "MIT",
 			"dependencies": {
 				"@mariozechner/jiti": "^2.6.2",
-				"@mariozechner/pi-agent-core": "^0.66.1",
-				"@mariozechner/pi-ai": "^0.66.1",
-				"@mariozechner/pi-tui": "^0.66.1",
+				"@mariozechner/pi-agent-core": "^0.67.68",
+				"@mariozechner/pi-ai": "^0.67.68",
+				"@mariozechner/pi-tui": "^0.67.68",
 				"@silvia-odwyer/photon-node": "^0.3.4",
 				"ajv": "^8.17.1",
 				"chalk": "^5.5.0",
@@ -28,6 +28,7 @@
 				"proper-lockfile": "^4.1.2",
 				"strip-ansi": "^7.1.0",
 				"undici": "^7.19.1",
+				"uuid": "^11.1.0",
 				"yaml": "^2.8.2"
 			},
 			"bin": {
@@ -51,9 +52,9 @@
 			}
 		},
 		"node_modules/@anthropic-ai/sdk": {
-			"version": "0.73.0",
-			"resolved": "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-0.73.0.tgz",
-			"integrity": "sha512-URURVzhxXGJDGUGFunIOtBlSl7KWvZiAAKY/ttTkZAkXT9bTPqdk2eK0b8qqSxXpikh3QKPnPYpiyX98zf5ebw==",
+			"version": "0.90.0",
+			"resolved": "https://registry.npmjs.org/@anthropic-ai/sdk/-/sdk-0.90.0.tgz",
+			"integrity": "sha512-MzZtPabJF1b0FTDl6Z6H5ljphPwACLGP13lu8MTiB8jXaW/YXlpOp+Po2cVou3MPM5+f5toyLnul9whKCy7fBg==",
 			"license": "MIT",
 			"dependencies": {
 				"json-schema-to-ts": "^3.1.1"
@@ -1449,27 +1450,27 @@
 			}
 		},
 		"node_modules/@mariozechner/pi-agent-core": {
-			"version": "0.66.1",
-			"resolved": "https://registry.npmjs.org/@mariozechner/pi-agent-core/-/pi-agent-core-0.66.1.tgz",
-			"integrity": "sha512-Nj54A7SuB/EQi8r3Gs+glFOr9wz/a9uxYFf0pCLf2DE7VmzA9O7WSejrvArna17K6auftLSdNyRRe2bIO0qezg==",
+			"version": "0.67.68",
+			"resolved": "https://registry.npmjs.org/@mariozechner/pi-agent-core/-/pi-agent-core-0.67.68.tgz",
+			"integrity": "sha512-anwFuzeUL7Qjbyih4DWY7w1zrOTrBxaz1L6+duLUuuzpHOun0EiP4KWIGTXPT5oJA7ZaeRNTyXJ7PlWfGQG33g==",
 			"license": "MIT",
 			"dependencies": {
-				"@mariozechner/pi-ai": "^0.66.1"
+				"@mariozechner/pi-ai": "^0.67.68"
 			},
 			"engines": {
 				"node": ">=20.0.0"
 			}
 		},
 		"node_modules/@mariozechner/pi-ai": {
-			"version": "0.66.1",
-			"resolved": "https://registry.npmjs.org/@mariozechner/pi-ai/-/pi-ai-0.66.1.tgz",
-			"integrity": "sha512-7IZHvpsFdKEBkTmjNrdVL7JLUJVIpha6bwTr12cZ5XyDrxij06wP6Ncpnf4HT5BXAzD5w2JnoqTOSbMEIZj3dg==",
+			"version": "0.67.68",
+			"resolved": "https://registry.npmjs.org/@mariozechner/pi-ai/-/pi-ai-0.67.68.tgz",
+			"integrity": "sha512-DWWQmcb3IV3mbGXmzYBScfKA6kA52n/stY029eiBikrIxVT7DGLG6n7KSvTA2R4qBSgi1iFL3nGHtwxmtIn6Lg==",
 			"license": "MIT",
 			"dependencies": {
-				"@anthropic-ai/sdk": "^0.73.0",
-				"@aws-sdk/client-bedrock-runtime": "^3.983.0",
+				"@anthropic-ai/sdk": "^0.90.0",
+				"@aws-sdk/client-bedrock-runtime": "^3.1030.0",
 				"@google/genai": "^1.40.0",
-				"@mistralai/mistralai": "1.14.1",
+				"@mistralai/mistralai": "^2.2.0",
 				"@sinclair/typebox": "^0.34.41",
 				"ajv": "^8.17.1",
 				"ajv-formats": "^3.0.1",
@@ -1488,9 +1489,9 @@
 			}
 		},
 		"node_modules/@mariozechner/pi-tui": {
-			"version": "0.66.1",
-			"resolved": "https://registry.npmjs.org/@mariozechner/pi-tui/-/pi-tui-0.66.1.tgz",
-			"integrity": "sha512-hNFN42ebjwtfGooqoUwM+QaPR1XCyqPuueuP3aLOWS1bZ2nZP/jq8MBuGNrmMw1cgiDcotvOlSNj3BatzEOGsw==",
+			"version": "0.67.68",
+			"resolved": "https://registry.npmjs.org/@mariozechner/pi-tui/-/pi-tui-0.67.68.tgz",
+			"integrity": "sha512-RhcMaGz88lNOm5+9yx+YCIfXZALLbMxB2cwsoHzyOzs+OZAItw8tz6xJZPAnX0RHY+ENQEGMMDY9TF6pxxnkbA==",
 			"license": "MIT",
 			"dependencies": {
 				"@types/mime-types": "^2.1.4",
@@ -1507,13 +1508,14 @@
 			}
 		},
 		"node_modules/@mistralai/mistralai": {
-			"version": "1.14.1",
-			"resolved": "https://registry.npmjs.org/@mistralai/mistralai/-/mistralai-1.14.1.tgz",
-			"integrity": "sha512-IiLmmZFCCTReQgPAT33r7KQ1nYo5JPdvGkrkZqA8qQ2qB1GHgs5LoP5K2ICyrjnpw2n8oSxMM/VP+liiKcGNlQ==",
+			"version": "2.2.0",
+			"resolved": "https://registry.npmjs.org/@mistralai/mistralai/-/mistralai-2.2.0.tgz",
+			"integrity": "sha512-JQUGIXjFWnw/J9LpTSf/ZXwVW3Sh8FBAcfTo5QvAHqkl4CfSiIwnjRJhMoAFcP6ncCe84YPU1ncDGX+p3OXnfg==",
+			"license": "Apache-2.0",
 			"dependencies": {
 				"ws": "^8.18.0",
 				"zod": "^3.25.0 || ^4.0.0",
-				"zod-to-json-schema": "^3.24.1"
+				"zod-to-json-schema": "^3.25.0"
 			}
 		},
 		"node_modules/@nodelib/fs.scandir": {
@@ -5288,6 +5290,19 @@
 			"resolved": "https://registry.npmjs.org/undici-types/-/undici-types-7.16.0.tgz",
 			"integrity": "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==",
 			"license": "MIT"
+		},
+		"node_modules/uuid": {
+			"version": "11.1.0",
+			"resolved": "https://registry.npmjs.org/uuid/-/uuid-11.1.0.tgz",
+			"integrity": "sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==",
+			"funding": [
+				"https://github.com/sponsors/broofa",
+				"https://github.com/sponsors/ctavan"
+			],
+			"license": "MIT",
+			"bin": {
+				"uuid": "dist/esm/bin/uuid"
+			}
 		},
 		"node_modules/vite": {
 			"version": "7.3.2",
