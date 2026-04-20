@@ -181,10 +181,13 @@ in
       # jetbrains.rust-rover
       neovim
       vscodium
+
+      # LLM-related
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
       opencode
       (pkgs.callPackage ../../packages/pi.nix { })
+      unstable.ollama
 
       (pkgs.writeShellScriptBin "terminal-here" ''
         TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
