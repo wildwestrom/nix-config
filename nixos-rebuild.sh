@@ -4,7 +4,9 @@ set -xe -o pipefail
 shopt -s extglob
 
 pushd ~/nix-config/
-$EDITOR .
+if [ -t 0 ] ; then
+	$EDITOR .
+fi
 nixfmt . &>/dev/null
 rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"

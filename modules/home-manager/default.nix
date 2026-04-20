@@ -2,8 +2,8 @@
   pkgs,
   config,
   unstable,
-  unstable-unfree,
-  #username,
+  # unstable-unfree,
+  # username,
   terminal,
   inputs,
   ...
@@ -184,6 +184,7 @@ in
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
       opencode
+      (pkgs.callPackage ../../packages/pi.nix { })
 
       (pkgs.writeShellScriptBin "terminal-here" ''
         TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
