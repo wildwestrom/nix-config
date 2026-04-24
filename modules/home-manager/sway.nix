@@ -51,6 +51,7 @@ in
     extraConfig = ''
       include ~/.config/sway/outputs
       include ~/.config/sway/workspaces
+      include ~/.config/sway/testing
     '';
     config =
       let
