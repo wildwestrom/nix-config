@@ -198,7 +198,7 @@ in
     enable = true;
     settings = {
       default_session = {
-        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
+        command = ''WLR_RENDERER=vulkan ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
       };
       # enables auto login
