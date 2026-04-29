@@ -42,6 +42,7 @@ in
     "nix-command"
     "flakes"
   ];
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "i2c-dev" ];

@@ -185,8 +185,8 @@ in
       # LLM-related
       inputs.codex-cli.packages.${pkgs.system}.default
       inputs.claude-code.packages.${pkgs.system}.default
+      inputs.pi-agent.packages.${pkgs.system}.default
       opencode
-      (pkgs.callPackage ../../packages/pi.nix { })
       unstable.ollama
 
       (pkgs.writeShellScriptBin "terminal-here" ''

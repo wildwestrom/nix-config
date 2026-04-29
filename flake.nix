@@ -23,6 +23,10 @@
     claude-code = {
       url = "github:sadjow/claude-code-nix";
     };
+
+    pi-agent = {
+      url = "github:tienedev/pi-mono-nix";
+    };
   };
 
   outputs =
