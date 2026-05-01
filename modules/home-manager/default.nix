@@ -177,7 +177,7 @@ in
 
       # editors
       obsidian
-      unstable.zed-editor
+      inputs.zed-editor.packages.${pkgs.system}.default
       # jetbrains.rust-rover
       neovim
       vscodium

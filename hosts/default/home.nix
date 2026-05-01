@@ -114,6 +114,7 @@
       publicShare = "${config.home.homeDirectory}/public";
       templates = "${config.home.homeDirectory}/templates";
       videos = "${config.home.homeDirectory}/vids";
+      # projects = "${config.home.homeDirectory}/code"; # In preparation for when this drops.
     };
     mimeApps = {
       enable = true;

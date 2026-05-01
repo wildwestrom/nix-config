@@ -27,6 +27,11 @@
     pi-agent = {
       url = "github:tienedev/pi-mono-nix";
     };
+
+    zed-editor = {
+      url = "github:zed-industries/zed/v1.0.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
