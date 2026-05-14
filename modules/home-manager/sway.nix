@@ -28,6 +28,7 @@ in
   home.packages = with pkgs; [
     nwg-displays
     # nwg-panel
+    swaybg
     sway-contrib.grimshot
     sway-contrib.inactive-windows-transparency
   ];
