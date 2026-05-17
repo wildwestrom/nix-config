@@ -94,10 +94,11 @@ in
       unixtools.route
       unixtools.net-tools
 
+      # Windows software
       # bottles
-      # wineWow64Packages.waylandFull
-      winePackages.waylandFull
+      wineWowPackages.waylandFull
       winetricks
+      zenity
 
       transmission_4-gtk
       bitwarden-desktop
