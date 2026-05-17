@@ -96,7 +96,7 @@ in
 
       # Windows software
       # bottles
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
       winetricks
       zenity
 
