@@ -22,7 +22,14 @@ let
         python3Packages.pyproj
         git
       ];
-    runScript = "freecad";
+    runScript = ''
+      # Make nixpkgs Python packages visible to FreeCAD
+      for _d in /usr/lib/python3.*/site-packages; do
+        PYTHONPATH="''$PYTHONPATH:''$_d"
+      done
+      export PYTHONPATH
+      exec freecad "$@"
+    '';
   };
 in
 {
