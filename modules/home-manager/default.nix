@@ -11,6 +11,18 @@
 let
   hx_bin = config.programs.helix.package;
   editor = "${hx_bin}/bin/hx";
+
+  freecad-fhs = pkgs.buildFHSEnv {
+    name = "freecad";
+    targetPkgs =
+      pkgs: with pkgs; [
+        freecad
+        python3
+        python3Packages.pip
+        git
+      ];
+    runScript = "freecad";
+  };
 in
 {
   imports = [
@@ -147,7 +159,7 @@ in
       unstable.musescore
       blender
       obs-studio
-      freecad
+      freecad-fhs
       gimp3
 
       # media
