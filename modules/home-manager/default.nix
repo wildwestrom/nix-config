@@ -109,12 +109,7 @@ in
       prismlauncher
       anki
       libreoffice
-      (brave.override {
-        commandLineArgs = [
-          "--enable-wayland-ime"
-          "--store-password=basic"
-        ];
-      })
+      ungoogled-chromium
       sccache
       ansifilter
       wormhole-rs
