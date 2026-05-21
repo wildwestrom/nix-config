@@ -193,7 +193,7 @@ in
 
       # editors
       obsidian
-      zed-editor
+      unstable.zed-editor
       # jetbrains.rust-rover
       neovim
       vscodium
