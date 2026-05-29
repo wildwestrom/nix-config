@@ -131,6 +131,14 @@
             auto-format = true;
           }
           {
+            name = "lean";
+            indent = {
+              tab-width = 2;
+              unit = " ";
+            };
+            auto-format = true;
+          }
+          {
             name = "slint";
             indent = {
               tab-width = 4;
