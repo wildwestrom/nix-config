@@ -125,7 +125,7 @@
             name = "rust";
             indent = {
               tab-width = 4;
-              unit = " ";
+              unit = "    ";
             };
             language-servers = [ "rust-analyzer" ];
             auto-format = true;
@@ -134,7 +134,7 @@
             name = "lean";
             indent = {
               tab-width = 2;
-              unit = " ";
+              unit = "  ";
             };
             auto-format = true;
           }
