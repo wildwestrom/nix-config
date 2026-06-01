@@ -623,4 +623,9 @@ in
   services.fprintd.enable = false;
 
   services.atd.enable = true;
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
 }
