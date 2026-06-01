@@ -628,7 +628,7 @@ in
 
   services.mysql = {
     enable = true;
-    package = pkgs.mariadb;
+    package = pkgs.mysql84;
     ensureUsers = [
       {
         name = "main";
