@@ -628,7 +628,7 @@ in
 
   services.mysql = {
     enable = true;
-    package = pkgs.mysql84;
+    package = pkgs.mysql80;
     ensureUsers = [
       {
         name = "main";
