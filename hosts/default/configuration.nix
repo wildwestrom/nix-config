@@ -243,6 +243,8 @@ in
     ldacbt
     libfreeaptx
     pwvucontrol
+
+    mysql-workbench
   ];
 
   environment.localBinInPath = true;
@@ -627,5 +629,13 @@ in
   services.mysql = {
     enable = true;
     package = pkgs.mariadb;
+    ensureUsers = [
+      {
+        name = "main";
+        ensurePermissions = {
+          "*.*" = "ALL PRIVILEGES";
+        };
+      }
+    ];
   };
 }
