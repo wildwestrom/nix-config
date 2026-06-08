@@ -4,6 +4,9 @@
     wev
     slurp
     wl-clipboard-rs
+    grim
+    wtype
+    ydotool
   ];
   services = {
     wl-clip-persist = {
