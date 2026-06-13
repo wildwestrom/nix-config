@@ -125,7 +125,8 @@ in
         match app-id="element"
         match app-id="org.gnome.Fractal"
         open-on-workspace "Socials"
-        open-maximized true
+        // 90% of the screen rather than a full-width maximized column.
+        default-column-width { proportion 0.9; }
     }
 
     // XWayland support: niri is not wlroots-based, so X11 apps go through
@@ -144,6 +145,14 @@ in
     spawn-at-startup "${pkgs.waybar}/bin/waybar"
     spawn-at-startup "${pkgs.networkmanagerapplet}/bin/nm-applet" "--indicator"
     spawn-at-startup "${pkgs.protonmail-bridge}/bin/protonmail-bridge" "--noninteractive"
+
+    // Chat apps launched at login; the window-rule above lands them on the
+    // "Socials" workspace. Spawned by bare name (they're on PATH via
+    // home.packages) so the installed builds are used, incl. unstable signal.
+    spawn-at-startup "thunderbird"
+    spawn-at-startup "signal-desktop"
+    spawn-at-startup "discord"
+    spawn-at-startup "fractal"
 
     binds {
         // --- Launchers (sway: Mod+Return / Mod+d / etc.) ---
