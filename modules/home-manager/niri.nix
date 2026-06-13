@@ -33,6 +33,7 @@ in
     nwg-displays # niri supports wlr-output-management, so this still works
     fuzzel
     swaybg
+    xwayland-satellite # X11 app support; niri starts/manages it (see config)
   ];
 
   # Home Manager (25.11) has no `programs.niri` module, so the compositor is
@@ -93,6 +94,13 @@ in
 
     // sway: window.titlebar = false
     prefer-no-csd
+
+    // XWayland support: niri is not wlroots-based, so X11 apps go through
+    // xwayland-satellite, which niri starts and manages (it sets DISPLAY for
+    // spawned clients). The package bundles Xwayland as a runtime dep.
+    xwayland-satellite {
+        path "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
+    }
 
     // Don't show the hotkey help on every launch.
     hotkey-overlay {
