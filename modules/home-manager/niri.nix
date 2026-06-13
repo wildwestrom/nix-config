@@ -106,7 +106,7 @@ in
     prefer-no-csd
 
     // Predeclare a named workspace for chat apps.
-    workspace "chat"
+    workspace "Socials"
 
     // Chat apps open full-width on the "chat" workspace; Super+H/L scrolls
     // between them, each filling the screen. To instead stack them as real
@@ -114,12 +114,13 @@ in
     // (Mod+Comma), then Mod+W to toggle tabbed display. If an app doesn't
     // match, find its real id in the "App ID" field of `niri msg windows`.
     window-rule {
+        match app-id="thunderbird"
         match app-id="discord"
         match app-id="org.telegram.desktop"
         match app-id="signal"
         match app-id="element"
         match app-id="org.gnome.Fractal"
-        open-on-workspace "chat"
+        open-on-workspace "Socials"
         open-maximized true
     }
 
