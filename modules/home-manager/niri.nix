@@ -84,7 +84,7 @@ in
 
     layout {
         gaps 4
-        center-focused-column "on-overflow"
+        center-focused-column "never"
         // sway: window.border = 2
         border {
             width 2
