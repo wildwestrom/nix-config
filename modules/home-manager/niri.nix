@@ -84,6 +84,10 @@ in
 
     layout {
         gaps 4
+        // Keep the focused column centered on screen, both when a window opens
+        // and as focus moves between columns. (Alternative: "on-overflow", which
+        // only centers when the row is wider than the screen.)
+        center-focused-column "always"
         // sway: window.border = 2
         border {
             width 2
@@ -105,23 +109,24 @@ in
     // sway: window.titlebar = false
     prefer-no-csd
 
-    // Pinned, predeclared workspaces. niri workspaces are per-monitor, so
-    // these named workspaces are split across the two outputs: 1-5 on the
-    // big monitor in front, Socials + 6-10 on the laptop panel to the side.
-    // The Mod+1..0 binds below address them by name. When the big monitor is
-    // unplugged, niri relocates its workspaces (1-5) onto the laptop, so all
-    // of them land on the laptop screen, then moves them back on reconnect.
-    workspace "1" { open-on-output "Hansung Co., Ltd TFG32U16P 0000000000000"; }
-    workspace "2" { open-on-output "Hansung Co., Ltd TFG32U16P 0000000000000"; }
-    workspace "3" { open-on-output "Hansung Co., Ltd TFG32U16P 0000000000000"; }
-    workspace "4" { open-on-output "Hansung Co., Ltd TFG32U16P 0000000000000"; }
-    workspace "5" { open-on-output "Hansung Co., Ltd TFG32U16P 0000000000000"; }
+    // Don't open the overview from the top-left hot corner; Mod+O does it.
+    gestures {
+        hot-corners {
+            off
+        }
+    }
+
+    // Dynamic per-monitor workspaces (niri-native). Workspaces are created on
+    // demand and disappear when empty, so the bar only shows what's in use plus
+    // one empty trailing workspace per monitor. The Mod+1..0 binds below use
+    // bare indices, which address the Nth workspace on the *currently focused*
+    // monitor -- so numbers are positional, not pinned to a monitor.
+    //
+    // The one exception is "Socials": it's a named, persistent workspace pinned
+    // to the laptop so the chat apps always have a fixed home (and survive the
+    // big monitor being unplugged -- niri relocates it onto whatever output
+    // remains, then moves it back on reconnect).
     workspace "Socials" { open-on-output "BOE 0x0BCA Unknown"; }
-    workspace "6" { open-on-output "BOE 0x0BCA Unknown"; }
-    workspace "7" { open-on-output "BOE 0x0BCA Unknown"; }
-    workspace "8" { open-on-output "BOE 0x0BCA Unknown"; }
-    workspace "9" { open-on-output "BOE 0x0BCA Unknown"; }
-    workspace "10" { open-on-output "BOE 0x0BCA Unknown"; }
 
     // Chat apps open full-width on the "chat" workspace; Super+H/L scrolls
     // between them, each filling the screen. To instead stack them as real
@@ -193,6 +198,10 @@ in
         Mod+M { maximize-column; }
         Mod+C { center-column; }
 
+        // Overview (the zoomed-out workspace view). The top-left hot corner
+        // that also triggers it is disabled below.
+        Mod+O { toggle-overview; }
+
         // sway Mod+Shift+q opened a power menu (swaynag); wlogout is the niri
         // equivalent.
         Mod+Shift+Q { spawn "${pkgs.wlogout}/bin/wlogout"; }
@@ -225,28 +234,30 @@ in
         Mod+Shift+Up    { move-window-up; }
 
         // --- Workspaces (sway Mod+1..0 / Mod+Shift+1..0) ---
-        // Addressed by name (quoted) so they hit the pinned workspaces declared
-        // above. A bare number would mean per-monitor index instead.
-        Mod+1 { focus-workspace "1"; }
-        Mod+2 { focus-workspace "2"; }
-        Mod+3 { focus-workspace "3"; }
-        Mod+4 { focus-workspace "4"; }
-        Mod+5 { focus-workspace "5"; }
-        Mod+6 { focus-workspace "6"; }
-        Mod+7 { focus-workspace "7"; }
-        Mod+8 { focus-workspace "8"; }
-        Mod+9 { focus-workspace "9"; }
-        Mod+0 { focus-workspace "10"; }
-        Mod+Shift+1 { move-column-to-workspace "1"; }
-        Mod+Shift+2 { move-column-to-workspace "2"; }
-        Mod+Shift+3 { move-column-to-workspace "3"; }
-        Mod+Shift+4 { move-column-to-workspace "4"; }
-        Mod+Shift+5 { move-column-to-workspace "5"; }
-        Mod+Shift+6 { move-column-to-workspace "6"; }
-        Mod+Shift+7 { move-column-to-workspace "7"; }
-        Mod+Shift+8 { move-column-to-workspace "8"; }
-        Mod+Shift+9 { move-column-to-workspace "9"; }
-        Mod+Shift+0 { move-column-to-workspace "10"; }
+        // Bare indices: the Nth workspace on the currently focused monitor.
+        // Empty ones aren't pre-created, so e.g. Mod+3 with nothing past ws 1
+        // just lands on the trailing empty workspace. Hop monitors with
+        // Mod+H/L first to act on the other screen.
+        Mod+1 { focus-workspace 1; }
+        Mod+2 { focus-workspace 2; }
+        Mod+3 { focus-workspace 3; }
+        Mod+4 { focus-workspace 4; }
+        Mod+5 { focus-workspace 5; }
+        Mod+6 { focus-workspace 6; }
+        Mod+7 { focus-workspace 7; }
+        Mod+8 { focus-workspace 8; }
+        Mod+9 { focus-workspace 9; }
+        Mod+0 { focus-workspace 10; }
+        Mod+Shift+1 { move-column-to-workspace 1; }
+        Mod+Shift+2 { move-column-to-workspace 2; }
+        Mod+Shift+3 { move-column-to-workspace 3; }
+        Mod+Shift+4 { move-column-to-workspace 4; }
+        Mod+Shift+5 { move-column-to-workspace 5; }
+        Mod+Shift+6 { move-column-to-workspace 6; }
+        Mod+Shift+7 { move-column-to-workspace 7; }
+        Mod+Shift+8 { move-column-to-workspace 8; }
+        Mod+Shift+9 { move-column-to-workspace 9; }
+        Mod+Shift+0 { move-column-to-workspace 10; }
 
         // --- Screenshots (sway: grimshot copy area / window) ---
         Mod+Shift+S { screenshot; }
