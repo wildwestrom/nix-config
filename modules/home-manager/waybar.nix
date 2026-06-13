@@ -17,11 +17,10 @@
           spacing = 4; # Gaps between modules (4px)
           # Choose the order of the modules
           modules-left = [
-            "sway/workspaces"
-            "sway/mode"
+            "niri/workspaces"
             "custom/media"
           ];
-          modules-center = [ "sway/window" ];
+          modules-center = [ "niri/window" ];
           modules-right = [
             "idle_inhibitor"
             # "cpu"
@@ -33,7 +32,7 @@
             "pulseaudio"
             "tray"
           ];
-          "sway/window" = {
+          "niri/window" = {
             "format" = "{title}";
             "max-length" = 50;
           };
@@ -81,9 +80,6 @@
             "scroll-step" = 1;
             "on-click" = "pwvucontrol";
             "ignored-sinks" = [ "Easy Effects Sink" ];
-          };
-          "sway/mode" = {
-            "format" = "<span style=\"italic\">{}</span>";
           };
           "idle_inhibitor" = {
             "format" = "{icon}";

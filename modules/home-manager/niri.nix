@@ -33,6 +33,7 @@ in
     nwg-displays # niri supports wlr-output-management, so this still works
     fuzzel
     swaybg
+    wlogout # power/logout menu (sway used swaynag for this)
     xwayland-satellite # X11 app support; niri starts/manages it (see config)
   ];
 
@@ -90,10 +91,37 @@ in
         focus-ring {
             width 2
         }
+        // Widths cycled by Mod+R (switch-preset-column-width). Full width is
+        // included so a single window can fill the screen.
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+            proportion 1.0
+        }
+        default-column-width { proportion 0.5; }
     }
 
     // sway: window.titlebar = false
     prefer-no-csd
+
+    // Predeclare a named workspace for chat apps.
+    workspace "chat"
+
+    // Chat apps open full-width on the "chat" workspace; Super+H/L scrolls
+    // between them, each filling the screen. To instead stack them as real
+    // tabs: focus the workspace, consume the windows into one column
+    // (Mod+Comma), then Mod+W to toggle tabbed display. If an app doesn't
+    // match, find its real id in the "App ID" field of `niri msg windows`.
+    window-rule {
+        match app-id="discord"
+        match app-id="org.telegram.desktop"
+        match app-id="signal"
+        match app-id="element"
+        match app-id="org.gnome.Fractal"
+        open-on-workspace "chat"
+        open-maximized true
+    }
 
     // XWayland support: niri is not wlroots-based, so X11 apps go through
     // xwayland-satellite, which niri starts and manages (it sets DISPLAY for
@@ -124,33 +152,50 @@ in
         Mod+Q { close-window; }
         Mod+F { fullscreen-window; }
         Mod+Space { toggle-window-floating; }
-        // sway Mod+w (tabbed): closest niri analog is a tabbed column.
+
+        // Tabs: niri only tabs windows that share a column. Pull the
+        // neighbouring window into the current column (consume), push it back
+        // out (expel), then toggle the column to tabbed display. sway Mod+w:
         Mod+W { toggle-column-tabbed-display; }
-        // sway Mod+Shift+q opened a power menu; niri's quit shows a
-        // confirmation dialog, which is the nearest built-in equivalent.
-        Mod+Shift+Q { quit; }
+        Mod+Comma  { consume-window-into-column; }
+        Mod+Period { expel-window-from-column; }
+
+        // Column / window sizing. switch-preset-column-width cycles the
+        // presets in the layout block (incl. full width); maximize-column
+        // toggles full width directly.
+        Mod+R { switch-preset-column-width; }
+        Mod+Shift+R { switch-preset-window-height; }
+        Mod+M { maximize-column; }
+        Mod+C { center-column; }
+
+        // sway Mod+Shift+q opened a power menu (swaynag); wlogout is the niri
+        // equivalent.
+        Mod+Shift+Q { spawn "${pkgs.wlogout}/bin/wlogout"; }
         // No direct niri analog: Mod+a (focus parent), Mod+b/Mod+v (splith/
         // splitv), Mod+s (stacking), Mod+e (toggle split). niri auto-reloads
-        // its config, so sway's Mod+Shift+c (reload) is unnecessary.
+        // its config on save, so sway's Mod+Shift+c (reload) is unnecessary.
 
         // --- Focus (sway h/j/k/l + arrows) ---
-        // Columns are left/right, windows within a column are up/down.
-        Mod+H     { focus-column-left; }
-        Mod+L     { focus-column-right; }
-        Mod+J     { focus-window-down; }
-        Mod+K     { focus-window-up; }
-        Mod+Left  { focus-column-left; }
-        Mod+Right { focus-column-right; }
-        Mod+Down  { focus-window-down; }
-        Mod+Up    { focus-window-up; }
+        // Columns are left/right, windows within a column are up/down. The
+        // *-or-monitor-* variants cross to the adjacent monitor when there is
+        // nothing more to focus in that direction.
+        Mod+H     { focus-column-or-monitor-left; }
+        Mod+L     { focus-column-or-monitor-right; }
+        Mod+J     { focus-window-or-monitor-down; }
+        Mod+K     { focus-window-or-monitor-up; }
+        Mod+Left  { focus-column-or-monitor-left; }
+        Mod+Right { focus-column-or-monitor-right; }
+        Mod+Down  { focus-window-or-monitor-down; }
+        Mod+Up    { focus-window-or-monitor-up; }
 
         // --- Move window (sway Mod+Shift+h/j/k/l + arrows) ---
-        Mod+Shift+H     { move-column-left; }
-        Mod+Shift+L     { move-column-right; }
+        // Left/right push the column to the adjacent monitor past the edge.
+        Mod+Shift+H     { move-column-left-or-to-monitor-left; }
+        Mod+Shift+L     { move-column-right-or-to-monitor-right; }
         Mod+Shift+J     { move-window-down; }
         Mod+Shift+K     { move-window-up; }
-        Mod+Shift+Left  { move-column-left; }
-        Mod+Shift+Right { move-column-right; }
+        Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+        Mod+Shift+Right { move-column-right-or-to-monitor-right; }
         Mod+Shift+Down  { move-window-down; }
         Mod+Shift+Up    { move-window-up; }
 
