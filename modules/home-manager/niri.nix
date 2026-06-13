@@ -84,10 +84,7 @@ in
 
     layout {
         gaps 4
-        // Keep the focused column centered on screen, both when a window opens
-        // and as focus moves between columns. (Alternative: "on-overflow", which
-        // only centers when the row is wider than the screen.)
-        center-focused-column "always"
+        center-focused-column "on-overflow"
         // sway: window.border = 2
         border {
             width 2
@@ -98,12 +95,12 @@ in
         // Widths cycled by Mod+R (switch-preset-column-width). Full width is
         // included so a single window can fill the screen.
         preset-column-widths {
-            proportion 0.33333
+            proportion 0.25
             proportion 0.5
-            proportion 0.66667
+            proportion 0.8
             proportion 1.0
         }
-        default-column-width { proportion 0.5; }
+        default-column-width { proportion 0.8; }
     }
 
     // sway: window.titlebar = false
@@ -141,8 +138,7 @@ in
         match app-id="element"
         match app-id="org.gnome.Fractal"
         open-on-workspace "Socials"
-        // 90% of the screen rather than a full-width maximized column.
-        default-column-width { proportion 0.9; }
+        default-column-width { proportion 0.95; }
     }
 
     // XWayland support: niri is not wlroots-based, so X11 apps go through
@@ -221,6 +217,9 @@ in
         Mod+Right { focus-column-or-monitor-right; }
         Mod+Down  { focus-window-or-monitor-down; }
         Mod+Up    { focus-window-or-monitor-up; }
+
+        // Flip to the other monitor and back (toggles last-focused output).
+        Mod+Tab   { focus-monitor-previous; }
 
         // --- Move window (sway Mod+Shift+h/j/k/l + arrows) ---
         // Left/right push the column to the adjacent monitor past the edge.
