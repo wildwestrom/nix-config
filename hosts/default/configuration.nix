@@ -481,7 +481,7 @@ in
   };
   programs.gamescope = {
     enable = true;
-    capSysNice = true;
+    # capSysNice = true; # causes games to straight up not launch on steam
   };
 
   nixpkgs.config.permittedInsecurePackages = [ ];
