@@ -105,8 +105,12 @@ in
     // sway: window.titlebar = false
     prefer-no-csd
 
-    // Predeclare a named workspace for chat apps.
-    workspace "Socials"
+    // Predeclare a named workspace for chat apps, pinned to the laptop panel
+    // so it doesn't drift onto an external monitor. (niri named workspaces
+    // otherwise land on whichever output was focused when first created.)
+    workspace "Socials" {
+        open-on-output "BOE 0x0BCA Unknown"
+    }
 
     // Chat apps open full-width on the "chat" workspace; Super+H/L scrolls
     // between them, each filling the screen. To instead stack them as real
