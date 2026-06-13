@@ -7,7 +7,9 @@
 }:
 {
   imports = [
-    ../../modules/home-manager/sway.nix
+    # Trying out niri instead of sway. Swap these back to return to sway.
+    # ../../modules/home-manager/sway.nix
+    ../../modules/home-manager/niri.nix
     ../../modules/home-manager/default.nix
   ];
   i18n = {

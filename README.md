@@ -20,3 +20,7 @@ The solution is to pin each flake to my system nixpkgs.
 I haven't found a way to do this automatically, but I can run this command to pin each project.
 
 `nix flake update nixpkgs --override-input nixpkgs flake:nixpkgs`
+
+## Known issues
+
+TODO: Wire up something equivalent to what swaynag did for me before for niri. 

@@ -210,16 +210,25 @@ in
 
   services.dbus.enable = true;
 
+  # Trying out niri (scrollable-tiling Wayland compositor). The NixOS module
+  # installs niri, registers the session, and sets up the xdg portals.
+  programs.niri.enable = true;
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = ''WLR_RENDERER=vulkan ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
+        # No `WLR_RENDERER=vulkan` prefix here: greetd runs this via `sh -c exec`,
+        # and `exec VAR=val cmd` fails (tries to exec a binary named "VAR=val").
+        # WLR_RENDERER is already set globally in environment.sessionVariables.
+        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "niri-session"'';
+        # command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
       };
       # enables auto login
       initial_session = {
-        command = "sway";
+        command = "niri-session";
+        # command = "sway";
         user = username;
       };
     };
