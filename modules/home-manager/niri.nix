@@ -20,6 +20,14 @@ let
   displayOn = "${pkgs.niri}/bin/niri msg action power-on-monitors";
   displayOff = "${pkgs.niri}/bin/niri msg action power-off-monitors";
 
+  # niri refuses an ext-session-lock request unless it can blank every monitor
+  # first (niri-wm/niri#205). On suspend the monitors are already powered off by
+  # the time swaylock asks for the lock, so the lock is rejected and we wake to
+  # an unlocked session. Power the monitors back on before locking so niri can
+  # blank them and grant the lock. Paired with swayidle's `-w` (see extraArgs),
+  # this also makes the system wait for the lock to be held before sleeping.
+  lock_on_sleep = "${displayOn} && ${swaylockCmd}";
+
   menu = "${pkgs.fuzzel}/bin/fuzzel";
   browser = "${pkgs.librewolf}/bin/librewolf";
 in
@@ -277,6 +285,11 @@ in
       enable = true;
       # niri provides the standard graphical-session.target (see niri.service).
       systemdTarget = "graphical-session.target";
+      # `-w` makes swayidle wait for each command to finish before continuing.
+      # Essential for `before-sleep`: the machine must not suspend until swaylock
+      # has actually grabbed the lock (swaylock -f returns once locked), otherwise
+      # niri powers the monitors off mid-suspend and the lock never takes.
+      extraArgs = [ "-w" ];
       timeouts = [
         {
           timeout = displayOffDelaySec;
@@ -301,7 +314,16 @@ in
         }
         {
           event = "before-sleep";
-          command = swaylockCmd;
+          command = lock_on_sleep;
+        }
+        {
+          # Handle logind's Lock signal so `loginctl lock-session` actually
+          # locks. wlogout's "Lock" button (Mod+Shift+Q menu) calls
+          # `loginctl lock-session`, which only emits this signal -- without a
+          # handler nothing happens. Reuse lock_on_sleep so the monitors are on
+          # when swaylock grabs the lock (see niri-wm/niri#205).
+          event = "lock";
+          command = lock_on_sleep;
         }
       ];
     };
