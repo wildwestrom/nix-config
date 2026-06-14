@@ -9,26 +9,9 @@
             font-size: 13px;
         }
 
-        #workspaces button {
-            padding: 0 8px;
-            color: #6c7086;
-        }
-
         /* The empty "ready to go" workspace Niri keeps queued up */
         #workspaces button.empty {
-            color: #cdd6f4;
-        }
-
-        /* Active/visible on its output */
-        #workspaces button.active {
-            color: #cdd6f4;
-            background-color: #313244;
-        }
-
-        /* The single focused workspace */
-        #workspaces button.focused {
-            color: #1e1e2e;
-            background-color: #89b4fa;
+            color: ##4B4E58;
         }
       '';
       settings = {
