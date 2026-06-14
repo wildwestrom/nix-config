@@ -206,9 +206,17 @@ in
       unstable.ollama
 
       (pkgs.writeShellScriptBin "terminal-here" ''
-        TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
-          | ${pkgs.jq}/bin/jq '.. | objects | select(.focused? == true) | .pid // empty' \
-          | head -1)
+        # Find the PID of the focused window. The IPC differs per compositor, so
+        # branch on whichever socket env var is set (niri sets NIRI_SOCKET, sway
+        # sets SWAYSOCK).
+        if [ -n "$NIRI_SOCKET" ]; then
+          TERM_PID=$(${pkgs.niri}/bin/niri msg --json focused-window \
+            | ${pkgs.jq}/bin/jq '.pid // empty')
+        elif [ -n "$SWAYSOCK" ]; then
+          TERM_PID=$(${pkgs.sway}/bin/swaymsg -t get_tree \
+            | ${pkgs.jq}/bin/jq '.. | objects | select(.focused? == true) | .pid // empty' \
+            | head -1)
+        fi
 
         if [ -z "$TERM_PID" ]; then
           exec ${terminal.bin}

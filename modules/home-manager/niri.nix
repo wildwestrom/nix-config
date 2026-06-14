@@ -1,6 +1,5 @@
 {
   pkgs,
-  terminal,
   ...
 }:
 let
@@ -176,7 +175,10 @@ in
 
     binds {
         // --- Launchers (sway: Mod+Return / Mod+d / etc.) ---
-        Mod+Return { spawn "${terminal.package}/bin/foot"; }
+        // terminal-here opens the terminal in the focused window's CWD (it
+        // queries niri's IPC for the focused PID); see modules/home-manager/
+        // default.nix. On PATH via home.packages.
+        Mod+Return { spawn "terminal-here"; }
         Mod+Shift+Return { spawn "${browser}"; }
         Mod+Shift+P { spawn "${browser}" "--private-window"; }
         Mod+Shift+F { spawn "${pkgs.nautilus}/bin/nautilus"; }
