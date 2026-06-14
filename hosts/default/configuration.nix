@@ -426,17 +426,15 @@ in
         pkgs.xdg-desktop-portal-gtk
         pkgs.xdg-desktop-portal-gnome
       ];
-      wlr = {
-        enable = true;
-        settings = {
-          screencast = {
-            max_fps = 60;
-          };
-        };
-      };
+      # niri is not wlroots-based, so xdg-desktop-portal-wlr's screencast path
+      # (wlr-screencopy/wlr-output-management) is flaky on it -- intermittent
+      # "wlroots: no output found" failures. Route screencast/screenshot to the
+      # GNOME portal, which niri recommends and which provides a proper picker.
       config = {
-        common = {
-          default = [ "wlr" ];
+        niri = {
+          default = [ "gnome" ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+          "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
         };
       };
     };
