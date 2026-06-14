@@ -11,7 +11,7 @@
 
         /* The empty "ready to go" workspace Niri keeps queued up */
         #workspaces button.empty {
-            color: ##4B4E58;
+            color: #4B4E58;
         }
       '';
       settings = {
