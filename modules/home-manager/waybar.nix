@@ -11,12 +11,12 @@
 
         #workspaces button {
             padding: 0 8px;
-            color: #cdd6f4;
+            color: #6c7086;
         }
 
         /* The empty "ready to go" workspace Niri keeps queued up */
         #workspaces button.empty {
-            color: #6c7086;
+            color: #cdd6f4;
         }
 
         /* Active/visible on its output */
