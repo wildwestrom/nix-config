@@ -8,6 +8,28 @@
             font-family: JetBrainsMono NF, monospace;
             font-size: 13px;
         }
+
+        #workspaces button {
+            padding: 0 8px;
+            color: #cdd6f4;
+        }
+
+        /* The empty "ready to go" workspace Niri keeps queued up */
+        #workspaces button.empty {
+            color: #6c7086;
+        }
+
+        /* Active/visible on its output */
+        #workspaces button.active {
+            color: #cdd6f4;
+            background-color: #313244;
+        }
+
+        /* The single focused workspace */
+        #workspaces button.focused {
+            color: #1e1e2e;
+            background-color: #89b4fa;
+        }
       '';
       settings = {
         mainBar = {
@@ -32,6 +54,9 @@
             "pulseaudio"
             "tray"
           ];
+          "niri/workspaces" = {
+            "format" = "{index}";
+          };
           "niri/window" = {
             "format" = "{title}";
             "max-length" = 50;
