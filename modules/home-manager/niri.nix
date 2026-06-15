@@ -102,10 +102,10 @@ in
         // Widths cycled by Mod+R (switch-preset-column-width). Full width is
         // included so a single window can fill the screen.
         preset-column-widths {
-            proportion 0.25
-            proportion 0.5
-            proportion 0.95
             proportion 1.0
+            proportion 0.95
+            proportion 0.5
+            proportion 0.25
         }
         default-column-width { proportion 0.5; }
     }
