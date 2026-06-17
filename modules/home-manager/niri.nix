@@ -37,11 +37,11 @@ in
   ];
 
   home.packages = with pkgs; [
-    nwg-displays # niri supports wlr-output-management, so this still works
     fuzzel
     swaybg
     wlogout # power/logout menu (sway used swaynag for this)
     xwayland-satellite # X11 app support; niri starts/manages it (see config)
+    wdisplays # nwg-displays doesn't work on niri (maybe changing soon?)
   ];
 
   # Home Manager (25.11) has no `programs.niri` module, so the compositor is
