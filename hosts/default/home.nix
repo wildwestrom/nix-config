@@ -77,6 +77,20 @@
     ];
   };
   systemd.user.services = {
+    # Sweep away .direnv caches for projects untouched for 90+ days. Removing
+    # the dir drops nix-direnv's GC roots, so the weekly system `nix.gc` can
+    # then reclaim the pinned closures. Re-entering a project rebuilds its cache.
+    prune-stale-direnv = {
+      Unit.Description = "Prune stale .direnv caches (90+ days untouched)";
+      Service = {
+        Type = "oneshot";
+        ExecStart = pkgs.writeShellScript "prune-stale-direnv" ''
+          ${pkgs.findutils}/bin/find ${config.home.homeDirectory} \
+            -maxdepth 6 -type d -name .direnv -mtime +90 -prune \
+            -exec ${pkgs.coreutils}/bin/rm -rf {} +
+        '';
+      };
+    };
     polkit-gnome-authentication-agent-1 = {
       Unit = {
         Description = "polkit-gnome-authentication-agent-1";
@@ -102,6 +116,14 @@
     #     Environment = [ "Path=${pkgs.gnome3.gnome-keyring}/bin" ];
     #   };
     # };
+  };
+  systemd.user.timers.prune-stale-direnv = {
+    Unit.Description = "Weekly prune of stale .direnv caches";
+    Timer = {
+      OnCalendar = "weekly";
+      Persistent = true;
+    };
+    Install.WantedBy = [ "timers.target" ];
   };
   xdg = {
     enable = true;
