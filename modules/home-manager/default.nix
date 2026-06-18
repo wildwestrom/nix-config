@@ -192,6 +192,7 @@ in
       thunderbird
 
       # editors
+      gedit # because sometimes you need something that doesn't automatically correct whitespace
       obsidian
       unstable.zed-editor
       # jetbrains.rust-rover
