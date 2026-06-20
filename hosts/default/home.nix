@@ -52,7 +52,7 @@
       element-desktop
       nautilus
       imv
-      qpwgraph
+      crosspipe
       shared-mime-info
       dbus
       xdg-utils
