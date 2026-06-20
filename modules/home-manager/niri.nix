@@ -47,6 +47,7 @@ in
   # Home Manager (25.11) has no `programs.niri` module, so the compositor is
   # configured by writing its KDL config file directly. The compositor itself
   # is enabled system-wide via `programs.niri.enable` in configuration.nix.
+  # TODO: Check if 26.05 has niri. Might not be necessary to change this though, it's fine.
   xdg.configFile."niri/config.kdl".text = ''
     // Sway-equivalent niri config. niri is a scrolling tiler, so some sway
     // concepts (splith/splitv, stacking, focus parent) have no direct analog

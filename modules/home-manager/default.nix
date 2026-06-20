@@ -69,7 +69,7 @@ in
       rename
       trashy
       pandoc
-      nodePackages_latest.markdownlint-cli
+      markdownlint-cli2
       psmisc
       watch
       watchexec
@@ -101,7 +101,6 @@ in
       zenity
 
       transmission_4-gtk
-      bitwarden-desktop
       tldr
       picard
       qrencode

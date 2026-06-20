@@ -267,8 +267,6 @@ in
     ldacbt
     libfreeaptx
     pwvucontrol
-
-    mysql-workbench
   ];
 
   environment.localBinInPath = true;
@@ -433,7 +431,6 @@ in
       # GNOME portal, which niri recommends and which provides a proper picker.
       config = {
         niri = {
-          default = [ "gnome" ];
           "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
           "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
         };
@@ -648,17 +645,4 @@ in
   services.fprintd.enable = false;
 
   services.atd.enable = true;
-
-  services.mysql = {
-    enable = true;
-    package = pkgs.mysql80;
-    ensureUsers = [
-      {
-        name = "main";
-        ensurePermissions = {
-          "*.*" = "ALL PRIVILEGES";
-        };
-      }
-    ];
-  };
 }

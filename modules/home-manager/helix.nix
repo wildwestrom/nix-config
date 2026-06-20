@@ -14,8 +14,8 @@
       nixd
       nil
       vscode-langservers-extracted
-      nodePackages_latest.typescript-language-server
-      nodePackages_latest.svelte-language-server
+      typescript-language-server
+      svelte-language-server
       taplo
       jdt-language-server
       ccls
