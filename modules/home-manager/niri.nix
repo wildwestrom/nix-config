@@ -12,7 +12,20 @@ let
   displayOffTimeoutSec = lockTimeoutSec + dimDelaySec + displayOffDelaySec;
 
   dimDisplay = "${pkgs.chayang}/bin/chayang -d ${toString dimDelaySec}";
-  swaylockCmd = "${pkgs.swaylock}/bin/swaylock -ef -c 404040";
+
+  # Lock to the current wallpaper. waypaper/swww pick the image at runtime, so
+  # there's no static path to hand swaylock -- instead ask swww what it's
+  # displaying and pass that. swww query prints one line per output ending in
+  # "image: /path"; take the first and use it for the whole lock screen. Falls
+  # back to the solid colour if swww isn't running or has no image yet.
+  swaylockCmd = "${pkgs.writeShellScript "swaylock-wallpaper" ''
+    img=$(${pkgs.swww}/bin/swww query 2>/dev/null | ${pkgs.gnused}/bin/sed -n 's/.*image: //p' | head -n1)
+    if [ -n "$img" ] && [ -f "$img" ]; then
+      exec ${pkgs.swaylock}/bin/swaylock -ef -i "$img" -s fill
+    else
+      exec ${pkgs.swaylock}/bin/swaylock -ef -c 404040
+    fi
+  ''}";
   dim_then_lock = "${dimDisplay} && ${swaylockCmd}";
 
   # niri controls DPMS through its own IPC instead of `swaymsg output dpms`.
