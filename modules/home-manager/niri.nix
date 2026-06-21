@@ -38,10 +38,11 @@ in
 
   home.packages = with pkgs; [
     fuzzel
-    swaybg
     wlogout # power/logout menu (sway used swaynag for this)
     xwayland-satellite # X11 app support; niri starts/manages it (see config)
-    wdisplays # nwg-displays doesn't work on niri (maybe changing soon?)
+    nwg-displays
+    waypaper
+    swww
   ];
 
   # Home Manager (25.11) has no `programs.niri` module, so the compositor is
@@ -165,6 +166,13 @@ in
         spawn-at-startup "${pkgs.waybar}/bin/waybar"
         spawn-at-startup "${pkgs.networkmanagerapplet}/bin/nm-applet" "--indicator"
         spawn-at-startup "${pkgs.protonmail-bridge}/bin/protonmail-bridge" "--noninteractive"
+
+        // Wallpaper: swww-daemon renders, waypaper is the GUI picker. The chosen
+        // image lives in waypaper's own state (~/.config/waypaper/), not this
+        // config -- run `waypaper` anytime to change it; --restore reapplies the
+        // last pick on login.
+        spawn-at-startup "${pkgs.swww}/bin/swww-daemon"
+        spawn-at-startup "${pkgs.waypaper}/bin/waypaper" "--restore"
 
         // Chat apps launched at login; the window-rule above lands them on the
         // "Socials" workspace. Spawned by bare name (they're on PATH via
