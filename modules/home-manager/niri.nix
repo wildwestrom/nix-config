@@ -13,13 +13,15 @@ let
 
   dimDisplay = "${pkgs.chayang}/bin/chayang -d ${toString dimDelaySec}";
 
-  # Lock to the current wallpaper. waypaper/swww pick the image at runtime, so
-  # there's no static path to hand swaylock -- instead ask swww what it's
-  # displaying and pass that. swww query prints one line per output ending in
-  # "image: /path"; take the first and use it for the whole lock screen. Falls
-  # back to the solid colour if swww isn't running or has no image yet.
+  # Lock to the current wallpaper. waypaper picks the image at runtime, so
+  # there's no static path to hand swaylock -- read the path straight from
+  # waypaper's own config (its source of truth, independent of which backend
+  # actually renders it), expand a leading ~, and pass it. Falls back to the
+  # solid colour if the file can't be resolved.
   swaylockCmd = "${pkgs.writeShellScript "swaylock-wallpaper" ''
-    img=$(${pkgs.swww}/bin/swww query 2>/dev/null | ${pkgs.gnused}/bin/sed -n 's/.*image: //p' | head -n1)
+    cfg="$HOME/.config/waypaper/config.ini"
+    img=$(${pkgs.gnused}/bin/sed -n 's/^wallpaper = //p' "$cfg" 2>/dev/null | head -n1)
+    img="''${img/#\~/$HOME}"
     if [ -n "$img" ] && [ -f "$img" ]; then
       exec ${pkgs.swaylock}/bin/swaylock -ef -i "$img" -s fill
     else
