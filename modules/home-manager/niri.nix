@@ -20,7 +20,10 @@ let
   # solid colour if the file can't be resolved.
   swaylockCmd = "${pkgs.writeShellScript "swaylock-wallpaper" ''
     cfg="$HOME/.config/waypaper/config.ini"
-    img=$(${pkgs.gnused}/bin/sed -n 's/^wallpaper = //p' "$cfg" 2>/dev/null | head -n1)
+    # sed prints the first wallpaper line's value and quits -- avoid piping to
+    # `head`, since swayidle's systemd unit has a minimal PATH (bash only) and a
+    # bare command would not resolve, leaving $img empty -> grey fallback.
+    img=$(${pkgs.gnused}/bin/sed -n '/^wallpaper = /{s///p;q}' "$cfg" 2>/dev/null)
     img="''${img/#\~/$HOME}"
     if [ -n "$img" ] && [ -f "$img" ]; then
       exec ${pkgs.swaylock}/bin/swaylock -ef -i "$img" -s fill
