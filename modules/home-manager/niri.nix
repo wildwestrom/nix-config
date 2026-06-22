@@ -110,7 +110,7 @@ in
         }
 
         layout {
-            gaps 4
+            gaps 16
             center-focused-column "on-overflow"
             always-center-single-column
             // No border ring (width 0). niri still fills the background of
