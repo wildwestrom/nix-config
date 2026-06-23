@@ -225,12 +225,15 @@ in
         # command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
       };
-      # enables auto login
-      initial_session = {
-        command = "niri-session";
-        # command = "sway";
-        user = username;
-      };
+      # Auto-login disabled: with `initial_session` no password is entered, so
+      # pam_gnome_keyring never captures it and the login keyring stays locked
+      # (causes the recurring keyring password prompt + Fractal "Secret Portal
+      # Error"). Logging in through tuigreet lets PAM unlock the keyring.
+      # initial_session = {
+      #   command = "niri-session";
+      #   # command = "sway";
+      #   user = username;
+      # };
     };
   };
 
