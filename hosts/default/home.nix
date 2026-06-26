@@ -147,6 +147,7 @@
         "image/jpeg" = "swayimg.desktop";
         "image/png" = "swayimg.desktop";
         "image/webp" = "swayimg.desktop";
+        "image/svg+xml" = "swayimg.desktop";
         "application/pdf" = "sioyek.desktop";
         "text/html" = "librewolf.desktop";
         "text/xml" = "librewolf.desktop";
