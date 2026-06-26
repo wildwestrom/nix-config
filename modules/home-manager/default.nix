@@ -186,8 +186,7 @@ in
       # comms
       protonmail-bridge
       unstable.signal-desktop
-      # discord
-      vesktop
+      discord
       telegram-desktop
       thunderbird
 
