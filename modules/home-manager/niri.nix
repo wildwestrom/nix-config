@@ -113,12 +113,8 @@ in
             gaps 16
             center-focused-column "on-overflow"
             always-center-single-column
-            // No border ring (width 0). niri still fills the background of
-            // windows that don't paint their own (e.g. swayimg's transparent
-            // padding around an image) with the border color, so pin both
-            // states to a neutral grey instead of niri's default orange.
             border {
-                width 0
+                width 2
                 active-color "#505050"
                 inactive-color "#505050"
             }
