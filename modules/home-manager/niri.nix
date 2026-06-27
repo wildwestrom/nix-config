@@ -173,6 +173,7 @@ in
         window-rule {
             match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
             default-floating-position x=10 y=10 relative-to="bottom-right"
+            open-focused false
         }
 
         // XWayland support: niri is not wlroots-based, so X11 apps go through
