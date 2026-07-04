@@ -49,7 +49,6 @@ in
   boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
   boot.kernelParams = [
     "amdgpu.sg_display=0"
-    "amd_iommu=on"
   ];
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = "524288";
