@@ -258,6 +258,7 @@ in
     libnotify
     podman-compose
     clinfo
+    inputs.sudoplz.packages.${pkgs.system}.default
     adwaita-icon-theme
     virt-manager
     restic
@@ -496,6 +497,7 @@ in
     NIXOS_OZONE_WL = "1";
     WLR_RENDERER = "vulkan"; # The crash I was experiencing was fixed in sway 1.11, let's try vulkan again
     #WLR_RENDERER = "gles2";
+    SUDO_ASKPASS = "${inputs.sudoplz.packages.${pkgs.system}.default}/bin/askpass";
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 

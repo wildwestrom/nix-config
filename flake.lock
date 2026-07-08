@@ -331,7 +331,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pi-agent": "pi-agent",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "sudoplz": "sudoplz"
       }
     },
     "stylix": {
@@ -365,6 +366,29 @@
         "owner": "nix-community",
         "ref": "release-26.05",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "sudoplz": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783537497,
+        "narHash": "sha256-at1/QL+A73L0LWrCscVMJ7FLdPFfVWnT0OlUkqdWZsE=",
+        "owner": "wildwestrom",
+        "repo": "sudoplz",
+        "rev": "acf8a06043d51422a8a880be27c0e68c8077a766",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wildwestrom",
+        "repo": "sudoplz",
         "type": "github"
       }
     },

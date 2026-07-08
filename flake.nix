@@ -40,6 +40,12 @@
       url = "github:tienedev/pi-mono-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    sudoplz = {
+      url = "github:wildwestrom/sudoplz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs =
