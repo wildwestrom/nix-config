@@ -170,6 +170,7 @@
         "x-scheme-handler/mid" = "thunderbird.desktop";
         "font/otf" = "org.gnome.font-viewer.desktop";
         "video/mkv" = "mpv.desktop";
+        "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
       };
     };
     # swayimg replaces imv because, unlike imv, it honours the EXIF Orientation
