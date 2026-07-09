@@ -379,11 +379,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783537497,
-        "narHash": "sha256-at1/QL+A73L0LWrCscVMJ7FLdPFfVWnT0OlUkqdWZsE=",
+        "lastModified": 1783562388,
+        "narHash": "sha256-RRJY501cX84ARL7CCDQSZChp90yi2lKzAyjhOUbURIs=",
         "owner": "wildwestrom",
         "repo": "sudoplz",
-        "rev": "acf8a06043d51422a8a880be27c0e68c8077a766",
+        "rev": "5483b9f710184d9f86dde0a6a19fb3f9bed885f5",
         "type": "github"
       },
       "original": {
