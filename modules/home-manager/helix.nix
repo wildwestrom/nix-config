@@ -28,6 +28,7 @@
       # wgsl-analyzer
       codebook
       marksman
+      idris2Packages.idris2Lsp
     ];
   };
 
