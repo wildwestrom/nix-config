@@ -280,6 +280,7 @@ in
     babashka
     solaar
     bubblewrap
+    naps2
 
     # audio
     ldacbt
