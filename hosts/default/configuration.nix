@@ -188,6 +188,7 @@ in
       cups-filters
       cups-browsed
       cups-bjnp
+      brlaser
       carps-cups
       unfree.canon-cups-ufr2
       gutenprint
