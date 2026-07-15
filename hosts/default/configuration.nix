@@ -195,6 +195,20 @@ in
     ];
   };
 
+  # mDNS discovery for network printers (Brother MFC-L3765CDW is driverless
+  # via IPP Everywhere, no model-specific driver needed).
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # Driverless network scanning (eSCL) for the same MFC.
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.sane-airscan ];
+  };
+
   security.pam.services = {
     greetd = {
       enableGnomeKeyring = true;
@@ -415,6 +429,8 @@ in
           "networkmanager"
           "network"
           "libvirtd"
+          "scanner"
+          "lp"
         ];
       };
     };
