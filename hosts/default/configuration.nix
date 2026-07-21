@@ -227,6 +227,9 @@ in
   # Trying out niri (scrollable-tiling Wayland compositor). The NixOS module
   # installs niri, registers the session, and sets up the xdg portals.
   programs.niri.enable = true;
+  # Testing PR #1791 (SHM screencast fallback) as a fix for Discord screen
+  # sharing. Roll back by removing this line if it causes issues.
+  programs.niri.package = inputs.niri-pr.packages.x86_64-linux.niri;
 
   services.greetd = {
     enable = true;
