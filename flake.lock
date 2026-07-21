@@ -229,8 +229,8 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1784600245,
-        "narHash": "sha256-yScb44ta9Iq5UwUhTCQaOPN1hN7UN4RdUr6YZJFKOqE=",
+        "lastModified": 1784601843,
+        "narHash": "sha256-4OnJocHXWnKD3ljk7CWwjelj3JwxsfPguqmht4/jMA4=",
         "path": "/home/main/code/community/niri",
         "type": "path"
       },
