@@ -201,6 +201,13 @@ let
   };
 in
 {
+  # Waybar calls these by store path; installing them just makes them runnable
+  # by hand.
+  home.packages = [
+    remoteAwake
+    remoteAwakeEdit
+  ];
+
   programs = {
     waybar = {
       enable = true;
