@@ -141,7 +141,7 @@ let
           | zenity --list \
               --title="Timezone" \
               --text="Which timezone should the clock track?
-      Currently $tz - press OK without selecting anything to keep it." \
+      Currently $tz." \
               --column="Timezone" \
               --width=640 --height=520
       ) || exit 0
