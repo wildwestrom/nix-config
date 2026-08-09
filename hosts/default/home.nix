@@ -27,6 +27,8 @@
   };
 
   dconf.settings = {
+    # Pin the icon theme. Stylix doesn't manage this key, so it was left at the schema default
+    "org/gnome/desktop/interface".icon-theme = "Adwaita";
     "org/cinnamon/desktop/default-applications/terminal".exec = terminal.bin;
     "org/cinnamon/desktop/applications/terminal".exec = terminal.bin;
     "org/virt-manager/virt-manager/connections" = {
