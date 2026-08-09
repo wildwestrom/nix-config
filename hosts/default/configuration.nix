@@ -134,8 +134,7 @@ in
     capabilities = "cap_dac_read_search=+ep";
   };
 
-  # time.timeZone = "Asia/Seoul";
-  # Need to set imperatively with timedatectl
+  services.automatic-timezoned.enable = true;
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
@@ -223,6 +222,14 @@ in
   services.gnome.glib-networking.enable = true;
 
   services.dbus.enable = true;
+
+  services.geoclue2 = {
+    enable = true;
+    appConfig.gammastep = {
+      isAllowed = true;
+      isSystem = true;
+    };
+  };
 
   # Trying out niri (scrollable-tiling Wayland compositor). The NixOS module
   # installs niri, registers the session, and sets up the xdg portals.
@@ -656,7 +663,6 @@ in
       "https://cache.iog.io"
       "https://nix-community.cachix.org"
       "https://zed.cachix.org"
-      "https://cache.garnix.io"
       "https://devenv.cachix.org"
       "https://codex-cli.cachix.org"
     ];
@@ -664,7 +670,6 @@ in
       "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "zed.cachix.org-1:/pHQ6dpMsAZk2DiP4WCL0p9YDNKWj2Q5FL20bNmw1cU="
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="
       "codex-cli.cachix.org-1:1Br3H1hHoRYG22n//cGKJOk3cQXgYobUel6O8DgSing="
     ];

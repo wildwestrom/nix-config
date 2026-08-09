@@ -31,6 +31,22 @@ let
       exec freecad "$@"
     '';
   };
+
+  # Pin Electron's safeStorage backend. Signal records which backend encrypted
+  # its DB key and refuses to start if the backend it detects at launch differs
+  # -- which is what happens after a round trip through another desktop
+  # session, since Electron infers the backend from XDG_CURRENT_DESKTOP.
+  # Forcing gnome-libsecret keeps it stable across sessions.
+  signal-desktop = pkgs.symlinkJoin {
+    name = "signal-desktop-gnome-libsecret";
+    paths = [ unstable.signal-desktop ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/signal-desktop \
+        --add-flags '--password-store=gnome-libsecret'
+    '';
+    inherit (unstable.signal-desktop) meta;
+  };
 in
 {
   imports = [
@@ -185,7 +201,7 @@ in
 
       # comms
       protonmail-bridge
-      unstable.signal-desktop
+      signal-desktop # wrapped above: --password-store=gnome-libsecret
       discord
       telegram-desktop
       thunderbird
