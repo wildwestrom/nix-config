@@ -501,6 +501,7 @@ in
       "steam"
       "steam-unwrapped"
       "discord"
+      "claude-desktop"
     ];
 
   programs.steam = {

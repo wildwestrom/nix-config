@@ -36,6 +36,14 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    # Used as a package source only -- its own outputs go unused, since they
+    # would build against upstream's nixpkgs. See modules/home-manager.
+    claude-desktop = {
+      url = "github:k3d3/claude-desktop-linux-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
+
     pi-agent = {
       url = "github:tienedev/pi-mono-nix";
       inputs.nixpkgs.follows = "nixpkgs";

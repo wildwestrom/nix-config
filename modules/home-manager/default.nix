@@ -32,6 +32,40 @@ let
     '';
   };
 
+  # Claude Desktop, built from k3d3/claude-desktop-linux-flake. The upstream
+  # flake pins its own (older) nixpkgs, so instead of using its packages output
+  # we call its package files against ours. That needs one fixup: upstream still
+  # asks for nodePackages.asar, and 26.05 moved asar to the top level.
+  claude-desktop =
+    let
+      src = inputs.claude-desktop;
+      patchy-cnb = pkgs.callPackage "${src}/pkgs/patchy-cnb.nix" { };
+      unwrapped = pkgs.callPackage "${src}/pkgs/claude-desktop.nix" {
+        inherit patchy-cnb;
+        nodePackages = { inherit (pkgs) asar; };
+      };
+    in
+    # FHS variant, so MCP servers launched via npx/uvx/docker can run.
+    pkgs.buildFHSEnv {
+      name = "claude-desktop";
+      targetPkgs =
+        pkgs: with pkgs; [
+          docker
+          glibc
+          openssl
+          nodejs
+          uv
+        ];
+      runScript = "${unwrapped}/bin/claude-desktop";
+      extraInstallCommands = ''
+        mkdir -p $out/share/applications
+        cp ${unwrapped}/share/applications/claude.desktop $out/share/applications/
+
+        mkdir -p $out/share/icons
+        cp -r ${unwrapped}/share/icons/* $out/share/icons/
+      '';
+    };
+
   # Pin Electron's safeStorage backend. Signal records which backend encrypted
   # its DB key and refuses to start if the backend it detects at launch differs
   # -- which is what happens after a round trip through another desktop
@@ -218,6 +252,7 @@ in
       inputs.codex-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.pi-agent.packages.${pkgs.stdenv.hostPlatform.system}.default
+      claude-desktop # defined above: built against our nixpkgs, FHS-wrapped
       opencode
       unstable.ollama
 
