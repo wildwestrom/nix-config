@@ -178,7 +178,7 @@
         "video/mkv" = "mpv.desktop";
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
         # Claude Desktop's login hands off back to the app over claude://
-        "x-scheme-handler/claude" = "claude.desktop";
+        "x-scheme-handler/claude" = "com.anthropic.Claude.desktop";
       };
     };
     # swayimg replaces imv because, unlike imv, it honours the EXIF Orientation
