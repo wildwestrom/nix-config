@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchurl,
+  asar,
   dpkg,
   autoPatchelfHook,
   makeWrapper,
@@ -61,6 +62,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   nativeBuildInputs = [
+    asar
     dpkg
     autoPatchelfHook
     makeWrapper
@@ -123,6 +125,27 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
+    # The cowork VM resolves its three external pieces differently: qemu is
+    # looked up on PATH (handled in the wrapper) and virtiofsd falls back to the
+    # copy bundled in resources/, but the UEFI firmware is a hardcoded probe of
+    # /usr/share/OVMF with no fallback and no environment override, so the store
+    # path has to be patched into the bundle. The app derives the VARS file by
+    # rewriting OVMF_CODE -> OVMF_VARS in whichever candidate it finds, and
+    # OVMF.fd ships both under the same directory, so rewriting the directory
+    # prefix is enough.
+    asar extract usr/lib/claude-desktop/resources/app.asar asar-contents
+    grep -rlF --include=\*.js /usr/share/OVMF/ asar-contents/.vite/build >ovmf-hits
+    # Guard: chunk names carry content hashes, so a version bump that moves this
+    # string should fail the build rather than silently drop the VM sandbox.
+    test -s ovmf-hits
+    xargs -a ovmf-hits sed -i 's|/usr/share/OVMF/|${OVMF.fd}/FV/|g'
+    # Reproduces the three entries the shipped asar marks unpacked; the deb's
+    # own app.asar.unpacked directory is kept as-is, so only the archive is
+    # replaced.
+    asar pack asar-contents app.asar.patched \
+      --unpack '*.node' --unpack-dir 'resources/github-mcp'
+    mv app.asar.patched usr/lib/claude-desktop/resources/app.asar
+
     mkdir -p $out/lib $out/share
     cp -r usr/lib/claude-desktop $out/lib/
     cp -r usr/share/applications $out/share/
@@ -156,7 +179,6 @@ stdenv.mkDerivation (finalAttrs: {
           qemu_kvm
         ]
       } \
-      --set-default CLAUDE_DESKTOP_OVMF_PATH ${OVMF.fd}/FV \
       --add-flags '--password-store=gnome-libsecret' \
       --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+--ozone-platform-hint=auto --enable-features=WaylandWindowDecorations}}"
   '';
