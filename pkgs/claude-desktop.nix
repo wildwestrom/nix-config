@@ -42,6 +42,7 @@
   # bundled smol-bin.x64.img in a VM, driving qemu with the bundled virtiofsd.
   qemu_kvm,
   OVMF,
+  virtiofsd,
   # MCP servers are launched as `npx ...` / `uvx ...` subprocesses.
   nodejs,
   uv,
@@ -125,20 +126,34 @@ stdenv.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    # The cowork VM resolves its three external pieces differently: qemu is
-    # looked up on PATH (handled in the wrapper) and virtiofsd falls back to the
-    # copy bundled in resources/, but the UEFI firmware is a hardcoded probe of
-    # /usr/share/OVMF with no fallback and no environment override, so the store
-    # path has to be patched into the bundle. The app derives the VARS file by
-    # rewriting OVMF_CODE -> OVMF_VARS in whichever candidate it finds, and
-    # OVMF.fd ships both under the same directory, so rewriting the directory
-    # prefix is enough.
+    # The cowork VM finds its three external pieces by probing absolute Debian
+    # paths. qemu is looked up on PATH (handled in the wrapper), but the UEFI
+    # firmware and virtiofsd are hardcoded lists with no environment override,
+    # so their store paths have to be patched into the bundle:
+    #
+    #   * firmware: probes /usr/share/OVMF with no fallback at all. The app
+    #     derives the VARS file by rewriting OVMF_CODE -> OVMF_VARS in whichever
+    #     candidate it finds, and OVMF.fd ships both files in one directory, so
+    #     rewriting the prefix is enough.
+    #   * virtiofsd: resources/ does carry a bundled copy, but the app only
+    #     falls back to it when it detects Ubuntu 22.04, so every other distro
+    #     has to be pointed at a real binary.
     asar extract usr/lib/claude-desktop/resources/app.asar asar-contents
-    grep -rlF --include=\*.js /usr/share/OVMF/ asar-contents/.vite/build >ovmf-hits
-    # Guard: chunk names carry content hashes, so a version bump that moves this
-    # string should fail the build rather than silently drop the VM sandbox.
-    test -s ovmf-hits
-    xargs -a ovmf-hits sed -i 's|/usr/share/OVMF/|${OVMF.fd}/FV/|g'
+    patchBundle() {
+      local hits
+      hits=$(grep -rlF --include=\*.js "$1" asar-contents/.vite/build)
+      # Chunk names carry content hashes, so a version bump that moves one of
+      # these strings should fail the build rather than quietly leave the VM
+      # sandbox switched off.
+      if [ -z "$hits" ]; then
+        echo "claude-desktop: '$1' not found in app.asar -- upstream moved it" >&2
+        exit 1
+      fi
+      echo "$hits" | xargs sed -i "s|$1|$2|g"
+    }
+    patchBundle /usr/share/OVMF/ ${OVMF.fd}/FV/
+    patchBundle /usr/libexec/virtiofsd ${virtiofsd}/bin/virtiofsd
+
     # Reproduces the three entries the shipped asar marks unpacked; the deb's
     # own app.asar.unpacked directory is kept as-is, so only the archive is
     # replaced.
