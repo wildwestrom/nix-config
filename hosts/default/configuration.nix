@@ -250,8 +250,8 @@ in
         # No `WLR_RENDERER=vulkan` prefix here: greetd runs this via `sh -c exec`,
         # and `exec VAR=val cmd` fails (tries to exec a binary named "VAR=val").
         # WLR_RENDERER is already set globally in environment.sessionVariables.
-        command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "niri-session"'';
-        # command = ''${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd "sway"'';
+        command = ''${pkgs.tuigreet}/bin/tuigreet --time --cmd "niri-session"'';
+        # command = ''${pkgs.tuigreet}/bin/tuigreet --time --cmd "sway"'';
         user = "greeter";
       };
       # Auto-login disabled: with `initial_session` no password is entered, so
@@ -288,7 +288,7 @@ in
     libnotify
     podman-compose
     clinfo
-    inputs.sudoplz.packages.${pkgs.system}.default
+    inputs.sudoplz.packages.${pkgs.stdenv.hostPlatform.system}.default
     adwaita-icon-theme
     virt-manager
     restic
@@ -339,7 +339,7 @@ in
     22000
   ];
 
-  services.dnscrypt-proxy2 = {
+  services.dnscrypt-proxy = {
     enable = true;
     settings = {
       ipv6_servers = true;
@@ -350,7 +350,7 @@ in
           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
           "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
         ];
-        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+        cache_file = "/var/lib/dnscrypt-proxy/public-resolvers.md";
         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
       };
       server_names = [
@@ -400,7 +400,7 @@ in
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  fonts.enableFontDir = true;
+  fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     sarasa-gothic
     noto-fonts
@@ -530,7 +530,7 @@ in
     NIXOS_OZONE_WL = "1";
     WLR_RENDERER = "vulkan"; # The crash I was experiencing was fixed in sway 1.11, let's try vulkan again
     #WLR_RENDERER = "gles2";
-    SUDO_ASKPASS = "${inputs.sudoplz.packages.${pkgs.system}.default}/bin/askpass";
+    SUDO_ASKPASS = "${inputs.sudoplz.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/askpass";
   };
   environment.binsh = "${pkgs.dash}/bin/dash";
 
@@ -581,6 +581,10 @@ in
       stylix.targets = {
         helix.enable = false;
         fcitx5.enable = false;
+        # Stylix themes only the profiles named here. Must stay in sync with
+        # `programs.librewolf.profiles` in home.nix, which pins this name to the
+        # pre-existing profile directory.
+        librewolf.profileNames = [ "default" ];
         # foot.enable = false;
         # gnome.enable = false;
         # qt.enable = false;

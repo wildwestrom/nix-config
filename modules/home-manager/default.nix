@@ -215,9 +215,9 @@ in
       vscodium
 
       # LLM-related
-      inputs.codex-cli.packages.${pkgs.system}.default
-      inputs.claude-code.packages.${pkgs.system}.default
-      inputs.pi-agent.packages.${pkgs.system}.default
+      inputs.codex-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
+      inputs.pi-agent.packages.${pkgs.stdenv.hostPlatform.system}.default
       opencode
       unstable.ollama
 
@@ -322,16 +322,19 @@ in
       defaultCommand = "fd --type f";
       fileWidgetCommand = "fd --type f";
     };
+    # delta moved out of programs.git into its own module. Git integration used
+    # to be implied by enabling it here; it must now be requested explicitly.
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        light = true;
+      };
+    };
     git = {
       enable = true;
       package = pkgs.gitFull;
-      delta = {
-        enable = true;
-        options = {
-          light = true;
-        };
-      };
-      extraConfig = {
+      settings = {
         user = {
           name = "Christian Westrom";
           email = "c.westrom@westrom.xyz";
@@ -414,6 +417,8 @@ in
     yazi = {
       enable = true;
       enableFishIntegration = true;
+      # HM 26.05 renamed the default wrapper from `yy` to `y`; adopted explicitly.
+      shellWrapperName = "y";
     };
     # wezterm = {
     #   enable = true;

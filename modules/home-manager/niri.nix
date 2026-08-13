@@ -60,7 +60,7 @@ in
     xwayland-satellite # X11 app support; niri starts/manages it (see config)
     nwg-displays
     waypaper
-    swww
+    awww
   ];
 
   # Home Manager (25.11) has no `programs.niri` module, so the compositor is
@@ -178,11 +178,11 @@ in
           spawn-at-startup "${pkgs.networkmanagerapplet}/bin/nm-applet" "--indicator"
           spawn-at-startup "${pkgs.protonmail-bridge}/bin/protonmail-bridge" "--noninteractive"
 
-          // Wallpaper: swww-daemon renders, waypaper is the GUI picker. The chosen
+          // Wallpaper: awww-daemon renders, waypaper is the GUI picker. The chosen
           // image lives in waypaper's own state (~/.config/waypaper/), not this
           // config -- run `waypaper` anytime to change it; --restore reapplies the
           // last pick on login.
-          spawn-at-startup "${pkgs.swww}/bin/swww-daemon"
+          spawn-at-startup "${pkgs.awww}/bin/awww-daemon"
           spawn-at-startup "${pkgs.waypaper}/bin/waypaper" "--restore"
 
           // Chat apps launched at login; the window-rule above lands them on the
@@ -308,7 +308,7 @@ in
     swayidle = {
       enable = true;
       # niri provides the standard graphical-session.target (see niri.service).
-      systemdTarget = "graphical-session.target";
+      systemdTargets = [ "graphical-session.target" ];
       # `-w` makes swayidle wait for each command to finish before continuing.
       # Essential for `before-sleep`: the machine must not suspend until swaylock
       # has actually grabbed the lock (swaylock -f returns once locked), otherwise
@@ -331,25 +331,19 @@ in
           resumeCommand = displayOn;
         }
       ];
-      events = [
-        {
-          event = "after-resume";
-          command = displayOn;
-        }
-        {
-          event = "before-sleep";
-          command = lock_on_sleep;
-        }
-        {
-          # Handle logind's Lock signal so `loginctl lock-session` actually
-          # locks. wlogout's "Lock" button (Mod+Shift+Q menu) calls
-          # `loginctl lock-session`, which only emits this signal -- without a
-          # handler nothing happens. Reuse lock_on_sleep so the monitors are on
-          # when swaylock grabs the lock (see niri-wm/niri#205).
-          event = "lock";
-          command = lock_on_sleep;
-        }
-      ];
+      # Now an attrset keyed by event name rather than a list of
+      # { event; command; } pairs.
+      events = {
+        after-resume = displayOn;
+        before-sleep = lock_on_sleep;
+
+        # Handle logind's Lock signal so `loginctl lock-session` actually
+        # locks. wlogout's "Lock" button (Mod+Shift+Q menu) calls
+        # `loginctl lock-session`, which only emits this signal -- without a
+        # handler nothing happens. Reuse lock_on_sleep so the monitors are on
+        # when swaylock grabs the lock (see niri-wm/niri#205).
+        lock = lock_on_sleep;
+      };
     };
   };
 

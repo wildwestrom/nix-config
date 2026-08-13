@@ -73,7 +73,7 @@
       vulkan-validation-layers
       ddcui
       gnome-system-monitor
-      xorg.xeyes
+      xeyes
       tridactyl-native
     ];
   };
@@ -131,6 +131,10 @@
     userDirs = {
       enable = true;
       createDirectories = false;
+      # HM 26.05 flipped this default to false; adopted explicitly. XDG_*_DIR
+      # env vars are no longer exported -- read ~/.config/user-dirs.dirs or run
+      # `xdg-user-dir` instead.
+      setSessionVariables = false;
       desktop = "${config.home.homeDirectory}/desktop";
       documents = "${config.home.homeDirectory}/text";
       download = "${config.home.homeDirectory}/downloads";
@@ -282,6 +286,11 @@
   programs = {
     librewolf = {
       enable = true;
+      # Stylix declares profiles by name (stylix.targets.librewolf.profileNames
+      # in configuration.nix). HM defaults a profile's directory to its name,
+      # which would strand the existing ~/.librewolf/h72n89bw.default profile
+      # behind a fresh empty one -- pin the path to the real directory.
+      profiles.default.path = "h72n89bw.default";
       settings = {
         "identity.fxaccounts.enabled" = true;
         "general.autoScroll" = true;

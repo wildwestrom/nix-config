@@ -18,7 +18,9 @@
     };
     mako = {
       enable = true;
-      defaultTimeout = 1000 * 5;
+      # Per-option settings folded into services.mako.settings; keys are the
+      # kebab-case names from mako(5). Still milliseconds.
+      settings.default-timeout = 1000 * 5;
     };
     gammastep = {
       enable = true;

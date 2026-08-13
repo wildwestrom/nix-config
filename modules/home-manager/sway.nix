@@ -239,6 +239,13 @@ in
   };
 
   services = {
+    # TODO: This block still uses the pre-26.05 swayidle API and will warn (and
+    # eventually break) once this file is imported again. niri.nix has the
+    # migrated equivalent to copy from:
+    #   - systemdTarget = "x"  ->  systemdTargets = [ "x" ]
+    #   - events = [ { event = "e"; command = "c"; } ]  ->  events = { e = "c"; }
+    # Left as-is deliberately: the dim/lock sequencing is fiddly and wants a
+    # real sway session to test against, not a blind edit.
     swayidle = {
       enable = true;
       systemdTarget = "sway-session.target";

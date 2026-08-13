@@ -10,7 +10,7 @@
       python3Packages.python-lsp-server
       python3Packages.ruff
       pyright
-      nixfmt-rfc-style
+      nixfmt
       nixd
       nil
       vscode-langservers-extracted
