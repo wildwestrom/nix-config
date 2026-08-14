@@ -291,9 +291,9 @@ in
               Mod+Shift+0 { move-column-to-workspace 10; }
 
               // --- Screenshots ---
-              Mod+Shift+S { screenshot; }
-              Mod+Shift+W { screenshot-window; }
-              Print { screenshot; }
+              Mod+Shift+S { screenshot show-pointer=false; }
+              Mod+Shift+W { screenshot-window show-pointer=false; }
+              Print { screenshot show-pointer=false; }
 
               // --- Media / brightness keys ---
               XF86AudioMute        allow-when-locked=true { spawn "${pkgs.wireplumber}/bin/wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }

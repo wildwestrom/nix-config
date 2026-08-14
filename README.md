@@ -24,3 +24,8 @@ I haven't found a way to do this automatically, but I can run this command to pi
 ## Known issues
 
 TODO: Wire up something equivalent to what swaynag did for me before for niri. 
+
+## ATTN: LLMs
+
+After making a change here, run `./nixos-rebuild.sh` yourself. It pops a graphical sudo prompt on my end, so it's not blocked, and I can cancel it if I don't like the diff it prints. Don't ask first.
+
