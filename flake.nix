@@ -47,9 +47,9 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
-    # Local checkout of niri PR #1791 (SHM screencast fallback), used to test
-    # a fix for Discord screen-sharing before it's merged upstream.
-    niri-pr.url = "path:/home/main/code/community/niri";
+    # Personal fork of niri
+    # Carries PRs #1791 and #1463
+    niri-fork.url = "github:wildwestrom/niri";
   };
 
   outputs =

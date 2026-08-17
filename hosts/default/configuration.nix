@@ -234,14 +234,8 @@ in
   # Trying out niri (scrollable-tiling Wayland compositor). The NixOS module
   # installs niri, registers the session, and sets up the xdg portals.
   programs.niri.enable = true;
-  # Testing PR #1791 (SHM screencast fallback) as a fix for Discord screen
-  # sharing. Roll back by removing this line if it causes issues.
-  #
-  # Built via our own pkgs (not niri-pr's bundled nixpkgs) so it links
-  # against the same glibc/Mesa as /run/opengl-driver -- otherwise the
-  # niri-pr flake's older pinned glibc can't dlopen the system's Mesa
-  # GBM/DRI driver at runtime (GLIBC_ABI_GNU2_TLS mismatch).
-  programs.niri.package = (pkgs.extend inputs.niri-pr.overlays.default).niri;
+  # Personal fork. Roll back by removing this line if it causes issues.
+  programs.niri.package = inputs.niri-fork.packages.${pkgs.system}.niri;
 
   services.greetd = {
     enable = true;

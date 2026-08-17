@@ -89,7 +89,6 @@ in
               mouse {
                   accel-profile "adaptive"
               }
-              // sway: focus.followMouse = "always" / mouseWarping = "output"
               focus-follows-mouse
               warp-mouse-to-focus
           }
@@ -97,7 +96,7 @@ in
           layout {
               gaps 16
               center-focused-column "on-overflow"
-              // always-center-single-column
+              always-center-single-column
               border {
                   width 2
                   active-color "#505050"
