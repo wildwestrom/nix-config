@@ -41,12 +41,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sudoplz = {
-      url = "github:wildwestrom/sudoplz";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
-
     # Personal fork of niri
     # Carries PRs #1791 and #1463
     niri-fork.url = "github:wildwestrom/niri";

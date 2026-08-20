@@ -12,9 +12,11 @@ rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."
-sudo -A nix-channel --update
-sudo -A bash -c 'ulimit -n 524288; nixos-rebuild switch --upgrade -vvv --flake .#default --show-trace' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
-sudo chown -R "$USER:$(id -gn)" .git/objects
+# pkexec runs in root's home unless --keep-cwd, and both the flake ref and the
+# chown path below are relative to this directory.
+pkexec nix-channel --update
+pkexec --keep-cwd bash -c 'ulimit -n 524288; nixos-rebuild switch --upgrade -vvv --flake .#default --show-trace' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+pkexec --keep-cwd chown -R "$USER:$(id -gn)" .git/objects
 current=$(nixos-rebuild list-generations --json | jq '.[0].generation')
 git commit -am "$current"
 popd

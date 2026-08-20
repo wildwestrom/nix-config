@@ -104,6 +104,9 @@
         RestartSec = 1;
         TimeoutStopSec = 10;
       };
+      # Without this nothing pulls the unit in, and pkexec silently falls back
+      # to a terminal prompt instead of the GUI dialog.
+      Install.WantedBy = [ "graphical-session.target" ];
     };
     # protonmail-bridge = {
     #   Unit = {
