@@ -224,6 +224,7 @@ in
       inputs.claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
       inputs.pi-agent.packages.${pkgs.stdenv.hostPlatform.system}.default
       claude-desktop # defined above: repackaged from Anthropic's .deb
+      inputs.grok-build.packages.${pkgs.stdenv.hostPlatform.system}.default
       opencode
       unstable.ollama
 

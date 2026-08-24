@@ -202,6 +202,26 @@
         "type": "github"
       }
     },
+    "grok-build": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787017955,
+        "narHash": "sha256-E80/p+k7N9sslovTMjSKAca//XUqmHo15EOZr8wLnag=",
+        "owner": "AodhanHayter",
+        "repo": "grok-build-nix",
+        "rev": "b67f1b9927ec6c834d76f6161b1a4e839cf005e3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AodhanHayter",
+        "repo": "grok-build-nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -360,6 +380,7 @@
         "claude-code": "claude-code",
         "codex-cli": "codex-cli",
         "flake-utils": "flake-utils",
+        "grok-build": "grok-build",
         "home-manager": "home-manager",
         "niri-fork": "niri-fork",
         "nixos-hardware": "nixos-hardware",

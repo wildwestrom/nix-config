@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    grok-build = {
+      url = "github:AodhanHayter/grok-build-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Personal fork of niri
     # Carries PRs #1791 and #1463
     niri-fork.url = "github:wildwestrom/niri";
