@@ -75,6 +75,7 @@
       gnome-system-monitor
       xeyes
       tridactyl-native
+      nwg-wrapper
     ];
   };
   systemd.user.services = {
