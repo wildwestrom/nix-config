@@ -130,7 +130,6 @@ in
       anki
       libreoffice
       ungoogled-chromium
-      sccache
       ansifilter
       wormhole-rs
       graphviz
@@ -159,6 +158,7 @@ in
       lldb
       gdb
       elan
+      rustup
 
       # typst
       unstable.typst
@@ -559,14 +559,5 @@ in
     #   target = "fcitx5/profile";
     #   source = ./fcitx5-config;
     # };
-  };
-  home.file = {
-    ".cargo" = {
-      target = ".cargo/config.toml";
-      text = ''
-        [build]
-        rustc-wrapper = "${pkgs.sccache}/bin/sccache"
-      '';
-    };
   };
 }
