@@ -37,7 +37,7 @@
     };
 
     pi-agent = {
-      url = "github:tienedev/pi-mono-nix";
+      url = "github:lukasl-dev/pi.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
