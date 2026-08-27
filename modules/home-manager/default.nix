@@ -226,7 +226,6 @@ in
       claude-desktop # defined above: repackaged from Anthropic's .deb
       inputs.grok-build.packages.${pkgs.stdenv.hostPlatform.system}.default
       opencode
-      unstable.ollama
 
       (pkgs.writeShellScriptBin "terminal-here" ''
         # Find the PID of the focused window. The IPC differs per compositor, so
