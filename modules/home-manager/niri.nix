@@ -5,7 +5,7 @@
 let
   # Idle timeout configuration (all values in seconds) -- mirrors sway.nix
   dimDelaySec = 60; # How long chayang takes to dim the screen
-  lockTimeoutSec = 300; # Idle time before starting dim+lock sequence
+  lockTimeoutSec = 60 * 10; # Idle time before starting dim+lock sequence
   displayOffDelaySec = 60; # Time after lock completes before display turns off
 
   # Calculated timeout: ensures display off happens after lock is complete
