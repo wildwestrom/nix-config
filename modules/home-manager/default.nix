@@ -538,8 +538,12 @@ in
       "*.md" = {
         trim_trailing_whitespace = false;
       };
-      "README*.md, *.tex" = {
+      "*.tex" = {
         max_line_length = 80;
+      };
+      "*.lean" = {
+        indent_style = "space";
+        indent_size = 2;
       };
     };
   };
