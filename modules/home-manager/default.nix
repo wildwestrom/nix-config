@@ -159,6 +159,7 @@ in
       gdb
       elan
       rustup
+      inputs.nix-matlab.packages.${pkgs.stdenv.hostPlatform.system}.matlab
 
       # typst
       unstable.typst
