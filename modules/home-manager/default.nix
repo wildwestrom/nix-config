@@ -160,6 +160,7 @@ in
       elan
       rustup
       inputs.nix-matlab.packages.${pkgs.stdenv.hostPlatform.system}.matlab
+      octaveFull
 
       # typst
       unstable.typst
