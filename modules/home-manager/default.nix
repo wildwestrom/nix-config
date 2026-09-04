@@ -218,6 +218,7 @@ in
       obsidian
       unstable.zed-editor
       # jetbrains.rust-rover
+      jetbrains.idea-oss
       neovim
       vscodium
 
