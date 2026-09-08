@@ -514,6 +514,15 @@ in
         inline_height = 10;
       };
     };
+    distrobox = {
+      enable = true;
+      containers = {
+        matlab = {
+          entry = true;
+          image = "debian:13";
+        };
+      };
+    };
   };
   editorconfig = {
     enable = true;
