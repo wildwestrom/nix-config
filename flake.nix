@@ -46,11 +46,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-matlab = {
-      url = "gitlab:doronbehar/nix-matlab";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Personal fork of niri
     # Carries PRs #1791 and #1463
     niri-fork.url = "github:wildwestrom/niri";
