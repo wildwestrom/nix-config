@@ -307,6 +307,7 @@ in
     };
     enableNixpkgsReleaseCheck = true;
   };
+  services.podman.enable = true;
   programs = {
     gpg = {
       enable = true;
