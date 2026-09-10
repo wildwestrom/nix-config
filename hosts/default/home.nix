@@ -180,8 +180,10 @@
         "font/otf" = "org.gnome.font-viewer.desktop";
         "video/mkv" = "mpv.desktop";
         "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
-        # Claude Desktop's login hands off back to the app over claude://
         "x-scheme-handler/claude" = "com.anthropic.Claude.desktop";
+        "x-scheme-handler/mw-matlab" = "mw-matlab.desktop";
+        "x-scheme-handler/mw-simulink" = "mw-simulink.desktop";
+        "x-scheme-handler/mw-matlabconnector" = "mw-matlabconnector.desktop";
       };
     };
     # swayimg replaces imv because, unlike imv, it honours the EXIF Orientation
