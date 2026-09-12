@@ -311,11 +311,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1786955473,
-        "narHash": "sha256-5C1nhUZJ/n3XTyy4IRvhUj7knuo7hh2P6adTt68FZqg=",
+        "lastModified": 1789251975,
+        "narHash": "sha256-3OUvtsO3t7vtxkLKkRo/yrh9KArGWRsrhF1UEREQ5DY=",
         "owner": "wildwestrom",
         "repo": "niri",
-        "rev": "3b80204da29beb8c4aad8f5f5e72e12ee195abb0",
+        "rev": "3df4ca2fdbc13ef7b8f29c4ed278755be6e2e0c2",
         "type": "github"
       },
       "original": {
