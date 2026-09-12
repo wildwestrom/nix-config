@@ -45,6 +45,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # tsoding's file-based task tracker
+    tatr = {
+      url = "github:wildwestrom/tatr-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Personal fork of niri
     # Carries PRs #1791 and #1463
     niri-fork.url = "github:wildwestrom/niri";

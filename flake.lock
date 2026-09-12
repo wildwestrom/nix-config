@@ -453,7 +453,8 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "pi-agent": "pi-agent",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "tatr": "tatr"
       }
     },
     "stylix": {
@@ -547,6 +548,43 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tatr": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "tatr-src": "tatr-src"
+      },
+      "locked": {
+        "lastModified": 1789188201,
+        "narHash": "sha256-OW2TpY5MFTkVqyQtj6Kogyj5nQThLEkZ485Tq8tvnaQ=",
+        "owner": "wildwestrom",
+        "repo": "tatr-flake",
+        "rev": "7976d00de861afc2e809ec5cdb546e6279d8752d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wildwestrom",
+        "repo": "tatr-flake",
+        "type": "github"
+      }
+    },
+    "tatr-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789060706,
+        "narHash": "sha256-lVuaG8bvfJS1pZs+Htnx1AaloHt9L5/p8IgRL8NGLUA=",
+        "owner": "tsoding",
+        "repo": "tatr",
+        "rev": "9492ebd0abbad77e799667f68010dc0348c0ffc5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tsoding",
+        "repo": "tatr",
         "type": "github"
       }
     },

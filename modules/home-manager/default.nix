@@ -229,6 +229,9 @@ in
       inputs.grok-build.packages.${pkgs.stdenv.hostPlatform.system}.default
       opencode
 
+      # task tracking
+      inputs.tatr.packages.${pkgs.stdenv.hostPlatform.system}.default
+
       (pkgs.writeShellScriptBin "terminal-here" ''
         # Find the PID of the focused window. The IPC differs per compositor, so
         # branch on whichever socket env var is set (niri sets NIRI_SOCKET, sway
