@@ -234,11 +234,6 @@ in
     };
   };
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-rocm;
-  };
-
   # Trying out niri (scrollable-tiling Wayland compositor). The NixOS module
   # installs niri, registers the session, and sets up the xdg portals.
   programs.niri.enable = true;

@@ -311,6 +311,10 @@ in
     enableNixpkgsReleaseCheck = true;
   };
   services.podman.enable = true;
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-rocm;
+  };
   programs = {
     gpg = {
       enable = true;
