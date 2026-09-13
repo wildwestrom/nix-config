@@ -1,13 +1,25 @@
 {
-  description = "Nixos config flake";
+  description = "NixOS config";
 
+  # Everything else lives under ./modules. Every .nix file there is a
+  # flake-parts module (auto-imported by import-tree), and each file is one
+  # *aspect* of the system -- audio, printing, niri, git, ... -- that can carry
+  # both a NixOS half (flake.modules.nixos.<aspect>) and a home-manager half
+  # (flake.modules.homeManager.<aspect>). Hosts pick aspects by name in
+  # modules/hosts/<host>/default.nix. Files and directories whose path contains
+  # a `_` prefix component are skipped, which is how non-module assets
+  # (hardware-configuration.nix, toml/icc files) live alongside the code.
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    flake-utils = {
-      url = "github:numtide/flake-utils";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
+    import-tree.url = "github:vic/import-tree";
+
+    flake-utils.url = "github:numtide/flake-utils";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -56,38 +68,5 @@
     niri-fork.url = "github:wildwestrom/niri";
   };
 
-  outputs =
-    { nixpkgs, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      unfree-pkgs = import inputs.nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      unstable-pkgs = import inputs.nixpkgs-unstable {
-        inherit system;
-      };
-      unstable-unfree-pkgs = import inputs.nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            unfree = unfree-pkgs;
-            unstable = unstable-pkgs;
-            unstable-unfree = unstable-unfree-pkgs;
-          };
-          modules = [
-            inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-            ./hosts/default/configuration.nix
-            inputs.home-manager.nixosModules.default
-            inputs.stylix.nixosModules.stylix
-          ];
-        };
-      };
-    };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 }
