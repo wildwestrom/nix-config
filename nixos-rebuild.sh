@@ -5,18 +5,28 @@ shopt -s extglob
 
 pushd ~/nix-config/
 if [ -t 0 ] ; then
+	interactive=1
 	$EDITOR .
 fi
+# sudo can prompt on the terminal; pkexec pops the polkit GUI dialog, which is
+# the only option when there's no tty (e.g. run from an editor or agent).
+# sudo keeps cwd by default; pkexec runs in root's home unless --keep-cwd, and
+# both the flake ref and the chown path below are relative to this directory.
+elevate() {
+	if [ -n "$interactive" ] ; then
+		sudo "$@"
+	else
+		pkexec --keep-cwd "$@"
+	fi
+}
 nixfmt . &>/dev/null
 rm -rf ~/.config/mimeapps.list
 GLOBIGNORE="*.lock"
 git diff -U0 * **/*
 echo "NixOS Rebuilding..."
-# pkexec runs in root's home unless --keep-cwd, and both the flake ref and the
-# chown path below are relative to this directory.
-pkexec nix-channel --update
-pkexec --keep-cwd bash -c 'ulimit -n 524288; nixos-rebuild switch --upgrade -vvv --flake .#default --show-trace' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
-pkexec --keep-cwd chown -R "$USER:$(id -gn)" .git/objects
+elevate nix-channel --update
+elevate bash -c 'ulimit -n 524288; nixos-rebuild switch --upgrade -vvv --flake .#default --show-trace' &>nixos-switch.log || (cat nixos-switch.log | grep --color error && false)
+elevate chown -R "$USER:$(id -gn)" .git/objects
 current=$(nixos-rebuild list-generations --json | jq '.[0].generation')
 git commit -am "$current"
 popd

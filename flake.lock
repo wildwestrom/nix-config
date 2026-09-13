@@ -428,11 +428,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1787547841,
-        "narHash": "sha256-yeiH0l5hjT/Eyz4bn+iNxSDJ4NTxLUm6afX49s8rZOY=",
+        "lastModified": 1788857715,
+        "narHash": "sha256-QrGCBqM2ZBH0e5g3fxTPVwX/vi5piAzm15T1JT65jbg=",
         "owner": "lukasl-dev",
         "repo": "pi.nix",
-        "rev": "e46b036cb244991b594d352f2349f564bea3cec4",
+        "rev": "f41e1136297ccd039ead5131739da85d0ac4a77c",
         "type": "github"
       },
       "original": {

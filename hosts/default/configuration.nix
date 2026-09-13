@@ -68,9 +68,6 @@ in
   security.polkit.enable = true;
   # security.sudo.enable = true;
   security.sudo-rs.enable = true;
-  # No credential caching: every sudo re-authenticates, so one approval never
-  # grants a window of further passwordless root.
-  security.sudo-rs.extraConfig = "Defaults timestamp_timeout=0";
 
   # If you get this error, it's probably because you modified the PATH variable for the shell
   # sudo-rs: sudo must be owned by uid 0 and have the setuid bit set
