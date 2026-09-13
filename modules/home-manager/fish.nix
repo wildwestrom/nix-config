@@ -19,6 +19,8 @@
         set fish_greeting
         fish_vi_key_bindings
         bind -M insert \cf accept-autosuggestion
+        # API keys and other secrets live outside the repo; see README.
+        test -f ~/.config/fish/secrets.fish; and source ~/.config/fish/secrets.fish
       '';
       # binds = {
       # };

@@ -21,6 +21,15 @@ I haven't found a way to do this automatically, but I can run this command to pi
 
 `nix flake update nixpkgs --override-input nixpkgs flake:nixpkgs`
 
+## Secrets
+
+API keys and other secrets are not tracked here. Fish sources `~/.config/fish/secrets.fish` if it exists, so put them there on each machine:
+
+```fish
+# ~/.config/fish/secrets.fish  (chmod 600)
+set -gx ANTHROPIC_API_KEY sk-ant-...
+```
+
 ## Known issues
 
 TODO: Wire up something equivalent to what swaynag did for me before for niri. 
